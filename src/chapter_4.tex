@@ -1,0 +1,961 @@
+\begin{center}
+\refstepcounter{section}
+\section*{
+    \MakeUppercase{Глава \arabic{section}}\\ 
+    \MakeUppercase{Методы интегрирования стохастических дифференциальных уравнений 
+    с дробными броуновскими движениями смешанного типа}
+    }
+\end{center}
+\addcontentsline{toc}{chapter}{
+    ГЛАВА \arabic{section}.\quad МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ 
+    ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
+    СМЕШАННОГО ТИПА
+    }
+
+
+Пусть на вероятностном пространстве $(\Omega,\mathcal{F},P)$ заданы
+$d$-мерное стандартное броуновское движение
+$W(t)$ и $d$-мерное дробное броуновское движение 
+$B(t)$ c показателем Харста $H \in(1/2,1).$
+
+Рассмотрим стохастическое дифференциальное уравнение
+\begin{equation}\label{integration_of_mixed_main_eq}
+dx(t) = f(t,x(t))dt + g(t, x(t))dW(t) + \sigma(t, x(t)) dB(t),\quad t \ge 0,
+\end{equation}
+где $f\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$,
+$g\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$ ---
+детерминированные функции.
+
+\begin{definition}
+Под решением уравнения (\ref{integration_of_mixed_main_eq}) понимаем процесс
+$x(t),$ $t\in \mathbb{R}^+,$ заданный на вероятностном пространстве
+$(\Omega,\mathcal{F},P),$ согласованный с потоком $\sigma$-алгебр
+$\mathcal{F}_t,$ порожденным процессами $W(t)$ и $B(t),$ такой, что
+выполняются условия:
+
+1) существует $\alpha>1-H$ такое, что процесс $x(t)$ имеет п.н. непрерывные по 
+Гельдеру с показателем $\alpha$ траектории;
+
+2) для любого $t\in \mathbb{R}^+$ почти наверное выполняется равенство
+$$
+x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
+\sigma(s,x(s))dB(s),
+$$
+где интеграл по процессу $W(t)$ -- стохастический интеграл Ито, а
+интеграл по процессу $B(t)$ -- потраекторный интеграл
+Римана-Стилтьеса \cite{Guerra}.
+\end{definition}
+
+\begin{remark}
+Иногда рассматривают решения, допускающие взрывы за конечное время. В этом 
+случае решение $x(t)$ определяется для $t<\tau,$ где $\tau$ -- так называемый 
+момент взрыва ($\mathcal{F}_t$-момент остановки, такой что $\lim_{t \to \tau-0} 
+\Vert x(t) \Vert=\infty$ при $\tau<\infty$), а непрерывность траекторий по 
+Гельдеру предполагается до момента $\tau$.
+\end{remark}
+
+
+Пусть функция $F(t,x)$ непрерывна вместе со своими производными $F'_t(t,x),$ 
+$F'_x(t,x),$ $F''_{x^2}(t,x).$  Если функции $f,$ $g$ измеримы по Борелю, 
+функция $\sigma$ удовлетворяет $(\delta,\rho)$-условию Гельдера по $(t,x)$ при 
+некоторых $\delta>1-H,$ $\rho>2-2H,$ а решение $x(t)$ имеет непрерывные по 
+Гельдеру порядка $\alpha$ траектории п.н. при $\alpha\rho>1,$ то имеет место 
+аналог формулы Ито \cite[P. 184]{Mishura}:
+\begin{gather}\nonumber
+F(t, x(t)) = F(0, x(0)) +\\ \nonumber+ \int_0^t \biggl(F'_t(\tau, x(\tau)) + 
+F'_x(\tau, x(\tau))f(\tau, x(\tau)) +\\ \nonumber
++ \frac{1}{2}\textrm{tr}(F''_{x^2}(\tau, x(\tau))g(\tau, x(\tau))
+g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
++ \int_0^t F'_x(\tau, x(\tau))g(\tau,x(\tau))dW(\tau) + 
+\int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
+\end{gather}
+
+\subsection{Методы интегрирования одномерных уравнений смешанного типа}
+
+В данном параграфе будем рассматривать одномерное уравнение 
+(\ref{integration_of_mixed_main_eq}), т.е. $d=1.$ В рамках настоящего параграфа 
+будем предполагать, что коэффициенты рассматриваемых уравнений являются 
+достаточно гладкими функциями, обеспечивающими возможность достаточного числа 
+дифференцирований и применений формулы замены переменных 
+(\ref{integration_of_mixed_ito_formula}).
+
+\subsubsection{Приведение к простейшим уравнениям}
+
+Рассмотрим простейшее уравнение
+\begin{equation}\label{integration_of_mixed_simplest_eq}
+dy(t)=u(t)dt + v(t)dW(t) + b(t)dB(t),\quad t\ge 0.
+\end{equation}
+
+Решение уравнения (\ref{integration_of_mixed_simplest_eq}) выражается следующей 
+формулой:
+\begin{equation*}
+y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) + 
+\int_0^t b(\tau)dB(\tau),\quad t\ge 0.
+\end{equation*}
+
+Найдем класс уравнений~(\ref{integration_of_mixed_main_eq}), приводимых 
+к~(\ref{integration_of_mixed_simplest_eq}) с помощью дважды непрерывно 
+дифференцируемого и обратимого относительно $x$ преобразования $y=F(t, x)$ 
+посредством формулы Ито~(\ref{integration_of_mixed_ito_formula}) в 
+предположении, что что функции $f,$ $g,$ $\sigma$ обладают производными 
+требуемых порядков для последующих вычислений. В соответствии с формулой Ито, 
+должны быть справедливы соотношения:
+\begin{gather}\label{integration_of_mixed_simplest_eq_1}
+u(t) = F'_t(t, x) + F'_x(t, x)f(t, x) + \frac{1}{2}F''_{x^2}(t, x)g^2(t, x),\\ 
+\label{integration_of_mixed_simplest_eq_2}
+v(t) = F'_x(t, x)g(t, x),\\ \label{integration_of_mixed_simplest_eq_3}
+b(t) = F'_x(t, x)\sigma(t, x).
+\end{gather}
+Из соотношений (\ref{integration_of_mixed_simplest_eq_2}), 
+(\ref{integration_of_mixed_simplest_eq_3}) следует, что 
+$\frac{v(t)}{g(t,x)} =\frac{b(t)}{\sigma(t,x)}$, или 
+$\frac{\sigma(t,x)}{g(t,x)} =\frac{b(t)}{v(t)}:=q(t)$. Также из соотношения 
+(\ref{integration_of_mixed_simplest_eq_2}) очевидным образом можно выразить 
+следующие производные функции $F$:
+\begin{equation} \label{integration_of_mixed_simplest_eq_4}
+F'_x = \frac{v}{g}, \quad F''_{x^2} = -\frac{vg'_x}{g^2}, \quad F''_{tx} = 
+\frac{v'g - vg'_t}{g^2}.
+\end{equation}
+Дифференцируя соотношение (\ref{integration_of_mixed_simplest_eq_1}) по $x$ и 
+используя полученные формулы для $F'_x, F''_{x^2}, F''_{tx}$, получим:
+\begin{gather}\nonumber
+F''_{tx} + F''_{x^2}f + F'_x f'_x + \frac{1}{2}F'''_{x^3}g^2 + 
+F''_{x^2}g'_xg = 0,\\ \nonumber
+\frac{v'g - vg'_t}{g^2} - \frac{v g'_x f}{g^2} + \frac{v f'_x}{g} - 
+\frac{vg''_{x^2}g^2 - 2vg(g'_x)^2}{2g^2} -\frac{v(g'_x)^2}{g} = 0,\\ 
+\label{integration_of_mixed_simplest_eq_5}
+\frac{v'}{v} = g\left(\frac{g'_t}{g^2} + \frac{g'_xf}{g^2} - \frac{f'_x}{g} + 
+\frac{1}{2}g''_{x^2}\right) =g\left(\frac{g'_t}{g^2} + 
+\left(\frac{f}{g}\right)'_x + \frac{1}{2}g''_{x^2}\right).
+\end{gather}
+Левая часть последнего соотношения зависит лишь от $t$, поэтому на функции 
+$f, g, \sigma$ накладываются следующие ограничения:
+\begin{gather}\label{integration_of_mixed_simplest_cond_1}
+g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
+\frac{1}{2}g''_{x^2}(t,x)\right) = r(t),\\ 
+\label{integration_of_mixed_simplest_cond_2}
+\frac{\sigma(t,x)}{g(t,x)} = q(t)
+\end{gather}
+для некоторых функций $r(t), q(t)$.
+
+Обратно, пусть заданные функции $f,g,\sigma$ удовлетворяют 
+условиям~(\ref{integration_of_mixed_simplest_cond_1}), 
+(\ref{integration_of_mixed_simplest_cond_2}). Тогда из 
+соотношения~(\ref{integration_of_mixed_simplest_eq_5}) находим функцию 
+$v(t)=\exp\left(\int_0^t r(\tau)d\tau\right)$ (как любое нетривиальное решение 
+линейного однородного уравнения). Из 
+соотношения~(\ref{integration_of_mixed_simplest_eq_4}) найдем $F(t,x) = 
+v(t)\int_0^x \frac{ds}{g(t, s)}$, причем ввиду того, что $v\ne 0$, 
+$F'_x = \frac{v}{g}\ne 0$, т.е. функция $F$ будет обратима по $x$. Зная функцию 
+$F$, из соотношений~(\ref{integration_of_mixed_simplest_eq_1}), 
+(\ref{integration_of_mixed_simplest_eq_3}) однозначно определяем функции $u(t)$ 
+и $b(t)$. Таким образом, справедлива следующая теорема.
+
+\begin{theorem}
+Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c $g(t,x)\ne 0$ 
+приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
+помощью некоторого дважды непрерывно дифференцируемого и обратимого 
+относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
+найдутся функции $q(t), r(t)$ такие, что оказываются выполненными 
+соотношения~\textup{(\ref{integration_of_mixed_simplest_cond_1})}, 
+\textup{(\ref{integration_of_mixed_simplest_cond_2})} .
+\end{theorem}
+
+\begin{proposition}
+Пусть заданы скалярные функции $\alpha(t),$ $\beta(t),$ $\gamma(t)$, при этом 
+$\beta(t)\ne 0$. Тогда решение линейного однородного уравнения
+\begin{equation}
+\label{integration_of_mixed_linear_eq}
+dx(t) = \alpha(t)x(t)dt + \beta(t)x(t)dW(t) + \gamma(t)x(t) dB(t),\quad t \ge 0,
+\end{equation}
+с начальным условием $x(0)=x_0>0$
+выражается формулой
+\begin{equation*}
+x(t) = x_0\exp\left(\int_0^t\Bigl(\alpha(\tau) - 
+\frac{1}{2}\beta^2(\tau)\Bigr)d\tau + \int_0^t \beta(\tau)dW(\tau) + 
+\int_0^t \gamma(\tau)dB(\tau)\right)
+\end{equation*}
+\end{proposition}
+
+\proof Нетрудно проверить, что функции $f(t,x) = \alpha(t)x$, $g(t,x) = 
+\beta(t)x$, $\sigma(t,x) = \gamma(t) x$ удовлетворяют 
+условиям~(\ref{integration_of_mixed_simplest_cond_1}), 
+(\ref{integration_of_mixed_simplest_cond_2}), причем $\frac{v'(t)}{v(t)} = 
+\frac{\beta'(t)}{\beta(t)}$, т.е. $\ln\left(\frac{v(t)}{\beta(t)}\right)' = 0$. 
+Можно выбрать функцию $v(t) = \beta(t)$. Тогда $F'_x = \frac{1}{x}$, и, в свою 
+очередь, можно выбрать преобразование $F = \ln x$. Из 
+соотношений~(\ref{integration_of_mixed_simplest_eq_1}), 
+(\ref{integration_of_mixed_simplest_eq_2}) находим, что $u(t) = \alpha(t) - 
+\frac{1}{2}\beta(t)$, $b(t) = \gamma(t)$. Так как $y(t) = \ln x(t)$, то 
+$x(t) = e^{y(t)}$ и следовательно, имеет место формула
+$$x(t) = 
+C\exp\left(\int_0^t\Bigl(\alpha(\tau) - \frac{1}{2}\beta^2(\tau)\Bigr)d\tau + 
+\int_0^t \beta(\tau)dW(\tau) + \int_0^t \gamma(\tau)dB(\tau)\right),$$
+где $C = e^{y(0)}$. Подставляя в формулу $t=0$, находим величину $C=x(0)$, что 
+и требовалось.
+
+\begin{remark} 
+Непосредственной подстановкой найденной формулы для решения в уравнение 
+(\ref{integration_of_mixed_linear_eq}) можно убедиться, что данная формула 
+сохраняет силу, в том числе, если опустить условия $\beta(t)\ne 0$ и $x_0>0.$ 
+Нетрудно видеть, что почти все траектории решения уравнения 
+(\ref{integration_of_mixed_linear_eq}) непрерывны по Гельдеру с любым 
+показателем $\kappa<1/2.$
+\end{remark}
+
+\begin{proposition}
+Решение линейного неоднородного уравнения
+\begin{gather*}
+%\label{integration_of_mixed_linear_inhom_eq}
+dx(t) = \bigl(\alpha_1(t)x(t) + \alpha_2(t)\bigr)dt + \bigl(\beta_1(t)x(t) + 
+\beta_2(t)\bigr)dW(t) +\\
++ \bigl(\gamma_1(t)x(t) + \gamma_2(t)\bigr)dB(t),\quad t \ge 0,
+\end{gather*}
+выражается по формуле
+\begin{gather*}
+x(t) = x_0(t)\biggl(x(0) + \int_0^t \frac{\alpha_2(\tau) - 
+\beta_1(\tau)\beta_2(\tau)}{x_0(\tau)}d\tau +\\
++ \int_0^t\frac{\beta_2(\tau)}{x_0(\tau)}dW(\tau) + 
+\int_0^t\frac{\gamma_2(\tau)}{x_0(\tau)}dB(\tau)\biggr),
+\end{gather*}
+в которой $x_0(t) {=} \exp\left(\int_0^t\bigl(\alpha_1(\tau) {-} 
+\frac{1}{2}\beta_1^2(\tau)\bigr)d\tau + \int_0^t \beta_1(\tau)dW(\tau) + 
+\int_0^t \gamma_1(\tau)dB(\tau)\right)$ есть решение соответствующего линейного 
+однородного уравнения с начальным условием $x_0(0)=1$.
+\end{proposition}
+
+\proof Положим $x(t) = x_0(t)y(t)$. Определим уравнение
+$$dy(t) = u(t,y(t))dt + v(t,y(t))dW(t) + b(t, y(t))dB(t),\quad t\ge 0,$$
+которому удовлетворяет процесс $y(t)$. Применим формулу Ито к процессу 
+$y = \frac{x}{x_0} = F(x, x_0)$, рассматривая пару $\bar x = (x,x_0)$ как 
+решение двумерного уравнения
+$$d\bar x(t) = \bigl(\bar\alpha_1(t)\bar x(t) + \bar\alpha_2(t)\bigr)dt + 
+p(t,\bar x(t))d\bar W(t) + \bigl(\bar\gamma_1(t)\bar x(t) + 
+\bar\gamma_2(t)\bigr)dB(t),$$
+с начальным условием $\bar x(0) = (x(0), 1)^T$, где $\bar\alpha_1 = 
+\text{diag}(\alpha_1, \alpha_1)$, $\bar\gamma_1 = \text{diag}(\gamma_1, \gamma_1)$, 
+$\bar\alpha_2 = (\alpha_2, 0)^T$, $\bar\gamma_2 = (\gamma_2, 0)^T$, 
+$p = \text{diag}(\beta_1 x + \beta_2, \beta_1 x_0)$, $\bar W = (W, W)^T$. Ввиду 
+того, что справедливы соотношения
+\begin{gather*}
+F'_t = 0,\quad F'_{\bar x} = \left(\frac{1}{x_0}, -\frac{x}{x_0^2}\right),\quad 
+F''_{\bar x^2} = \left(\begin{array}{cc}0 & -\frac{1}{x_0^2}\\ 
+-\frac{1}{x_0^2} & \frac{2x}{x_0^3}\end{array}\right),
+\end{gather*}
+будем иметь:
+\begin{gather*}
+dy =  \left(\frac{\alpha_2}{x_0} - \frac{\beta_1\beta_2}{x_0}\right)dt + 
+\frac{\gamma_2}{x_0}dB + \frac{\beta_2}{x_0}dW.
+\end{gather*}
+Итак, получили простейшее уравнение для $y(t)$, причем $y(0) = 
+\frac{x(0)}{x_0(0)} = x(0)$. Таким, образом, решение исходного уравнения 
+выражается формулой
+\begin{gather*}
+x(t) = x_0(t)y(t) =  x_0(t)\biggl(x(0) + \int_0^t \frac{\alpha_2(\tau) - 
+\beta_1(\tau)\beta_2(\tau)}{x_0(\tau)}d\tau +\\
++ \int_0^t\frac{\beta_2(\tau)}{x_0(\tau)}dW(\tau) + 
+\int_0^t\frac{\gamma_2(\tau)}{x_0(\tau)}dB(\tau)\biggr),
+\end{gather*}
+что и требовалось.
+\smallskip
+
+\subsubsection{Приведение к линейным неоднородным уравнениям}
+Ограничимся рассмотрением автономных уравнений
+\begin{equation}\label{integration_of_mixed_main_eq_auto}
+dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0,
+\end{equation}
+а также поиском автономной замены $y = F(x)$, приводящей указанное уравнение к 
+линейному неоднородному уравнению
+\begin{equation}\label{integration_of_mixed_linear_inhom_const_eq}
+dy(t) = (\alpha_1y(t) + \alpha_2)dt + (\beta_1 y(t) + \beta_2)dW(t) + 
+(\gamma_1 y(t) + \gamma_2)dB(t),\quad t\ge0
+\end{equation}
+c постоянными коэффициентами $\alpha_1, \alpha_2, \beta_1, \beta_2, \gamma_1, 
+\gamma_2 \in \mathbb{R}$. Согласно формуле Ито должны выполняться соотношения
+\begin{gather}\label{integration_of_mixed_linear_inhom_eq_1}
+\alpha_1 F(x) + \alpha_2 = F'(x)f(x) + \frac{1}{2}F''(x)g^2(x),\\ 
+\label{integration_of_mixed_linear_inhom_eq_2}
+\beta_1 F(x) + \beta_2 = F'(x)g(x),\\ 
+\label{integration_of_mixed_linear_inhom_eq_3}
+\gamma_1 F(x) + \gamma_2 = F'(x)\sigma(x).
+\end{gather}
+Решая линейные неоднородные по $F$ 
+уравнения~(\ref{integration_of_mixed_linear_inhom_eq_2}),
+(\ref{integration_of_mixed_linear_inhom_eq_3}), находим функцию $F$:
+$$F(x) = C_\beta\exp\left(\beta_1\int_0^x \frac{ds}{g(s)}\right) - 
+\frac{\beta_2}{\beta_1} = C_\gamma
+\exp\left(\gamma_1\int_0^x \frac{ds}{\sigma(s)}\right) - 
+\frac{\gamma_2}{\gamma_1}.$$
+Подставляя в последнюю формулу значение $x=0$, легко найти константы 
+$C_\beta = F(0) + \frac{\beta_2}{\beta_1}$ и $C_\gamma = F(0) + 
+\frac{\gamma_2}{\gamma_1}$. Далее ограничимся случаем $\frac{\beta_2}{\beta_1} =
+\frac{\gamma_2}{\gamma_1}$. Тогда на выбор функций $g,\sigma$ накладывается 
+ ограничение
+$$\beta_1\int_0^x \frac{ds}{g(s)} = \gamma_1\int_0^x \frac{ds}{\sigma(s)},$$
+дифференцируя которое, выводим соотношение
+\begin{equation*}
+\frac{\sigma(x)}{g(x)} = \frac{\gamma_1}{\beta_1}=\text{const}.
+\end{equation*}
+Обозначим $G(x) = \int_0^x \frac{ds}{g(s)}$. Подставим выражение для функции 
+$F(x) = \linebreak=C_\beta e^{\beta_1G(x)} - \frac{\beta_2}{\beta_1}$ в 
+формулу~(\ref{integration_of_mixed_linear_inhom_eq_1}):
+\begin{gather}\nonumber
+\alpha_1 C_\beta e^{\beta_1G(x)} + 
+\frac{\alpha_2\beta_1 -\alpha_1\beta_2}{\beta_1} = 
+C_\beta e^{\beta_1G(x)}\frac{\beta_1}{g} f +\\ \nonumber 
++ \left(C_\beta e^{\beta_1 G(x)}\frac{\beta^2_1}{2g^2} - 
+C_\beta e^{\beta_1G(x)}\frac{\beta_1g'}{2g^2}\right) g^2,\\ 
+\label{integration_of_mixed_linear_inhom_eq_4}
+e^{\beta_1G(x)}\left(\beta_1 \left(\frac{f}{g} - \frac{g'}{2}\right) + 
+\frac{\beta^2_1}{2} - \alpha_1\right) = 
+\frac{\alpha_2\beta_1 -\alpha_1\beta_2}{\beta_1C_\beta}
+\end{gather}
+Обозначим $A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2}$ и продифференцируем 
+последнее соотношение. Получим:
+\begin{equation}\label{integration_of_mixed_linear_inhom_eq_5}
+\beta_1 e^{\beta_1G(x)}\left(A'(x) + \beta_1 \frac{A(x)}{g(x)} + 
+\left(\frac{\beta^2_1}{2} - \alpha_1\right)\frac{1}{g(x)}\right) = 0.
+\end{equation}
+Умножим последнее равенство на $\frac{g(x)}{\beta_1}e^{\beta_1G(x)}$ и 
+полученное равенство вновь продифференцируем. Будем иметь:
+\begin{gather*}
+(g(x)A'(x))' + \beta_1 A'(x) = 0.
+\end{gather*}
+Если, к тому же, $A'(x)\ne 0$, то
+\begin{gather*}
+\frac{(g(x)A'(x))'}{A'(x)} = -\beta_1 = \text{const}.
+\end{gather*}
+Таким образом, необходимо выполнение следующих условий:
+\begin{gather}
+\label{integration_of_mixed_linear_inhom_cond_1}
+A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
+\label{integration_of_mixed_linear_inhom_cond_2}
+\frac{(g(x)A'(x))'}{A'(x)} = c_1,\\ 
+\label{integration_of_mixed_linear_inhom_cond_3}
+\frac{\sigma(x)}{g(x)} = c_2,
+\end{gather}
+для некоторых постоянных $c_1,c_2\in \mathbb{R}$.
+
+Обратно, пусть заданные функции $f(x),g(x),\sigma(x)$ удовлетворяют 
+соотношениям~(\ref{integration_of_mixed_linear_inhom_cond_1}),
+(\ref{integration_of_mixed_linear_inhom_cond_2}),
+(\ref{integration_of_mixed_linear_inhom_cond_3}). Тогда положим 
+$\alpha_2=\beta_2=\gamma_2 = 0$, $\beta_1 = -c_1$, $\gamma_1=c_2\beta_1$ и 
+выберем преобразование $F(x) = e^{\beta_1 G(x)}$. Тогда легко проверить, что 
+соотношения~(\ref{integration_of_mixed_linear_inhom_eq_2}) 
+и~(\ref{integration_of_mixed_linear_inhom_eq_3}) выполнены. Осталось подобрать 
+$\alpha_1, \alpha_2$ так чтобы выполнялось 
+соотношение~(\ref{integration_of_mixed_linear_inhom_eq_1}). Поскольку 
+$(g(x)A'(x))' + \beta_1 A'(x) = 0$, то величина $g(x)A'(x) + \beta_1A(x) = c_3$, 
+$c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} = 
+\frac{c_3}{g(x)}$ и соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}) 
+диктует выбор константы $\alpha_1 = \frac{\beta^2_1}{2} + c_3$. Теперь 
+интергрируя соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}), получим 
+соотношение~(\ref{integration_of_mixed_linear_inhom_eq_4}). Согласно 
+(\ref{integration_of_mixed_linear_inhom_eq_5}) выражение в левой части 
+(полностью определяемое заданными функциями $f,g$) будет константой. При 
+указанном выборе эта константа совпадает с $\alpha_2$. Таким образом, 
+справедлива следующая теорема.
+
+\begin{theorem}\label{integration_reduction_to_linear_th}
+Уравнение~(\ref{integration_of_mixed_main_eq_auto}) c $g(x)\ne 0,$ $A'(x) \ne 0$ 
+приводимо к уравнению~(\ref{integration_of_mixed_linear_inhom_const_eq}) тогда и 
+только тогда, когда найдутся постоянные $c_1, c_2$ такие, что оказываются 
+выполненными соотношения~(\ref{integration_of_mixed_linear_inhom_cond_1}),
+(\ref{integration_of_mixed_linear_inhom_cond_2}),
+(\ref{integration_of_mixed_linear_inhom_cond_3}).
+\end{theorem}
+
+\begin{proposition}
+Уравнение бернуллиевского типа
+$$dx(t) = (\alpha x^n(t) + \beta x(t))dt + \gamma x(t)dW(t) + \delta x(t) dB(t)$$
+приводится к линейному неоднородному уравнению.
+\end{proposition}
+
+\proof В данном случае $G(x) = \int_1^x \frac{ds}{\gamma s} = 
+\frac{1}{\gamma} \ln x,$ $A(x) = \frac{\alpha}{\gamma} x^{n-1} + 
+\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
+\frac{\alpha(n-1)}{\gamma}x^{n-2}(t)$, $(g(x)A'(x))' = \alpha(n-1)^2 x^{n-2}(t)$, 
+$\frac{(g(x)A'(x))'}{A'(x)} = \gamma(n-1) = c_1$. Выберем преобразование 
+$F(x) = C_\beta e^{-c_1 G(x)} = C_\beta x^{1-n}$. Подставляя функцию $F(x)$ в 
+(\ref{integration_of_mixed_linear_inhom_eq_2}), найдем значение константы 
+$C_\beta = \frac{1}{1-n}$. Итак, $y = F(x) = \frac{1}{1-n} x^{1-n}$, 
+$x = \left((1-n)y\right)^{1/(1-n)}$.
+
+Уже найдены значения $\beta_1= -c_1 = \gamma(1-n)$, $\gamma_1 = \delta(1-n)$. 
+Далее имеем: 
+\begin{gather*}
+c_3 = \gamma xA'(x) + \beta_1 A(x) = -\beta(n-1) + \frac{\gamma^2(n-1)}{2},\\
+\alpha_1 = (n-1)\left(-\beta + \frac{\gamma^2n}{2}\right),\\
+\alpha_2 = C_\beta e^{\beta_1G(x)}\left(\beta_1 A(x) + 
+\frac{\beta^2_1}{2} - \alpha_1\right) = \frac{1}{1-n} = 
+-F(x)\gamma xA'(x) = \alpha.
+\end{gather*}
+Таким образом, исходное уравнение сводится к следующему линейному неоднородному 
+уравнению:
+\begin{gather*}
+dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)dt +\\
++ \gamma(1-n)y(t)dW(t)  + \delta (1-n)y(t)dB(t),
+\end{gather*}
+что и требовалось доказать.
+
+\subsubsection{Переход к уравнению Стратоновича}
+\label{integration_reduction_to_stratonovich}
+Наряду с уравнением (\ref{integration_of_mixed_main_eq}) рассмотрим 
+соответствующее уравнение Стратоновича
+\begin{equation}\label{eq_strat}
+dx(t) = (f(t,x(t))-c(t,x(t)))dt + g(t, x(t))\circ dW(t) + \sigma(t, x(t)) dB(t),
+\quad t \ge 0,
+\end{equation}
+где $c(t,x)=\frac{1}{2}g'_x(t,x)g(t,x).$
+
+Поскольку, решения смешанных уравнений, вообще говоря, не являются 
+семимартингалами, то понятие интеграла Стратоновича требует дополнительных 
+разъяснений. 
+
+Во-первых, отметим, что решения смешанных уравнений 
+(\ref{integration_of_mixed_main_eq}) имеют конечную квадратическую вариацию 
+$[x](t)$ в силу того, что процесс
+$$
+\int_0^t f(s,x(s))ds, \ t \ge 0,
+$$ 
+абсолютно непрерывен, а процесс
+$$
+\int_0^t \sigma(s,x(s))dB(s), \ t \ge 0,
+$$
+имеет непрерывные по Гельдеру траектории порядка $\kappa>1/2.$
+Более того,
+$$
+[x](t)=\int_0^t g^2(s,x(s))ds.
+$$
+
+Следуя \cite{Russo_Vallois}, для непрерывных процессов $X(t),$ $Y(t)$ с конечной 
+квадратической вариацией определим прямой, обратный и симметрический 
+стохастические интегралы:
+$$
+\int_0^t Y(s)d^{-}X(s)=\lim_{\varepsilon\to +0} 
+\int_0^t Y(s)\frac{X(s+\varepsilon)-X(s)}{\varepsilon}ds,
+$$
+$$
+\int_0^t Y(s)d^{+}X(s)=\lim_{\varepsilon\to +0} 
+\int_0^t Y(s)\frac{X(s)-X((s-\varepsilon)\vee 0)}{\varepsilon}ds,
+$$
+$$
+\int_0^t Y(s)d^{\circ}X(s)=
+\frac{1}{2}\int_0^t Y(s)d^{-}X(s)+\frac{1}{2}\int_0^t Y(s)d^{+}X(s).
+$$
+
+Квадратической ковариацией процессов $X,$ $Y$ называется процесс
+$$
+[X,Y](t)=\int_0^t Y(s)d^{+}X(s)-\int_0^t Y(s)d^{-}X(s).
+$$
+
+Прямой и симметрический стохастические интегралы $\int\limits_0^t Y(s)d^{-}X(s)$,
+$\int\limits_0^t Y(s)d^{\circ}X(s)$ являются расширением интегралов Ито и 
+Стратоновича соответственно на класс непрерывных процессов с конечной 
+квадратической вариацией.
+
+Пусть функция $F(t,x)$ имеет непрерывные частные производные $F'_t,$ $F'_x,$ 
+$F''_{x^2}$. Тогда процесс $y(t)=F(t,x(t))$ является непрерывным, имеет 
+конечную квадратическую вариацию. Так как стохастические дифференциалы 
+процессов $y(t),$ $W(t)$ имеют вид
+$$
+dy(t)=\biggl(F'_t(t,x(t))+F'_x(t,x(t))f(t,x(t))+\frac{1}{2}
+F''_{x^2}(t,x(t))g^2(t,x(t))\biggr)dt+$$ $$+F'_x(t,x(t))g(t,x(t))dW(t)+
+F'_x(t,x(t))\sigma(t,x(t))dB(t),
+$$
+$$
+dW(t)=0\cdot dt+1\cdot dW(t)+0 \cdot dB(t),
+$$
+то квадратическая ковариация процессов $y(t)$ и $W(t)$ равна
+$$
+[y, W](t)=\int_0^t F'_x(s, x(s))g(s,x(s))ds.
+$$
+С другой стороны, в силу определения прямого и симметрического стохастических 
+интегралов имеем
+$$
+\int_0^t F(s,x(s))\circ dW(s)=\int_0^t F(s,x(s))dW(s) +
+\frac{1}{2}[F(\cdot, x(\cdot)), W(\cdot)](t)=
+$$
+$$
+=\int_0^t F(s,x(s)) dW(s) +\frac{1}{2} \int_0^t F'_x(s, x(s))g(s,x(s))ds.
+$$
+Полагая $F(t,x)=g(t,x)$, заключаем, что процесс $x(t)$ является решением 
+уравнения (\ref{integration_of_mixed_main_eq}) тогда и только тогда, когда 
+процесс $x(t)$ является решением уравнения Стратоновича (\ref{eq_strat}).
+
+\begin{remark}
+Легко видеть, что проведенные рассуждения также сохраняют силу в случае 
+многомерного уравнения (\ref{integration_of_mixed_main_eq}) и соответствующего 
+уравнения Стратоновича.
+\end{remark}
+
+\begin{example}
+Для уравнения
+$$
+dx(t)=x^3(t)dt+x^2(t)dW(t)+x^2(t)dB(t), \ x(0)=x_0,
+$$
+соответствующее уравнение Стратоновича имеет вид
+$$
+dx(t)=x^2(t)\circ dW(t)+x^2(t)dB(t).
+$$
+Последнее уравнение имеет решение
+$$
+x(t)=\frac{x_0}{1-x_0(W(t)+B(t))},
+$$
+которое является решением и исходного уравнения.
+\end{example}
+
+\subsection{Дифференциальные уравнения для математических ожиданий и плотностей 
+распределений решений}
+
+В этом параграфе рассматриваем автономное уравнение 
+(\ref{integration_of_mixed_main_eq}), т.е.
+$$
+dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0.
+$$
+
+Будем предполагать, что выполнены условия, обеспечивающие существование и 
+единственность решений автономного уравнения (\ref{integration_of_mixed_main_eq}).
+
+Через
+$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$ обозначим множество всех непрерывно
+дифференцируемых функций $h:\mathbb{R}^d \to \mathbb{R}^d,$ имеющих линейный порядок
+роста. В дальнейшем будем предполагать, что коэффициенты $\tilde f=f-\frac{1}{2}g'_x g,$
+$g_j,$ $\sigma_j$ ($j=1,\ldots,d$) принадлежат множеству
+$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d).$
+
+Рассмотрим автономное обыкновенное дифференциальное уравнение
+\begin{equation*}
+dz(t)=h(z(t))dt, \ t \in \mathbb{R},
+\end{equation*}
+где $h=\textrm{col}(h^1,\ldots,h^d)\in C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$,
+и обозначим через
+$$z^{y}(t)=\alpha_h(y,t)=\textrm{col}(\alpha_h^1(y,t),\ldots,
+\alpha_h^d(y,t))$$ решение (единственное) данного уравнения с начальным
+условием $\alpha_h(y,0){=}y.$
+
+
+\begin{proposition}\label{integration_alpha_h_proposition}
+Функция $\alpha_h(y,t)$
+удовлетворяет системе уравнений $$ \frac{\partial
+\alpha_h^j(y,t)}{\partial t}=\sum_{i=1}^d h^i(y)\frac{\partial
+\alpha_h^j(y,t)}{\partial y_i}, \ j=1,\ldots,d, \ t\in \mathbb{R}, \ y \in
+\mathbb{R}^d,$$ и начальному условию $\alpha_h(y,0)=y.$
+\end{proposition}
+
+
+\proof Возьмем произвольные $x \in \mathbb{R}^d,$ $t \in
+\mathbb{R},$ $j\in \{1,\ldots,d\}.$ Тогда
+$$
+\frac{\partial \alpha_h^j(y,t)}{\partial t}=\lim_{r \to 0}
+\frac{\alpha_h^j(y,t+r)-\alpha_h^j(y,t)}{r}=\lim_{r \to 0}
+\frac{\alpha_h^j(\alpha_h(y,r),t)-\alpha_h^j(y,t)}{r}=$$
+$$=\sum_{i=1}^d\frac{\partial \alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0}
+\frac{\alpha_h^i(y,r)-x_i}{r}=\sum_{i=1}^d\frac{\partial
+\alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0} \frac{1}{r}\int_0^r
+h^i(\alpha_h(y,s))ds=$$ $$=\sum_{i=1}^d h^i(y)\frac{\partial
+\alpha_h^j(y,t)}{\partial y_i},
+$$
+что и требовалось доказать.
+
+Из предложения~\ref{integration_alpha_h_proposition} вытекает, что $z^y(t)=T_h(t)y,$ где
+$T_h(t){:=}e^{tM_h}$ -- $C_0$-полугруппа на $C(\mathbb{R}^d,\mathbb{R}^d),$ порожденная
+дифференциальным оператором $M_h:C^1(\mathbb{R}^d, \mathbb{R}^d) \to C(\mathbb{R}^d, \mathbb{R}^d)$
+действующим по правилу
+$$
+(M_h w)(y)=\textrm{col}\biggl(\sum_{i=1}^d h^i(y)\frac{\partial
+w^1}{\partial y_i},\ldots,\sum_{i=1}^d h^i(y)\frac{\partial
+w^d}{\partial y_i}  \biggr),
+$$
+где $\ w=\textrm{col}(w^1,\ldots,w^d) \in C^1(\mathbb{R}^d,\mathbb{R}^d), \ y \in
+\mathbb{R}^d.$
+
+\begin{definition}
+Будем говорить, что семейство отображений
+$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$
+порождает коммутирующие потоки, если для любых $\alpha,$ $\beta \in
+A$ операторы $T_{h_{\alpha}}(t_1),$ $T_{h_{\beta}}(t_2)$
+перестановочные для любых $t_1,$ $t_2 \in \mathbb{R}.$
+\end{definition}
+
+\begin{remark}
+Если $d=1,$ то легко видеть, что семейство
+$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R},\mathbb{R})$
+порождает коммутирующие потоки тогда и только тогда, когда для
+любого $\alpha \in A$ найдется постоянная $\gamma_\alpha$ такая, что
+$h_\alpha(x)=\gamma_\alpha \varphi(x),$ где $\varphi \in
+C^1_\textrm{Lin}(\mathbb{R},\mathbb{R}).$
+\end{remark}
+
+Обозначим $\Gamma=\{\tilde f\} \cup \{g_j|j=1,\ldots,d\}\cup
+\{b_j|j=1,\ldots,d\}.$ Через $x^{y}(t)$ будем обозначать
+решение автономного уравнения (\ref{integration_of_mixed_main_eq}) с начальным 
+условием $x(0)=y \in \mathbb{R}^d.$
+
+Определим функцию $F:\mathbb{R}^{3d+1}  \to \mathbb{R}^d$ следующим образом:
+$$
+F(y,t,s_1,\ldots,s_d,\tau_1,\ldots,\tau_d)=(T_{\tilde f}(t)
+T_{g_1}(s_1)\ldots T_{g_d}(s_d)T_{\sigma_1}(\tau_1)\ldots
+T_{\sigma_d}(\tau_d)) (y),
+$$
+где $y \in \mathbb{R}^d,$ $t \in \mathbb{R},$ $s_j, \tau_j \in \mathbb{R}$ ($j=1,\ldots,d$).
+
+\begin{proposition}
+Если семейство $\Gamma$ порождает
+коммутирующие потоки, то
+$$x^y(t)=F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))$$ п.н. для любого
+$t \in \mathbb{R}^+.$
+\end{proposition}
+
+\proof Выберем произвольные $y \in \mathbb{R},$ $t \in \mathbb{R}^+$
+и зафиксируем их. Применяя формулу Ито к процессу $x^y(t),$ используя
+при этом условие коммутирования операторов $T_\alpha(t_1),$
+$T_\beta(t_2),$ $\alpha,$ $\beta \in \Gamma,$ $t_1,$ $t_2 \in \mathbb{R}$,
+получим соотношения
+$$
+F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))=$$
+$$=F(y,0,\ldots,0)+\int_0^t \biggl(\frac{\partial F(y,u,W(u),B(u))}{\partial
+t}+\frac{1}{2}\sum_{j=1}^d\frac{\partial^2 F(y,u,W(u),B(u))}{\partial
+s_j^2}\biggr)du+$$
+$$+\sum_{j=1}^d\int_0^t \frac{\partial F(y,u,W(u),B(u))}{\partial
+s_j}dW^j(u)+\sum_{j=1}^d\int_0^t \frac{\partial
+F(y,u,W(u),B(u))}{\partial \tau_j}dB^j(u)=
+$$
+$$
+=y+\int_0^t f(F(y,u,W(u),B(u)))du+\sum_{j=1}^d\int_0^t
+g_j(F(y,u,W(u),B(u)))dW^j(u)+$$ $$+\sum_{j=1}^d\int_0^t
+\sigma_j(F(y,u,W(u),B(u)))dB^j(u).
+$$
+
+Непрерывность по Гельдеру траекторий процесса $x^y(t)$ вытекает из
+непрерывной дифференцируемости функции $F$ и непрерывности по
+Гельдеру с любым показателем $\alpha<H$ траекторий процесса $B(t),$ а
+также непрерывности по Гельдеру с любым показателем $\alpha<1/2$
+траекторий процесса $W(t).$ Предложение доказано.
+
+
+\begin{theorem}\label{integration_gamma_family_th}
+Пусть семейство $\Gamma$ порождает
+коммутирующие потоки, функция $h:\mathbb{R}^d \to \mathbb{R}$ вместе со своими
+частными производными до второго порядка включительно непрерывна и
+имеет полиномиальный порядок роста. Тогда функция
+$u_h(y,t)=E(h(x^y(t)))$ удовлетворяет уравнению
+$$\frac{\partial u_h(y,t)}{\partial t}=\sum_{j=1}^d f_j(y)\frac{\partial
+u_h(y,t)}{\partial y_j}+\frac{1}{2}\sum_{i,j,k=1}^d
+g_{ik}(y)g_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i \partial
+y_j} +
+$$
+$$
++\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(y)
+\biggl(\sigma_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i
+\partial y_j}+\frac{\partial \sigma_{jk}(y)}{\partial y_i
+}\frac{\partial u_h(y,t)}{\partial y_j }\biggr), \ t>0, \ y \in
+\mathbb{R}^d,$$ и начальному условию $u_h(y,0)=h(y), \ y \in \mathbb{R}^d.$
+\end{theorem}
+
+\proof Определим функцию $G_d:\mathbb{R}^{d+1} \to \mathbb{R}$
+следующим образом:
+$$
+G_d(y,\tau_d)=h(T_{\sigma_d}(\tau_d) (y)), \ y \in \mathbb{R}^d, \ \tau_d \in \mathbb{R}.
+$$
+Применяя формулу Ито к процессу $G_d(y,B^d(t)),$ $t \in \mathbb{R}^+,$ получим
+соотношение
+\begin{equation}\label{integration_eq23}
+G_d(y,B^d(t))=G_d(y,0)+\int_0^t \frac{\partial G_d(y,B^d(s))}{\partial
+\tau_d} \diamond dB^d(s)+\int_0^t Hs^{2H-1} \frac{\partial^2
+G_d(y,B^d(s))}{\partial \tau_d^2}ds,
+\end{equation}
+где стохастический интеграл в правой части соотношения~(\ref{integration_eq23}) --
+интеграл Вика-Ито-Скорохода \cite{Oksendal_Biagini}.
+
+Используя предложение~\ref{integration_alpha_h_proposition}, выразим частную производную
+$\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}$ через частные
+производные $\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_j},$
+$\frac{\partial G_d(y,\tau_d)}{\partial y_i}$. Получаем
+$$
+\frac{\partial G_d(y,\tau_d)}{\partial \tau_d}=\sum_{j=1}^d
+\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
+\alpha_{\sigma_d}^j(y,\tau_d)}{\partial \tau_d}=\sum_{i,j=1}^d
+\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
+y_j}\sigma_d^i(y)\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
+$$
+$$
+\frac{\partial^2 G_d(y,\tau_d)}{\partial
+\tau_d^2}=\sum_{i,j,k,l=1}^d \frac{\partial^2 h(T_{\sigma_d}(\tau_d)
+(y))}{\partial y_j \partial y_k}\sigma_d^i(y)\sigma_d^l(y) \frac{\partial
+\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i}\frac{\partial
+\alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+
+$$
+$$
++\sum_{i,j,k=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
+y_j} \sigma_d^i(y) \biggl( \frac{\partial \sigma^k_d(y)}{\partial
+y_i}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
+y_k}+\sigma^k_d(y)\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_k
+y_i} \biggr),
+$$
+$$
+\frac{\partial G_d(y,\tau_d)}{\partial y_i}=\sum_{j=1}^d
+\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
+\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
+$$
+\begin{gather*}
+\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_l}=\sum_{j,k=1}^d
+\frac{\partial^2 h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j\partial
+y_k}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
+y_i}\frac{\partial \alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+\\
++\sum_{j=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
+y_j}\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i\partial
+y_l}.
+\end{gather*}
+
+Таким образом,
+\begin{gather}\nonumber
+\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}=\sum_{i,l=1}^d
+\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i
+y_l}\sigma_d^i(x)\sigma_d^l(y)+\sum_{i,k=1}^d \frac{\partial
+G_d(y,\tau_d)}{\partial y_k}\sigma_d^i(y)\frac{\partial
+\sigma_d^k(y)}{\partial y_i}=\\ \label{integration_eq24}
+=(M^2_{\sigma_d} G_d(\cdot,\tau_d)) (y).
+\end{gather}
+
+Обозначим $\psi_d(y,t)=EG_d(y,B^d(t)).$ Тогда из соотношений~(\ref{integration_eq23}),
+(\ref{integration_eq24}), теоремы Фубини и правила Лейбница вытекает равенство
+\begin{equation}\label{integration_eq25}
+\psi_d(y,t)=\psi_d(y,0)+\int_0^t Hs^{2H-1}(M^2_{\sigma_d}
+\psi_d(\cdot,s)) (y)ds.
+\end{equation}
+Из соотношения~(\ref{integration_eq25}) вытекает справедливость соотношения
+\begin{equation}\label{integration_eq26}
+\frac{\partial \psi_d(\cdot,t)}{\partial t}=Ht^{2H-1}M_{\sigma_d}^2
+\psi_d(\cdot,t).
+\end{equation}
+
+
+Определим функцию $G_{d-1}:\mathbb{R}^{d+1} \times \mathbb{R}^+ \to \mathbb{R}$ 
+равенством
+$$G_{d-1}(y,\tau_{d-1},t)=\psi_d(T_{\sigma_{d-1}}(\tau_{d-1})(y),t), 
+\ y \in \mathbb{R}^d, \ \tau_{d-1}\in \mathbb{R}, \ t \in \mathbb{R}^+.$$
+
+Применяя формулу Ито к процессу $G_{d-1}(y,B^{d-1}(t),t),$ получим
+соотношение
+\begin{gather}\nonumber
+G_{d-1}(y,B^{d-1}(t),t)=G_{d-1}(y,0,0)+\int_0^t \frac{\partial
+G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}}\diamond dB^{d-1}(s)+\\ 
+\label{integration_eq27}
++\int_0^t \biggl(\frac{\partial G_{d-1}(y,B^{d-1}(s),s)}{\partial
+\tau_d}+ Hs^{2H-1}\frac{\partial^2
+G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}^2}\biggr)ds.
+\end{gather}
+
+Отметим, что для каждых $y \in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ 
+$s \in \mathbb{R}^+$
+справедливо равенство
+\begin{equation}\label{integration_eq28}
+\frac{\partial^2 G_{d-1}(y,\tau_{d-1},s)}{\partial
+\tau_{d-1}^2}=(M^2_{\sigma_{d-1}} G_{d-1}(\cdot,\tau_{d-1},s)) (y).
+\end{equation}
+Действительно, в силу правила Лейбница достаточно проверить, что для
+любых $y\in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ $\tau_{d}\in \mathbb{R}$ 
+справедливо соотношение
+\begin{equation}\label{integration_eq29}
+\frac{\partial^2}{\partial \tau_{d-1}^2} h(T_{\sigma_{d-1}}(\tau_{d-1})
+T_{\sigma_d}(\tau_d) (x))=(M^2_{\sigma_{d-1}} h(T_{\sigma_{d-1}}(\tau_{d-1})
+T_{\sigma_d}(\tau_d) (\cdot)) (y).
+\end{equation}
+Для каждого фиксированного $\tau_d \in \mathbb{R}$ определим функцию
+$\omega_{\tau_d}:\mathbb{R}^d \to \mathbb{R}$ такую, что
+$$
+\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))=h(T_{\sigma_{d-1}}(\tau_{d-1})
+T_{\sigma_d}(\tau_d) (y)).
+$$
+Теперь применяя рассуждения, которыми была доказана формула~(\ref{integration_eq24}),
+заменяя при этом функцию $G_d(y,\tau_d)$ функцией
+$\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))$, устанавливаем
+справедливость соотношения~(\ref{integration_eq29}), а вместе с ним и 
+равенства~(\ref{integration_eq28}).
+
+
+Обозначим $\psi_{d-1}(y,t)=EG_{d-1}(y,B^{d-1}(t),t),$ тогда с помощью
+соотношений~(\ref{integration_eq26}), (\ref{integration_eq27}), 
+(\ref{integration_eq28}), теоремы Фубини и правила Лейбница,
+получаем равенство
+\begin{equation}\label{integration_eq30}
+\psi_{d-1}(y,t)=\psi_{d-1}(y,0)+\int_0^t
+((Hs^{2H-1}M^2_{\sigma_d}+Hs^{2H-1}M^2_{\sigma_{d-1}})
+\psi_{d-1})(\cdot,s)(y)ds.
+\end{equation}
+
+Из соотношения~(\ref{integration_eq30}) получаем, что
+\begin{equation}\label{integration_eq31}
+\frac{\partial \psi_{d-1}(\cdot,t)}{\partial
+t}=(Ht^{2H-1}M^2_{\sigma_d}+Ht^{2H-1}M^2_{\sigma_{d-1}})
+\psi_{d-1}(\cdot,t).
+\end{equation}
+
+
+Далее рассматриваем функцию
+$G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{b_{d-2}}(\tau_{d-2})(y),t),$
+применяем формулу Ито к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
+уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
+$\psi_{d-2}(y,t)=EG_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
+прийдем к следующему уравнению для функции
+$u_h(y,t)=Eh(F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))):$
+$$
+\frac{\partial u_h(\cdot,t)}{\partial t}= \biggl(M_{\tilde
+f}+\frac{1}{2}\sum_{j=1}^d M^2_{g_j}+\sum_{j=1}^d H
+t^{2H-1}M^2_{\sigma_j}\biggr) u_h(\cdot,t).
+$$
+Теорема доказана.
+
+\begin{example}
+Покажем существенность условия коммутирования
+потоков, порожденных функциями из семейства $\Gamma,$ в 
+теореме~\ref{integration_gamma_family_th}.
+Рассмотрим линейное стохастическое уравнение
+\begin{equation}\label{integration_eq32}
+dx(t)=x(t)dt+dB(t)
+\end{equation}
+с начальным условием
+\begin{equation}\label{integration_eq33}
+x(0)=y \in \mathbb{R},
+\end{equation}
+где $B(t)$ -- одномерное дробное броуновское движение с показателем
+Харста $H \in (1/2,1).$ Решение $x^y(t)$ задачи Коши~(\ref{integration_eq32}), 
+(\ref{integration_eq33})
+задается формулой \cite{Vyoral}
+$$
+x^y(t)=ye^t+\int_0^t e^{t-s}dB(s).
+$$
+
+Положим $h(y)=y^2,$ тогда
+$$
+u_h(y,t)=y^2 e^{2t}+e^{2t}2H(2H-1)\int_0^t e^{-s} \int_0^s
+e^{-v}(s-v)^{2H-2}dvds=
+$$
+$$
+=y^2 e^{2t}+e^{2t}H(2H-1)\int_0^t e^{-u}u^{2H-2}du-H(2H-1)\int_0^t
+e^u u^{2H-2}du=
+$$
+$$
+=y^2e^{2t}+H\int_0^t (e^{2t-s}+e^s)s^{2H-1}ds.
+$$
+Следовательно,
+$$
+\frac{\partial u_h(y,t)}{\partial t}=2y^2e^{2t}+2He^t
+t^{2H-1}+2He^{2t}\int_0^t e^{-s}s^{2H-1}ds,
+$$
+$$
+y\frac{\partial u_h(y,t)}{\partial y}+Ht^{2H-1}\frac{\partial^2
+u_h(y,t)}{\partial y^2}=2y^2e^{2t}+2e^{2t}Ht^{2H-1}.
+$$
+Так как
+$$
+\int_0^t e^{-s}s^{2H-1}ds=-e^{-t}t^{2H-1}+(2H-1)\int_0^t
+e^{-s}s^{2H-2}ds<-e^{-t}t^{2H-1}+t^{2H-1}
+$$
+для любых $t>0,$ то функция $u_h(y,t)$ не удовлетворяет уравнению из
+теоремы~\ref{integration_gamma_family_th} ни при каких $t>0,$ $y\in \mathbb{R}.$ 
+Отметим, что операторы
+$T_f(t_1)(y)=e^{t_1}y,$ $T_\sigma(t_2)(y)=t_2+y$ не являются
+перестановочными.
+\end{example}
+
+\begin{example} Рассмотрим линейное однородное уравнение с
+постоянными коэффициентами
+\begin{equation}\label{integration_eq34}
+dx(t)=ax(t)dt+bx(t)dB(t)+cx(t)dW(t),
+\end{equation}
+с начальным условием
+\begin{equation}\label{integration_eq35}
+x(0)=y \in \mathbb{R}.
+\end{equation}
+Пусть $h(y)=y^r,$ $r \ge 2,$ $u_h(y,t)=Eh(x^y(t)),$ где $x^y(t)$ --
+решение задачи Коши~(\ref{integration_eq34}), (\ref{integration_eq35}). Легко 
+видеть, что условия теоремы~\ref{integration_gamma_family_th} выполняются, 
+и функция $u_h(y,t)$ удовлетворяет уравнению
+$$
+\frac{\partial u_h(y,t)}{\partial t}=\frac{\partial u_h(y,t)}{\partial
+y} y (a+b^2 Ht^{2H-1})+\frac{\partial^2 u_h(y,t)}{\partial y^2}y^2
+(c^2/2+b^2 Ht^{2H-1}), \ t>0, \ y \in \mathbb{R},
+$$
+с начальным условием
+$$
+u_h(y,0)=y^r.
+$$
+\end{example}
+
+\begin{theorem}
+Пусть семейство $\Gamma$ порождает
+коммутирующие потоки, решение $x^y(t)$ автономного уравнения 
+\textup{(\ref{integration_of_mixed_main_eq})} с начальным
+условием $x(0)=y$ имеет плотность распределения $p(t,y,z),$ функции
+$f(z),$ $g(z),$ $\sigma(z),$ $p(t,y,z)$ являются достаточно гладкими и
+ограниченными. Тогда функция $p(t,y,z)$ удовлетворяет равенству
+\begin{gather*}
+\frac{\partial p(t,y,z)}{\partial t}=-
+\sum_{j=1}^d \frac{\partial (f_j(z)p(t,y,z))}{\partial z_j}
++\frac{1}{2}\sum_{i,j,k=1}^d
+\frac{\partial^2(g_{ik}(z)g_{jk}(z)p(t,y,z))}{\partial z_i
+\partial z_j} +\\
++\sum_{i,j,k=1}^d
+Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)p(t,y,z))}{\partial
+z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
+\sigma_{jk}(z)}{\partial z_i} p(t,y,z))}{\partial z_j}\biggr), \\
+ t>0, \
+y,  z \in \mathbb{R}^d.
+\end{gather*}
+\end{theorem}
+
+\proof Возьмем произвольную функцию $h(z)$ с
+компактным носителем, имеющую ограниченные и непрерывные частные
+производные до второго порядка включительно.
+
+Обозначим через $A_t$ оператор, действующий по правилу
+$$(A_t h)(z)=\sum_{j=1}^d f_j(z)\frac{\partial
+h(z)}{\partial z_j}+\frac{1}{2}\sum_{i,j,k=1}^d
+g_{ik}(z)g_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i \partial z_j}
++
+$$
+$$
++\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(z)
+\biggl(\sigma_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i
+\partial z_j}+\frac{\partial \sigma_{jk}(z)}{\partial z_i
+}\frac{\partial h(z)}{\partial z_j }\biggr), \ t>0, \ z \in \mathbb{R}^d.$$
+
+
+Используя соотношение
+$$
+u_h(y,t)=\int_{\mathbb{R}^d} h(z)p(t,y,z)dz,
+$$
+теорему~\ref{integration_gamma_family_th} и правило Лейбница, 
+получаем равенство
+\begin{equation}\label{integration_eq36}
+\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
+t}-p(t,y,z)(A_t h)(z)\biggr)dz=0.
+\end{equation}
+Из соотношения~(\ref{integration_eq36}) вытекает равенство
+\begin{equation}\label{integration_eq37}
+\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
+t}-h(z)(A^*_t p(t,y,\cdot))(z)\biggr)dz=0,
+\end{equation}
+где $A_t^*$ -- сопряженный оператор к оператору $A_t.$ Применяя
+формулу интегрирования по частям, легко видеть, что
+\begin{gather}\nonumber
+(A_t^* \varphi) (z)=-\sum_{j=1}^d \frac{\partial
+(f_j(z)\varphi(z))}{\partial z_j} +\frac{1}{2}\sum_{i,j,k=1}^d
+\frac{\partial^2(g_{ik}(z)g_{jk}(z)\varphi(z))}{\partial y_i
+\partial y_j} +\\ \label{integration_eq38}
++\sum_{i,j,k=1}^d
+Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)\varphi(z))}{\partial
+z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
+\sigma_{jk}(z)}{\partial z_i} \varphi(z))}{\partial z_j}\biggr).
+\end{gather}
+
+Теперь из соотношений~(\ref{integration_eq37}), (\ref{integration_eq38}) и 
+плотности множества функций с компактным носителем, имеющих непрерывные 
+органиченные производные всех порядков, в $L_1(\mathbb{R}^d,\mathbb{R})$ вытекает 
+требуемое утверждение. Теорема доказана.
+
+\newpage
