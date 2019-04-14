@@ -1328,10 +1328,13 @@ dB^{(i_N)}_{t_N}dB^{(i_{N+1})}_{t_{N+1}}.
 \end{gather}
 
 Обозначим $\varphi_{I_{N+1}}(x) = (D^{(I_{N+1})}_f g)(x)$ и преобразуем 
-последнее слагаемое в (\ref{bounds_3_45}). Воспользуемся свойством дробного 
-броуновского движения: тем, что процесс $\widehat B^{(i_j|c)}_u = 
-c^{H_{i_j}} B^{(i_j)}_{u/c}$ также является дробным броуновским движением с 
-индексом Харста $H_{i_j}$ для любого $c>0$, $j=\overline{1,\,N{+}1}$. 
+последнее слагаемое в (\ref{bounds_3_45}). Введем в рассмотрение процесс 
+$\widehat B^{(c)}_u = (\widehat B^{(0; c)}_u, \widehat B^{(1; c)}_u, \ldots, 
+\widehat B^{(d; c)}_u)^\top$, зависящий от параметра $c > 0$, $i$-я компонента 
+которого определяется равенством $\widehat B^{(i; c)}_u = c^{H_i} B^{(i)}_{u/c}$, 
+$u\in [0, T]$. По свойству самоподобия дробного броуновского движения процесс 
+$\widehat B^{(i; c)}_u$ также является дробным броуновским движением с 
+индексом Харста $H_i$ для любого $c>0$, $i=\overline{1,\,d}$. 
 Следовательно, при фиксированном $t\in [0,T]$:
 \begin{gather} \nonumber
 \int_0^t\int_0^{t_{N+1}}\ldots 
@@ -1340,10 +1343,10 @@ dB^{(i_1)}_{t_1} \ldots dB^{(i_N)}_{t_N}dB^{(i_{N+1})}_{t_{N+1}}= \nonumber \\
 = \int_0^1 dB^{(i_{N+1})}_{t\cdot t_{N+1}} 
 \int_0^{t_{N+1}} dB^{(i_N)}_{t\cdot t_N}\ldots 
 \int_0^{t_2} \varphi_{I_{N+1}}(X_{t\cdot t_1})\, dB^{(i_1)}_{t\cdot t_1}= \nonumber \\ 
-\stackrel{\mathcal{L}}{=} \int_0^1 d\widehat B^{(i_{N+1}|t)}_{t\cdot t_{N+1}} 
-\int_0^{t_{N+1}} d\widehat B^{(i_N|t)}_{t\cdot t_N}\ldots 
+\stackrel{\mathcal{L}}{=} \int_0^1 d\widehat B^{(i_{N+1};t)}_{t\cdot t_{N+1}} 
+\int_0^{t_{N+1}} d\widehat B^{(i_N;t)}_{t\cdot t_N}\ldots 
 \int_0^{t_2} \varphi_{I_{N+1}}(\widehat X^{(t)}_{t\cdot t_1})\, 
-d\widehat B^{(i_1|t)}_{t\cdot t_1} = \nonumber \\ \label{bounds_3_46}
+d\widehat B^{(i_1;t)}_{t\cdot t_1} = \nonumber \\ \label{bounds_3_46}
 = t^{H_{i_1} + \ldots + H_{i_{N+1}}}\int_0^1 dB^{(i_{N+1})}_{t_{N+1}} 
 \int_0^{t_{N+1}} dB^{(i_N)}_{t_N}\ldots 
 \int_0^{t_2} \varphi_{I_{N+1}}(\widehat X^{(t)}_{t\cdot t_1})\, dB^{(i_1)}_{t_1},
@@ -1354,9 +1357,7 @@ $\widehat X^{(t)}_\tau$ --- решение уравнения:
 d\widehat X^{(t)}_\tau = f(\widehat X^{(t)}_\tau)d\widehat B^{(t)}_\tau,
 \quad \tau \in [0, T]
 \end{equation}
-с начальным условием $\widehat X^{(t)}_0 = x$ (здесь $\widehat B^{(t)} = 
-(\widehat B^{(0|t)}_t, \widehat B^{(1|t)}_t, \ldots, \widehat B^{(d|t)}_t)^\top$). 
-По тем же соображениям
+с начальным условием $\widehat X^{(t)}_0 = x$. По тем же соображениям
 \begin{equation}\label{bounds_3_48}
 \int_{\Delta^k[0,t]} dB^{(I_k)} \,\stackrel{\mathcal{L}}{=}\; 
 t^{|H_{I_k}|}\int_{\Delta^k[0,1]} dB^{(I_k)},
@@ -1421,9 +1422,15 @@ M_k |t-s|^{2H}$ для любого $i=\overline{0,d}$ и $|\mathcal{I}^{(k)}_{s,t}|\le
 Рассмотрим $k=1$. Докажем, что $\bigl(\varphi\bigl(
 \widehat X^{(c)}_{c \,\cdot}\bigr)\bigr)' = 
 c^{H_{i_1}} D\varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)
-\bigl(\widehat X^{(c)}\,\!\bigr)'_{c\,\cdot}$. Действительно,
+\bigl(\widehat X^{(c)}\,\!\bigr)'_{c\,\cdot}$. Введем обозначение 
+$R^{\widehat X^{(c)}; i_1}_{u,v} = \widehat X^{(c)}_{u,v} - 
+\bigl(\widehat X^{(c)}\bigr)'_u \widehat B^{(i_1; c)}_{u,v}$ для $i_1$-й 
+компоненты остатка $R^{\widehat X^{(c)}}$ по отношению к процессу $\widehat X^{(c)}$, 
+управляемому процессом $\widehat B^{(i_1; c)}$.
+
+Используя формулу Тейлора, будем иметь
 \begin{gather}\nonumber
-R^{\varphi(\widehat X^{(c)}_{c\,\cdot})|i_1}_{s,t} := 
+R^{\varphi(\widehat X^{(c)}_{c\,\cdot}); i_1}_{s,t} := 
 \varphi\bigl(\widehat X^{(c)}_{c t}\bigr) - 
 \varphi\bigl(\widehat X^{(c)}_{c s}\bigr) - 
 c^{H_{i_1}} D\varphi\bigl(\widehat X^{(c)}_{c s}\bigr)
@@ -1431,33 +1438,30 @@ c^{H_{i_1}} D\varphi\bigl(\widehat X^{(c)}_{c s}\bigr)
 = \varphi\bigl(\widehat X^{(c)}_{c t}\bigr) - 
 \varphi\bigl(\widehat X^{(c)}_{c s}\bigr) - 
 D\varphi\bigl(\widehat X^{(c)}_{cs}\bigr)
-\bigl(\widehat X^{(c)}\,\!\bigr)'_{c s}\widehat B^{(i_1|c)}_{c s, c t} =\\ 
+\bigl(\widehat X^{(c)}\,\!\bigr)'_{c s}\widehat B^{(i_1; c)}_{c s, c t} =\\ 
 \nonumber
 = \varphi\bigl(\widehat X^{(c)}_{c t}\bigr) - 
 \varphi\bigl(\widehat X^{(c)}_{c s}\bigr) - 
 D\varphi\bigl(\widehat X^{(c)}_{cs}\bigr)\widehat X^{(c)}_{cs, ct} + 
-D\varphi\bigl(\widehat X^{(c)}_{cs}\bigr) R^{\widehat X^{(c)}|i_1}_{cs,ct}=\\ 
+D\varphi\bigl(\widehat X^{(c)}_{cs}\bigr) R^{\widehat X^{(c)}; i_1}_{cs,ct}=\\ 
 \label{bounds_3_56}
 = \frac{1}{2}D^2\varphi\bigl(\widehat X^{(c)}_{cs} + 
 \theta \widehat X^{(c)}_{cs,ct}\bigr) \widehat X^{(c)}_{cs,ct}\otimes 
 \widehat X^{(c)}_{cs,ct} + D\varphi\bigl(\widehat X^{(c)}_{cs}\bigr) 
-R^{\widehat X^{(c)}|i_1}_{cs,ct}
+R^{\widehat X^{(c)}; i_1}_{cs,ct}
 \end{gather}
-для некоторого $\theta\in(0,1)$ ввиду разложения в ряд Тейлора. Здесь 
-$R^{\widehat X^{(c)}|i_1}_{u,v} =\linebreak= \widehat X^{(c)}_{u,v} - 
-\bigl(\widehat X^{(c)}\,\!\bigr)'_u \widehat B^{(i_1|c)}_{u,v}$ --- остаток для 
-$\widehat X^{(c)}$, управляемого процессом $\widehat B^{(i_1|c)}$; из теоремы 
+для некоторого $\theta\in(0,1)$ ввиду разложения в ряд Тейлора. Из теоремы 
 существования \ref{chapter_3_existance_th} следует, что 
-$\|R^{\widehat X^{(c)|i_1}}\|_{2H} \le \|R^{\widehat X^{(c)}}\|_{2H} < \infty$.
+$\|R^{\widehat X^{(c); i_1}}\|_{2H} \le \|R^{\widehat X^{(c)}}\|_{2H} < \infty$.
 Легко видеть, что
 \begin{gather}\nonumber
-\left|R^{\varphi(\widehat X^{(c)}_{c\,\cdot})|i_1}_{s,t}\right|\le 
+\left|R^{\varphi(\widehat X^{(c)}_{c\,\cdot}); i_1}_{s,t}\right|\le 
 \frac{1}{2}\|D^2\varphi\|_\infty\|\widehat X^{(c)}\|^2_H|ct - cs|^{2H} + 
-\|D\varphi\|_\infty\|R^{\widehat X^{(c)|i_1}}\|_{2H}|ct-cs|^{2H} =\\ 
+\|D\varphi\|_\infty\|R^{\widehat X^{(c); i_1}}\|_{2H}|ct-cs|^{2H} =\\ 
 = c^{2H}\left(\frac{1}{2}\|D^2\varphi\|_{\infty}\|\widehat X^{(c)}\|^2_H + 
 \|D\varphi\|_{\infty}\|R^{\widehat X^{(c)}}\|_{2H}\right)|t-s|^{2H},
 \end{gather}
-откуда следует, что $\|R^{\varphi(\widehat X^{(c)}_{c\,\cdot})|i_1}_{s,t}\|_{2H} 
+откуда следует, что $\|R^{\varphi(\widehat X^{(c)}_{c\,\cdot}); i_1}_{s,t}\|_{2H} 
 \le \frac{1}{2}\|D^2\varphi\|_{\infty}\|\widehat X^{(c)}\|^2_H + 
 \|D\varphi\|_{\infty}\|R^{\widehat X^{(c)}}\|_{2H} < \infty$ (так как $c\le 1$), 
 что и требовалось.
@@ -1496,7 +1500,7 @@ $\bigl\|\varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)'\bigr\|_H \le
 c^{H_{i_1}}\|D\varphi\|_{\infty}\|f\|_{\infty}\|\mathbb{B}^{(i_1)}\|_{2H}
 |t-s|^{2H} + \\ \nonumber
 + C \left(\|B^{(i_1)}\|_{H}
-\bigl\|R^{\varphi(\widehat X^{(c)}_{c\,\cdot})|i_1}\bigr\|_{2H} + 
+\bigl\|R^{\varphi(\widehat X^{(c)}_{c\,\cdot}); i_1}\bigr\|_{2H} + 
 \|\mathbb{B}^{(i_1)}\|_{2H}\bigl\|
 \varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)'\bigr\|_H\right)|t-s|^{3H} \le \\ 
 \nonumber
