@@ -205,7 +205,7 @@ g(X_t) = g(X_s) + \int_s^t Dg(X_r)f(X_r)dB_r,\qquad s,t\in [0, T],
 начальным условием~$X_0 = x$.
 \end{theorem}\par
 
-\proof. Зафиксируем произвольные $s,t\in [0,T]$, $s\le t$ и рассмотрим 
+\proof Зафиксируем произвольные $s,t\in [0,T]$, $s\le t$ и рассмотрим 
 разбиение отрезка $[s,t]$ точками $\mathcal{P}^{(N)} = 
 \left\{s=t_0 < t_1 < \ldots < t_{N} =t\right\}$, 
 $\left|\mathcal{P}^{(N)}\right| = \max\limits_{i=0,\ldots,N-1} |t_{i+1} - t_i|$. 
@@ -454,7 +454,7 @@ $j=0,1,\ldots$ Тогда  $\|Y\|_{H;\delta} \le 2^{1-H}
 \bigvee_{j=0}^{\lfloor T/\delta\rfloor} \|Y\|_{H;I_j}$.
 \end{proposition}
 
-\proof. Зафиксируем произвольные $s,t\in [0,T]$ такие, что $0<|t-s|<\delta$, 
+\proof Зафиксируем произвольные $s,t\in [0,T]$ такие, что $0<|t-s|<\delta$, 
 $s<t$. Если $s,t\in I_j$ для некоторого $j$, то, очевидно, $|Y_{s,t}| \le 
 \|Y\|_{H;I_j}|t-s|^H\le |t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
 \|Y\|_{H;I_j}.$ Иначе $s\in I_{j-1}$, $t\in I_j$. В таком случае
@@ -513,7 +513,7 @@ C_{f} \|f-\widetilde f\|_{C^2_b}|t-s|^H,$$
 случайная величина.
 \end{lemma}
 
-\proof. Используя предложение \ref{hairer_th_4_10}, получим оценку
+\proof Используя предложение \ref{hairer_th_4_10}, получим оценку
 \begin{gather}\nonumber
 \left|\int_s^t \left(f(\widetilde X_\tau) - 
 \widetilde f(\widetilde X_\tau)\right) dB_\tau\right| \le 
@@ -648,7 +648,7 @@ C_{0;g}\|f - \widetilde f\|_{C^2_b} +  C_{1;g}|X_u -\widetilde X_u| + \\
 C_{2;g}(H, \|g\|_{C^1_b})$ --- константа.
 \end{lemma}
 
-\proof. Из формулы конечных приращений следует, что имеет место неравенство
+\proof Из формулы конечных приращений следует, что имеет место неравенство
 \begin{gather}\nonumber
 |g(X_s) - \widetilde g(\widetilde X_s)| \le |g(X_s) - g(\widetilde X_s)| + 
 |g(\widetilde X_s) - \widetilde g(\widetilde X_s)|\le\\ \nonumber
@@ -723,7 +723,7 @@ C_2\|f - \widetilde f\|_{C^2_b} + C_3\|X - \widetilde X\|_{H;I},$$
 случайные величины.
 \end{lemma}
 
-\proof. Введем обозначения: $Y_{s,t}(\theta)= Y_s + \theta Y_{s,t}$, 
+\proof Введем обозначения: $Y_{s,t}(\theta)= Y_s + \theta Y_{s,t}$, 
 $\theta\in(0,1)$, $s,t\in I$, $\varphi=Df\cdot f$. С учетом соотношений, 
 аналогичных (\ref{stab_lemma_diff_f_eq_f_deriv}), 
 (\ref{stab_lemma_diff_f_eq_waved_f_deriv}), следуя формуле конечных приращений, 
@@ -792,7 +792,7 @@ C_4|X_u - \widetilde X_u| + C_5\|f - \widetilde f\|_{C^2_b} +
 $j=4,5,6$~--- случайные величины.
 \end{lemma}
 
-\proof. По определению
+\proof По определению
 \begin{gather}\nonumber
 R^{f(X) - f(\widetilde X)}_{s,t} =\left(f(X_\cdot) - 
 f(\widetilde X_\cdot)\right)_{s,t} - Df(X_s)X'_sB_{s,t} + 
@@ -1309,7 +1309,7 @@ O(t^{(N+1)H}),
 B^{(i_k)}$.
 \end{theorem}
 
-\proof. C учетом обозначений (\ref{bounds_3_41}) формулу Ито 
+\proof C учетом обозначений (\ref{bounds_3_41}) формулу Ито 
 (\ref{eq_ito_formula}) можно записать в следующей развернутой форме:
 \begin{equation}\label{eq_wide_ito_formula}
 g(X^x_t) = g(x) + \sum_{i=0}^d \int_0^t (D^{(i)}_f g)(X^x_r)dB^{(i)}_r
@@ -1414,7 +1414,7 @@ M_k |t-s|^{2H}$ для любого $i=\overline{0,d}$ и $|\mathcal{I}^{(k)}_{s,t}|\le
 \textup{(}не зависящие от $s, t$\textup{)}.
 \end{lemma}
 
-\proof. Проведем индукцией по $k$.
+\proof Проведем индукцией по $k$.
 
 Рассмотрим $k=1$. Докажем, что $\bigl(\varphi\bigl(
 \widehat X^{(c)}_{c \,\cdot}\bigr)\bigr)' = 
