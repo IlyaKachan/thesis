@@ -1043,24 +1043,34 @@ $\mathbb{R}^n$. Следующая теорема устанавливает потраекторную непрерывную
 \begin{theorem}\label{stab_theorem_T_xi}
 Пусть $f,\widetilde f \in C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times(d+1)})$, 
 причем функция $\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
-Тогда для решений $X_t$, $\widetilde X_t$ 
+Обозначим через $X_t$, $\widetilde X_t$ решения 
 уравнений~\textup{(\ref{chapter3_main_eq_compact})}, 
 \textup{(\ref{stability_intro_main_eq_1})} c начальными условиями 
-$X_0=\xi$, $\widetilde X_0 = \widetilde \xi$ соответственно п.н. справедлива 
-следующая оценка:
+$X_0=\xi$, $\widetilde X_0 = \widetilde \xi$ соответственно. Тогда:
+
+\textup{1)} почти наверное справедлива следующая оценка
 \begin{equation}\label{integral_continuity_eq}
 \|X - \widetilde X\|_H \le C \left(|\xi - \widetilde \xi| + 
 \|f - \widetilde f\|_{C^2_b}\right)
 \end{equation}
 для некоторой случайной величины $C=C(H, T, \|f\|_{C^3_b}, \|B\|_H, 
 \|\mathbb{B}\|_{2H})$. Причем~$C$ может быть выбрана не зависящей от~$T$, 
-если $T\in (0,1]$.
+если $T\in (0,1];$
+
+\textup{2)} имеет место следующее неравенство
+\begin{equation}
+\mathbb{E}\bigl(\ln\|X - \widetilde X\|_H\bigr) \le C + 
+\ln\bigl(\mathbb{E}|\xi - \widetilde\xi| + \|f-\widetilde f\|_{C^2_b}\bigr),
+\end{equation}
+где $C = C(H, H_1, \ldots, H_d, T, \|f\|_{C^3_b})\in\mathbb{R}$ --- 
+константа, вообще говоря, зависящая от $H$, $H_1,\ldots, H_d$, $T$, 
+$\|f\|_{C^3_b}$.
 \end{theorem}
 
-\proof. Зафиксируем произвольный отрезок $I=[u,v]\subset\linebreak\subset[0,T]$ 
-достаточно малой длины $|I|\le 1\wedge T$ (точное значение длины $|I|$ будет 
-указано ниже) и получим оценку на $\|X - \widetilde X\|_{H; I}$. Выберем 
-произвольные~$s,t\in\linebreak\in I$, очевидно справедливо неравенство
+\proof Докажем первое утверждение теоремы. Зафиксируем произвольный отрезок 
+$I=[u,v]\subset[0,T]$ достаточно малой длины $|I|\le 1\wedge T$ (точное значение 
+длины $|I|$ будет указано ниже) и получим оценку на $\|X - \widetilde X\|_{H; I}$. 
+Выберем произвольные~$s,t\in\linebreak\in I$, очевидно справедливо неравенство
 \begin{equation}
 |X_{s,t} - \widetilde X_{s,t}| = \left|\int_s^t f(X_\tau) dB_\tau - 
 \int_s^t \widetilde f(\widetilde X_\tau) dB_\tau\right| \le M_1 + M_2,
@@ -1181,46 +1191,20 @@ $$\|X-\widetilde X\|_{H;\delta_1} \le 2^{1-H}e^{cT}
 \label{stab_theorem_T_xi_last_estimate}
 \times\left(|\xi -\widetilde \xi| + \|f - \widetilde f\|_{C^2_b}\right).
 \end{gather}
-Теорема доказана.
+Первое утверждение теоремы доказано.
 
-\begin{remark}Нетрудно видеть, что в приведенном доказательстве не 
-использовалось никаких других свойств дробного броуновского движения 
-$(B_t)_{t\in [0,T]}$, кроме свойства непрерывности траекторий по Гельдеру 
-с показателем $H$. Это означает, что теорема справедлива для произвольных 
-гельдеровских функций $B\in C^H([0,T], \mathbb{R}^{d+1})$.
-\end{remark}
-
-\begin{remark}\label{stab_remark_constant}
+Докажем второе утверждение теоремы. 
 Рассмотрим зависимость случайных величин $c_3, c_4, c_5$, фигурирующих в 
-равенстве \textup{(\ref{stab_theorem_T_xi_last_estimate})} от $\|B\|_H$, 
+неравенстве \textup{(\ref{stab_theorem_T_xi_last_estimate})}, от $\|B\|_H$, 
 $\|\mathbb{B}\|_{2H}$ при фиксированных~$T$, $H$, $\|f\|_{C^3_b}$. Из 
-доказательства теоремы следует, что эта зависимость выражается в виде 
+доказательства первой части следует, что эта зависимость выражается в виде 
 композиции конечного числа функций $\Sigma_{\alpha,\beta,\gamma}(u,v) = 
 \alpha u + \beta v + \gamma$, $\Pi(u, v) = u \cdot v$, $\vee(u,v) = u\vee v$, 
 $\psi_s(u) = u^s$ \textup{(}$\alpha,\beta,\gamma\in\mathbb{R}$, 
 $s \in\mathbb{R}^+$ --- параметры\textup{)} вещественных аргументов 
 $u,v\in\mathbb{R}^+$.
-\end{remark}
 
-Следующая теорема, устанавливающая непрерывную зависимость в среднем, является 
-основным результатом представленной главы.
-
-\begin{theorem}\label{chapter_4_integral_contin_B_H}
-Пусть $f, \widetilde f \in C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times(d+1)})$, 
-причем функция $\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
-Тогда для решений $X_t$, $\widetilde X_t$ 
-уравнений~\textup{(\ref{chapter3_main_eq_compact})}, 
-\textup{(\ref{stability_intro_main_eq_1})} c начальными условиями 
-$X_0=\xi$, $\widetilde X_0 = \widetilde \xi$ соответственно имеет место 
-следующее неравенство
-$$\mathbb{E}\bigl(\ln\|X - \widetilde X\|_H\bigr) \le C + 
-\ln\bigl(\mathbb{E}|\xi - \widetilde\xi| + \|f-\widetilde f\|_{C^2_b}\bigr),$$
-где $C = C(H, H_1, \ldots, H_d, T, \|f\|_{C^3_b})\in\mathbb{R}$ --- 
-константа, вообще говоря, зависящая от $H$, $H_1,\ldots, H_d$, $T$, 
-$\|f\|_{C^3_b}$.
-\end{theorem}
-
-Д\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о\,.\, Применим логарифм к обеим частям 
+Применим логарифм к обеим частям 
 неравенства~(\ref{stab_theorem_T_xi_last_estimate}). Учитывая, что 
 $x \vee y \le x+y$ для $x,y>0$, будем иметь:
 \begin{gather*}
@@ -1244,7 +1228,7 @@ $\mathbb{E}c_5<\infty$, $\mathbb{E}\left(c_4^{\frac{1-H}{H}}\right) < \infty$.
 Однако, мы установим даже большее: для любого $r > 0$ конечны моменты 
 $\mathbb{E} c_j^r = \mathbb{E} c_j^r(\|B\|_H, \|\mathbb{B}\|_{2H})$, $j=3,4,5$.
 
-Воспользуемся замечанием \ref{stab_remark_constant}: зависимость 
+Далее воспользуемся тем, что зависимость 
 $c_j^r = c_j^r(\|B\|_H, \|\mathbb{B}\|_{2H})$, $j=\linebreak=3,4,5$ от норм 
 $\|B\|_H, \|\mathbb{B}\|_{2H}$ выражается в виде композиции конечного числа 
 функций $\Sigma_{\alpha,\beta,\gamma}(u,v)$, $\Pi(u, v)$, $\vee(u,v)$, 
@@ -1286,6 +1270,14 @@ $\mathbb{E}\psi_s(\|\mathbb{B}\|_{2H}) = \mathbb{E} \|\mathbb{B}\|^s_{2H} <
 иметь конечное математическое ожидание и, в частности, 
 $\mathbb{E} c_j^r(\|B\|_H, \|\mathbb{B}\|_{2H}) <~\infty$, 
 $j=3,4,5$ для любого $r>0$. Теорема доказана.
+
+\begin{remark}Нетрудно видеть, что в приведенном доказательстве первого 
+утверждения теоремы не использовалось никаких других свойств дробного 
+броуновского движения $(B_t)_{t\in [0,T]}$, кроме свойства непрерывности 
+траекторий по Гельдеру с показателем $H$. Это означает, что утверждение 1 
+приведенной теоремы справедливо для произвольных 
+гельдеровских функций $B\in C^H([0,T], \mathbb{R}^{d+1})$.
+\end{remark}
 
 
 \subsection{Асимптотические разложения в окрестности нуля}
