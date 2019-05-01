@@ -16,12 +16,10 @@
 
 Пусть заданы следующие объекты: вероятностное пространство 
 $(\Omega, \mathcal{F}, \Prob)$ с потоком $\sigma$-алгебр 
-$(\mathcal{F}_t)$, $t\ge -h$, $\mathcal{F}_t = \mathcal{F}_0$ при 
-$t \in [-h,0]$, два сепарабельных гильбертовых пространства $H$~и~$U;$ 
+$(\mathcal{F}_t)_{t\ge 0}$, два сепарабельных гильбертовых пространства $H$~и~$U;$ 
 ядерный симметрический положительно определенный оператор $Q_w$ на 
 пространстве~$U$; $\mathcal{F}_t$-согласованное $Q_w$-броуновское 
-движение~$W(t,\omega)$ со значениями в $U$ и ковариационным оператором $Q_w$; 
-$C_h = C([-h,0], H)$.
+движение~$W(t,\omega)$ со значениями в $U$ и ковариационным оператором $Q_w$.
 
 \bigskip\bigskip\bigskip
 
@@ -32,64 +30,67 @@ $C_h = C([-h,0], H)$.
 Данный раздел посвящен исследованию устойчивости в конечномерных пространствах 
 $H= U = \mathbb{R}^d$. В этом случае $Q_w = I_d$ и $W(t)$ --- стандартное 
 броуновское движение со значениями в $\mathbb{R}^d$. Рассмотрим стохастическое 
-дифференциальное уравнение относительно $x(t)\in\mathbb{R}^d$ с запаздыванием
+дифференциальное уравнение
 \begin{equation}\label{general_equation_1}
-dx(t) = f(t, x(t), x_{t})dt + g(t, x(t), x_{t})dW(t),
+dx(t) = f(t, x(t))dt + g(t, x(t))dW(t),
 \end{equation}
-где $x_{t} =\{x(t+\tau)|-h \le \tau \le 0\}\in C_h,$ $h>0$ -- время 
-запаздывания, $f : \mathbb{R}^{+} \times \mathbb{R}^{d} \times C_h \to 
-\mathbb{R}^{d}$, $g : \mathbb{R}^{+} \times \mathbb{R}^{d} \times C_h \to 
+где $f : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
+\mathbb{R}^{d}$, $g : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
 \mathbb{R}^{d \times d}$ --- измеримые по Борелю функции такие, что 
-$f(t, 0, 0) = 0$ и $g(t, 0, 0) = 0$ при всех $t\in\mathbb{R}^d$ и выполнено 
-условие линейного порядка роста по $(x,\varphi)$, то есть существует 
+$f(t, 0) = 0$ и $g(t, 0) = 0$ при всех $t\in\mathbb{R}^d$ и выполнено 
+условие линейного порядка роста по $x$, то есть существует 
 постоянная~$C$ такая, что для любых $t \in \mathbb{R}^{+}$, $x \in 
-\mathbb{R}^{d}$, $ \varphi \in C_h$ выполняется неравенство 
-$|f(t, x, \varphi)| + |g(t, x, \varphi)| \le C(1+|x|+\Vert\varphi\Vert)$.
+\mathbb{R}^{d}$, выполняется неравенство 
+$|f(t, x)| + |g(t, x)| \le C(1+|x|)$.
 
-Для каждого $(t, x,  \varphi) \in \mathbb{R}^{+} \times
-\mathbb{R}^{d} \times C_h$ построим множества 
+Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
+\mathbb{R}^{d}$ построим множества 
 \begin{equation}\label{F_and_G_sets}
-F(t, x, \varphi) =
-\cap_{\delta
-> 0} \overline{\mbox{co}} [f(t, [x]_{\delta},
-[\varphi]_{\delta})]_{\delta}, \ G(t, x, \varphi) = \cap_{\delta >
-0} \overline{\mbox{co}} [g(t, [x]_{\delta},
-[\varphi]_{\delta})]_{\delta}.
+A(t, x) = \cap_{\delta> 0} 
+\overline{\mbox{co}} [\sigma(t, [x]_{\delta})]_{\delta}, \ 
+B(t, x) = \cap_{\delta > 0} 
+\overline{\mbox{co}} [f(t, [x]_{\delta})]_{\delta},
 \end{equation}
+являющиеся наименьшими выпуклыми замкнутыми множествами, содержащими
+соответственно матрицу $\sigma(t, x)$ и вектор $f(t,x)$ и все предельные точки
+$\sigma(t,x')$ и $f(t, x')$ при $x'\to x$.
 
 \begin{definition} 
-Пусть $\nu$ --- некоторая вероятностная мера на~$(C_h,\mathcal{B}(C_h)).$ 
-Если существуют: 
-1) вероятностное пространство $(\Omega, \mathcal F,\p)$ 
-с потоком $\sigma$-алгебр $\mathcal F_{t}$, $t\ge-h$;
-2) ($\mathcal F_{t}$)-согласованный процесс $x(t)$, определенный при $t\ge-h$, 
-траектории которого почти наверное непрерывны;
-3)~($\mathcal F_{t}$)-броуновское движение $W(t)$, $t \ge 0$, $W(0) = 0$ п.н.;
-4) непрерывный ($\mathcal F_{t}$)-согласованный процесс $\psi(t)$,
-$t \in [-h, 0]$, имеющий распределение~$\nu$;
-5)~измеримые ($\mathcal F_{t}$)-согласованные процессы $v(t)$, $u(t)$,
-$t \in \mathbb{R}^{+}$; такие, что выполняются условия:
-1) $v(t) \in F(t, x(t), x_{t})$, $u(t) \in G(t, x(t), x_{t})$ для $(\mu \times
-\p)$-почти всех $(t, \omega) \in \mathbb{R}^{+} \times \Omega$, где $\mu$ -- 
-мера Лебега на $\mathbb{R}^{+}$, и $\int_{0}^{T} (|v(s)| + |u(s)|^2) ds 
-< \infty$ для всех $T \in \mathbb{R}^{+}$;
-2) с вероятностью 1 для всех~$t \in [-h, \infty)$ выполняется соотношение (\ref{glava_1_x_t_sol})
-\begin{equation}\label{glava_1_x_t_sol}
-x(t) = \left\{ \begin{array}{l} \psi(t), \  t \in [-h, 0],\\
-\psi(0)+\int\limits_{0}^{t} v(s)ds+\int\limits_{0}^{t}u(s)dW(s), \ t \ge 0, \\
-\end{array} \right.
-\end{equation}
-то набор $(\Omega, \mathcal{F}, \p, \mathcal{F}_{t}, W(t), x(t), v(t), u(t))$ 
-(или, кратко, $x(t)$) называется слабым решением уравнения 
-(\ref{general_equation_1}) с начальным распределением $\nu$.
+Если:
+
+1) существуют вероятностное пространство $(\Omega, \mathcal{F}, \mathbb{P})$
+с потоком $\mathcal{F}_t$ и отображение 
+$X\colon\Omega\to C(\mathbb{R}^+, \mathbb{R}^d)$ такие,
+что функция $(t, \omega) \to X(t, \omega) \in \mathbb{R}^d$ --- 
+$(\mathcal{B}(\mathbb{R}^+)\times\mathcal{F}, 
+\mathcal{B}(\mathbb{R}^d)$-измерима и $\mathcal{F}_t$-согласована;
+
+2) существует $(\mathcal{F}_t)$-броуновское движение $W(t)$, $W(0) = 0$ п. н.;
+
+3) существуют измеримые $(\mathcal{F}_t)$-согласованные процессы
+$v\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^d$ и
+$u\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{d\times d}$, удовлетворяющие
+для $(\mu\times\mathbb{P})$-почти всех $(t,\omega)\in\mathbb{R}^+\times\Omega$
+включениям
+$$
+v(t)\in B(t, X(t, \omega)),\quad u(t)u^\top(t)\in A(t, X(t, \omega)),
+$$
+и такие, что для любого $T\in\mathbb{R}^+$ выполняется неравенство
+$\int_0^T (|v(s)| + |u(s)|^2) ds <\infty$ п. н.;
+
+4) с вероятностью $1$ для всех $t\in\mathbb{R}^+$ выполняется равенство
+$$X(t) = X(0) + \int_0^t v(\tau)d\tau + \int_0^t u(\tau)dW(\tau),$$
+то набор $(X, \Omega, \mathcal{F}, \mathbb{P}, \mathcal{F}_t, W(t), v(t), u(t))$
+(или короче $X$) называем $\beta$-слабым решением уравнения 
+\textup{(\ref{general_equation_1})}.
 \end{definition}
 
-Заметим, что условия $f(t, 0, 0) = 0$ и $g(t, 0, 0) = 0$ обеспечивают 
+Заметим, что условия $f(t, 0) = 0$ и $g(t, 0) = 0$ обеспечивают 
 существование нулевого решения уравнения (\ref{general_equation_1}). В работе
 \cite{Vaskovskii} доказано, что если функции $f$ и $g$ измеримы по Борелю и 
 имеют линейный порядок роста, то для любой вероятности $\nu$ на 
-$(C_h,\mathcal{B}(C_h))$ с компактным носителем уравнение
-(\ref{general_equation_1}) имеет слабое решение 
+$(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ с компактным носителем 
+уравнение (\ref{general_equation_1}) имеет слабое решение 
 $(\Omega, \mathcal F, \p, \mathcal F_{t}, W(t), x(t), v(t), u(t))$ с начальным 
 распределением $\nu$.
 
@@ -181,10 +182,9 @@ $|x| \le \delta$, и всех $t \in \mathbb{R}^{+}$,
 дифференциального уравнения~(\ref{general_equation_1}) c выделенной линейной 
 частью вида 
 \begin{equation}\label{mainSys}
-dX(t) = (A(t)X(t) + f(t, X(t), X_t))dt + g(t, X(t), X_t)dW(t),\quad t\ge 0.
+dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
 \end{equation}
-Здесь $X_t = \{X(t+\tau):\, -h\le\tau\le 0\}\in C_h$, $h>0$ --- время 
-запаздывания, $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
+Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
 непрерывная функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
 удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
 
@@ -211,25 +211,25 @@ $s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство
 Для систем~(\ref{mainSys}) и~(\ref{auxillarySys}) определим операторы 
 $B$ и $B_0$ по формулам (\ref{glava1_BV}) и (\ref{glava1_B0V}):
 \begin{gather}\label{glava1_BV}
-BV(s,x, \varphi) = \frac{\partial V(s,x)}{\partial s} + \!\!\!\!\!\sup_{v \in
-F(t,x,\varphi)}\!\!\biggl(\!\frac{\partial V(s,x)}{\partial x}(A(s)x {+}
-v)\!\biggr) \!\!+ \frac{1}{2}\!\!\sup_{u \in
-G(t,x,\varphi)}\!\!\!\!\textup{tr}\!\left(\!\frac{\partial^2 V(s,x)}{\partial
-x^2}uu^\top\!\right)\!,\\ \label{glava1_B0V}
+BV(s,x) = \frac{\partial V(s,x)}{\partial s} + \!\!\!\sup_{v \in
+F(t,x)}\!\biggl(\frac{\partial V(s,x)}{\partial x}(A(s)x {+}
+v)\biggr) \!\!+ \frac{1}{2}\!\sup_{u \in
+G(t,x)}\!\!\textup{tr}\!\left(\frac{\partial^2 V(s,x)}{\partial
+x^2}uu^\top\right)\!,\\ \label{glava1_B0V}
 B_0V(s,x) = \frac{\partial
 V(s,x)}{\partial s} + \frac{\partial V(s,x)}{\partial x}A(s)x,\quad 
 s\in\mathbb{R}^+,\,x\in\mathbb{R}^d,\,\varphi\in C_h.
 \end{gather}
 
 \begin{theorem}\label{mainTheorem}
-Предположим, что функции $f(t, x, \varphi)$ и $g(t, x, \varphi)$ таковы, что 
+Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
 при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
 что выполняются  неравенства \textup{(\ref{mainTheorem_eq1})}
 \begin{equation}\label{mainTheorem_eq1}
-|f(t, x, \varphi)|\le\varepsilon|x|,\qquad |g(t, x, \varphi)|\le\varepsilon|x|,
+|f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
 \end{equation}
 для любых $\,x$, 
-$|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+,\,\varphi\in C_h$, 
+$|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
 а система \textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
 устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
 асимптотически устойчивое по вероятности  нулевое решение.  
@@ -286,17 +286,17 @@ $$
 Обозначая $k_3 = \frac{1}{4M} > 0$, из (\ref{mainTheorem_eq9}) получим: 
 $V(s,t)\ge k_3|x|^2 > 0$ для $x\ne 0$, и следовательно, 4) выполнено.
 
-Осталось показать, что выполнено условие 1). Оценим $BV(s, x, \varphi)$, 
+Осталось показать, что выполнено условие 1). Оценим $BV(s, x)$, 
 используя элементарное неравенство $|\text{tr}A|\le\sqrt{d}|A|$ для 
 $A\in\mathbb{R}^{d\times d}$:
 \begin{gather}
-BV(s, x, \varphi)= BV_0(s, x) + \!\!\!\sup_{v \in F(t,x,\varphi)}
+BV(s, x)= BV_0(s, x) + \!\!\!\sup_{v \in F(t,x)}
 \biggl(\!\frac{\partial V(s,x)}{\partial x}v\!\biggr) +  
-\frac{1}{2}\sup_{u \in G(t,x,\varphi)}\!\!\textup{tr}\!
+\frac{1}{2}\sup_{u \in G(t,x)}\!\!\textup{tr}\!
 \left(\!\frac{\partial^2 V(s,x)}{\partial x^2}uu^\top\!\right) \le \nonumber\\
-\le  -\frac{1}{2}|x|^2 + \!\!\!\sup_{v \in F(t,x,\varphi)}\!\!|v|
+\le  -\frac{1}{2}|x|^2 + \!\!\!\sup_{v \in F(t,x)}\!\!|v|
 \left|\frac{\partial V(s,x)}{\partial x}\right| + 
-\frac{\sqrt{d}}{2}\!\sup_{u \in G(t,x,\varphi)}
+\frac{\sqrt{d}}{2}\!\sup_{u \in G(t,x)}
 \left|\frac{\partial^2 V(s,x)}{\partial x^2}\right||u|^2\le \nonumber\\ 
 \label{mainTheorem_eq10}
 \le-\frac{1}{2}|x|^2 + \varepsilon|x|
@@ -369,7 +369,7 @@ $\left|\frac{\partial^2}{\partial x^2}|X^{(s,x)}(t)|^2\right|\le
 \frac{2d\left(e^{2M T} {-} 1\right)}{2M } = K_2.
 \end{equation}
 Из неравенств (\ref{mainTheorem_eq10}), (\ref{mainTheorem_eq17}), 
-(\ref{mainTheorem_eq20}), следует оценка $BV(s, x, \varphi)\le\linebreak\le 
+(\ref{mainTheorem_eq20}), следует оценка $BV(s, x)\le\linebreak\le 
 \left(-\frac{1}{2} + \varepsilon\,K_1 + 
 \frac{\sqrt d}{2}\varepsilon^2K_2\right)|x|^2$.
 За счет выбора достаточно малого $\varepsilon$ добьемся того, чтобы константа 
