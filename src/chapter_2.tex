@@ -125,16 +125,16 @@ $|x_0| \le \delta$ п.н., выполн€етс€ неравенство (\ref{glava1_prob_asymp_stab}):
 \mathbb{R}^{+}$. Ѕудем говорить, что функци€ $V(t,x)$ удовлетвор€ет 
 \textbf{условию $L$}, если она непрерывно дифференцируема по $t$, дважды 
 непрерывно дифференцируема по $x$ и существует $\delta > 0$ такое, что дл€ 
-любого $t \in \mathbb{R}^{+}$ и любого $\varphi \in C_h$, 
-удовлетвор€ющего условию $|\varphi(0)| \le \delta$, выполнено неравенство 
-$BV(t,\varphi)\le 0,$ где
+любого $t \in \mathbb{R}^{+}$ и любого $x\in\mathbb{R}^d$ такого, что 
+$|x| \le \delta$, выполнено неравенство 
+$BV(t,x) \le 0,$ где
 \begin{equation}\label{glava1_BV}
-BV(t, \varphi) = \frac{\partial V(t, \varphi(0))}{\partial t} +
-\!\!\!\!\!\!\!\sup\limits_{v \in F(t, \varphi(0), \varphi)}
-\!\!\!\left(\! \frac{\partial V(t, \varphi(0))}{\partial x} v \!\right) + 
-\frac{1}{2}\!\sup\limits_{u \in G(t, \varphi(0), \varphi)}
-\!\!\!\!\!\!\!\mbox{tr} \!\left(
-\!\frac{\partial^2 V(t, \varphi(0))}{\partial x^2} uu^{\top}\!\right)\!\!.
+BV(t, x) = \frac{\partial V(t, x)}{\partial t} +
+\sup\limits_{v \in F(t, x)}
+\!\left(\! \frac{\partial V(t, x)}{\partial x} v \!\right) + 
+\frac{1}{2}\sup\limits_{u \in G(t, x)}
+\mbox{tr} \!\left(
+\!\frac{\partial^2 V(t, x)}{\partial x^2} uu^{\top}\!\right)\!\!.
 \end{equation}
 
 —ледующие две теоремы, дающие достаточные услови€ устойчивости и 
@@ -158,8 +158,8 @@ $V: \mathbb{R}^{+} \times$\linebreak$\times\mathbb{R}^{d} \to \mathbb{R}^{+}$,
 дифференцируема€ по $t \in \mathbb{R}^{+}$, дважды дифференцируема€ по~$x$,
 удовлетвор€ющие услови€м:
 
-\textup{1)} $BV(t, \varphi) < \beta(\varepsilon) < 0$  при всех $\varphi$
-таких, что $\varepsilon \le |\varphi(0)| \le \delta,$ и
+\textup{1)} $BV(t, x) < \beta(\varepsilon) < 0$  при всех $x$
+таких, что $\varepsilon \le |x| \le \delta,$ и
 при всех~$t \in \mathbb{R}^{+}$, где 
 $\beta : \mathbb{R}^{+} \to \mathbb{R}^{-}$ -- некотора€ функци€;
 
