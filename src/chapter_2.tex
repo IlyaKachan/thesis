@@ -396,49 +396,43 @@ dy(t)=(-0.1 \cos t \  x(t)-(20+0.1 \sin t)y(t))dt,
 Вернемся к общему случаю сепарабельных гильбертовых пространств $H$ и $U$. 
 Рассмотрим стохастическое эволюционное функциональное уравнение
 \begin{equation}\label{MostGeneralEq}
-dX(t,\omega)=AX(t,\omega)dt+f(t,\omega,X_t(\omega))dt+
-g(t,\omega, X_t(\omega))dW(t,\omega),
+dX(t,\omega)=AX(t,\omega)dt+f(t, X(t, \omega))dt+
+g(t, X(t, \omega))dW(t,\omega),
 \quad(t,\omega) \in \mathbb{R}^+\times\Omega
 \end{equation}
 относительно $X \in H$ с начальным условием
 \begin{equation}\label{MostGeneralStartCond}
-X(t,\omega)=\xi(t,\omega),  \quad t\in[-h,0],\;\omega \in \Omega,
+X(0,\omega)=\xi(\omega),  \quad \omega \in \Omega,
 \end{equation}
-где $f(t,\omega,\varphi)\colon\mathbb{R}^+\times\Omega\times C_h \to H$,
-$g(t,\omega,\varphi)\colon\mathbb{R}^+\times\Omega \times C_h \to L_2(U,H)$ --- 
-измеримые, $\mathcal{F}_t$-согласованные (при любом фиксированном 
-$\varphi\in C_h$), непрерывные по $\varphi$ (при любых фиксированных 
-$(t,\omega)\in\mathbb{R}^+\times\Omega$) функции, $X_t(\omega) =\linebreak= 
-\{X(t{+}\tau,\,\omega)|\,\tau\in[-h,0]\}\in C_h$, $A$ --- линейный оператор, 
+где $f(t, X)\colon\mathbb{R}^+\times H \to H$,
+$g(t, X)\colon\mathbb{R}^+\times H \to L_2(U,H)$ --- 
+измеримые, непрерывные по $X$ (при любом фиксированном 
+$t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор, 
 определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
-$C_0$-полугруппу $S(t)$ на~$H$, $\xi:[-h,0]\times\Omega \to \EuScript D(A)$ --- 
-непрерывный $\mathcal{F}_0$-измеримый случайный процесс, имеющий конечный 
-момент $\E\sup\limits_{t\in[-h,0]}\|\xi(t)\|^p<\infty$ порядка $p>2$. 
+$C_0$-полугруппу $S(t)$ на~$H$, $\xi:\Omega \to \EuScript D(A)$ --- 
+$\mathcal{F}_0$-измеримая случайная величина, имеющая конечный 
+момент $\E\|\xi\|^p<\infty$ порядка $p>2$. 
 В дальнейшем для сокращения обозначений аргумент $\omega$ будем опускать. 
 Все интегралы ниже записаны в предположении их существования и конечности.
 \smallskip
 
-Относительно функций $f(t,\omega,\varphi)$ и $g(t,\omega,\varphi)$ будем 
+Относительно функций $f(t, X)$ и $g(t, X)$ будем 
 предполагать, что выполнены два условия:
 
 \begin{enumerate}
 \item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
-постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых $(\mathcal{F}, 
-\mathcal{B}(C_h))$-измеримых случайных величин 
-$\,\varphi,\psi\colon\Omega\to C_h$, таких, что п.н. 
-$\|\varphi\|\le a$, $\|\psi\|\le a\,$, п.н. выполняются неравенства
+постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
+$\,\varphi,\psi\in H$, таких, что
+$\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
 \begin{equation}\label{LocalLipshitsCond}
-\|f(t,\omega,\varphi) - f(t,\omega,\psi)\|\le q_a\|\varphi-\psi\|,\quad
-\|g(t,\omega,\varphi) - g(t,\omega,\psi)\|\le q_a\|\varphi-\psi\|
+\|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
+\|g(t,\varphi) - g(t,\psi)\|\le q_a\|\varphi-\psi\|
 \end{equation}
 \item \textit{Условие линейного порядка роста}. Существует непрерывная 
 функция~$k\colon\mathbb{R}^+\to\mathbb{R}^+$ такая, что для всех 
-$t\in\mathbb{R}^+$ и любой $(\mathcal{F}, \mathcal{B}(C_h))$-измеримой 
-случайной величины $\eta\colon\Omega\to C_h$ такой, что $\E\|\eta\|^p<\infty$, 
-п.н. выполняются неравенства
+$t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
 \begin{equation}\label{LinearGrowCond}
-\|f(t,\omega,\eta)\|\le k(t)(1+ \|\eta\|), \quad \|g(t,\omega,\eta)\|\le 
-k(t)(1+ \|\eta\|).
+\|f(t,\eta)\|\le k(t)(1+ \|\eta\|), \quad \|g(t,\eta)\|\le k(t)(1+ \|\eta\|).
 \end{equation}
 \end{enumerate}\par
 Стоит отметить, что всякая функция, удовлетворяющая глобальному условию 
@@ -446,33 +440,31 @@ k(t)(1+ \|\eta\|).
 удовлетворяющая локальному условию Липшица, непрерывна.
 \par
 
-\definition Случайный процесс $\,X(t),\,t\,{\ge}-h\,$ называют слабым решением 
+\definition Случайный процесс $\,X(t),\,t\,{\ge}0\,$ называют слабым решением 
 уравнения (\ref{MostGeneralEq}) с начальным условием 
 (\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
 \begin{enumerate}
-\item Процесс $\,X(t), t\ge-h\,$ является $\mathcal{F}_t$-согласованным.
-\item Процесс $\,X(t), t\ge-h\,$ п.н. непрерывен по $t$.
+\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
+\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
 \item $
-X(t)=\left\{\begin{array}{l} \xi(t),\quad t\in[-h,0], \\
-S(t)\xi(0)+\int \limits_0^t \!S(t{-}s)f(s,X_s)ds+\int \limits_0^t
-\!S(t{-}s)g(s,X_s)dW(s), \,t\,{\in}\,\mathbb{R}^+\!.
-\end{array} \right.
+X(t)=
+S(t)\xi +\int \limits_0^t \!S(t{-}s)f(s,X(s))ds+\int \limits_0^t
+\!S(t{-}s)g(s,X(s))dW(s), \,t\,{\in}\,\mathbb{R}^+\!.
 $
 \end{enumerate}
 
-\definition Случайный процесс $\,X(t),\,t\,{\ge}{-}h\,$ называют сильным 
+\definition Случайный процесс $\,X(t),\,t\,{\ge} 0\,$ называют сильным 
 решением уравнения (\ref{MostGeneralEq}) с начальным условием 
 (\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
 \begin{enumerate}
-\item Процесс $\,X(t), t\ge-h\,$ является $\mathcal{F}_t$-согласованным.
-\item Процесс $\,X(t), t\ge-h\,$ п.н. непрерывен по $t$.
+\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
+\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
 \item $X\in\EuScript D(A)$ для почти всех 
-$(t,\omega)\in[-h,\infty)\times\Omega$.
+$(t,\omega)\in\mathbb{R}^+\times\Omega$.
 \item $
-X(t)=\left\{\begin{array}{l} \xi(t),\quad t\in[-h,0], \\
-\xi(0)+\int\limits_0^t AX(s)\,ds + \int \limits_0^t f(s,X_s)ds+
-\int \limits_0^t g(s,X_s)dW(s),\quad t \in\mathbb{R}^+.
-\end{array} \right.
+X(t)=
+\xi+\int\limits_0^t AX(s)\,ds + \int \limits_0^t f(s,X(s))ds+
+\int \limits_0^t g(s,X(s))dW(s),\quad t \in\mathbb{R}^+.
 $
 \end{enumerate}
 
@@ -482,7 +474,7 @@ $
 единственным, если для любое другое решение $Y(t)$ 
 уравнения~(\ref{MostGeneralEq}) с начальным 
 условием~(\ref{MostGeneralStartCond}) п.н. совпадает с $X(t)$, т.е.
-$\Prob(X(t)=Y(t) \;\forall t \ge-h)=1.$
+$\Prob(X(t)=Y(t) \;\forall t \ge 0)=1.$
 \definition Пусть положительная функция $\lambda(t)$ определена для достаточно 
 больших $t>0$, скажем, $t\ge T > 0$. Предположим, что
 \begin{enumerate}
@@ -509,11 +501,11 @@ $R(l) = lR(l,A)$, $\rho_{\mathbb{R}}(A) = \rho(A)\cap~\!\mathbb{R}$.
 аппроксимирующую задачу Коши
 \begin{equation}\label{ApproxEq}
 \begin{array}{l} 
-dX^{(l)}(t,\omega) = AX^{(l)}(t,\omega) + R(l)f(t,\omega,X^{(l)}_t(\omega))dt+
-R(l)g(t,\omega,X^{(l)}_t(\omega))dW(t,\omega),\\
+dX^{(l)}(t,\omega) = AX^{(l)}(t,\omega) + R(l)f(t,X^{(l)}(t, \omega))dt+
+R(l)g(t,X^{(l)}(t, \omega))dW(t,\omega),\\
 \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
 \qquad\qquad\qquad\qquad\qquad\qquad\qquad t \in\mathbb{R}^+,\\
-X^{(l)}(t,\omega) = \xi(t,\omega),\quad t\in[-h,0],
+X^{(l)}(0,\omega) = \xi(\omega),
 \end{array}
 \end{equation}
 где $l\in\rho_{\mathbb{R}}(A)$.
@@ -570,16 +562,16 @@ $\|R(l)\|\le \frac{M\,l}{l-\beta}\le2M$ для $l\ge2\beta$. Далее будем
 $\mathcal F$-измеримые случайные величины с конечным $p$-м моментом, такие, 
 что п.н. $\|\varphi\|\le~a$ и $\|\zeta\| \le a$. Таким образом, задача 
 Коши~(\ref{ApproxEq}) удовлетворяет условиям [\ref{GodovoyOtchet}, теорема 1.1] 
-и следовательно имеет единственное слабое решение $\,X^{(l)}(t),\,t\,{\ge}{-}h$.
+и следовательно имеет единственное слабое решение $\,X^{(l)}(t),\,t\,{\ge}0$.
 
 Докажем, что при наложенных ранее ограничениях найденное слабое решение 
-$\,X^{(l)}(t),\,t\,{\ge}{-}h$ будет также являться и сильным решением задачи 
+$\,X^{(l)}(t),\,t\,{\ge}0$ будет также являться и сильным решением задачи 
 Коши~(\ref{ApproxEq}). Для этого достаточно проверить условия из 
 \cite[предложение 2.3]{Ichikawa}, предварительно зафиксировав произвольный 
 отрезок времени $t\in[0,T]$. Воспользуемся утверждением (c) из 
 \cite[теорема 2.4]{Pazy}, показывающим, что операторы $A$~и~$S(t)$ 
 (a также $(l\,I - A)$ и $S(t)$) перестановочны. Для любых $\,r\in[0,t)$, 
-$\,x\in H$, $u\in U\,$ элементы~(\ref{2.8}),~(\ref{2.9})
+$\,\varphi\in H$, $u\in U\,$ элементы~(\ref{2.8}),~(\ref{2.9})
 \begin{gather}\label{2.8}
 (l\,I {-} A)\,\bigl(S(t{-}r)R(l)f(r, \varphi)\bigr) =
 l\,S(t{-}r)f(r, \varphi)\in H,\\ \label{2.9}
@@ -590,44 +582,41 @@ l\,S(t{-}r)g(r, \varphi)u\in H,
 \,S(t{-}r)R(l)g(r,\varphi)u\in\EuScript{D}(l\,I{-}A) =~\!\EuScript{ D}(A)$. 
 Кроме того, $\xi\in\EuScript{D}(A)$, т.е. условие (a) выполнено. 
 Далее оценим интегралы~(\ref{2.10}) --- (\ref{2.13}) из условия (b):
-\begin{gather}
-\int\limits_0^T\!\!\!\int\limits_0^t
-\!\!\|AS(t{-}r)R(l)f(r, \!{X^{(l)}_r})\|drdt\le\!\!
-\int\limits_0^T\!\!\!\int\limits_0^t 
-\!\!\|(A{-}lI)S(t{-}r)\,l(lI{-}A)^{\!-\!1}\!f(r,{X^{(l)}_r)}\|drdt +\nonumber\\
+\begin{gather}\nonumber
+\int\limits_0^T \int\limits_0^t
+\|AS(t-r)R(l)f(r, X^{(l)}(r))\|drdt\le \\
+\le \int\limits_0^T \int\limits_0^t 
+\|(A - lI)S(t-r)\,l(lI - A)^{-1} f(r, X^{(l)}(r))\|drdt +\nonumber\\
 \label{2.10}
-+\int\limits_0^T\!\!\!\int\limits_0^t
-\|lS(t{-}r)\,l(l\,I{-}A)^{-1}f(r, {X^{(l)}_r})\|drdt = I_1 + I_2,
++\int\limits_0^T \int\limits_0^t
+\|lS(t-r)\,l(l\,I - A)^{-1}f(r, X^{(l)}(r))\|drdt = I_1 + I_2,
 \end{gather}
 \begin{gather}
-I_1 = \int\limits_0^T\!\!\!\int\limits_0^t 
-\|(A{-}l\,I)S(t{-}r)\,l(l\,I{-}A)^{-1}f(r, X^{(l)}_r)\|\,dr\,dt =\nonumber\\ 
-\label{2.11}
-=\int\limits_0^T\!\!\!\int\limits_0^t 
-\!\|S(t{-}r)(A{-}lI)\,l(lI-A)^{-1}\!f(r, \!X^{(l)}_r)\|drdt  
-=l\int\limits_0^T\!\!\!\int\limits_0^t \!\|S(t{-}r)f(r, X^{(l)}_r)\|drdt.
+I_1 = \int\limits_0^T \int\limits_0^t 
+\|(A-l\,I)S(t-r)\,l(l\,I - A)^{-1}f(r, X^{(l)}(r))\|\,dr\,dt =\nonumber\\ 
+=\int\limits_0^T \int\limits_0^t 
+\|S(t-r)(A-lI)\,l(lI-A)^{-1} f(r, X^{(l)}(r))\|drdt  
+= \nonumber \\ \label{2.11}
+= l\int\limits_0^T \int\limits_0^t \|S(t-r)f(r, X^{(l)}(r))\|drdt.
 \end{gather}\par
 Из перестановочности операторов $(l\,I - A)$ и $S(t)$ следует перестановочность 
 операторов $R(l)$ и $S(t)$, так как $(l\,I - A)S(t) = S(t)(l\,I - A)\,
 \Longrightarrow\,S(t) =$ $=(l\,I - A)^{-1}S(t)(l\,I - A)\,\Longrightarrow\, 
 S(t) (l\,I - A)^{-1}=(l\,I - A)^{-1}S(t)$. Поэтому
 \begin{gather}
-I_2 = \!\int_0^T\!\!\!\!\int_0^t \!\!\|lS(t{-}r)R(l)f(r, X^{(l)}_r)\|drdt = 
-\int_0^T\!\!\!\!\int_0^t\!\!\|lR(l)S(t{-}r)f(r, X^{(l)}_r)\|drdt \le \nonumber\\
+I_2 = \int_0^T\int_0^t \|lS(t-r)R(l)f(r, X^{(l)}(r))\|drdt \le \nonumber\\
 \label{2.12}
-\le l\int_0^T\!\!\!\!\int_0^t \|R(l)\|\cdot\|S(t-r)f(r, X^{(l)}_r)\|drdt
-\le2Ml\int_0^T\!\!\!\!\int_0^t \|S(t-r)f(r, X^{(l)}_r)\|drdt, \\
-\int_0^T\!\!\!\int_0^t \|AS(t-r)R(l)f(r, X^{(l)}_r)\|\,dr\,dt \le\nonumber\\
-\le (2M+1)l\int_0^T\!\!\!\int_0^t \|S(t-r)\|\cdot\|f(r, X^{(l)}_r)\|\,dr\,dt
+\le 2Ml\int_0^T\int_0^t \|S(t-r)f(r, X^{(l)}(r))\|drdt, \\
+\int_0^T \int_0^t \|AS(t-r)R(l)f(r, X^{(l)}(r))\|\,dr\,dt \le\nonumber\\
+\le (2M+1)l\int_0^T\int_0^t \|S(t-r)\|\cdot\|f(r, X^{(l)}(r))\|\,dr\,dt
 \le\nonumber\\ 
 \label{2.13}
-= M(2M+1)l\int_0^T\!\!e^{\beta t}dt
-\int_0^t \!\!e^{-\beta r}k(r)(1+\|X^{(l)}_r\|)\,dr = I_3.
+= M(2M+1)l\int_0^T e^{\beta t}dt
+\int_0^t e^{-\beta r}k(r)(1+\|X^{(l)}(r)\|)\,dr = I_3.
 \end{gather}
 Поскольку $X^{(l)}(r)$ п.н непрерывен, то $M_T = 
-\sup\limits_{-h\le r\le T}\|X^{(l)}(r)\| < \infty$ и 
-$\|X^{(l)}_r\|=$ $=\sup\limits_{r-h\le s\le r}\|X^{(l)}_r\|\le M_T$, где 
-$r\le t\le T$. А поскольку функция $k(r)$ непрерывна на $[0,T]$, то интеграл 
+\sup\limits_{0\le r\le T}\|X^{(l)}(r)\| < \infty$. А поскольку функция $k(r)$ 
+непрерывна на $[0,T]$, то интеграл 
 $I_3$, очевидно, п.н. конечен, т.е. условие (b) выполнено. Условие (c) 
 проверяется аналогично.
 
@@ -643,7 +632,7 @@ $C(T)>0$ такая, для слабого решения
 задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond}) выполняется оценка 
 сверху~(\ref{2.14})
 \begin{equation}\label{2.14}
-\E\left(\sup\limits_{-h\le s\le T}\|X(s)\|^p\right)\le C(T).
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C(T).
 \end{equation}
 
 Действительно, используя интегральное неравенство Гельдера, 
@@ -651,37 +640,37 @@ $C(T)>0$ такая, для слабого решения
 (см. предложение~\ref{BurkholderTypeIneq}), можно получить 
 (см. [\ref{DiffJournal}]) оценку вида
 \begin{equation}\label{2.16}
-\E\left(\sup\limits_{-h\le s\le T}\|X(s)\|^p\right)\le C_1(T) + 
-C_2(T)\int_0^{T}\E\left(\sup\limits_{-h\le s\le T}\|X(s)\|^p\right)ds.
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C_1(T) + 
+C_2(T)\int_0^{T}\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)ds.
 \end{equation} \vspace{2pt}
 
 Отсюда согласно неравенству Гронуолла получим неравенство~(\ref{2.17}): 
 \begin{equation}\label{2.17}
-\E\left(\sup\limits_{-h\le s\le T}\|X(s)\|^p\right)\le C_1(T)e^{C_2(T)T} =: C(T),
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C_1(T)e^{C_2(T)T} =: C(T),
 \end{equation}
 как и утверждалось.
 
-Поскольку $\|R(l)\|{\le}2M$ при достаточно больших $l$, то аналогично 
+Поскольку $\|R(l)\| \le 2M$ при достаточно больших $l$, то аналогично 
 доказывается оценка для решения $X^{(l)}(t)$ задачи~(\ref{ApproxEq}): 
 существует постоянная $K(T)$ такая, что 
-$\E\left(\sup\limits_{-h\le s\le T}\|X^{(l)}(s)\|^p\right)\le K(T)$. 
+$\E\left(\sup\limits_{0\le s\le T}\|X^{(l)}(s)\|^p\right)\le K(T)$. 
 Обозначим $C_{T} =\max(C(T), K(T))$.
 
 Для каждых $a, T > 0$ и достаточно большого $l$ определим множество~(\ref{2.18}):
 \begin{equation}\label{2.18}
 \Omega_l^{a,T} = \left\{\omega\in\Omega\,:\;
-\max\left(\sup\limits_{-h\le s\le T}\|X(s)\|, 
-\sup\limits_{-h\le s\le T}\|X^{(l)}(s)\|\right)\le a\right\}
+\max\left(\sup\limits_{0\le s\le T}\|X(s)\|, 
+\sup\limits_{0\le s\le T}\|X^{(l)}(s)\|\right)\le a\right\}
 \end{equation}
 и его характеристическую функцию $\zeta_l^{a,T} = 1_{\Omega_l^{a,T}}(\omega)$. 
 Заметим, что
 \begin{gather}
-X(t) - X^{(l)}(t) = \int_0^t \!\!S(t-s)(I-R(l))f(s, X_s)ds + \nonumber\\
-+\int_0^t \!\!S(t{-}s)(I{-}R(l))g(s, X_s)dW(s) +
-\!\!\! \int_0^t \!\!S(t{-}s)R(l)\left(f(s, X_s) - f(s, X^{(l)}_s)\right)ds+
+X(t) - X^{(l)}(t) = \int_0^t S(t-s)(I-R(l))f(s, X(s))ds + \nonumber\\
++\int_0^t S(t-s)(I-R(l))g(s, X(s))dW(s) + \nonumber\\ 
++\int_0^t S(t-s)R(l)\left(f(s, X(s)) - f(s, X^{(l)}(s))\right)ds+
 \nonumber\\ 
 \label{2.19}
- + \int_0^t \!\!S(t-s)R(l)\left(g(s,X_s) - g(s, X^{(l)}_s)\right)dW(s),
+ + \int_0^t S(t-s)R(l)\left(g(s,X(s)) - g(s, X^{(l)}(s))\right)dW(s),
  \quad t\ge0
 \end{gather}
 Оценивая в равенстве~(\ref{2.19}) каждое слагаемое, используя неравенства 
@@ -757,16 +746,16 @@ $X(t)\xrightarrow[l\to\infty]{\text{п.н.}}X^{(l_n)}(t)$ равномерно
 положительный функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
 \mathbb{R}^+)$, то
 \begin{gather}
-LV(t,x,\varphi) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t,\varphi)\rangle_H + 
+LV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t, x)\rangle_H + 
 \nonumber\\ 
 \label{3.1}
-+\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t,\varphi)Q_w^{1/2})
-(g(t,\varphi)Q_w^{1/2})^\star],
-\quad (t,x,\varphi)\in\mathbb{R}^+{\times} \EuScript D(A){\times} C_h,\\
-QV(t,x,\varphi) = \textup{tr}[V''_{xx}(t,x)\otimes 
-V''_{xx}(t,x)(g(t,\varphi)Q_w^{1/2})(g(t,\varphi)Q_w^{1/2})^\star],\nonumber\\
++\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t, x)Q_w^{1/2})
+(g(t, x)Q_w^{1/2})^\star],
+\quad (t,x)\in\mathbb{R}^+{\times} \EuScript D(A),\\
+QV(t,x) = \textup{tr}[V''_{xx}(t,x)\otimes 
+V''_{xx}(t,x)(g(t, x)Q_w^{1/2})(g(t, x)Q_w^{1/2})^\star],\nonumber\\
 \label{3.2}
-(t,x,\varphi)\in\mathbb{R}^+{\times}H{\times}C_h.
+(t,x)\in\mathbb{R}^+{\times}H.
 \end{gather}\par
 Далее для краткости будем опускать индекс $H$ у скалярного 
 произведения~$\langle\cdot,\cdot\rangle_H$ в пространстве $H$.
@@ -782,9 +771,8 @@ $\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены
 \begin{enumerate}
 \item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
 \mathbb{R}^+{\times}H$.
-\item $LV(t, x,\varphi) + \zeta(t)QV(t, x, \varphi) \le \psi_1(t) + 
-\psi_2(t)V(t, x)\;$ для всех $\;t\in\mathbb{R}^+$, $x\in\EuScript D(A)\;$ и 
-$\;\varphi\in C_h$.
+\item $LV(t, x) + \zeta(t)QV(t, x) \le \psi_1(t) + 
+\psi_2(t)V(t, x)\;$ для всех $\;t\in\mathbb{R}^+$, $x\in\EuScript D(A)\;$.
 \item $\lim\limits_{t\to+\infty}\sup\frac{
 \ln\left(\int_0^t\psi_1(s)\,ds\right)}{\ln\lambda(t)}\,{\le}\,\nu$, 
 $\quad\lim\limits_{t\to+\infty}\sup
@@ -801,23 +789,23 @@ $\quad\lim\limits_{t\to+\infty}\inf\frac{\ln\zeta(t)}{\ln\lambda(t)}\,
 \proof Применим формулу Ито к функционалу $V(t,x)$ и решению (сильному) 
 $X^l(t)$ задачи~(\ref{ApproxEq}). Будем иметь:
 \begin{gather}
-V(t, X^{(l)}(t)) = V(0,\xi(0)) + I_1(t,l) + 
-\int_0^t LV(s, X^{(l)}(s),X^{(l)}_s)\,ds+\nonumber\\ 
+V(t, X^{(l)}(t)) = V(0,\xi) + I_1(t,l) + 
+\int_0^t LV(s, X^{(l)}(s))\,ds+\nonumber\\ 
 \label{ItoFormula}
- + I_2(t,l) + \int_0^t\langle V'_x(s, X(s)), g(s,X_s)dW(s)\rangle,
+ + I_2(t,l) + \int_0^t\langle V'_x(s, X(s)), g(s,X(s))dW(s)\rangle,
 \end{gather}
 где $I_1$, $I_2$, $L_l$ определяются формулами~(\ref{3.4}) ---~(\ref{3.6}):
 \begin{gather}\label{3.4}
-I_1(t,l) = \int_0^t L_l V(s, X^{(l)}(s),X^{(l)}_s)\,ds\, - 
-\int_0^t LV(s, X^{(l)}(s),X^{(l)}_s)\,ds,\\ \label{3.5}
+I_1(t,l) = \int_0^t L_l V(s, X^{(l)}(s))\,ds\, - 
+\int_0^t LV(s, X^{(l)}(s))\,ds,\\ \label{3.5}
 I_2(t,l) = 
-\!\int_0^t\!\!\langle V'_x(s, X^{(l)}\!(s)), R(l)g(s,X^{(l)}_s)dW(s)\rangle - 
-\!\int_0^t\!\!\langle V'_x(s, X(s)), g(s,X_s)dW(s)\rangle,\\
-L_lV(t,x,x_t) = V'_t(t,x) + \langle V'_x(t,x), Ax + 
-R(l)f(t,x_t)\rangle +\nonumber\\
+\int_0^t\langle V'_x(s, X^{(l)}(s)), R(l)g(s,X^{(l)}(s))dW(s)\rangle -\nonumber \\ 
+-\int_0^t\langle V'_x(s, X(s)), g(s,X(s))dW(s)\rangle,\\
+L_lV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + 
+R(l)f(t,x)\rangle +\nonumber\\
 \label{3.6}
-+ \frac{1}{2}\text{tr}\bigl[V''_{xx}(t,x)(R(l)g(t,x_t))\circ 
-Q_w\circ(R(l)g(t,x_t))^\star\bigr].
++ \frac{1}{2}\text{tr}\bigl[V''_{xx}(t,x)(R(l)g(t,x))\circ 
+Q_w\circ(R(l)g(t,x))^\star\bigr].
 \end{gather}\par
 Из равномерной непрерывности функции $\ln\lambda(t)$ следует, что для 
 любого~$\varepsilon>0$ существуют натуральные числа $N = N(\varepsilon)$ и 
@@ -828,8 +816,8 @@ C другой стороны, по экспоненциальному неравенству~(\ref{3.7}) для мартингалов
 \cite[лемма~1.1]{Liu}:
 \begin{equation} \label{3.7}
 \Prob\biggl(\!\omega: \!\sup_{0\le t\le w}\!\biggl(\int\limits_0^t\!
-\langle V'_x(s,X(s)), g(s,X_s)dW(s)\rangle - 
-\!\int\limits_0^t\!\frac{u}{2}QV(s,X(s),X_s)\,ds\!\biggr)\!\! >\! v\!\biggr)\!
+\langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle - 
+\!\int\limits_0^t\!\frac{u}{2}QV(s,X(s))\,ds\!\biggr)\!\! >\! v\!\biggr)\!
 \le e^{-uv}
 \end{equation}
 для любых положительных постоянных $u$, $v$ и $w$. Выбирая их 
@@ -845,9 +833,9 @@ v =\left.\ln\frac{k-1}{2^N}\right/\zeta\left(\frac{k}{2^N}\right),
 для каждого $\omega\in\Omega\setminus\widetilde{\Omega}$ существует натуральное 
 число $k_0(\varepsilon,\omega)$ такое, что
 \begin{equation} \label{3.9}
-\int_0^t\langle V'_x(s,X(s)), g(s,X_s)dW(s)\rangle \le 
+\int_0^t\langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle \le 
 \frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
-\zeta\left(\frac{k}{2^N}\right)\int_0^tQV(s,X(s),X_s)\,ds
+\zeta\left(\frac{k}{2^N}\right)\int_0^tQV(s,X(s))\,ds
 \end{equation}
 для всех $t\in\left[0,\frac{k}{2^N}\right]$, $k = k(\omega)\ge 
 k_0(\varepsilon,\omega)$. Подставляя выражение~(\ref{3.9}) в~(\ref{ItoFormula}) 
@@ -856,7 +844,7 @@ k_0(\varepsilon,\omega)$. Подставляя выражение~(\ref{3.9}) в~(\ref{ItoFormula})
 (см. [\ref{DiffJournal}])
 \begin{gather}\nonumber
 V(t, X^{(l)}) \le \frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
-V(0,\xi(0)) +\\ \label{3.10}
+V(0,\xi) +\\ \label{3.10}
 + \int_0^t\!\!\left(\psi_1(s){+}\psi_2(s)V(s,X^{(l)}(s))\right)\!ds +I_1(t,l) + 
 I_2(t,l) + I_3(t,l),
 \end{gather}
@@ -864,11 +852,11 @@ I_2(t,l) + I_3(t,l),
 k_1(\varepsilon)\}$. Здесь $I_3$ определяется формулой~(\ref{3.11})
 \begin{equation}\label{3.11}
 I_3(t,l) = \zeta\left(\frac{k}{2^N}\right)
-\int_0^t\left(QV(s,X(s),X_s) - QV(s,X^{(l)}(s),X^{(l)}_s)\right)ds.
+\int_0^t\left(QV(s,X(s)) - QV(s,X^{(l)}(s))\right)ds.
 \end{equation}
 Следовательно, согласно лемме Гронуолла, п.н. выполнено неравенство
 \begin{gather*}
-V(t,X^{(l)}(t)) \le \Biggl(V(0,\xi(0)) + 
+V(t,X^{(l)}(t)) \le \Biggl(V(0,\xi) + 
 \frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + \\
 + \sup_{t\in\left[0, \frac{k}{2^N}\right]}\biggl(|I_1(t,l)| + |I_2(t,l)| + 
 |I_3(t,l)| +\int_0^t\psi_1(s)\,ds\biggl)\Biggr)\cdot
@@ -892,16 +880,16 @@ $\omega\in\Omega\setminus
 будем иметь оценку~(\ref{3.13}):
 \begin{gather}
 \sup_{t\in\left[0, \frac{k}{2^N}\right]}|I_1(t,l)| \le 
-\int_0^{k/2^N}\left|L_{l_n} V(s,X^{(l_n)}(s),X^{(l_n)}_s) - 
-LV(s,X^{(l_n)}(s),X^{(l_n)}_s)\right|ds \le\nonumber\\
+\int_0^{k/2^N}\left|L_{l_n} V(s,X^{(l_n)}(s)) - 
+LV(s,X^{(l_n)}(s))\right|ds \le\nonumber\\
 \le\int_0^{k/2^N}
-\left|\langle V'_x(s,X^{(l_n)}(s)), (I-R(l_n))f(s,X^{(l_n)}_s)\rangle\right| ds 
+\left|\langle V'_x(s,X^{(l_n)}(s)), (I-R(l_n))f(s,X^{(l_n)}(s))\rangle\right| ds 
 +\nonumber\\
 +\frac{1}{2}\int_0^{k/2^N}\bigl|\text{tr}
-\bigl[V''_{xx}(s,X^{(l_n)}(s))\bigl\{(R(l_n)g(s,X^{(l_n)}_s)\circ Q_w
-\circ(R(l_n)g(s,X^{(l_n)}_s))^\star -\nonumber\\ 
+\bigl[V''_{xx}(s,X^{(l_n)}(s))\bigl\{(R(l_n)g(s,X^{(l_n)}(s))\circ Q_w
+\circ(R(l_n)g(s,X^{(l_n)}(s)))^\star -\nonumber\\ 
 \label{3.13}
-- g(s,X^{(l_n)}_s)\circ Q_w\circ g(s,X^{(l_n)}_s))^\star\bigr\}\bigr]\bigr|ds
+- g(s,X^{(l_n)}(s))\circ Q_w\circ g(s,X^{(l_n)}(s)))^\star\bigr\}\bigr]\bigr|ds
 \xrightarrow[n\to\infty]{} 0
 \end{gather}
 для всех $k\,{\ge}\,\max\{k_0(\varepsilon,\omega), k_1(\varepsilon)\}$. 
@@ -913,7 +901,7 @@ $\;\sup_{t\in\left[0, \frac{k}{2^N}\right]}|I_3(t,l)|
 
 Следовательно, устремляя $n\to\infty$, получим, что п.н. верно~(\ref{3.14}):
 \begin{equation}\label{3.14}
-V(t,X(t)) \le \left(V(0,\xi(0)) + 
+V(t,X(t)) \le \left(V(0,\xi) + 
 \frac{\ln\frac{k}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
 \frac{\ln\frac{k-1}{k}}{\zeta\left(\frac{k}{2^N}\right)} + 
 \int_0^{k/2^N}\!\!\!\!\!\!\psi_1(s)\,ds\right)
@@ -927,12 +915,12 @@ $\ln\lambda(t)$, для заданного $\varepsilon>0$ найдется натуральное
 $k_2(\varepsilon, \omega)$ такое, что
 \begin{gather}
 \ln V(t, X(t)) \le\nonumber\\
-\le \ln\Biggl(V(0,\xi(0)) + 
+\le \ln\Biggl(V(0,\xi) + 
 \lambda\left(\frac{k}{2^N}\right)^{(\mu +\tau+2\varepsilon)} \!\!\!+
 \; \lambda\left(\frac{k}{2^N}\right)^{(\mu +\varepsilon)}\ln\frac{k-1}{k}+ 
 \lambda\left(\frac{k}{2^N}\right)^{(\nu+\varepsilon)}\Biggr) +\nonumber\\
 +(\theta+\varepsilon)\ln\lambda(t)\le\nonumber\\
-\le\ln\biggl(\!V(0,\xi(0)) +e^{\varepsilon(\mu+\tau+2\varepsilon)}
+\le\ln\biggl(\!V(0,\xi) +e^{\varepsilon(\mu+\tau+2\varepsilon)}
 \lambda(t)^{(\mu+\tau+2\varepsilon)} +
 e^{\varepsilon(\mu+\varepsilon)}\lambda(t)\ln\frac{k{-}1}{k}+
 e^{\varepsilon(\nu+\varepsilon)}\lambda(t)^{(\nu+\varepsilon)}\!\biggr)+
@@ -1010,8 +998,8 @@ $V'_u$ в точке $u\in H$ есть линейный ограниченный функционал такой, что для
 $$V(t, u + h) - V(t, u) -V'_u(t, u) h = o(\|h\|),$$ 
 $$e^{mt}\int_0^\pi (u(s)+h(s))^2\,ds - e^{mt}\int_0^\pi (u(s))^2\,ds = 
 V'_u(t,u)h + o(\|h\|).$$
-А поскольку $(u(s)+h(s))^2 - (u(s))^2 = 2u(s)h(s) + h^2(s)$, то имеем 
-$2e^{mt}\langle u,h\rangle +\linebreak+ e^{mt}\|h\|^2 = V'_u(t,u)h + o(\|h\|)$, 
+Последнее равносильно 
+$2e^{mt}\langle u,h\rangle + e^{mt}\|h\|^2 = V'_u(t,u)h + o(\|h\|)$, 
 откуда $V'_u(t,u) h = 2e^{mt}\langle u,h\rangle \ \forall \,h\in H$. Аналогично 
 $V''_{uu}h = 2e^{mt}\langle h,\cdot \rangle,\; \forall\,h\in H$. Можно показать 
 (см. [\ref{DiffJournal}]), что 
@@ -1070,8 +1058,7 @@ $$\limsup_{t\to+\infty}\frac{\log\|X(t)\|}{t}\le
 Действительно, для $g$:
 $$\|g(t, \bar x) - g(t, \bar y)\|^2 = e^{-mt}\alpha^2
 \int_0^\pi |x(s)-y(s)|^2ds + e^{-mt}\alpha^2(\|x\|-\|y\|)^2\le$$
-$$\le 2e^{-mt}\alpha^2\|x-y\|^2\le 2\alpha^2\|x-y\|^2\le 2\alpha^2\|x-y\|^2 + 
-2\alpha^2|x^1-y^1|^2 = 2\alpha^2\|\bar x- \bar y\|^2.$$
+$$\le 2e^{-mt}\alpha^2\|x-y\|^2\le 2\alpha^2\|\bar x- \bar y\|^2.$$
 Для $f$ имеем: 
 \begin{gather*}
 \|f(t, \bar x) - f(t, \bar y)\|^2 =
@@ -1079,16 +1066,13 @@ $$\le 2e^{-mt}\alpha^2\|x-y\|^2\le 2\alpha^2\|x-y\|^2\le 2\alpha^2\|x-y\|^2 +
 \sin\left(y(s){+}e^{-\frac{mt}{2}}\cos y^1\right)\right|^2\!\!ds +\\
 + \left|x^1\sin x^1 - y^1\sin y^1 + \|x\|-\|y\|\right|^2.
 \end{gather*}
-Поскольку $|\sin x - \sin y| = |\cos\theta_1|\cdot|x-y| \le |x-y|$, 
-$|\cos x - \cos y| =\linebreak= |-\sin\theta_2|\cdot|x-y| \le |x-y|$ для любых 
+Так как $|\sin x - \sin y| \le |x-y|$, 
+$|\cos x - \cos y| \le |x-y|$ для любых 
 $x,y\in\mathbb{R}$, то
 \begin{gather*}
 \|f(t, \bar x) - f(t, \bar y)\|^2 \le \int_0^\pi\left|x(s)-y(s) + 
 e^{-\frac{mt}{2}}\cos x^1 - e^{-\frac{mt}{2}}\cos y^1\right|^2ds +\\
-+\left|x^1\sin x^1 - y^1\sin y^1 + \|x\|-\|y\|\right|^2\le 
-2\int_0^\pi|x(s)-y(s)|^2ds +\\
-+2e^{-mt}\int_0^\pi\left|\cos x^1 - \cos y^1\right|^2ds + 
-2\left|x^1\sin x^1 - y^1\sin y^1\right|^2 + 2|\|x\|-\|y\||^2\le\\
++2\left|x^1\sin x^1 - y^1\sin y^1\right|^2 + 2\|x - y\|^2\le \\
 \le 4\|x-y\|^2 + 2\pi\left|x^1-y^1\right|^2 +  
 2\left|x^1\sin x^1 - y^1\sin y^1\right|^2.
 \end{gather*}
@@ -1100,7 +1084,6 @@ $\|\bar x\|^2 = \int_0^\pi (x(s))^2ds + (x^1)^2 \le a^2$,
 $\|\bar y\|^2 \le a^2$ то и $\left|x^1\right|\le a$, $|y^1|\le a$. 
 Поэтому при любом $a>0$ при условия $\|\bar x\|,\|\bar y\|\le a$ 
 выполняется неравенство
-$$\|f(\bar x) - f(\bar y)\|^2 \le 4\|x-y\|^2 + 2(\pi+q_a^2)
-\left|x^1-y^1\right|^2 \le \max\{4,2(\pi+q_a^2)\}\cdot\|\bar x - \bar y\|^2,$$
+$$\|f(\bar x) - f(\bar y)\|^2 \le \max\{4,2(\pi+q_a^2)\}\cdot\|\bar x - \bar y\|^2,$$
 т.е. локальное условие Липшица выполнено.
 \pagebreak
