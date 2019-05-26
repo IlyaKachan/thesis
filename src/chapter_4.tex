@@ -162,7 +162,7 @@ $F$, из соотношений~(\ref{integration_of_mixed_simplest_eq_1}),
 \textup{(\ref{integration_of_mixed_simplest_cond_2})} .
 \end{theorem}
 
-\begin{proposition}
+\begin{proposition}\label{linear_homogenious_explicit_formula_prop}
 ѕусть заданы скал€рные функции $\alpha(t),$ $\beta(t),$ $\gamma(t)$, при этом 
 $\beta(t)\ne 0$. “огда решение линейного однородного уравнени€
 \begin{equation}
@@ -195,7 +195,7 @@ C\exp\left(\int_0^t\Bigl(\alpha(\tau) - \frac{1}{2}\beta^2(\tau)\Bigr)d\tau +
 где $C = e^{y(0)}$. ѕодставл€€ в формулу $t=0$, находим величину $C=x(0)$, что 
 и требовалось.
 
-\begin{remark} 
+\begin{remark}\label{linear_homogenious_explicit_formula_rmk}
 Ќепосредственной подстановкой найденной формулы дл€ решени€ в уравнение 
 (\ref{integration_of_mixed_linear_eq}) можно убедитьс€, что данна€ формула 
 сохран€ет силу, в том числе, если опустить услови€ $\beta(t)\ne 0$ и $x_0>0.$ 
@@ -258,6 +258,65 @@ x(t) = x_0(t)y(t) =  x_0(t)\biggl(x(0) + \int_0^t \frac{\alpha_2(\tau) -
 \int_0^t\frac{\gamma_2(\tau)}{x_0(\tau)}dB(\tau)\biggr),
 \end{gather*}
 что и требовалось.
+
+\begin{example}
+–ассмотрим линейное однородное уравнение
+$$
+dx(t) = -2t \cdot x(t)dt + t^{1-H}x(t)dB(t),\quad t\ge 0,
+$$
+— учетом предложени€~\ref{linear_homogenious_explicit_formula_prop} и 
+замечани€~\ref{linear_homogenious_explicit_formula_rmk} его решение 
+может быть выражено формулой 
+$$
+x(t) = x(0)\exp\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right).
+$$
+ƒокажем, что нулевое решение рассматриваемого уравнени€ асимптотически
+устойчиво по веро€тности, то есть дл€ любых $\varepsilon_1, \varepsilon_2>0$ 
+найдетс€ $\delta > 0$ така€, что дл€ любого решени€ c начальным 
+значением $x(0)$ таким, что $|x(0)|<\delta$ п.н., выполнено неравенство 
+$\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} < \varepsilon_2$.
+
+»спользу€ €вную фомулу дл€ решени€, получим: 
+$$
+\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} = \Prob\left\{
+  \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
+  \ln\frac{\varepsilon_1}{|x(0)|}
+\right\}.
+$$
+ѕрименим неравенство „ебышева:
+$$
+\Prob\left\{
+  \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
+  \ln\frac{\varepsilon_1}{|x(0)|}
+\right\} \le \frac{
+  \E\sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right)
+}{\ln\varepsilon_1 - \ln|x(0)|}
+$$
+ќценим интеграл, использу€ неравенство Ћав-янга 
+(см. предложение~\ref{LoveYoungIneq}):
+$$
+\int_0^t \!\!\tau^{1-H}dB(\tau) \le 
+C\cdot 
+V_1\left(\tau^{1-H}, [0, t]\right)\cdot 
+V_{1/H}(B(\tau), [0,t]) \le
+C t^{1-H}\|B\|_H t^H = C t\|B\|_H.
+$$
+«десь $C = \zeta(1+1/H)$, $\zeta$ --- дзета-функци€ –имана, 
+а в последнем переходе использовалась монотонность функции 
+$\tau^{1-H}$ и св€зь $1/H$-вариации с нормой √ельдера с 
+показателем $H$ \cite[с. 170]{Friz_Victoir}. “аким образом,
+$$
+\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} \le 
+\frac{\E\sup_{t\ge 0}t(C\|B\|_H - t)}{\ln\varepsilon_1 - \ln|x(0)|} \le
+\frac{\frac{1}{4}C^2\E\|B\|^2_H}{\ln\varepsilon_1 - \ln|x(0)|}.
+$$
+ѕотребовав, чтобы права€ часть последнего неравенства была 
+меньше $\varepsilon_2$, получим значение $\delta$:
+$$
+|x(0)| < \varepsilon_1 
+\exp\left(-\frac{C^2\E\|B\|^2_H}{4\varepsilon_2}\right) =: \delta.
+$$
+\end{example}
 \smallskip
 
 \subsubsection{ѕриведение к линейным неоднородным уравнени€м}
