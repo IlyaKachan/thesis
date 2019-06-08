@@ -161,52 +161,37 @@ $A\in\mathcal{L}(\mathbb{R}^d)$.
 \end{example}
 
 \begin{example}
-Рассмотрим задачу Коши для уравнения в частных производных 
+Рассмотрим начально-краевую задачу для уравнения в частных производных 
 параболического типа
 \begin{gather}\label{ch1_parabolic_eq}
 \frac{\partial u}{\partial t} =a^2 \frac{\partial^2 u}{\partial x^2} + f(t, x),
-\quad t\in\mathbb{R}^+, x\in\mathbb{R},\\ \label{ch1_parabolic_init_val}
-u(0, x) = \varphi(x),\quad x\in\mathbb{R}.
+\quad t\in\mathbb{R}^+, x\in (0,l),\\ \label{ch1_parabolic_init_val}
+u(0, x) = \varphi(x),\quad x\in[0,l], \\ \label{ch1_parabolic_border_val}
+u(t, 0) = u(t, l) = 0,\quad t\in\mathbb{R}^+.
 \end{gather}
+где функции $\varphi$, $f$ таковы, что $\varphi(0)=\varphi(l)=0$, 
+$f(t,0) = f(t, l) = 0$, $t\in\mathbb{R}^+$.
 Ее решение может быть выражено следующей формулой:
-\begin{gather}\nonumber
-u(t,x) = 
-\frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^{+\infty}\varphi(\xi)
-\exp\left(-\frac{(x-\xi)^2}{4a^2t}\right)d\xi + \\ 
+\begin{gather}
 \label{ch1_parabolic_eq_solution}
-+ \int_0^t\int_{-\infty}^{+\infty}
-\frac{f(\tau, \xi)}{2a\sqrt{\pi(t - \tau)}}
-\exp\left(-\frac{(x-\xi)^2}{4a^2(t-\tau)}\right) d\xi d\tau.
+u(t,x) = \int_0^t G(t,x,\xi)\varphi(\xi)d\xi + 
+\int_0^t\int_0^l G(t-\tau, x, \xi)f(\tau, \xi)d\xi d\tau, \\
+\label{ch1_parabolic_eq_solution_func}
+G(t, x, y) = \frac{2}{l}\sum_{n=1}^\infty e^{-(\pi n / l)^2 t}
+\sin\left(\frac{\pi n x}{l}\right)\sin\left(\frac{\pi n y}{l}\right).
 \end{gather}
 
-Задача Коши~(\ref{ch1_parabolic_eq}),~(\ref{ch1_parabolic_init_val}) может
+Задача~(\ref{ch1_parabolic_eq})~---~(\ref{ch1_parabolic_border_val}) может
 быть представлена в виде задачи Коши для обыкновенного дифференциального
 уравнения первого порядка в гильбертовом пространстве. 
 
-Пусть $\nu\colon\mathbb{R}\to\mathbb{R}$ --- заданная четная бесконечно 
-дифференцируемая функция такая, что $\nu(x) = e^{-|x|}$ при $|x|>1$. 
-Обозначим через $L^2_\nu(\mathbb{R})$ гильбертово пространство
-классов измеримых по Лебегу функций $f\colon\mathbb{R}\to\mathbb{R}$ 
-со скалярным произведением 
-$\langle f, g \rangle_{L^2_\nu} = 
-\int_{-\infty}^{+\infty}f(x)g(x)\nu(x)dx$. 
-Через $\mathcal{W}^{p,2}_\nu(\mathbb{R})$, $p\in\mathbb{N}$ 
-обозначим пространство Соболева, состоящее из классов функций $f$, 
-имеющих обобщенные производные $f^{(k)}$, $k\le p$ класса 
-$L^2_\nu(\mathbb{R})$, $f^{(0)}=f$, со скалярным произведением 
-$\langle f, g \rangle_{\mathcal{W}^{p,2}_\nu} = 
-\int_{-\infty}^{+\infty}\sum_{k=0}^p f^{(k)}(x)g^{(k)}(x)\nu(x)dx$. 
-Как известно, пространство $\mathcal{W}^{2,2}_\nu(\mathbb{R})$ 
-всюду плотно в $L^2_\nu(\mathbb{R})$.
-
-Пусть $X(t) = u(t,\cdot)\in L^2_\nu(\mathbb{R})$, 
-$F(t) = f(t,\cdot)\in L^2_\nu(\mathbb{R})$, 
-$\psi = \varphi(\cdot)\in L^2_\nu(\mathbb{R})$, 
+Пусть $H = \{z(\cdot)\in L_2[a,b] \,|\, z(0)=z(l)=0\}$ --- гильбертово пространство,
+$X(t) = u(t,\cdot)\in H$, $F(t) = f(t,\cdot)\in H$, $\psi = \varphi(\cdot)\in H$, 
 $A = a^2\frac{\partial^2}{\partial x^2}$ --- оператор, действующий из 
-$L^2_\nu(\mathbb{R})$ в $L^2_\nu(\mathbb{R})$, с областью определения
-$\EuScript{D}(A) = \mathcal{W}^{2,2}_\nu (\mathbb{R})$.
-Задача Коши~(\ref{ch1_parabolic_eq}),~(\ref{ch1_parabolic_init_val}) 
-может быть интерпретирована следующим образом:
+$H$ в $H$, с областью определения
+$\EuScript{D}(A) = \{z(\cdot)\in \mathcal{W}^{2,2}[a,b] \,|\, z(0)=z(l)=0\}$,
+всюду плотной в $H$. Задача~(\ref{ch1_parabolic_eq})~---~%
+(\ref{ch1_parabolic_border_val}) может быть интерпретирована следующим образом:
 \begin{gather}
 \label{ch1_parabolic_ode_eq}
 \frac{dX}{dt} =AX(t) + F(t), \quad t\in\mathbb{R}^+,\\ 
@@ -214,22 +199,14 @@ $\EuScript{D}(A) = \mathcal{W}^{2,2}_\nu (\mathbb{R})$.
 X(0) = \psi.
 \end{gather}
 
-Классическим решением задачи~(\ref{ch1_parabolic_ode_eq}),%
-~(\ref{ch1_parabolic_ode_init_val}) называют непрерывно дифференцируемую 
-функцию $X(t)$ со значениями в $\mathcal{W}^{2,2}_\nu (\mathbb{R})$, 
-удовлетворяющую равенствам~(\ref{ch1_parabolic_ode_eq}),%
-~(\ref{ch1_parabolic_ode_init_val}). 
-Слабым решением задачи~(\ref{ch1_parabolic_ode_eq}),%
-~(\ref{ch1_parabolic_ode_init_val}) называют непрерывную функцию $X(t)$
-со значениями в $L^2_\nu(\mathbb{R})$, удовлетворяющую при любом 
-$t\in\mathbb{R}^+$ равенству
-$$X(t) = S(t)\psi + \int_0^t S(t-s)F(s)ds,$$
-где операторы $S(t)$ (зачастую формально обозначаемые $e^{At}$) образуют
-$C_0$-полугруппу в $L^2_\nu(\mathbb{R})$ c генератором $A$. Используя 
-формулу~(\ref{ch1_parabolic_eq_solution}), можно показать, что операторы~$S(t)$
-действуют согласно следующей формуле:
-$$S(t)\varphi(\cdot) = \frac{1}{2a\sqrt{\pi t}}\int_{-\infty}^{+\infty}\varphi(\xi)
-\exp\left(-\frac{(\cdot-\xi)^2}{4a^2t}\right)d\xi.$$
+Можно показать, что оператор $A$ является генератором $C_0$-полугруппы 
+$(S(t))_{t\ge 0}$ в $H$, определяемой соотношением
+$$S(t)z(\cdot) = \int_0^l G(t, \cdot, \xi) z(\xi) d\xi, \quad t>0.$$
+
+При этом равенство~(\ref{ch1_parabolic_eq_solution}) перепишется в виде
+соотношения, определяющего слабое решение задачи%
+~(\ref{ch1_parabolic_ode_eq}),~(\ref{ch1_parabolic_ode_init_val}): 
+$X(t) = S(t)\psi + \int_0^t S(t-s)F(s)ds$.
 \end{example}
 
 \subsection{Теория случайных процессов}
