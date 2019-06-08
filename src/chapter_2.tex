@@ -967,8 +967,7 @@ dX^1_t = \left(\alpha X^1_t\sin X^1_t +
 как уравнение относительно $\bar X_t = (X_t(\cdot),X^1_t)^\top$ в пространстве 
 $H\times\mathbb{R}$ 
 с начальным условием $\bar X_0=(X_0(x), X^1_0)^\top = (x_0(x), x^1_0), \
- x\in (0,\pi)$. Здесь $H = L_2[0,\pi]$~--- пространство функций, квадратично 
- интегрируемых по Лебегу на отрезке $[0,\pi]$, $U = \mathbb{R}$. В компактной 
+ x\in (0,\pi)$, $H = L_2[0,\pi]$, $U = \mathbb{R}$. В компактной 
  форме это уравнение примет вид
 \begin{gather}\label{3.18}
 d\bar X_t = (\bar A\bar X_t + f(t, \bar X_t))dt + g(t, \bar X_t)dW_t,\\ \nonumber
@@ -976,11 +975,10 @@ f(t, \bar X_t) = \alpha\left(\sin(X_t(x)+e^{-\frac{mt}{2}}\cos X^1_t),
 X^1_t \sin X^1_t + \|X_t(x)\|_H\right)^\top,\\ \nonumber
 g(t, \bar X_t) = \alpha e^{-\frac{mt}{2}}\left(X_t(x), 
 \left(\int_0^\pi X_t(x)^2dx\right)^{1/2}\right)^\top, \ 
-\bar A = \begin{pmatrix}A & 0\\ 0 & 0\end{pmatrix},
+\bar A = \begin{pmatrix}A & 0\\ 0 & 0\end{pmatrix}, \\ \nonumber
+A = \frac{d^2}{dx^2}, \quad \EuScript{D}(A) = \{u\in C_2[0,\pi]: 
+u(0)=u(\pi) = 0\}
 \end{gather}
-$A = \frac{d^2}{dx^2}$, $\EuScript{D}(A) = \{u\in C_2[0,\pi]: 
-u(0)=u(\pi) = 0\}$, $C_2[0,\pi]$ --- пространство дважды непрерывно 
-дифференцируемых на отрезке $[0,\pi]$ функций.
 
 Уравнение (\ref{3.18}), записанное в интегральной форме, примет вид
 \begin{gather*}
@@ -988,8 +986,9 @@ u(0)=u(\pi) = 0\}$, $C_2[0,\pi]$ --- пространство дважды непрерывно
 \int_0^t\int_{0}^{\pi}G(t-\tau, x, s)f(s, x^1_\tau)ds\,d\tau +\\
 + \int_0^t\int_{0}^{\pi}G(t-\tau, x, s)g(s, x^1_\tau)ds\,dW(\tau),
 \end{gather*}
-где $G(t,x,y) = \frac{2}{\pi}\sum_{n=1}^\infty e^{-n^2 t}\sin nx \sin ny$. 
-Соответственно, оператор $S(t): H\times\linebreak\times\mathbb{R}\to 
+где функция $G(t,x,y)$ определяется по формуле%
+~(\ref{ch1_parabolic_eq_solution_func}) при $l=\pi$. 
+Соответственно, оператор $S(t): H\times\mathbb{R}\to 
 H\times\mathbb{R}$ определяется формулой
 $$S(t)\bar u(\cdot) =  \left(\int_{0}^{\pi}G(t, \cdot ,s)u(s)ds, u^1\right).$$
 
