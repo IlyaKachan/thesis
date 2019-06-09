@@ -362,7 +362,7 @@ $\widetilde{\xi}$ --- случайные величины. В частности, для согласованности со
 Приведем ряд утверждений, которые будем использовать в дальнейшем для 
 проведения оценок.
 
-\begin{proposition}\label{hairer_exercise_4_24}
+\begin{proposition}[ {\cite[с. 65]{Hairer}}]\label{hairer_exercise_4_24}
 Пусть $Y \in C^\alpha([0,T], U)$, $U$ --- конечномерное 
 банахово пространство, $\mathcal{I}\subset [0,T]$ --- фиксированный отрезок. 
 Если для некторых фиксированных $\delta \le |\mathcal{I}|$ 
@@ -370,8 +370,6 @@ $\widetilde{\xi}$ --- случайные величины. В частности, для согласованности со
 справедливо и неравенство $\|Y\|_{\alpha; \mathcal{I}} \le 
 M\left(1\vee 2\delta^{-(1-\alpha)}|\mathcal{I}|^{1-\alpha}\right)$.
 \end{proposition}
-
-Доказательство приведено в \cite{Hairer}, см. утверждение 4.24 на с. 65.
 
 \begin{proposition}\label{hairer_prop_8_3}
 Пусть $X_t$ --- решение уравнения \textup{(\ref{chapter3_main_eq_compact})}. 
@@ -1862,8 +1860,8 @@ $[0,1]$, определяемых следующей формулой:
 $$B^{(N)}_t  = B_{t^{(N)}_{k-1}} + 
 2^N\Bigl(t - t^{(N)}_{k-1}\Bigr)\left(B_{t^{(N)}_k} - B_{t^{(N)}_{k-1}}\right), \ 
 t\in\Bigl[t^{(N)}_{k-1}, t^{(N)}_{k}\Bigr),\; k=1,\ldots, N.$$
-По теореме Лебега о мажорируемой сходимости ввиду 
-\cite[следствие 20]{Coutin_Qian}, получим:
+По теореме о мажорируемой сходимости (предложение~\ref{dominated_convergence_th}) 
+ввиду \cite[следствие 20]{Coutin_Qian}, получим:
 $$\E\biggl(\int_{\Delta^{2k}[0,1]} dB^{(I_{2k})}\biggr) = 
 \lim_{N\to\infty}\E\biggl(\int_{\Delta^{2k}[0,1]} (dB^{(N)})^{(I_{2k})}\biggr).$$
 Поскольку функции $B^{(N)}$ абсолютно непрерывны п.н., то справедливы 

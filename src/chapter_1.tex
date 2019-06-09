@@ -27,10 +27,9 @@ $T\setminus A \in \mathcal{F}$; объединение не более чем счетного количества
 $n\in\mathbb{N}$. Пару $(T, \mathcal{F})$, где $\mathcal{F}$ --- 
 $\sigma$-алгебра подмножеств множества $T$, называют измеримым пространством.
 
-Рассмотрим функции, определенные на измеримом пространстве $(T, \mathcal{F})$.
-Функцию $\mu \colon \mathcal{F}\to\mathbb{R}^+$, заданную на множествах 
-$\sigma$-алгебры $\mathcal{F}$ называют мерой, если выполнены следующие 
-свойства: $\mu(A)\ge 0$ для любого $A\in\mathcal{F}$; 
+Пусть $(T, \mathcal{F})$ --- измеримое пространство.
+Функцию $\mu \colon \mathcal{F}\to\mathbb{R}^+$ называют мерой, если выполнены 
+следующие свойства: $\mu(A)\ge 0$ для любого $A\in\mathcal{F}$; 
 $\mu(\cup_n A_n) = \sum_n \mu(A_n)$ для любого не более чем счетного 
 объединения попарно непересекающихся множеств $A_n \in \mathcal{F}$, 
 $A_n\cap A_m = \emptyset$, $n\ne m$, $n,m\in\mathbb{N}$. Меру~$\mu$ называют 
@@ -77,6 +76,7 @@ $f\colon T\to X,$ таких, что $\|f\|_{L_p}=(\int_T \|f\|^p d\mu)^{1/p}<\infty.$
 интеграла и функций, интегрируемых по Лебегу.
 
 \begin{proposition}[(теорема о мажорируемой сходимости {\cite[c. 83]{Hille_Phillips}})]
+\label{dominated_convergence_th}
 Пусть $(T, \mathcal{F})$ --- измеримое пространство с конечной полной мерой $\mu$, 
 $X$ --- банахово пространство. Если последовательность функций 
 $(f_n)_{n=1}^{\infty}\subset L_1(T, X)$ сходится почти всюду к функции $f(t)$,
@@ -119,8 +119,7 @@ $S(t+s)=S(t)S(s)$ для любых $s, t \ge 0$. Полугруппу
 \frac{S(t)x-x}{t},$ $x \in \EuScript{D}(A)$, называют генератором полугруппы%
 ~$(S(t))_{t \ge 0}$.
 
-\begin{proposition}\textup{\textbf{\cite[теорема 2.2]{Pazy}.}}
-\label{PazySemiroupExpBound}
+\begin{proposition}[ {\cite[теорема 2.2]{Pazy}}]\label{PazySemiroupExpBound}
 Пусть $(S(t))_{t \ge 0}$ --- сильно непрерывная полугруппа на банаховом 
 пространстве $X$. Тогда существуют постоянные~$M \ge 1$ и $\beta\in\mathbb{R}$ 
 такие, что $\|S(t)\|_{\mathcal{L}(X)} \le M e^{\beta t}$ для всех $t \ge 0.$
@@ -205,13 +204,6 @@ X_t(\omega)$, $t\in\mathbb{R}$ понимают семейство заданных на $\Omega$
 случайных величин $(X_t(\omega))_{t\in\mathbb{R}}$, зависящее от 
 параметра~$t\in\mathbb{R}$. Функцию $t\mapsto X(t, \omega)$ при фиксированном 
 $\omega\in\Omega$ называют траекторией процесса $X(t,\omega)$.
-
-Математическим ожиданием случайной величины $\xi$ называют интеграл Лебега 
-$\int_\Omega \xi(\omega) d\Prob$. Условным математическим ожиданием случайной 
-величины $\xi$ относительно $\sigma$-алгебры $\mathcal{G}\subset \mathcal{F}$ 
-называют измеримую относительно $\mathcal{G}$ случайную величину 
-$\widetilde \xi = \E(\xi | \mathcal{G})$ такую, что $\E\widetilde\xi 
-\textbf{1}_A = \E\xi \textbf{1}_A$ для любого $A\in\mathcal{G}$.
 
 Случайный процесс $X(t,\omega)$, $t\ge\tau$ называют центрированным, если 
 $\E X(t, \omega) = 0$ для любого $t\ge\tau$. Случайный процесс $X(t,\omega)$, 
@@ -350,7 +342,7 @@ g(t, \omega, X(t, \omega))dB(t,\omega),$$
 как уравнение вида
 $$X(t,\omega) = X(s,\omega) + \int_s^t f(\tau,\omega, X(\tau,\omega))d\tau + 
 \int_s^t g(\tau, \omega, X(\tau, \omega))dB(\tau,\omega).$$
-Здесь интеграл по $d\tau$ определяется как интеграл Лебега при каждом 
+Здесь интеграл по $d\tau$ определяется как интеграл Бохнера при каждом 
 фиксированном $\omega$. В свою очередь, определение интеграла по $dB$ сильно 
 зависит от свойств процесса $B$. Рассмотрим несколько способов определения 
 интеграла~$\int_S^T \phi(t,\omega) dB(t,\omega)$, которые будут использоваться 
@@ -505,7 +497,7 @@ $\int_0^t |a(s,\omega)|^2 ds<+\infty$ и $\int_0^t |b(s,\omega)| ds<+\infty$
 $$X(t,\omega) = X(0,\omega) + \int_0^t a(s,\omega)ds + 
 \int_0^t b(s,\omega)dB(s).$$
 
-\begin{theorem}\textup{\textbf{(Фомула Ито, \cite[теорема 5.1]{Vatanabe}).}} 
+\begin{proposition}[(фомула Ито, {\cite[теорема 5.1]{Vatanabe}})] 
 Пусть $f\colon\mathbb{R}^+{\times}\mathbb{R}^d\to\mathbb{R}$~--- функция, 
 непрерывная вместе со своими частными производными 
 $\frac{\partial f}{\partial t}$, $\frac{\partial f}{\partial x_i}$, 
@@ -522,7 +514,7 @@ b(\tau,\omega)b(\tau,\omega)^\top\right)\biggr)d\tau +
 \int_0^t \frac{\partial f(\tau, X(\tau, \omega))}{\partial x}
 b(\tau, \omega)dB(\tau,\omega).
 \end{gather*}
-\end{theorem}
+\end{proposition}
 
 Далее будет дано определение интеграла Ито по $\mathcal{F}_t$-согласованному 
 $Q$-броуновскому движению $W(t)$ со значениями в сепарабельном гильбертовом 
@@ -582,9 +574,9 @@ F'_x(s,X(s)),\Phi(s)dW(s) \rangle.
 \end{gather*}
 \end{proposition}
 
-\begin{proposition}\label{BurkholderTypeIneq}
-\textbf{\textup{(Неравенство Буркхольдера \cite{DaPratoConvolutions})}.}
-Пусть $p>1$, $S(t)$ --- $C_0$-полугруппа на $H$. Тогда для любого 
+\begin{proposition}[(Неравенство Буркхольдера \cite{DaPratoConvolutions})]
+\label{BurkholderTypeIneq}
+Пусть $p{>}1$, $S(t)$ --- $C_0$-полугруппа на $H$. Тогда для любого 
 $\mathcal{F}_t$-согласованного процесса~$\Phi\colon[0,T]\times\Omega\to 
 \mathfrak{L}_2(U, H)$ такого, что $\E\left(\int_0^T \|\Phi(s)\|^p ds\right)<+\infty$, 
 выполнятся неравенство
