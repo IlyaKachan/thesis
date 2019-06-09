@@ -336,8 +336,8 @@ g(X_t) - g(X_s) =  \sum_{i=0}^{2^N-1}\biggl(Dg(X_{t_i})f(X_{t_i})B_{t_i, t_{i+1}
 \begin{gather}\label{stability_intro_main_eq_1}
 d\widetilde X_t = \widetilde f(\widetilde X_t)dB_t,\quad t\in[0,T],
 \end{gather}
-в котором $\widetilde f$ --- $(n\times(d+1))$-матрица, столбцами которой являются векторы 
-$\widetilde f_i\colon\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots,d$.
+в котором $\widetilde f$ --- $(n\times(d+1))$-матрица, столбцами которой являются 
+векторы $\widetilde f_i\colon\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots,d$.
 
 Определения решений 
 уравнений~(\ref{chapter3_main_eq_compact}),~(\ref{stability_intro_main_eq_1}) и 
@@ -352,32 +352,36 @@ $\widetilde{\xi}$ --- случайные величины. В частности, для согласованности со
 изменяющейся в малой окрестности $f$ в пространстве $C^2_b(\mathbb{R}^n, 
 \mathbb{R}^{n\times (d+1)})$.
 
-Будем использовать символ $I$ для обозначения отрезков вещественной прямой: 
-$I=[a,b]\subset\mathbb{R}$ длины $|I|=b-a$. Для краткости будем опускать индекс 
-$[0,T]$ для норм, связанных с исходным отрезком интегрирования, полагая 
+Будем использовать символ $\mathcal{I}$ для обозначения отрезков вещественной 
+прямой: $\mathcal{I}=[a,b]\subset\mathbb{R}$ длины $|\mathcal{I}|=b-a$. Для 
+краткости будем опускать индекс $[0,T]$ для норм, связанных с исходным 
+отрезком интегрирования, полагая 
 \linebreak $\|\cdot\|_\alpha :=\|\cdot\|_{\alpha; [0,T]}$, $\|\cdot\|_{\alpha,
 \delta} := \|\cdot\|_{\alpha; [0,T], \delta}$.
 
 Приведем ряд утверждений, которые будем использовать в дальнейшем для 
-проведения оценок. Пусть $Y\in C^\alpha([0,T], U_1)$, $I\subset [0,T]$, где $U_1$ ---
-конечномерное банахово пространство.
+проведения оценок.
 
 \begin{proposition}\label{hairer_exercise_4_24}
-Если $\|Y\|_{\alpha; I, \delta}\le M$, $\delta \le |I|$, то 
-$\|Y\|_{\alpha; I} \le\linebreak\le 
-M\left(1\vee 2\delta^{-(1-\alpha)}|I|^{1-\alpha}\right)$.
+Пусть $Y \in C^\alpha([0,T], U)$, $U$ --- конечномерное 
+банахово пространство, $\mathcal{I}\subset [0,T]$ --- фиксированный отрезок. 
+Если для некторых фиксированных $\delta \le |\mathcal{I}|$ 
+и $M>0$ выполнено неравенство $\|Y\|_{\alpha; \mathcal{I}, \delta}\le M$, то также
+справедливо и неравенство $\|Y\|_{\alpha; \mathcal{I}} \le 
+M\left(1\vee 2\delta^{-(1-\alpha)}|\mathcal{I}|^{1-\alpha}\right)$.
 \end{proposition}
 
-Доказательство приведено в \cite{Hairer}, см. утверждение 4.24 на с. 77.
+Доказательство приведено в \cite{Hairer}, см. утверждение 4.24 на с. 65.
 
 \begin{proposition}\label{hairer_prop_8_3}
 Пусть $X_t$ --- решение уравнения \textup{(\ref{chapter3_main_eq_compact})}. 
-Тогда для любого~$I\subset[0,T]$ длины $|I|\le 1$ п.н. справедливы неравенства
+Тогда для любого отрезка~$\mathcal{I}\subset[0,T]$ длины $|\mathcal{I}|\le 1$ 
+п.н. справедливы неравенства
 \begin{gather}\label{hairer_prop_8_3_eq_X}
-\|X\|_{H; I} \le 
+\|X\|_{H; \mathcal{I}} \le 
 K \left(C_B\|f\|_{C^2_b}\vee \left(C_B\|f\|_{C^2_b}\right)^{1/H}\right),\\ 
 \label{hairer_prop_8_3_eq_R}
-\|R^{X}\|_{2H; I} \le \hat K \left(\left(C_B\|f\|_{C^2_b}\right)^2 \vee 
+\|R^{X}\|_{2H; \mathcal{I}} \le \hat K \left(\left(C_B\|f\|_{C^2_b}\right)^2 \vee 
 \left(C_B\|f\|_{C^2_b}\right)^{1+\frac{1}{H}}\right),
 \end{gather}
 где $C_B = C_B(\|B\|_H, \|\mathbb{B}\|_{2H}) = 
@@ -387,20 +391,21 @@ K \left(C_B\|f\|_{C^2_b}\vee \left(C_B\|f\|_{C^2_b}\right)^{1/H}\right),\\
 
 \proof Равенство~(\ref{hairer_prop_8_3_eq_X}) является простым следствием 
 \cite[предложение 8.3]{Hairer}. Докажем равенство (\ref{hairer_prop_8_3_eq_R}). 
-Используя предложение~\ref{hairer_th_4_10} для $s,t\in I$, будем иметь:
+Используя предложение~\ref{hairer_th_4_10} для $s,t\in \mathcal{I}$,
+будем иметь:
 \begin{gather}\nonumber
 |R^X_{s,t}| = |X_{s,t} - f(X_s)B_{s,t}| \le\\ \nonumber
 \le \left|\int_s^t f(X_r)dB_r - f(X_s)B_{s,t} - 
 Df(X_s)f(X_s)\mathbb{B}_{s,t}\right| + 
 |Df(X_s)f(X_s)\mathbb{B}_{s,t}|\le\\ \nonumber
-\le C\Bigl(\|B\|_{H; I} \|R^{f(X)}\|_{2H; I} + 
-\|\mathbb{B}_{s,t}\|_{2H; I}\|f(X)'\|_{H; I}\Bigr)|t-s|^{3H} +\\
-+ \|Df\|_\infty\|f\|_\infty\|\mathbb{B}\|_{2H; I}|t-s|^{2H}.
+\le C\Bigl(\|B\|_{H; \mathcal{I}} \|R^{f(X)}\|_{2H; \mathcal{I}} + 
+\|\mathbb{B}_{s,t}\|_{2H; \mathcal{I}}\|f(X)'\|_{H; \mathcal{I}}\Bigr)|t-s|^{3H} +\\
++ \|Df\|_\infty\|f\|_\infty\|\mathbb{B}\|_{2H; \mathcal{I}}|t-s|^{2H}.
 \end{gather}
-Рассмотрим последнее неравенство для всех подотрезков $I$ длины 
+Рассмотрим последнее неравенство для всех подотрезков $\mathcal{I}$ длины 
 не больше~$\delta$. Тогда, как следствие
 \begin{gather*}
-\|R^X\|_{2H; \delta} \le \|Df\|_\infty\|f\|_\infty\|\mathbb{B}\|_{2H; I} +\\
+\|R^X\|_{2H; \delta} \le \|Df\|_\infty\|f\|_\infty\|\mathbb{B}\|_{2H; \mathcal{I}} +\\
 + C\Bigl(\|B\|_{H; \delta} \|R^{f(X)}\|_{2H; \delta} + 
 \|\mathbb{B}\|_{2H; \delta}\|f(X)'\|_{H; \delta}\Bigr)\delta^{H}
 \end{gather*}
@@ -452,35 +457,36 @@ c_1\|f\|_{C^2_b}\|\mathbb{B}\|^{1/2}_{2H}\delta^H \le 1.
 $$\|R^X\|_{2H; \delta} \le \|f\|^2_{C^2_b}\left( c_3 + 2c_0^2 \right)C^2_B = 
 c_4 \left(C_B\|f\|_{C^2_b}\right)^2,$$
 где $c_4 = c_3 + 2c_0^2 $. Применяя предложение \ref{hairer_exercise_4_24}, 
-с~учетом $|I| \le 1$, будем иметь:
-$$\|R^X\|_{2H; I} \le c_4\left(C_B\|f\|_{C^2_b}\right)^2 
+с~учетом $|\mathcal{I}| \le 1$, будем иметь:
+$$\|R^X\|_{2H; \mathcal{I}} \le c_4\left(C_B\|f\|_{C^2_b}\right)^2 
 \left(1 \vee 2\delta^{H-1}\right)\le c_5 \left(\left(C_B\|f\|_{C^2_b}\right)^2 
 \vee \left(C_B\|f\|_{C^2_b}\right)^{1+\frac{1}{H}}\right),$$
 где $c_5=c_4(1\vee 2^{1/H}c_1^{(1-H)/H})$ зависит лишь от $H$. 
 Предложение доказано.
 
 \begin{proposition}\label{stab_theorem_T_xi_lemma_I_delta}
-Пусть $t_j = (j\cdot\delta)\wedge T$, $I_j=[t_j, t_{j+1}] \subset [0,T]$, 
-$j=0,1,\ldots$ Тогда  $\|Y\|_{H;\delta} \le 2^{1-H}
-\bigvee_{j=0}^{\lfloor T/\delta\rfloor} \|Y\|_{H;I_j}$.
+Пусть $t_j = (j\cdot\delta)\wedge T$, $\mathcal{I}_j=[t_j, t_{j+1}] \subset [0,T]$, 
+$j=0,1,\ldots$ Тогда справедливо неравенство $\|Y\|_{H;\delta} \le 2^{1-H}
+\bigvee_{j=0}^{\lfloor T/\delta\rfloor} \|Y\|_{H;\mathcal{I}_j}$.
 \end{proposition}
 
 \proof Зафиксируем произвольные $s,t\in [0,T]$ такие, что $0<|t-s|<\delta$, 
-$s<t$. Если $s,t\in I_j$ для некоторого $j$, то, очевидно, $|Y_{s,t}| \le 
-\|Y\|_{H;I_j}|t-s|^H\le |t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
-\|Y\|_{H;I_j}.$ Иначе $s\in I_{j-1}$, $t\in I_j$. В таком случае
+$s<t$. Если $s,t\in \mathcal{I}_j$ для некоторого $j$, то, очевидно, $|Y_{s,t}| \le 
+\|Y\|_{H;\mathcal{I}_j}|t-s|^H\le |t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
+\|Y\|_{H;\mathcal{I}_j}.$ Иначе $s\in \mathcal{I}_{j-1}$, $t\in \mathcal{I}_j$.
+В таком случае
 \begin{gather*}
-|Y_{s,t}| \le |Y_{s,t_j}| + |Y_{t_j,t}| \le \|Y\|_{H;I_{j-1}}|t_j-s|^H + 
-\|Y\|_{H;I_j} |t-t_j|^H\le\\
+|Y_{s,t}| \le |Y_{s,t_j}| + |Y_{t_j,t}| \le \|Y\|_{H;\mathcal{I}_{j-1}}|t_j-s|^H + 
+\|Y\|_{H;\mathcal{I}_j} |t-t_j|^H\le\\
 \le \left(|t-t_j|^H + |t_j-s|^H\right)\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
-\|Y\|_{H;I_j} \le 2^{1-H}|t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
-\|Y\|_{H;I_j},
+\|Y\|_{H;\mathcal{I}_j} \le 2^{1-H}|t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
+\|Y\|_{H;\mathcal{I}_j},
 \end{gather*}
 где в последнем переходе было применено неравенство Иенсена для вогнутой 
 функции $\phi(t) =~t^H$, $t>0$, $H\in(0,1)$. Так как $1-H > 0$, то 
 $2^{1-H} > 1$ и в любом из рассмотренных случаев
 $$|Y_{s,t}| \le 2^{1-H}|t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
-\|Y\|_{H;I_j}$$
+\|Y\|_{H;\mathcal{I}_j}$$
 для $|t-s|\le\delta$. Из последнего неравенства следует требуемое утверждение.
 
 
@@ -515,8 +521,9 @@ $\mathbf{U}, \mathbf{V}, U, V$ --- нормированные векторные пространства над
 \textup{(\ref{stability_intro_main_eq_1})} соответственно с правыми частями 
 $f$, $\widetilde f$ из класса $C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times (d+1)})$, 
 причем функция~$\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
-Тогда для любого отрезка $I=[u,v]\subset [0,T]$ длины $|I|\le 1$ и любых 
-$s,t\in I$ п.н. имеет место следующее неравенство:
+Тогда для любого отрезка $\mathcal{I}=[u,v]\subset [0,T]$ длины 
+$|\mathcal{I}|\le 1$ и любых $s,t\in \mathcal{I}$ п.н. имеет место следующее 
+неравенство:
 $$\left|\int_s^t \left(f(\widetilde X_\tau) - 
 \widetilde f(\widetilde X_\tau)\right) dB_\tau\right| \le 
 C_{f} \|f-\widetilde f\|_{C^2_b}|t-s|^H,$$
@@ -533,9 +540,9 @@ C_{f} \|f-\widetilde f\|_{C^2_b}|t-s|^H,$$
 |\mathbb{B}_{s,t}| +\\ 
 \label{stab_lemma_diff_f_eq_1}
 +C\left(\|B\|_H \left\|R^{f(\widetilde X) - 
-\widetilde f(\widetilde X)}\right\|_{2H;I} + 
+\widetilde f(\widetilde X)}\right\|_{2H;\mathcal{I}} + 
 \|\mathbb{B}\|_{2H}\|f(\widetilde X)' - 
-\widetilde f(\widetilde X)'\|_{H;I}\right)|t-s|^{3H}.
+\widetilde f(\widetilde X)'\|_{H;\mathcal{I}}\right)|t-s|^{3H}.
 \end{gather}
 Следуя \cite[лемма 7.3, теорема 8.4]{Hairer}, имеют место следующие соотношения 
 для производных Губинелли:
@@ -558,7 +565,8 @@ Df(\widetilde X_\cdot)\cdot \widetilde f(\widetilde X_\cdot) =
 |\mathbb{B}_{s,t}| \le \|f- \widetilde f\|_{C^2_b}\|\widetilde f\|_{C^2_b}
 \|\mathbb{B}\|_{2H} |t-s|^{H}
 \end{gather*}
-для любых $s,t\in I$, $|I|\le 1$. Из неравенства треугольника следует, что 
+для любых $s,t\in \mathcal{I}$, $|\mathcal{I}|\le 1$. Из неравенства 
+треугольника следует, что 
 $\|\widetilde f\|_{C^2_b} \le\linebreak\le \|f\|_{C^2_b} + 1$ Таким образом,
 \begin{equation}\label{stab_lemma_diff_f_eq_2}
 \left|f(\widetilde X_s) - \widetilde f(\widetilde X_s)\right| |B_{s,t}| + 
@@ -567,7 +575,7 @@ $\|\widetilde f\|_{C^2_b} \le\linebreak\le \|f\|_{C^2_b} + 1$ Таким образом,
 \end{equation}
 где $c_0 = \|B\|_H + (1+ \|f\|_{C^3_b})\|\mathbb{B}\|_{2H}$.
 
-Далее оценим $\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H;I}$. 
+Далее оценим $\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H;\mathcal{I}}$. 
 Используя соотношения (\ref{stab_lemma_diff_f_eq_f_deriv}), 
 (\ref{stab_lemma_diff_f_eq_waved_f_deriv}) и формулу конечных приращений 
 будем иметь:
@@ -577,7 +585,7 @@ $\|\widetilde f\|_{C^2_b} \le\linebreak\le \|f\|_{C^2_b} + 1$ Таким образом,
 \left|\left(Df\cdot \widetilde f - 
 D\widetilde f \cdot \widetilde f\right)(\widetilde X_\cdot)_{s,t}\right| \le\\
 \le \bigl\|D\bigl((Df - D\widetilde f )\cdot \widetilde f \bigr)\bigr\|_\infty 
-\|\widetilde X\|_{H;I} |t-s|^H.
+\|\widetilde X\|_{H;\mathcal{I}} |t-s|^H.
 \end{gather*}
 Поскольку $D\bigl((Df - D\widetilde f )\cdot \widetilde f \bigr) = 
 (D^2f - D^2\widetilde f)\cdot \widetilde f + 
@@ -587,14 +595,14 @@ $\bigl\|D\bigl((Df - D\widetilde f )\cdot \widetilde f \bigr)\bigr\|_\infty \le
 2 (1 + \|f\|_{C^3_b})\|f-\widetilde f\|_{C^2_b}$. Отсюда ввиду предложения 
 \ref{hairer_prop_8_3} выводим неравенство
 \begin{equation} \label{stab_lemma_diff_f_eq_3}
-\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H;I}\le 
+\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H;\mathcal{I}}\le 
 c_{f'} \|f-\widetilde f\|_{C^2_b},
 \end{equation}
 где $c_{f'} =  2 (1 + \|f\|_{C^3_b})  K 
 \left((1+\|f\|_{C^3_b})C_B \vee \left((1+\|f\|_{C^3_b})C_B\right)^{1/H}\right)$.
 
 Осталось оценить 
-$\left\|R^{f(\widetilde X) - \widetilde f(\widetilde X)}\right\|_{2H;I}$. 
+$\left\|R^{f(\widetilde X) - \widetilde f(\widetilde X)}\right\|_{2H;\mathcal{I}}$. 
 Учитывая соотношения (\ref{stab_lemma_diff_f_eq_f_deriv}), 
 (\ref{stab_lemma_diff_f_eq_waved_f_deriv}) и формулу конечных приращений, для 
 некоторого $\widetilde\theta \in (0,1)$ будем иметь:
@@ -613,15 +621,17 @@ R^{\widetilde X}_{s,t} =\\
 D\widetilde f(\widetilde X_s)\right)R^{\widetilde X}_{s,t}.
 \end{gather*}
 Из последнего равенства, равенства (\ref{norm_of_X_tensor_squared}) и формулы 
-конечных приращений следует, что для любых $s,t\in I$ имеет место оценка
+конечных приращений следует, что для любых $s,t\in \mathcal{I}$ имеет место 
+оценка
 \begin{gather*}
 \left|R^{f(\widetilde X)-\widetilde f(\widetilde X)}_{s,t}\right| \le 
-\left(\frac{1}{2}\|\widetilde X\|^2_{H;I} + \|R^{\widetilde X}\|_{2H;I}\right)
+\left(\frac{1}{2}\|\widetilde X\|^2_{H;\mathcal{I}} + 
+\|R^{\widetilde X}\|_{2H;\mathcal{I}}\right)
 \|f-\widetilde f\|_{C^2_b} |t-s|^{2H},
 \end{gather*}
 из которой с учетом предложения \ref{hairer_prop_8_3} устанавливаем неравенство
 \begin{equation} \label{stab_lemma_diff_f_eq_4}
-\left\|R^{f(\widetilde X) - \widetilde f(\widetilde X)}_{s,t}\right\|_{2H; I} 
+\left\|R^{f(\widetilde X) - \widetilde f(\widetilde X)}_{s,t}\right\|_{2H; \mathcal{I}} 
 \le  c_R\|f-\widetilde f\|_{C^2_b}
 \end{equation}
 где $c_R = \frac{1}{2}K^2\left(K_B^2\vee K_B^{2/H}\right) + 
@@ -645,13 +655,14 @@ D\widetilde f(\widetilde X_s)\right)R^{\widetilde X}_{s,t}.
 $f$, $\widetilde f$ из класса $C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times (d+1)})$, 
 причем функция~$\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
 Тогда для любых функций $g, \widetilde g\in C^1_b$, любого отрезка 
-$I=[u,v]\subset [0,T]$ длины $|I|\le 1$ и любого $s\in I$ п.н. справедливо 
-неравенство
+$\mathcal{I}=[u,v]\subset [0,T]$ длины $|\mathcal{I}|\le 1$ и любого 
+$s\in \mathcal{I}$ п.н. справедливо неравенство
 \begin{gather*}
 |g(X_s) - \widetilde g(\widetilde X_s)|\le \|g - \widetilde g\|_\infty + 
 C_{0;g}\|f - \widetilde f\|_{C^2_b} +  C_{1;g}|X_u -\widetilde X_u| + \\
-+ C_{2;g}\left(\|B\|_H\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H;I} + 
-\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H;I}\right) |I|^{3H},
++ C_{2;g}\left(\|B\|_H\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H;\mathcal{I}} + 
+\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H;\mathcal{I}}\right) 
+|\mathcal{I}|^{3H},
 \end{gather*}
 где $C_{0;g} = C_{0;g}(H, \|g\|_{C^1_b}, \|f\|_{C^3_b}, \|B\|_H, 
 \|\mathbb{B}\|_{2H})$, $C_{1;g} = C_{1;g}(H, \|g\|_{C^1_b}, \|f\|_{C^3_b}, 
@@ -688,16 +699,21 @@ M_1 \le  \left|f(X_u) - f(\widetilde X_u)\right||B_{u,s}| +
 \left|(Df\cdot f)(X_u) - (Df\cdot \widetilde f)(\widetilde X_u)\right|
 |\mathbb{B}_{u,s}| +\nonumber \\ 
 \label{stab_lemma_X_s_eq_2}
-+C\left(\|B\|_{H; I}\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H; I} + 
-\|\mathbb{B}\|_{2H; I}\|f(X)' - f(\widetilde X)'\|_{H; I}\right) |s-u|^{3H}.
++C\left(\|B\|_{H; \mathcal{I}}
+\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H; \mathcal{I}} + 
+\|\mathbb{B}\|_{2H; \mathcal{I}}
+\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}}\right) |s-u|^{3H}.
 \end{gather}
 Осталось заметить, что ввиду формулы конечных приращений, примененной к 
-функциям $f$ и $Df\cdot f $, для любого $s\in I$, $|I|\le 1$ будем иметь:
+функциям $f$ и $Df\cdot f $, для любого $s\in \mathcal{I}$, $|\mathcal{I}|\le 1$ 
+будем иметь:
 \begin{gather}\nonumber
 \left|f(X_u) - f(\widetilde X_u)\right||B_{u,s}| \le \|Df\|_\infty 
-|X_u - \widetilde X_u|\cdot \|B\|_{H;I} |s-u|^H\le\\ 
+|X_u - \widetilde X_u|\cdot \|B\|_{H;\mathcal{I}} |s-u|^H\le\\ 
 \label{stab_lemma_X_s_eq_3}
-\le \|f\|_{C^3_b}\|B\|_H |X_u - \widetilde X_u|,\\ \nonumber
+\le \|f\|_{C^3_b}\|B\|_H |X_u - \widetilde X_u|,
+\end{gather} 
+\begin{gather}\nonumber
 \left|Df(X_u)f(X_u) - Df(\widetilde X_u)\widetilde f(\widetilde X_u)\right|
 |\mathbb{B}_{u,s}| 
 \le \\ \nonumber
@@ -712,8 +728,9 @@ M_1 \le  \left|f(X_u) - f(\widetilde X_u)\right||B_{u,s}| +
 \begin{gather*}
 |g(X_s) - g(\widetilde X_s)| \le \|g - \widetilde g\|_\infty + 
 C_{0;g}\|f - \widetilde f\|_{C^2_b} + C_{1;g}|X_u - \widetilde X_u| +\\
-+C_{2;g} \left(\|B\|_H\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H; I} + 
-\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; I}\right) |I|^{3H},
++C_{2;g} \left(\|B\|_H\left\|R^{f(X)-f(\widetilde X)}\right\|_{2H; \mathcal{I}} + 
+\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}}\right) 
+|\mathcal{I}|^{3H},
 \end{gather*}
 где $C_{0;g} = \|g\|_{C^1_b}(\|f\|_{C^3_b}\|\mathbb{B}\|_{2H} + C_{f})$, 
 $C_{1;g} = \|g\|_{C^1_b}\left(1{+}\|f\|_{C^3_b}\|B\|_H {+} 
@@ -726,16 +743,16 @@ $C_{1;g} = \|g\|_{C^1_b}\left(1{+}\|f\|_{C^3_b}\|B\|_H {+}
 \textup{(\ref{stability_intro_main_eq_1})} соответственно с правыми частями 
 $f$,~$\widetilde f$ из класса $C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times (d+1)})$, 
 причем функция~$\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
-Для любого отрезка $I=[u,v]\subset [0,T]$ длины $|I|\le 1$ п.н. имеет место 
-следующее неравенство:
-$$\|f(X)' - f(\widetilde X)'\|_{H;I} \le C_1|X_u - \widetilde X_u| + 
-C_2\|f - \widetilde f\|_{C^2_b} + C_3\|X - \widetilde X\|_{H;I},$$
+Для любого отрезка $\mathcal{I}=[u,v]\subset [0,T]$ длины $|\mathcal{I}|\le 1$ 
+п.н. имеет место следующее неравенство:
+$$\|f(X)' - f(\widetilde X)'\|_{H;\mathcal{I}} \le C_1|X_u - \widetilde X_u| + 
+C_2\|f - \widetilde f\|_{C^2_b} + C_3\|X - \widetilde X\|_{H;\mathcal{I}},$$
 где $C_j = C_j(H, \|f\|_{C^3_b}, \|B\|_H, \|\mathbb{B}\|_{2H})$, $j=1,2,3$ --- 
 случайные величины.
 \end{lemma}
 
 \proof Введем обозначения: $Y_{s,t}(\theta)= Y_s + \theta Y_{s,t}$, 
-$\theta\in(0,1)$, $s,t\in I$, $\varphi=Df\cdot f$. С учетом соотношений, 
+$\theta\in(0,1)$, $s,t\in \mathcal{I}$, $\varphi=Df\cdot f$. С учетом соотношений, 
 аналогичных (\ref{stab_lemma_diff_f_eq_f_deriv}), 
 (\ref{stab_lemma_diff_f_eq_waved_f_deriv}), следуя формуле конечных приращений, 
 найдутся $\theta_1, \theta_2, \theta\in(0,1)$ такие, что
@@ -769,17 +786,18 @@ D\varphi(\widetilde X_{s,t}(\theta_2))\right| \le
 |\theta_1 {-} \theta_2|\cdot|X_{s,t} {-} \widetilde X_{s,t}|\right)\le\\ 
 \label{stab_lemma_f_gub_eq_2}
 \le \|f\|^2_{C^3_b}\left(|X_u - \widetilde X_u| + 
-\|X - \widetilde X\|_{H;I}|u-s|^H + \|X - \widetilde X\|_{H;I}|t-s|^H\right).
+\|X - \widetilde X\|_{H;\mathcal{I}}|u-s|^H + 
+\|X - \widetilde X\|_{H;\mathcal{I}}|t-s|^H\right).
 \end{gather}
 С учетом соотношений (\ref{stab_lemma_f_gub_eq_1}), 
 (\ref{stab_lemma_f_gub_eq_2}), очевидных неравенств 
-$|\widetilde X_{s,t}|\le\linebreak\le \|\widetilde X\|_{H;I}|t-s|^H$, 
+$|\widetilde X_{s,t}|\le\linebreak\le \|\widetilde X\|_{H;\mathcal{I}}|t-s|^H$, 
 $\|\widetilde f\|_{C^2_b} \le 1+\|f\|_{C^3_b}$ и предложения 
-\ref{hairer_prop_8_3} для любых $s,t\in I$ будем иметь:
+\ref{hairer_prop_8_3} для любых $s,t\in \mathcal{I}$ будем иметь:
 \begin{gather*}
 \left|\left(f(X_\cdot)' - f(\widetilde X_\cdot)'\right)_{s,t}\right| \le 
 \left(C_1|X_u {-} \widetilde X_u| + C_2\|f {-} \widetilde f\|_{C^2_b} + 
-C_3\|X {-} \widetilde X\|_{H;I}\right) |t{-}s|^H,
+C_3\|X {-} \widetilde X\|_{H;\mathcal{I}}\right) |t{-}s|^H,
 \end{gather*}
 где $C_1 = \|f\|^2_{C^3_b}C_{\widetilde X}$, 
 $C_2=2\|f\|_{C^3_b}C_{\widetilde X}$, $C_3 = 
@@ -794,11 +812,11 @@ $C_{\widetilde X} =\linebreak= K\!\left(\!(1{+}\|f\|_{C^3_b})C_B
 \textup{(\ref{stability_intro_main_eq_1})} соответственно с правыми частями $f$,
 $\widetilde f$ из класса $C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times (d+1)})$, 
 причем функция~$\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
-Для любого отрезка $I=[u,v]\subset [0,T]$ длины $|I|\le 1$ п.н. имеет место 
-следующее неравенство:
-$$\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I} \le 
+Для любого отрезка $\mathcal{I}=[u,v]\subset [0,T]$ длины $|\mathcal{I}|\le 1$ 
+п.н. имеет место следующее неравенство:
+$$\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I}} \le 
 C_4|X_u - \widetilde X_u| + C_5\|f - \widetilde f\|_{C^2_b} +
- C_6\|X - \widetilde X\|_{H;I},$$
+ C_6\|X - \widetilde X\|_{H;\mathcal{I}},$$
 где $C_j = C_j(H, \|f\|_{C^3_b}, \|B\|_H, \|\mathbb{B}\|_{2H})$, 
 $j=4,5,6$~--- случайные величины.
 \end{lemma}
@@ -844,11 +862,12 @@ X^{\otimes 2}_{s,t} - D^2 f(\widetilde X_{s,t}(\theta))
 \label{stab_lemma_R_f_eq_4}
 + \left(Df(X_s)R^{X}_{s,t} - Df(\widetilde X_s)R^{\widetilde X}_{s,t}\right).
 \end{gather}
-Далее зафиксируем произвольные $s,t\in I$ такие, что $|t-s|\le \delta$ для 
-некоторого~$\delta \le |I|$ и получим оценку на 
+Далее зафиксируем произвольные $s,t\in \mathcal{I}$ такие, что 
+$|t-s|\le \delta$ для некоторого~$\delta \le |\mathcal{I}|$ и получим оценку на 
 $\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H; \delta}$, оценивая слагаемые в 
-равенстве~(\ref{stab_lemma_R_f_eq_4}). Выберем отрезок $I_\delta \subset I$ 
-длины $|I_\delta|\le \delta$, содержащий точки~$s,t\in I_\delta$.
+равенстве~(\ref{stab_lemma_R_f_eq_4}). Выберем отрезок 
+$\mathcal{I}_\delta \subset \mathcal{I}$ длины $|\mathcal{I}_\delta|\le \delta$, 
+содержащий точки~$s,t\in \mathcal{I}_\delta$.
 
 \textsc{Шаг 1. } Оценим первое слагаемое в (\ref{stab_lemma_R_f_eq_4}). 
 Очевидно,
@@ -861,23 +880,23 @@ D^2 f(\widetilde X_{s,t}(\theta)) \widetilde X^{\otimes 2}_{s,t}\right| \le
 + \left|\widetilde X^{\otimes 2}_{s,t}\right|\left|D^2 f(X_{s,t}(\theta)) - 
 D^2 f(\widetilde X_{s,t}(\theta))\right|.
 \end{gather}
-Ввиду формулы конечных приращений и неравенства $|I|\le 1$:
+Ввиду формулы конечных приращений и неравенства $|\mathcal{I}|\le 1$:
 \begin{gather}\nonumber
 \left|D^2 f(X_{s,t}(\theta)) - D^2 f(\widetilde X_{s,t}(\theta))\right| \le 
 \|D^3 f\|_\infty \left(|X_s -\widetilde X_s| + 
 |\theta| |X_{s,t}-\widetilde X_{s,t}|\right)\le\\ 
 \label{stab_lemma_R_f_eq_6}
 \le \|f\|_{C^3_b} \left(|X_u - \widetilde X_u| + 
-2\|X -\widetilde X\|_{H;I}\right).
+2\|X -\widetilde X\|_{H;\mathcal{I}}\right).
 \end{gather}
 Из определения евклидовой нормы нетрудно установить справедливость соотношений
 \begin{gather}\label{norm_of_X_tensor_squared}
 \left|\widetilde X^{\otimes 2}_{s,t}\right| = |\widetilde X_{s,t}|^2 \le
-\|\widetilde X_{s,t}\|^2_{H;I} |t-s|^{2H},\\ 
+\|\widetilde X_{s,t}\|^2_{H;\mathcal{I}} |t-s|^{2H},\\ 
 \label{stab_lemma_R_f_eq_7}
 \left|X^{\otimes 2}_{s,t} - \widetilde X^{\otimes 2}_{s,t}\right| \le 
-\sqrt{2\left(\|X\|^2_{H; I} + \|\widetilde X\|^2_{H; I}\right)} 
-\|X - \widetilde X\|_{H; I} |t-s|^{2H},
+\sqrt{2\left(\|X\|^2_{H; \mathcal{I}} + \|\widetilde X\|^2_{H; \mathcal{I}}\right)} 
+\|X - \widetilde X\|_{H; \mathcal{I}} |t-s|^{2H},
 \end{gather}
 
 Учитывая равенства (\ref{stab_lemma_R_f_eq_5}) --- (\ref{stab_lemma_R_f_eq_7}) 
@@ -885,7 +904,7 @@ D^2 f(\widetilde X_{s,t}(\theta))\right|.
 \begin{gather}\label{stab_lemma_R_f_eq_8_1}
 \left|D^2 f(X_{s,t}(\theta)) X^{\otimes 2}_{s,t} - 
 D^2 f(\widetilde X_{s,t}(\theta)) \widetilde X^{\otimes 2}_{s,t}\right|\le 
-\left(c_1 |X_u {-} \widetilde X_u| + c_2 \|X{-}\widetilde X\|_{H; I}\right) 
+\left(c_1 |X_u {-} \widetilde X_u| + c_2 \|X{-}\widetilde X\|_{H; \mathcal{I}}\right) 
 |t{-}s|^{2H},
 \end{gather}
 где $c_1 = \|f\|_{C^3_b}C^2_{\widetilde X}$, $c_2 = 2c_1 + 
@@ -907,7 +926,7 @@ $C_{X} = K\left(C_B\|f\|_{C^3_b}\vee
 \begin{gather}\label{stab_lemma_R_f_eq_10}
 \left|Df(X_s) - Df(\widetilde X_s)\right| \le \|D^2f\|_\infty
 \left|X_s - \widetilde X_s\right| \le \|f\|_{C^3_b}\left(|X_u - \widetilde X_u| 
-+ \|X -\widetilde X\|_{H;I}\right).
++ \|X -\widetilde X\|_{H;\mathcal{I}}\right).
 \end{gather}
 Рассмотрим разность остатков:
 \begin{gather}\nonumber
@@ -929,8 +948,8 @@ M_2= \left|\int_s^t \left(f(\widetilde X_\tau) -
 \nonumber
 M_1\le\left|(Df\cdot f)(X_s) - (Df\cdot \widetilde f)(\widetilde X_s)\right|
 |\mathbb{B}_{s,t}| +\\ \label{stab_lemma_R_f_eq_12_1}
-+ C\left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I_\delta} + 
-\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; I_\delta}\right)
++ C\left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I}_\delta} + 
+\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}_\delta}\right)
 \delta^H|t-s|^{2H},
 \end{gather}
 где константа $C$ зависит лишь от $H$. По аналогии с неравенством 
@@ -941,25 +960,26 @@ M_1\le\left|(Df\cdot f)(X_s) - (Df\cdot \widetilde f)(\widetilde X_s)\right|
 \|Df\|_\infty\|f - \widetilde f\|_\infty\le\\ 
 \label{stab_lemma_R_f_eq_13}
 \le \|f\|^2_{C^3_b}\left(|X_u - \widetilde X_u| + 
-\|X -\widetilde X\|_{H;I}\right) + \|f\|_{C^3_b}\|f - \widetilde f\|_{C^2_b}.
+\|X -\widetilde X\|_{H;\mathcal{I}}\right) + 
+\|f\|_{C^3_b}\|f - \widetilde f\|_{C^2_b}.
 \end{gather}
 Согласно лемме \ref{stab_lemma_f_gub} найдутся случайные величины 
 $C_1, C_2, C_3$ (зависящие только от $H$, $\|f\|_{C^3_b}$, $\|B\|_H$, 
 $\|\mathbb{B}\|_{2H}$) такие, что 
 \begin{equation}\label{stab_lemma_R_f_eq_14}
-\|f(X)' - f(\widetilde X)'\|_{H; I} \le C_1|X_u - \widetilde X_u| + 
-C_2\|f-\widetilde f\|_{C^2_b} + C_3\|X -\widetilde X\|_{H;I}.
+\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}} \le C_1|X_u - \widetilde X_u| + 
+C_2\|f-\widetilde f\|_{C^2_b} + C_3\|X -\widetilde X\|_{H;\mathcal{I}}.
 \end{equation}
-Учитывая, что $\|\cdot\|_{H; I_\delta} \le \|\cdot\|_{H; I}$, 
-$\|\cdot\|_{2H; I_\delta}\le \|\cdot\|_{2H; I, \delta}$, $\delta\le 1$, 
+Учитывая, что $\|\cdot\|_{H; \mathcal{I}_\delta} \le \|\cdot\|_{H; \mathcal{I}}$, 
+$\|\cdot\|_{2H; \mathcal{I}_\delta}\le \|\cdot\|_{2H; \mathcal{I}, \delta}$, $\delta\le 1$, 
 подставляя (\ref{stab_lemma_R_f_eq_13}), (\ref{stab_lemma_R_f_eq_14}) в 
 (\ref{stab_lemma_R_f_eq_12_1}), получим оценку
 \begin{gather}\nonumber
 M_1 \le \biggl(C_{M_1, 1} |X_u-\widetilde X_u| +C_{M_1, 2} 
-\|X -\widetilde X\|_{H;I} + C_{M_1, 3} \|f-\widetilde f\|_{C^2_b}+\\
+\|X -\widetilde X\|_{H;\mathcal{I}} + C_{M_1, 3} \|f-\widetilde f\|_{C^2_b}+\\
 \label{stab_lemma_R_f_eq_15}
 + C\|B\|_H \delta^H 
-\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta} \biggr)|t-s|^{2H},
+\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta} \biggr)|t-s|^{2H},
 \end{gather}
 где $C_{M_1, 1} = \|\mathbb{B}\|_{2H}\Bigl(\|f\|^2_{C^3_b} + CC_1\Bigr)$, 
 $C_{M_1, 2} = \|\mathbb{B}\|_{2H}\left(\|f\|^2_{C^3_b} + CC_3\right)$, 
@@ -971,9 +991,9 @@ $C_{M_1, 3} =\linebreak =\|\mathbb{B}\|_{2H}\Bigl(\|f\|_{C^3_b} + CC_2\Bigr)$.
 M_2\le\left|(Df\cdot \widetilde f)(\widetilde X_s) - 
 (D\widetilde f\cdot \widetilde f)(\widetilde X_s)\right||\mathbb{B}_{s,t}| +\\
 + C\left(\|B\|_H 
-\left\|R^{f(\widetilde X) -\widetilde f(\widetilde X)}\right\|_{2H;I_\delta} + 
+\left\|R^{f(\widetilde X) -\widetilde f(\widetilde X)}\right\|_{2H;\mathcal{I}_\delta} + 
 \|\mathbb{B}\|_{2H}
-\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H; I_\delta}\right)|t-s|^{2H}.
+\|f(\widetilde X)' - \widetilde f(\widetilde X)'\|_{H; \mathcal{I}_\delta}\right)|t-s|^{2H}.
 \end{gather*}
 Используя неравенства (\ref{stab_lemma_diff_f_eq_2}) --- 
 (\ref{stab_lemma_diff_f_eq_4}), из последнего соотношения можно вывести 
@@ -989,9 +1009,9 @@ Cc_{f'}\|\mathbb{B}\|_{2H}$.
 \ref{hairer_prop_8_3}, получаем окончательно оценку:
 \begin{gather}\nonumber
 \left|Df(X_s)R^{X}_{s,t} - Df(\widetilde X_s)R^{\widetilde X}_{s,t}\right| \le 
-\biggl(c_3|X_u-\widetilde X_u| + c_4\|X -\widetilde X\|_{H;I} + 
+\biggl(c_3|X_u-\widetilde X_u| + c_4\|X -\widetilde X\|_{H;\mathcal{I}} + 
 c_5\|f - \widetilde f\|_{C^2_b} +\\ \label{stab_lemma_R_f_eq_16}
-+ c_6\delta^H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta}\biggr)
++ c_6\delta^H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta}\biggr)
 |t-s|^{2H},
 \end{gather}
 где $c_i = c_i(H, \|f\|_{C^3_b}, \|B\|_H, \|\mathbb{B}\|_{2H}) = 
@@ -1003,36 +1023,36 @@ $c_{3,4}(y) =\linebreak= \|f\|_{C^3_b}\left(\hat K
 \smallskip
 
 Применяя оценки (\ref{stab_lemma_R_f_eq_8_1}), (\ref{stab_lemma_R_f_eq_16}) к 
-равенству (\ref{stab_lemma_R_f_eq_4}), получим, что для любых~$s,t\in I$ таких, 
-что $|t-s|\le \delta$, справедливо неравенство
+равенству (\ref{stab_lemma_R_f_eq_4}), получим, что для любых~$s,t\in \mathcal{I}$ 
+таких, что $|t-s|\le \delta$, справедливо неравенство
 \begin{gather*}
 \left|R^{f(X) - f(\widetilde X)}_{s,t}\right| \le 
-\biggl(c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;I} +\\
+\biggl(c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;\mathcal{I}} +\\
 + c_5\|f - \widetilde f\|_{C^2_b} + c_6\delta^H 
-\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta}\biggr)|t-s|^{2H},
+\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta}\biggr)|t-s|^{2H},
 \end{gather*}
 где $c_8 = \frac{1}{2}c_1+c_3$, $c_7 = \frac{1}{2}c_2+c_4$. Отсюда заключаем, 
 что
 \begin{gather*}
-\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta} \le 
-c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;I} +
+\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta} \le 
+c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;\mathcal{I}} +
 c_5\|f - \widetilde f\|_{C^2_b}+\\
-+ c_6\delta^H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta}
++ c_6\delta^H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta}
 \end{gather*}
-для произвольного $\delta\in (0, |I|]$. Теперь выберем и зафиксируем $\delta$ 
-таким, чтобы
+для произвольного $\delta\in (0, |\mathcal{I}|]$. Теперь выберем и зафиксируем 
+$\delta$ таким, чтобы
 $$c_6\delta^H = C\|B\|_H\delta^H \le \frac{1}{2} \,\Longleftrightarrow\, 
 \delta \le (2C\|B\|_H)^{-1/H},$$
-т.е. положим $\delta := |I|\wedge(2C\|B\|_H)^{-1/H}$. При таком выборе
-$$\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I,\delta} \le 
-2c_8|X_u-\widetilde X_u| + 2c_7\|X -\widetilde X\|_{H;I} + 
+т.е. положим $\delta := |\mathcal{I}|\wedge(2C\|B\|_H)^{-1/H}$. При таком выборе
+$$\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I},\delta} \le 
+2c_8|X_u-\widetilde X_u| + 2c_7\|X -\widetilde X\|_{H;\mathcal{I}} + 
 2c_5\|f - \widetilde f\|_{C^2_b}.$$
 Из последнего равенства, предложения \ref{hairer_exercise_4_24} и неравенства 
-$|I|\le 1$ вытекает
+$|\mathcal{I}|\le 1$ вытекает
 \begin{gather*}
-\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H; I} \le 
+\left\|R^{f(X) - f(\widetilde X)}\right\|_{2H; \mathcal{I}} \le 
 2\left(1 \vee 2(2C\|B\|_H)^{\frac{1-H}{H}}\right)\times\\
-\times\left(c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;I} + 
+\times\left(c_8|X_u-\widetilde X_u| + c_7\|X -\widetilde X\|_{H;\mathcal{I}} + 
 c_5\|f - \widetilde f\|_{C^2_b}\right),
 \end{gather*}
 откуда и следует требуемое неравенство. Лемма доказана.
@@ -1076,9 +1096,10 @@ $\|f\|_{C^3_b}$.
 \end{theorem}
 
 \proof Докажем первое утверждение теоремы. Зафиксируем произвольный отрезок 
-$I=[u,v]\subset[0,T]$ достаточно малой длины $|I|\le 1\wedge T$ (точное значение 
-длины $|I|$ будет указано ниже) и получим оценку на $\|X - \widetilde X\|_{H; I}$. 
-Выберем произвольные~$s,t\in\linebreak\in I$, очевидно справедливо неравенство
+$\mathcal{I}=[u,v]\subset[0,T]$ достаточно малой длины $|\mathcal{I}|\le\linebreak
+\le 1\wedge T$ (точное значение длины $|\mathcal{I}|$ будет указано ниже) и 
+получим оценку на $\|X - \widetilde X\|_{H; \mathcal{I}}$. Выберем произвольные~%
+$s,t\in\mathcal{I}$, очевидно справедливо неравенство
 \begin{equation}
 |X_{s,t} - \widetilde X_{s,t}| = \left|\int_s^t f(X_\tau) dB_\tau - 
 \int_s^t \widetilde f(\widetilde X_\tau) dB_\tau\right| \le M_1 + M_2,
@@ -1092,69 +1113,72 @@ dB_\tau\right|$, $M_2 = \left|\int_s^t \left(f(\widetilde X_\tau) -
  M_1 \le \left|f(X_s) - f(\widetilde X_s)\right|\|B\|_H|t-s|^H +\\
 + \left|(Df\cdot f)(X_s) - (Df\cdot\widetilde f)(\widetilde X_s)\right|
 \|B\|_{2H}|t-s|^{2H} +\\
-+ C\left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H; I} + 
-\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; I}\right)|t-s|^{3H}.
++ C\left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H; \mathcal{I}} + 
+\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}}\right)|t-s|^{3H}.
 \end{gather*}
 Введем обозначение: $c_{1,2}(K_1, K_2) = K_1\|B\|_H + K_2\|B\|_{2H}$. Применяя 
 лемму~\ref{stab_lemma_X_s} к функциям $f$ и $\widetilde f$, $Df\cdot f$ и 
-$Df\cdot \widetilde f$,  учитывая, $|I|\le 1$, из последнего неравенства легко 
+$Df\cdot \widetilde f$,  учитывая, $|\mathcal{I}|\le 1$, из последнего неравенства легко 
 вывести:
 \begin{gather*}
 \frac{|X_{s,t} - \widetilde X_{s,t}|}{|t-s|^H} \le 
 c_0 \|f - \widetilde f\|_{C^2_b} + c_1 |X_u -\widetilde X_u| +\\
-+ \widetilde C \left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;I} + 
-\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; I}\right)|I|^{2H},
++ \widetilde C \left(\|B\|_H \left\|R^{f(X) - f(\widetilde X)}\right\|_{2H;\mathcal{I}} + 
+\|\mathbb{B}\|_{2H}\|f(X)' - f(\widetilde X)'\|_{H; \mathcal{I}}\right)|\mathcal{I}|^{2H},
 \end{gather*}
 где $c_0 = c_{1,2}(1, \|f\|_{C^3_b})$, $c_1 = c_{1,2}(C_{1;f}, C_{1;Df\cdot f})$, 
 $\widetilde C = c_{1,2}(C_{2;f}, C_{2;Df\cdot f}) + C$. Причем $c_1, c_2$ --- 
 случайные величины, зависящие только от $H$, $\|f\|_{C^3_b}$, $\|B\|_H$, 
-$\|\mathbb{B}\|_{2H}$, но не зависящие от $s,t,$ $I$.
+$\|\mathbb{B}\|_{2H}$, но не зависящие от $s,t,$ $\mathcal{I}$.
 
 Далее, применяя леммы~\ref{stab_lemma_f_gub},~\ref{stab_lemma_R_f} к правой 
-части последнего неравенства, с учетом $|I|\le 1$ получим:
+части последнего неравенства, с учетом $|\mathcal{I}|\le 1$ получим:
 \begin{gather*}
 \frac{M_1}{|t-s|^H} \le c_2\|f - \widetilde f\|_{C^2_b} + 
-c_3|X_u -\widetilde X_u| + c_4|I|^{H}\|X-\widetilde X\|_{H; I},
+c_3|X_u -\widetilde X_u| + c_4|\mathcal{I}|^{H}\|X-\widetilde X\|_{H; \mathcal{I}},
 \end{gather*}
 где $c_2 = c_0 + \widetilde C\cdot c_{1,2}(C_5, C_3)$, $c_3 = c_1 + 
 \widetilde C\cdot c_{1,2}(C_4, C_1)$, 
 $c_4 = \widetilde C\cdot c_{1,2}(C_6, C_3)$. 
 Причем $c_3, c_4$ --- случайные величины, зависящие от $H, \|f\|_{C^3_b}, 
-\|B\|_H, \|\mathbb{B}\|_{2H}$, но не зависящие от $s,t,$ $I$. Из леммы 
+\|B\|_H, \|\mathbb{B}\|_{2H}$, но не зависящие от $s,t,$ $\mathcal{I}$. Из леммы 
 \ref{stab_lemma_diff_f} следует, что $\frac{M_2}{|t-s|^H} \le 
 C_{f} \|f - \widetilde f\|_{C^2_b}$, а посему
 $$\frac{|X_{s,t}-\widetilde X_{s,t}|}{|t-s|^H} \le c_3|X_u -\widetilde X_u| + 
-c_4|I|^{H}\|X-\widetilde X\|_{H; I} + c_5\|f - \widetilde f\|_{C^2_b},$$
+c_4|\mathcal{I}|^{H}\|X-\widetilde X\|_{H; \mathcal{I}} + 
+c_5\|f - \widetilde f\|_{C^2_b},$$
 где $c_5 = c_2 + C_{f}$. Последнее неравенство справедливо для любых 
-$s,t\in I$, $s\ne t$, а значит,
-$$\|X-\widetilde X\|_{H; I} \le  c_3|X_u -\widetilde X_u| +c_5
-\|f - \widetilde f\|_{C^2_b} +  c_4 |I|^{H}\|X-\widetilde X\|_{H; I}$$
-для произвольного $|I|\in (0, 1]$. Теперь выберем $|I|$ таким, чтобы 
-выполнялось соотношение
-$$c_4|I|^{H} \le \frac{1}{2} \,\Longleftrightarrow\, |I| \le 
+$s,t\in \mathcal{I}$, $s\ne t$, а значит,
+$$\|X-\widetilde X\|_{H; \mathcal{I}} \le  
+c_3|X_u -\widetilde X_u| +
+c_5\|f - \widetilde f\|_{C^2_b} +  
+c_4 |\mathcal{I}|^{H}\|X-\widetilde X\|_{H; \mathcal{I}}$$
+для произвольного $|\mathcal{I}|\in (0, 1]$. Теперь выберем $|\mathcal{I}|$ таким, 
+чтобы выполнялось соотношение
+$$c_4|\mathcal{I}|^{H} \le \frac{1}{2} \,\Longleftrightarrow\, |\mathcal{I}| \le 
 (2c_4)^{-1/H}=:\delta_0,$$
 
-Таким образом, для любого отрезка $I=[u, v]\subset [0, T]$ длины 
-$|I| \le  1\wedge T \wedge \delta_0$ справедливо неравенство
+Таким образом, для любого отрезка $\mathcal{I}=[u, v]\subset [0, T]$ длины 
+$|\mathcal{I}| \le  1\wedge T \wedge \delta_0$ справедливо неравенство
 \begin{equation}\label{stab_theorem_T_xi_small_eq}
-\|X-\widetilde X\|_{H; I} \le c|X_u -\widetilde X_u| + 
+\|X-\widetilde X\|_{H; \mathcal{I}} \le c|X_u -\widetilde X_u| + 
 c_f \|f - \widetilde f\|_{C^2_b},
 \end{equation}
 где $c = 2c_3$, $c_f = 2c_5$. Если $1\wedge T \wedge \delta_0 = T$, то 
-$I = [0,T]$, и неравенство (\ref{stab_theorem_T_xi_small_eq}) доказывает 
+$\mathcal{I} = [0,T]$, и неравенство (\ref{stab_theorem_T_xi_small_eq}) доказывает 
 требуемое. Поэтому пусть далее $T > 1\wedge\delta_0=:\delta_1$.
 
 Построим разбиение отрезка $[0,T]$ точками $t_j := (j\cdot \delta_1) \wedge T$, 
 где $j=0,1,\ldots$ Заметим, что $t_N = T$ при $N\ge \frac{T}{\delta_1}$, 
-а также, что отрезки $I_j = [t_j, t_{j+1}]$ имеют длины $|I_j|\le \delta_1$, 
-$j=0,1,\ldots$ Поэтому из неравенства (\ref{stab_theorem_T_xi_small_eq}) 
-следуют оценки
-$$\|X-\widetilde X\|_{H; I_j} \le c |X_{t_j} -\widetilde X_{t_j}| + 
+а также, что отрезки $\mathcal{I}_j = [t_j, t_{j+1}]$ имеют длины 
+$|\mathcal{I}_j|\le \delta_1$, $j=0,1,\ldots$ Поэтому из неравенства~%
+(\ref{stab_theorem_T_xi_small_eq}) следуют оценки
+$$\|X-\widetilde X\|_{H; \mathcal{I}_j} \le c |X_{t_j} -\widetilde X_{t_j}| + 
 c_f \|f - \widetilde f\|_{C^2_b},$$
 для $j < \frac{T}{\delta_1}$. Заметим, что
 \begin{gather*}
 |X_{t_j} - \widetilde X_{t_j}| \le |X_{t_{j-1}} -\widetilde X_{t_{j-1}}| + 
-\delta_1^H \|X-\widetilde X\|_{H; I_{j-1}} \le\\
+\delta_1^H \|X-\widetilde X\|_{H; \mathcal{I}_{j-1}} \le\\
 \le (1+ c \delta_1^H) |X_{t_{j-1}} -\widetilde X_{t_{j-1}}| +  
 c_f\delta_1^H \|f - \widetilde f\|_{C^2_b}.
 \end{gather*}
@@ -1167,7 +1191,7 @@ c_f\delta_1^H \|f - \widetilde f\|_{C^2_b}\sum_{k=0}^{j-1}(1+ c \delta_1^H)^k =\
 \end{gather*}
 для $j < \frac{T}{\delta_1}$. Таким образом,
 \begin{gather}\label{stab_theorem_T_xi_eq_small_I_j}
-\|X-\widetilde X\|_{H; I_j} \le (1+ c \delta_1^H)^{T / \delta_1} 
+\|X-\widetilde X\|_{H; \mathcal{I}_j} \le (1+ c \delta_1^H)^{T / \delta_1} 
 \left(c |\xi -\widetilde \xi| + c_f\|f - \widetilde f\|_{C^2_b}\right)
 \end{gather}
 для любого $j=0,1,\ldots,\lfloor\frac{T}{\delta_1}\rfloor$. 

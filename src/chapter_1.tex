@@ -49,22 +49,24 @@ $f^{-1}(M)\in \mathcal{F}_1$. Отображение $f\colon T_1\to T_2$ называют
 Пусть $(T, \mathcal{F}, \mu)$ --- измеримое пространство с конечной мерой $\mu$.
 Рассмотрим заданную на нем функцию $f\colon T \to \mathbb{R}^+$, являющуюся 
 $(\mathcal{F}, \mathcal{B}(\mathbb{R}^+))$-измеримой. Интегралом Лебега функции 
-$f$ по множеству~$I\in \mathcal{F}$ называют предел интегральных сумм
+$f$ по множеству~$\mathcal{I}\in \mathcal{F}$ называют предел интегральных сумм
 \begin{gather*}
-\int_I f(t)d\mu = \lim_{n\to\infty} \biggl(\sum_{i=0}^{n2^n-1} (i \cdot n2^{-n})
-\cdot\mu\{t\in I:\; i\cdot n2^{-n}< f(t) \le (i{+}1)\cdot n2^{-n}\} +\\
-+ n\mu\{t\in I:\; f(t)>n\}\biggr)
+\int_\mathcal{I} f(t)d\mu = \lim_{n\to\infty} 
+\biggl(\sum_{i=0}^{n2^n-1} (i \cdot n2^{-n})\cdot
+\mu\{t\in \mathcal{I}:\; i\cdot n2^{-n}< f(t) \le (i{+}1)\cdot n2^{-n}\} +\\
++ n\mu\{t\in \mathcal{I}:\; f(t)>n\}\biggr)
 \end{gather*}
 Для измеримой функции $f\colon T \to \mathbb{R}$, принимающей произвольные 
 действительные значения, введем в рассмотрение функции $f^+(t) = 
 \max\{f(t), 0\}$ и $f^-(t) = \min\{-f(t), 0\}$; очевидно, $f(t) = f^+(t) - 
 f^-(t)$, $|f(t)| = f^+(t) + f^-(t)$ и $f^+(t), f^-(t) \ge 0$ для любого 
-$t\in T$. Интеграл Лебега определяют как $\int_I f(t)d\mu = \int_I f^+(t)d\mu - 
-\int_I f^-(t)d\mu$ и считают, что функция $f$ интегрируема по Лебегу, если 
-$\int_I |f(t)|d\mu < +\infty$. Для функции $f\colon T \to \mathbb{R}^d$, 
-$f = (f_1, \ldots, f_d)$ под интегралом Лебега будем понимать вектор из 
-интегралов Лебега от ее компонент: $\int_I f(t)d\mu = \left(\int_I f_1(t)d\mu, 
-\ldots, \int_I f_d(t)d\mu\right)$.
+$t\in T$. Интеграл Лебега определяют как $\int_\mathcal{I} f(t)d\mu = 
+\int_\mathcal{I} f^+(t)d\mu - \int_\mathcal{I} f^-(t)d\mu$ и считают, что 
+функция $f$ интегрируема по Лебегу, если $\int_\mathcal{I} |f(t)|d\mu < +\infty$. 
+Для функции $f\colon T \to \mathbb{R}^d$, $f = (f_1, \ldots, f_d)$ 
+под интегралом Лебега будем понимать вектор из интегралов Лебега 
+от ее компонент: $\int_\mathcal{I} f(t)d\mu = \left(\int_\mathcal{I} f_1(t)d\mu, 
+\ldots, \int_\mathcal{I} f_d(t)d\mu\right)$.
 
 \begin{theorem}[о мажорируемой сходимости (Лебег)]
 Пусть $(T, \mathcal{F}, \mu)$ --- измеримое пространство с конечной мерой $\mu$.
@@ -72,8 +74,9 @@ $f = (f_1, \ldots, f_d)$ под интегралом Лебега будем понимать вектор из
 функций $(f_n)_{n=1}^{\infty}$ сходится почти всюду к функции $f(t)$ и при этом 
 существует интегрируемая по Лебегу функция $\varphi$ такая, что $|f_n|\le 
 \varphi$ для всех $n$, то $f$ --- также интегрируемая по Лебегу функция, причем
-$$\lim_{n\to\infty} \int_I f_n(t)d\mu = \int_I \lim_{n\to\infty} f_n(t)d\mu = 
-\int_I f(t)d\mu.$$
+$$\lim_{n\to\infty} \int_\mathcal{I} f_n(t)d\mu = 
+\int_\mathcal{I} \lim_{n\to\infty} f_n(t)d\mu = 
+\int_\mathcal{I} f(t)d\mu.$$
 \end{theorem}
 
 Пусть $(T, \mathcal{F})$ --- измеримое пространство с конечной мерой $\mu,$ 
@@ -631,18 +634,20 @@ $\mathbb{R}$. Пространство функций, непрерывных по Гельдеру с
  $$C^\alpha([0,T], W) = \left\{Z\colon[0,T]\to W\;\Bigl|\;\|Z\|_\alpha =
  \sup\limits_{s,t\in[0,T]: s\ne t}\frac{|Z_t - Z_s|_W}{|t-s|^\alpha} 
  < \infty\right\}.$$
-Через $\|\cdot\|_{\alpha; I}$ обозначим норму Гельдера с показателем $\alpha$ 
-на отрезке $I$, а через~$\|\cdot\|_{\alpha; I, \delta}$ --- норму Гельдера 
-с показателем $\alpha$, взятую по подотрезкам отрезка $I$ длины не более 
-$\delta$, т.е.
-$$\|Y\|_{\alpha;I} = \sup_{\substack{s,t \in I\\ s\ne t}}
-\frac{|Y_{s,t}|}{|t-s|^\alpha}, \quad \|Y\|_{\alpha; I,\delta} = 
-\sup_{\substack{s,t \in I\\  0<|t-s|\le \delta}}\frac{|Y_{s,t}|}{|t-s|^\alpha}$$
+Через $\|\cdot\|_{\alpha; \mathcal{I}}$ обозначим норму Гельдера с 
+показателем~$\alpha$ на отрезке $\mathcal{I}$, а через~%
+$\|\cdot\|_{\alpha; \mathcal{I}, \delta}$ --- норму Гельдера 
+с показателем $\alpha$, взятую по подотрезкам отрезка $\mathcal{I}$ длины 
+не более $\delta$, т.е.
+$$\|Y\|_{\alpha;\mathcal{I}} = \sup_{\substack{s,t \in \mathcal{I}\\ s\ne t}}
+\frac{|Y_{s,t}|}{|t-s|^\alpha}, \quad \|Y\|_{\alpha; \mathcal{I},\delta} = 
+\sup_{\substack{s,t \in \mathcal{I}\\  0<|t-s|\le \delta}}\frac{|Y_{s,t}|}{|t-s|^\alpha}$$
 для функций $Y\in C^\alpha ([0,T], U_1)$ или $Y\in C_2^\alpha ([0,T]^2, U_2)$. 
 Очевидно, 
-$$\|\cdot\|_{\alpha; I, \delta} \le \|\cdot\|_{\alpha; I}\le 
-\|\cdot\|_{\alpha; [0,T], |I|} \le \|\cdot\|_{\alpha; [0,T]}$$ 
-для любых $I\subset[0,T]$, $\delta \in (0, |I|]$, где $I$ --- длина отрезка $I$.
+$$\|\cdot\|_{\alpha; \mathcal{I}, \delta} \le \|\cdot\|_{\alpha; \mathcal{I}}\le 
+\|\cdot\|_{\alpha; [0,T], |\mathcal{I}|} \le \|\cdot\|_{\alpha; [0,T]}$$ 
+для любых $\mathcal{I}\subset[0,T]$, $\delta \in (0, |\mathcal{I}|]$, 
+где~$|\mathcal{I}|$~--- длина отрезка $\mathcal{I}$.
 
 В дальнейшем будут рассматриваться функции $R(s,t)$, отображающие~$(s,t) \in 
 [0,T]^2$ непрерывно в $W$, которые удовлетворяют некоторому аналогу свойства 
@@ -736,25 +741,26 @@ $$Y'\mathbb{Z} =
 \cite[теорема 4.10]{Hairer}, \cite[предложение 1]{Gubinelli}.
 
 \begin{proposition}\label{hairer_th_4_10}
-Пусть функция $Z\in \mathscr{C}^{\alpha}(I, W)$ и $(Y,Y')\in\linebreak\in 
-\mathcal{D}_Z^{2\alpha}(I, \mathcal{L}(W, V))$, $I=[0,T]$. Тогда существует 
-константа $C>0$, зависящая лишь от $\alpha$ и $|I|=T$, такая, что для любых 
-$s,t \in I$ выполняется неравенство
+Пусть функция $Z\in \mathscr{C}^{\alpha}(\mathcal{I}, W)$ и 
+$(Y,Y')\in\linebreak\in\mathcal{D}_Z^{2\alpha}(\mathcal{I}, \mathcal{L}(W, V))$, 
+$\mathcal{I}=[0,T]$. Тогда существует константа $C>0$, зависящая лишь 
+от~$\alpha$ и $|\mathcal{I}|=T$, такая, что для любых $s,t \in \mathcal{I}$ 
+выполняется неравенство
 $$
 \biggl|\int_s^t Y_r dZ_r - Y_s Z_{s,t}- Y_s'\mathbb{Z}_{s,t}\biggr| \le 
-C\left(\|Z\|_{\alpha;I}\|R^Y\|_{2\alpha; I} + 
-\|\mathbb{Z}\|_{2\alpha;I}\|Y'\|_{\alpha;I}\right)|t-s|^{3\alpha}.
+C\left(\|Z\|_{\alpha;\mathcal{I}}\|R^Y\|_{2\alpha; \mathcal{I}} + 
+\|\mathbb{Z}\|_{2\alpha;\mathcal{I}}\|Y'\|_{\alpha;\mathcal{I}}\right)|t-s|^{3\alpha}.
 $$
-Причем константа $C=C(\alpha, |I|)$ может быть выбрана не зависящей 
-от~$|I|=T$, если $T\in (0,1]$.
+Причем константа $C=C(\alpha, |\mathcal{I}|)$ может быть выбрана 
+не зависящей от~$|\mathcal{I}|=T$, если $T\in (0,1]$.
 \end{proposition}
 
 \begin{remark}
-В предложении \ref{hairer_th_4_10} несущественен тот факт, что отрезок $I$ 
-имеет вид $[0,T]$. Для произвольного отрезка $I = [a, a+T]$ предложение также 
-справедливо ввиду замены переменных $\bar s = s-a$, $\bar t = t - a$ 
-($s,t\in [a, a+T]$, $\bar s, \bar t \in [0,T]$) и замен функций 
-$\bar Y_{\bar s} = Y_{a+\bar s}$, $\bar Z_{\bar s} = Z_{a+\bar s}$ 
+В предложении \ref{hairer_th_4_10} несущественен тот факт, что отрезок~%
+$\mathcal{I}$ имеет вид $[0,T]$. Для произвольного отрезка $\mathcal{I} = 
+[a, a+T]$ предложение также справедливо ввиду замены переменных 
+$\bar s = s-a$, $\bar t = t - a$ ($s,t\in [a, a+T]$, $\bar s, \bar t \in [0,T]$) и 
+замен функций $\bar Y_{\bar s} = Y_{a+\bar s}$, $\bar Z_{\bar s} = Z_{a+\bar s}$ 
 (очевидно, указанные нормы и интегралы сохраняют свои значения).
 \end{remark}
 
