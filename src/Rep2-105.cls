@@ -171,21 +171,20 @@
   \addtocounter{totaltable} {\c@table }\setcounter{table}{0}%
  \fi%
  \@startsection{chapter}{0}%
-  {\Gost@ChapterIndent}{0mm}{\GostAfterTitleSkip}%
-  {\GostTitleStyle\large\Gost@ChapterStyle}%
+  {0mm}{0mm}{\GostAfterTitleSkip}%
+  {\GostTitleStyle\fontsize{15}{16}\selectfont\Gost@ChapterStyle}%
 }
 \newcommand*\chaptermark[1]{}
 
 %  Подраздел
-\newcommand{\sectionname}{Глава}
 
 \newcounter{section}[chapter]
-\renewcommand\thesection{\thechapter\@arabic\c@section}
+\renewcommand\thesection{\thechapter.\@arabic\c@section}
 \newcommand\section{%
  \renewcommand\subsection[1]{\rgsubsection{##1}}%
  \renewcommand\subsubsection[1]{\rgsubsubsection{##1}}%
  \@startsection{section}{1}%
- {\GostTitleIndent\!\!\!\!\!\!\!\!\!\!\!\!}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
+ {\GostTitleIndent}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
  {\GostTitleStyle\fontsize{15}{16}\selectfont}%
 }
 
@@ -197,7 +196,7 @@
  \renewcommand\subsubsection[1]{\rgsubsubsection{##1}}%
  \@startsection{subsection}{2}%
  {\GostTitleIndent}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
- {\GostTitleStyle\fontsize{15}{16}\selectfont}%
+ {\GostTitleStyle}%
 }
 %  ... не попадающий в оглавление
 \newcommand\rgnsubsection{%
@@ -504,8 +503,8 @@
 
 \newcommand{\l@chapter}   {\@dottedtocline{1}{0mm}{1.0em}}
 \newcommand{\l@section}   {\@dottedtocline{2}{10mm}{10mm}}
-\newcommand{\l@subsection}   {\@dottedtocline{3}{10mm}{10mm}}
-\newcommand{\l@subsubsection}{\@dottedtocline{4}{20mm}{15mm}}
+\newcommand{\l@subsection}   {\@dottedtocline{3}{20mm}{15mm}}
+\newcommand{\l@subsubsection}{\@dottedtocline{4}{30mm}{25mm}}
 \newcommand{\l@paragraph}   {\@dottedtocline{3}{12mm}{3.1em}}
 \newcommand{\l@subparagraph}{\@dottedtocline{4}{12mm}{4.1em}}
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
@@ -588,7 +587,7 @@
 
 
 %defining chapter and sections:
-\renewcommand\sectionmark[1]{\markright{\thechapter.\thesection.\quad#1}}
+\renewcommand\sectionmark[1]{\markright{\thechapter.\thesection\quad#1}}
 \renewcommand\chaptermark[1]{\markboth{\chaptername{} \thechapter.\,#1}{}}
 
 \@twosidetrue

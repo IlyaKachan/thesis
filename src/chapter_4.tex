@@ -1,13 +1,12 @@
-\begin{center}
-\refstepcounter{section}
-\section*{
-    \MakeUppercase{Глава \arabic{section}}\\ 
+\refstepcounter{chapter}
+\chapter*{
+    \MakeUppercase{Глава \arabic{chapter}}\\ 
     \MakeUppercase{Методы интегрирования стохастических дифференциальных уравнений 
     с дробными броуновскими движениями смешанного типа}
     }
-\end{center}
+
 \addcontentsline{toc}{chapter}{
-    ГЛАВА \arabic{section}.\quad МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ 
+    ГЛАВА \arabic{chapter}.\quad МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ 
     ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
     СМЕШАННОГО ТИПА
     }
@@ -71,7 +70,7 @@ g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 \int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
 \end{gather}
 
-\subsection{Методы интегрирования одномерных уравнений смешанного типа}
+\section{Методы интегрирования одномерных уравнений смешанного типа}
 
 В данном параграфе будем рассматривать одномерное уравнение 
 (\ref{integration_of_mixed_main_eq}), т.е. $d=1.$ В рамках настоящего параграфа 
@@ -80,7 +79,7 @@ g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 дифференцирований и применений формулы замены переменных 
 (\ref{integration_of_mixed_ito_formula}).
 
-\subsubsection{Приведение к простейшим уравнениям}
+\subsection{Приведение к простейшим уравнениям}
 
 Рассмотрим простейшее уравнение
 \begin{equation}\label{integration_of_mixed_simplest_eq}
@@ -319,7 +318,7 @@ $$
 \end{example}
 \smallskip
 
-\subsubsection{Приведение к линейным неоднородным уравнениям}
+\subsection{Приведение к линейным неоднородным уравнениям}
 Ограничимся рассмотрением автономных уравнений
 \begin{equation}\label{integration_of_mixed_main_eq_auto}
 dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0,
@@ -459,7 +458,7 @@ dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)d
 \end{gather*}
 что и требовалось доказать.
 
-\subsubsection{Переход к уравнению Стратоновича}
+\subsection{Переход к уравнению Стратоновича}
 \label{integration_reduction_to_stratonovich}
 Наряду с уравнением (\ref{integration_of_mixed_main_eq}) рассмотрим 
 соответствующее уравнение Стратоновича
@@ -566,7 +565,7 @@ $$
 которое является решением и исходного уравнения.
 \end{example}
 
-\subsection{Дифференциальные уравнения для математических ожиданий и плотностей 
+\section{Дифференциальные уравнения для математических ожиданий и плотностей 
 распределений решений}
 
 В этом параграфе рассматриваем автономное уравнение 

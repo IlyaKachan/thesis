@@ -36,38 +36,8 @@
 \DeclareMathOperator{\E}{\mathbb{E}}
 \DeclareMathOperator{\p}{\mathbb{P}}
 
-% Для точки как аргумента функции
-\newcommand*{\Cdot}[1][1.25]{%
-  \mathpalette{\CdotAux{#1}}\cdot%
-}
-\newdimen\CdotAxis
-\newcommand*{\CdotAux}[3]{%
-  {%
-    \settoheight\CdotAxis{$#2\vcenter{}$}%
-    \sbox0{%
-      \raisebox\CdotAxis{%
-        \scalebox{#1}{%
-          \raisebox{-\CdotAxis}{%
-            $\mathsurround=0pt #2#3$%
-          }%
-        }%
-      }%
-    }%
-    % Remove depth that arises from scaling.
-    \dp0=0pt %
-    % Decrease scaled height.
-    \sbox2{$#2\bullet$}%
-    \ifdim\ht2<\ht0 %
-      \ht0=\ht2 %
-    \fi
-    % Use the same width as the original \cdot.
-    \sbox2{$\mathsurround=0pt #2#3$}%
-    \hbox to \wd2{\hss\usebox{0}\hss}%
-  }%
-}
 
-
-\renewcommand{\thesection}{\arabic{section}}
+%\renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\rmdefault}{ftm}
 
 
@@ -122,10 +92,10 @@
 \def\sign{\mathop{\rm sign}\nolimits}
 
 % Нумерация формул
-\makeatletter \@addtoreset {equation}{section}
+\makeatletter \@addtoreset {equation}{chapter}
 %\renewcommand\theequation{\@arabic\c@section.\@arabic\c@equation}%первая section в пределах section
 %\renewcommand{\theequation}{\thechapter.\arabic{equation}}%первая chapter в пределах section
-\renewcommand\theequation{\thesection.\@arabic\c@equation}%первые chapter и section
+\renewcommand\theequation{\thechapter.\@arabic\c@equation}%первые chapter и section
 
 %После названия точка
 \makeatletter
@@ -277,23 +247,23 @@
 \theoremstyle{plain}
 
 \makeatother
-\newtheorem{lemma}{Лемма}[section]
-\newtheorem{statement}{Утверждение}[section]
-\newtheorem{proposition}{Предложение}[section]
-\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}[chapter]
+\newtheorem{statement}{Утверждение}[chapter]
+\newtheorem{proposition}{Предложение}[chapter]
+\newtheorem{theorem}{Теорема}[chapter]
 
 {\theoremstyle{exes}\newtheorem{exes}{У\,п\,р\,а\,ж\,н\,е\,н\,и\,е}}
 
 {\theoremstyle{defn}\theorembodyfont{\rmfamily}
-\newtheorem{definition}{О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е}[section]
-\newtheorem{example}{\bfseries{Пример}}[section]
-\newtheorem{remark}{\itshape {Замечание}}[section]
-\newtheorem{property}{\bfseries{С\,в\,о\,й\,с\,т\,в\,о}}[section]
-\newtheorem{corollary}{\itshape{Следствие}}[section]}
+\newtheorem{definition}{О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е}[chapter]
+\newtheorem{example}{\bfseries{Пример}}[chapter]
+\newtheorem{remark}{\itshape {Замечание}}[chapter]
+\newtheorem{property}{\bfseries{С\,в\,о\,й\,с\,т\,в\,о}}[chapter]
+\newtheorem{corollary}{\itshape{Следствие}}[chapter]}
 
 
 
-\newenvironment{problems}{\section*{Задачи}\par }{}
+\newenvironment{problems}{\chapter*{Задачи}\par }{}
 \newlength\eqnparsize \setlength\eqnparsize{12cm}
 
 \PicInChaper
@@ -304,15 +274,15 @@
 %\setlength{\belowdisplayskip}{18pt plus 2pt minus 3pt}  % было: 8 + 2 - 4
 \linespread{1.15}
 
-\newcounter{piccount}[section]
+\newcounter{piccount}[chapter]
 \newcommand{\podpis}{\refstepcounter{piccount}%
-\text{Рисунок \arabic{section}.\arabic{piccount}\,---\,}}
-\renewcommand{\thepiccount}{\thesection.\arabic{piccount}}
+\text{Рисунок \arabic{chapter}.\arabic{piccount}\,---\,}}
+\renewcommand{\thepiccount}{\thechapter.\arabic{piccount}}
 
 %\usepackage{titlesec}
 %\titlelabel{\thetitle.\quad}
-\usepackage{secdot}
-\sectiondot{section}
+%\usepackage{secdot}
+%\sectiondot{section}
 
 \let\Prob\relax
 \DeclareMathOperator{\Prob}{\mathbb{P}}
