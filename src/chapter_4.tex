@@ -1,1019 +1,1087 @@
 \refstepcounter{chapter}
 \chapter*{
-    \MakeUppercase{Глава \arabic{chapter}}\\ 
-    \MakeUppercase{Методы интегрирования стохастических дифференциальных уравнений 
-    с дробными броуновскими движениями смешанного типа}
+    \MakeUppercase{Глава \arabic{chapter}}\\
+    \MakeUppercase{Устойчивость и притяжение решений стохастических 
+    дифференциальных уравнений в гильбертовых пространствах}
     }
 
 \addcontentsline{toc}{chapter}{
-    ГЛАВА \arabic{chapter}.\quad МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ 
-    ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
-    СМЕШАННОГО ТИПА
+    ГЛАВА \arabic{chapter}.\quad УСТОЙЧИВОСТЬ И ПРИТЯЖЕНИЕ РЕШЕНИЙ 
+    СТОХАСТИЧЕСКИХ ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ 
+    В ГИЛЬБЕРТОВЫХ ПРОСТРАНСТВАХ
     }
 
 
-Пусть на вероятностном пространстве $(\Omega,\mathcal{F},P)$ заданы
-$d$-мерное стандартное броуновское движение
-$W(t)$ и $d$-мерное дробное броуновское движение 
-$B(t)$ c показателем Харста $H \in(1/2,1).$
+Пусть заданы следующие объекты: вероятностное пространство 
+$(\Omega, \mathcal{F}, \Prob)$ с потоком $\sigma$-алгебр 
+$(\mathcal{F}_t)_{t\ge 0}$, два сепарабельных гильбертовых пространства $H$~и~$U;$ 
+ядерный симметрический положительно определенный оператор $Q_w$ на 
+пространстве~$U$; $\mathcal{F}_t$-согласованное $Q_w$-броуновское 
+движение~$W(t,\omega)$ со значениями в $U$ и ковариационным оператором $Q_w$.
 
-Рассмотрим стохастическое дифференциальное уравнение
-\begin{equation}\label{integration_of_mixed_main_eq}
-dx(t) = f(t,x(t))dt + g(t, x(t))dW(t) + \sigma(t, x(t)) dB(t),\quad t \ge 0,
+\section{Стохастические дифференциальные уравнения в конечномерных 
+гильбертовых пространствах}
+
+Данный раздел посвящен исследованию устойчивости в конечномерных пространствах 
+$H= U = \mathbb{R}^d$. В этом случае $Q_w = I_d$ и $W(t)$ --- стандартное 
+броуновское движение со значениями в $\mathbb{R}^d$. Рассмотрим стохастическое 
+дифференциальное уравнение
+\begin{equation}\label{general_equation_1}
+dx(t) = f(t, x(t))dt + g(t, x(t))dW(t),
 \end{equation}
-где $f\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$,
-$g\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
-$\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$ ---
-детерминированные функции.
+где $f : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
+\mathbb{R}^{d}$, $g : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
+\mathbb{R}^{d \times d}$ --- измеримые по Борелю функции такие, что 
+$f(t, 0) = 0$ и $g(t, 0) = 0$ при всех $t\in\mathbb{R}^d$ и выполнено 
+условие линейного порядка роста по $x$, то есть существует 
+постоянная~$C$ такая, что для любых $t \in \mathbb{R}^{+}$, $x \in 
+\mathbb{R}^{d}$, выполняется неравенство 
+$|f(t, x)| + |g(t, x)| \le C(1+|x|)$.
 
-\begin{definition}
-Под решением уравнения (\ref{integration_of_mixed_main_eq}) понимаем процесс
-$x(t),$ $t\in \mathbb{R}^+,$ заданный на вероятностном пространстве
-$(\Omega,\mathcal{F},P),$ согласованный с потоком $\sigma$-алгебр
-$\mathcal{F}_t,$ порожденным процессами $W(t)$ и $B(t),$ такой, что
-выполняются условия:
+Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
+\mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, 
+$B(t,x)$, содержащими соответственно матрицу $\sigma(t, x)$ и вектор $f(t,x)$ 
+и все предельные точки $\sigma(t,x')$ и $f(t, x')$ при $x'\to x$.
 
-1) существует $\alpha>1-H$ такое, что процесс $x(t)$ имеет п.н. непрерывные по 
-Гельдеру с показателем $\alpha$ траектории;
+\begin{definition} 
+Если:
 
-2) для любого $t\in \mathbb{R}^+$ почти наверное выполняется равенство
+1) существуют вероятностное пространство $(\Omega, \mathcal{F}, \mathbb{P})$
+с потоком $\mathcal{F}_t$ и отображение 
+$X\colon\Omega\to C(\mathbb{R}^+, \mathbb{R}^d)$ такие,
+что функция $(t, \omega) \to X(t, \omega) \in \mathbb{R}^d$ --- 
+$(\mathcal{B}(\mathbb{R}^+)\times\mathcal{F}, 
+\mathcal{B}(\mathbb{R}^d)$-измерима и $\mathcal{F}_t$-согласована;
+
+2) существует $(\mathcal{F}_t)$-броуновское движение $W(t)$, $W(0) = 0$ п. н.;
+
+3) существуют измеримые $(\mathcal{F}_t)$-согласованные процессы
+$v\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^d$ и
+$u\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{d\times d}$, удовлетворяющие
+для $(\mu\times\mathbb{P})$-почти всех $(t,\omega)\in\mathbb{R}^+\times\Omega$
+включениям
 $$
-x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
-\sigma(s,x(s))dB(s),
+v(t)\in B(t, X(t, \omega)),\quad u(t)u^\top(t)\in A(t, X(t, \omega)),
 $$
-где интеграл по процессу $W(t)$ -- стохастический интеграл Ито, а
-интеграл по процессу $B(t)$ -- потраекторный интеграл
-Римана-Стилтьеса \cite{Guerra}.
+и такие, что для любого $T\in\mathbb{R}^+$ выполняется неравенство
+$\int_0^T (|v(s)| + |u(s)|^2) ds <\infty$ п. н.;
+
+4) с вероятностью $1$ для всех $t\in\mathbb{R}^+$ выполняется равенство
+$$X(t) = X(0) + \int_0^t v(\tau)d\tau + \int_0^t u(\tau)dW(\tau),$$
+то набор $(X, \Omega, \mathcal{F}, \mathbb{P}, \mathcal{F}_t, W(t), v(t), u(t))$
+(или короче $X$) называем $\beta$-слабым решением уравнения 
+\textup{(\ref{general_equation_1})}.
 \end{definition}
 
-\begin{remark}
-Иногда рассматривают решения, допускающие взрывы за конечное время. В этом 
-случае решение $x(t)$ определяется для $t<\tau,$ где $\tau$ -- так называемый 
-момент взрыва ($\mathcal{F}_t$-момент остановки, такой что $\lim_{t \to \tau-0} 
-\Vert x(t) \Vert=\infty$ при $\tau<\infty$), а непрерывность траекторий по 
-Гельдеру предполагается до момента $\tau$.
-\end{remark}
+Заметим, что условия $f(t, 0) = 0$ и $g(t, 0) = 0$ обеспечивают 
+существование нулевого решения уравнения (\ref{general_equation_1}). Из теоремы
+2.3 книги \cite{Levakov_Vaskouski_book} следует, что если функции $f$ и $g$ 
+измеримы по Борелю и имеют линейный порядок роста, то для любой 
+вероятности $\nu$ на $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ с 
+компактным носителем уравнение (\ref{general_equation_1}) имеет слабое решение 
+$(\Omega, \mathcal F, \p, \mathcal F_{t}, W(t), x(t), v(t), u(t))$ с начальным 
+распределением $\nu$.
 
+\begin{definition} 
+Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
+устойчиво по вероятности, если для любых $\varepsilon_{1},$ $\varepsilon_{2}>0$ 
+существует~$\delta > 0$ такое, что для каждого слабого решения $x(t)$ уравнения
+(\ref{general_equation_1}), удовлетворяющего условию $|x_0| \le \delta$ п.н., 
+выполняется неравенство (\ref{glava1_prob_stab}):
+\begin{equation}\label{glava1_prob_stab}
+\p\{ \sup_{t \ge 0} |x(t)| > \varepsilon_{1}\}
+< \varepsilon_{2}.
+\end{equation}
+\end{definition} 
 
-Пусть функция $F(t,x)$ непрерывна вместе со своими производными $F'_t(t,x),$ 
-$F'_x(t,x),$ $F''_{x^2}(t,x).$  Если функции $f,$ $g$ измеримы по Борелю, 
-функция $\sigma$ удовлетворяет $(\delta,\rho)$-условию Гельдера по $(t,x)$ при 
-некоторых $\delta>1-H,$ $\rho>2-2H,$ а решение $x(t)$ имеет непрерывные по 
-Гельдеру порядка $\alpha$ траектории п.н. при $\alpha\rho>1,$ то имеет место 
-аналог формулы Ито \cite[P. 184]{Mishura}:
-\begin{gather}\nonumber
-F(t, x(t)) = F(0, x(0)) +\\ \nonumber+ \int_0^t \biggl(F'_t(\tau, x(\tau)) + 
-F'_x(\tau, x(\tau))f(\tau, x(\tau)) +\\ \nonumber
-+ \frac{1}{2}\textrm{tr}(F''_{x^2}(\tau, x(\tau))g(\tau, x(\tau))
-g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
-+ \int_0^t F'_x(\tau, x(\tau))g(\tau,x(\tau))dW(\tau) + 
-\int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
-\end{gather}
+\begin{definition} 
+Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
+асимптотически устойчиво по вероятности, если нулевое решение уравнения 
+(\ref{general_equation_1}) устойчиво по вероятности и для любого 
+$ \varepsilon> 0$ существует~$ \delta > 0$ такое, что для каждого слабого 
+решения $x(t)$ уравнения (\ref{general_equation_1}), удовлетворяющего условию
+$|x_0| \le \delta$ п.н., выполняется неравенство (\ref{glava1_prob_asymp_stab}):
+\begin{equation}\label{glava1_prob_asymp_stab}
+\p\{\lim_{t \to \infty} x(t) = 0\} \ge 1 -\varepsilon.
+\end{equation}
+\end{definition}
 
-\section{Методы интегрирования одномерных уравнений смешанного типа}
-
-В данном параграфе будем рассматривать одномерное уравнение 
-(\ref{integration_of_mixed_main_eq}), т.е. $d=1.$ В рамках настоящего параграфа 
-будем предполагать, что коэффициенты рассматриваемых уравнений являются 
-достаточно гладкими функциями, обеспечивающими возможность достаточного числа 
-дифференцирований и применений формулы замены переменных 
-(\ref{integration_of_mixed_ito_formula}).
-
-\subsection{Приведение к простейшим уравнениям}
-
-Рассмотрим простейшее уравнение
-\begin{equation}\label{integration_of_mixed_simplest_eq}
-dy(t)=u(t)dt + v(t)dW(t) + b(t)dB(t),\quad t\ge 0.
+Предположим, что определена функция $V: \mathbb{R}^{+} \times \mathbb{R}^d \to 
+\mathbb{R}^{+}$. Будем говорить, что функция $V(t,x)$ удовлетворяет 
+\textbf{условию $L$}, если она непрерывно дифференцируема по $t$, дважды 
+непрерывно дифференцируема по $x$ и существует $\delta > 0$ такое, что для 
+любого $t \in \mathbb{R}^{+}$ и любого $x\in\mathbb{R}^d$ такого, что 
+$|x| \le \delta$, выполнено неравенство 
+$BV(t,x) \le 0,$ где
+\begin{equation}\label{glava1_BV}
+BV(t, x) = \frac{\partial V(t, x)}{\partial t} +
+\sup\limits_{v \in F(t, x)}
+\!\left(\! \frac{\partial V(t, x)}{\partial x} v \!\right) + 
+\frac{1}{2}\sup\limits_{u \in G(t, x)}
+\mbox{tr} \!\left(
+\!\frac{\partial^2 V(t, x)}{\partial x^2} uu^{\top}\!\right)\!\!.
 \end{equation}
 
-Решение уравнения (\ref{integration_of_mixed_simplest_eq}) выражается следующей 
-формулой:
-\begin{equation*}
-y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) + 
-\int_0^t b(\tau)dB(\tau),\quad t\ge 0.
-\end{equation*}
+Следующие две теоремы\footnote{Авторство указанных теорем принадлежит 
+Я.Б. Задворному. Кроме того некоторые обобщения названных теорем для 
+автономных уравнений можно найти в \cite[раздел 3.2]{Levakov_Vaskouski_book}}, 
+дающие достаточные условия устойчивости и 
+асимптотической устойчивости по вероятности нулевого решения 
+уравнения~\textup{(\ref{general_equation_1})}, доказаны 
+в статье \ref{VestnikBGU}.
 
-Найдем класс уравнений~(\ref{integration_of_mixed_main_eq}), приводимых 
-к~(\ref{integration_of_mixed_simplest_eq}) с помощью дважды непрерывно 
-дифференцируемого и обратимого относительно $x$ преобразования $y=F(t, x)$ 
-посредством формулы Ито~(\ref{integration_of_mixed_ito_formula}) в 
-предположении, что что функции $f,$ $g,$ $\sigma$ обладают производными 
-требуемых порядков для последующих вычислений. В соответствии с формулой Ито, 
-должны быть справедливы соотношения:
-\begin{gather}\label{integration_of_mixed_simplest_eq_1}
-u(t) = F'_t(t, x) + F'_x(t, x)f(t, x) + \frac{1}{2}F''_{x^2}(t, x)g^2(t, x),\\ 
-\label{integration_of_mixed_simplest_eq_2}
-v(t) = F'_x(t, x)g(t, x),\\ \label{integration_of_mixed_simplest_eq_3}
-b(t) = F'_x(t, x)\sigma(t, x).
-\end{gather}
-Из соотношений (\ref{integration_of_mixed_simplest_eq_2}), 
-(\ref{integration_of_mixed_simplest_eq_3}) следует, что 
-$\frac{v(t)}{g(t,x)} =\frac{b(t)}{\sigma(t,x)}$, или 
-$\frac{\sigma(t,x)}{g(t,x)} =\frac{b(t)}{v(t)}:=q(t)$. Также из соотношения 
-(\ref{integration_of_mixed_simplest_eq_2}) очевидным образом можно выразить 
-следующие производные функции $F$:
-\begin{equation} \label{integration_of_mixed_simplest_eq_4}
-F'_x = \frac{v}{g}, \quad F''_{x^2} = -\frac{vg'_x}{g^2}, \quad F''_{tx} = 
-\frac{v'g - vg'_t}{g^2}.
-\end{equation}
-Дифференцируя соотношение (\ref{integration_of_mixed_simplest_eq_1}) по $x$ и 
-используя полученные формулы для $F'_x, F''_{x^2}, F''_{tx}$, получим:
-\begin{gather}\nonumber
-F''_{tx} + F''_{x^2}f + F'_x f'_x + \frac{1}{2}F'''_{x^3}g^2 + 
-F''_{x^2}g'_xg = 0,\\ \nonumber
-\frac{v'g - vg'_t}{g^2} - \frac{v g'_x f}{g^2} + \frac{v f'_x}{g} - 
-\frac{vg''_{x^2}g^2 - 2vg(g'_x)^2}{2g^2} -\frac{v(g'_x)^2}{g} = 0,\\ 
-\label{integration_of_mixed_simplest_eq_5}
-\frac{v'}{v} = g\left(\frac{g'_t}{g^2} + \frac{g'_xf}{g^2} - \frac{f'_x}{g} + 
-\frac{1}{2}g''_{x^2}\right) =g\left(\frac{g'_t}{g^2} + 
-\left(\frac{f}{g}\right)'_x + \frac{1}{2}g''_{x^2}\right).
-\end{gather}
-Левая часть последнего соотношения зависит лишь от $t$, поэтому на функции 
-$f, g, \sigma$ накладываются следующие ограничения:
-\begin{gather}\label{integration_of_mixed_simplest_cond_1}
-g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
-\frac{1}{2}g''_{x^2}(t,x)\right) = r(t),\\ 
-\label{integration_of_mixed_simplest_cond_2}
-\frac{\sigma(t,x)}{g(t,x)} = q(t)
-\end{gather}
-для некоторых функций $r(t), q(t)$.
-
-Обратно, пусть заданные функции $f,g,\sigma$ удовлетворяют 
-условиям~(\ref{integration_of_mixed_simplest_cond_1}), 
-(\ref{integration_of_mixed_simplest_cond_2}). Тогда из 
-соотношения~(\ref{integration_of_mixed_simplest_eq_5}) находим функцию 
-$v(t)=\exp\left(\int_0^t r(\tau)d\tau\right)$ (как любое нетривиальное решение 
-линейного однородного уравнения). Из 
-соотношения~(\ref{integration_of_mixed_simplest_eq_4}) найдем $F(t,x) = 
-v(t)\int_0^x \frac{ds}{g(t, s)}$, причем ввиду того, что $v\ne 0$, 
-$F'_x = \frac{v}{g}\ne 0$, т.е. функция $F$ будет обратима по $x$. Зная функцию 
-$F$, из соотношений~(\ref{integration_of_mixed_simplest_eq_1}), 
-(\ref{integration_of_mixed_simplest_eq_3}) однозначно определяем функции $u(t)$ 
-и $b(t)$. Таким образом, справедлива следующая теорема.
-
-\begin{theorem}
-Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c $g(t,x)\ne 0$ 
-приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
-помощью некоторого дважды непрерывно дифференцируемого и обратимого 
-относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
-найдутся функции $q(t), r(t)$ такие, что оказываются выполненными 
-соотношения~\textup{(\ref{integration_of_mixed_simplest_cond_1})}, 
-\textup{(\ref{integration_of_mixed_simplest_cond_2})} .
+\begin{theorem} \label{Yaroslav_theorem_1}
+Пусть функция $V(t, x)$ удовлетворяет условию $L$, причем $V(t, 0) = 0$ при 
+всех $t \in \mathbb{R}^{+}$, $V(t, x) \ge \alpha(|x|) > 0$ при 
+$0 <|x| \le \delta$ и всех $t \in \mathbb{R}^{+}$, где 
+$\alpha : \mathbb{R}^{+} \to \mathbb{R}^{+}$ -- некоторая функция, 
+$\delta$ -- число из условия $L$. Кроме того, предположим, что 
+$\lim\limits_{x \to 0}\sup\limits_{t>0}V(t, x) = 0$. Тогда нулевое решение 
+уравнения \textup{(\ref{general_equation_1})} устойчиво по вероятности.
 \end{theorem}
 
-\begin{proposition}\label{linear_homogenious_explicit_formula_prop}
-Пусть заданы скалярные функции $\alpha(t),$ $\beta(t),$ $\gamma(t)$, при этом 
-$\beta(t)\ne 0$. Тогда решение линейного однородного уравнения
-\begin{equation}
-\label{integration_of_mixed_linear_eq}
-dx(t) = \alpha(t)x(t)dt + \beta(t)x(t)dW(t) + \gamma(t)x(t) dB(t),\quad t \ge 0,
+\begin{theorem} \label{Yaroslav_theorem_2}
+Пусть существуют  число $\delta > 0$ и функция 
+$V: \mathbb{R}^{+} \times$\linebreak$\times\mathbb{R}^{d} \to \mathbb{R}^{+}$,
+дифференцируемая по $t \in \mathbb{R}^{+}$, дважды дифференцируемая по~$x$,
+удовлетворяющие условиям:
+
+\textup{1)} $BV(t, x) < \beta(\varepsilon) < 0$  при всех $x$
+таких, что $\varepsilon \le |x| \le \delta,$ и
+при всех~$t \in \mathbb{R}^{+}$, где 
+$\beta : \mathbb{R}^{+} \to \mathbb{R}^{-}$ -- некоторая функция;
+
+\textup{2)} $\lim\limits_{x \to 0} \sup\limits_{t>0}V(t, x) = 0$;
+
+\textup{3)} $V(t, 0) = 0$ при всех $t \in \mathbb{R}^{+}$;
+
+\textup{4)} $V(t, x) \ge \alpha(|x|) > 0$  при всех $x$ таких, что 
+$|x| \le \delta$, и всех $t \in \mathbb{R}^{+}$, 
+где~$\alpha : \mathbb{R}^{+} \to \mathbb{R}^{+}$ -- некоторая функция.
+
+Тогда нулевое решение уравнения \textup{(\ref{general_equation_1})} 
+асимптотически устойчиво по вероятности.
+\end{theorem}
+
+Исследуем устойчивость слабого нулевого решения стохастического 
+дифференциального уравнения~(\ref{general_equation_1}) c выделенной линейной 
+частью вида 
+\begin{equation}\label{mainSys}
+dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
 \end{equation}
-с начальным условием $x(0)=x_0>0$
-выражается формулой
-\begin{equation*}
-x(t) = x_0\exp\left(\int_0^t\Bigl(\alpha(\tau) - 
-\frac{1}{2}\beta^2(\tau)\Bigr)d\tau + \int_0^t \beta(\tau)dW(\tau) + 
-\int_0^t \gamma(\tau)dB(\tau)\right)
-\end{equation*}
-\end{proposition}
+Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
+непрерывная функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
+удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
 
-\proof Нетрудно проверить, что функции $f(t,x) = \alpha(t)x$, $g(t,x) = 
-\beta(t)x$, $\sigma(t,x) = \gamma(t) x$ удовлетворяют 
-условиям~(\ref{integration_of_mixed_simplest_cond_1}), 
-(\ref{integration_of_mixed_simplest_cond_2}), причем $\frac{v'(t)}{v(t)} = 
-\frac{\beta'(t)}{\beta(t)}$, т.е. $\ln\left(\frac{v(t)}{\beta(t)}\right)' = 0$. 
-Можно выбрать функцию $v(t) = \beta(t)$. Тогда $F'_x = \frac{1}{x}$, и, в свою 
-очередь, можно выбрать преобразование $F = \ln x$. Из 
-соотношений~(\ref{integration_of_mixed_simplest_eq_1}), 
-(\ref{integration_of_mixed_simplest_eq_2}) находим, что $u(t) = \alpha(t) - 
-\frac{1}{2}\beta(t)$, $b(t) = \gamma(t)$. Так как $y(t) = \ln x(t)$, то 
-$x(t) = e^{y(t)}$ и следовательно, имеет место формула
-$$x(t) = 
-C\exp\left(\int_0^t\Bigl(\alpha(\tau) - \frac{1}{2}\beta^2(\tau)\Bigr)d\tau + 
-\int_0^t \beta(\tau)dW(\tau) + \int_0^t \gamma(\tau)dB(\tau)\right),$$
-где $C = e^{y(0)}$. Подставляя в формулу $t=0$, находим величину $C=x(0)$, что 
-и требовалось.
+Наряду с уравнением~(\ref{mainSys}) рассмотрим линейное однородное 
+детерминированное уравнение
+\begin{equation}\label{auxillarySys}
+dX(t) = A(t)X(t)dt,\quad t\ge 0,
+\end{equation}
+Через $X^{(s,x)}(t)$ будем обозначать (единственное) решение уравнения 
+(\ref{auxillarySys}), удовлетворяющее равенству $X^{(s,x)}(s) =~x$ 
+(существование, единственность и непрерывность по $t$ такого решения в 
+указанных предположениях имеет место, см., например, \cite{Vaskovskii}).
 
-\begin{remark}\label{linear_homogenious_explicit_formula_rmk}
-Непосредственной подстановкой найденной формулы для решения в уравнение 
-(\ref{integration_of_mixed_linear_eq}) можно убедиться, что данная формула 
-сохраняет силу, в том числе, если опустить условия $\beta(t)\ne 0$ и $x_0>0.$ 
-Нетрудно видеть, что почти все траектории решения уравнения 
-(\ref{integration_of_mixed_linear_eq}) непрерывны по Гельдеру с любым 
-показателем $\kappa<1/2.$
+\begin{definition}
+Будем говорить, что уравнение (\ref{auxillarySys}) имеет \textit{равномерно 
+экспоненциально устойчивое} нулевое решение, если существуют константы 
+$\Lambda, \lambda > 0$, не зависящие от $s$, $x$, такие, что для любых 
+$s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство 
+\begin{equation}\label{expStab}
+|X^{(s,x)}(t)|^2\le\Lambda|x|^2 e^{-\lambda(t-s)}.
+\end{equation}
+\end{definition}
+
+Для систем~(\ref{mainSys}) и~(\ref{auxillarySys}) определим операторы 
+$B$ и $B_0$ по формулам (\ref{glava1_BV}) и (\ref{glava1_B0V}):
+\begin{gather}\label{glava1_BV}
+BV(s,x) = \frac{\partial V(s,x)}{\partial s} + \!\!\!\sup_{v \in
+F(t,x)}\!\biggl(\frac{\partial V(s,x)}{\partial x}(A(s)x {+}
+v)\biggr) \!\!+ \frac{1}{2}\!\sup_{u \in
+G(t,x)}\!\!\textup{tr}\!\left(\frac{\partial^2 V(s,x)}{\partial
+x^2}uu^\top\right)\!,\\ \label{glava1_B0V}
+B_0V(s,x) = \frac{\partial
+V(s,x)}{\partial s} + \frac{\partial V(s,x)}{\partial x}A(s)x,\quad 
+s\in\mathbb{R}^+,\,x\in\mathbb{R}^d,\,\varphi\in C_h.
+\end{gather}
+
+\begin{theorem}\label{mainTheorem}
+Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
+при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
+что выполняются  неравенства \textup{(\ref{mainTheorem_eq1})}
+\begin{equation}\label{mainTheorem_eq1}
+|f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
+\end{equation}
+для любых $\,x$, 
+$|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
+а система \textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
+устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
+асимптотически устойчивое по вероятности  нулевое решение.  
+\end{theorem}\par
+
+
+\proof Зададим функцию $V(s, x)$ равенством (\ref{mainTheorem_eq2}):
+\begin{equation}\label{mainTheorem_eq2}
+V(s, x)=\int\limits_s^{s+T} |X^{(s,x)}(t)|^2 dt,
+\end{equation}
+где $T$ --- положительный параметр, который будет определен ниже. В 
+\cite[следствие 5.3]{Khasminskii} показано, что функция $V(s,x)$ определена, 
+непрерывно дифференцируема по $s\in\mathbb{R}^+$ и дважды непрерывно 
+дифференцируема по $x\in\mathbb{R}^d$, причем справедливо равенство 
+$B_0V(s,x) = |X^{(s,x)}(s + T)|^2 - |x|^2$. Отсюда и из 
+неравенства~(\ref{expStab}) следует, что можно подобрать достаточно большое 
+$T_\lambda > s$ такое, что $|X^{(s,x)}(s + T)|^2 \le \frac{1}{2}|x|^2$ при 
+всех $T\ge T_\lambda$, и значит, $B_0V(s,x) \le -\frac{1}{2}|x|^2$ при всех 
+$T\ge T_\lambda$.
+Зафиксируем одно из таких $T$ и покажем, что введенная функция $V(s,x)$ 
+удовлетворяет всем условиям теоремы~\ref{Yaroslav_theorem_2}. 
+
+Условие 3) следует из единственности решения: $X^{(s,0)}(t)\equiv 0$.
+
+Покажем, что выполнено условие 2). Оценим сверху функцию $V(s,x)$, используя 
+неравенство~(\ref{expStab}):
+\begin{equation}\label{mainTheorem_eq4}
+0\le V(s,x)\le \int\limits_s^{s+T} \Lambda|x|^2  e^{-\lambda(t-s)}dt = 
+\frac{1 - e^{-\lambda T}}{\lambda}\Lambda|x|^2 = k_1 |x|^2,
+\end{equation}
+где $k_1 =  \frac{1 - e^{-\lambda T}}{\lambda}\Lambda > 0$. Взяв от обеих 
+частей неравенства (\ref{mainTheorem_eq4}) супремум по~$s > 0$ и перейдя к 
+пределу, получим $\lim\limits_{x\to 0}\sup\limits_{s > 0} V(s,x) = 0$, что и 
+требовалось.
+
+Покажем, что выполнено условие 4). Применив формулу Ито к 
+процессу~$|X^{(s,x)}(t)|^2$, получим (\ref{mainTheorem_eq6}):
+\begin{equation}\label{mainTheorem_eq6}
+|X^{(s,x)}(s+T)|^2 - |x|^2 = \int\limits_s^{s+T} B_0(|X^{(s,x)}(t)|^2)\,dt.
+\end{equation}
+Оценим $B_0(|X^{(s,x)}(t)|^2) = 2\left(X^{(s,x)}(t)\right)^{\top}
+A(t) X^{(s,x)}(t)$ c помощью неравенства Коши-Буняковского:
+$$
+\left|2(X^{(s,x)}(t))^{\!\!\top}A(t) X^{(s,x)}(t)\right| = 
+2\left|\langle A(t) X^{(s,x)}(t),\,X^{(s,x)}(t)\rangle\right| \le 
+2M|X^{(s,x)}(t)|^2,
+$$
+т.е. $\left|B_0(|X^{(s,x)}(t)|^2)\right| \le 2M |X^{(s,x)}(t)|^2$. Вернемся 
+теперь к формуле Ито:
+\begin{gather} \label{mainTheorem_eq9}
+-\frac{1}{2}|x|^2 \ge |X^{(s,x)}(s+T)|^2 - |x|^2 = 
+\int\limits_s^{s+T} B_0(|X^{(s,x)}(t)|^2)\,dt\ge -2M\cdot V(s,t).
+\end{gather}
+Обозначая $k_3 = \frac{1}{4M} > 0$, из (\ref{mainTheorem_eq9}) получим: 
+$V(s,t)\ge k_3|x|^2 > 0$ для $x\ne 0$, и следовательно, 4) выполнено.
+
+Осталось показать, что выполнено условие 1). Оценим $BV(s, x)$, 
+используя элементарное неравенство $|\text{tr}A|\le\sqrt{d}|A|$ для 
+$A\in\mathbb{R}^{d\times d}$:
+\begin{gather}
+BV(s, x)= BV_0(s, x) + \!\!\!\sup_{v \in F(t,x)}
+\biggl(\!\frac{\partial V(s,x)}{\partial x}v\!\biggr) +  
+\frac{1}{2}\sup_{u \in G(t,x)}\!\!\textup{tr}\!
+\left(\!\frac{\partial^2 V(s,x)}{\partial x^2}uu^\top\!\right) \le \nonumber\\
+\le  -\frac{1}{2}|x|^2 + \!\!\!\sup_{v \in F(t,x)}\!\!|v|
+\left|\frac{\partial V(s,x)}{\partial x}\right| + 
+\frac{\sqrt{d}}{2}\!\sup_{u \in G(t,x)}
+\left|\frac{\partial^2 V(s,x)}{\partial x^2}\right||u|^2\le \nonumber\\ 
+\label{mainTheorem_eq10}
+\le-\frac{1}{2}|x|^2 + \varepsilon|x|
+\left|\frac{\partial V(s,x)}{\partial x}\right|+ 
+\left|\frac{\partial^2 V(s,x)}{\partial x^2}\right|
+\frac{\sqrt d}{2}\varepsilon^2|x|^2.
+\end{gather}
+для любого наперед заданного $\varepsilon > 0$ и соответствующей окрестности 
+нуля $|x|\le \delta_\varepsilon$. Итак, остается оценить 
+$\left|\frac{\partial^2 V(s,x)}{\partial x^2}\right|$ и 
+$\left|\frac{\partial V(s,x)}{\partial x}\right|$. Заметим, что 
+$\frac{\partial}{\partial x}|X^{(s,x)}(t)|^2 = 
+2 \frac{\partial X^{(s,x)}(t)}{\partial x} X^{(s,x)}(t)$.
+Существование $\frac{\partial X^{(s,x)}(t)}{\partial x}$ следует из 
+\cite[гл.~VII, $\S$ 3]{Gikhman}. Обозначим 
+$\xi_x(t) = \frac{\partial X^{(s,x)}(t)}{\partial x}$. Тогда, как показано в 
+\cite[гл. VII, $\S$ 3]{Gikhman}, функция $\xi_x(t)$ удовлетворяет матричному 
+уравнению (\ref{mainTheorem_eq13}):
+\begin{gather}
+\xi_x(t) = \frac{\partial}{\partial x}(\xi_x(s)) + 
+\int\limits_s^t \!\!\left.
+\frac{\partial}{\partial x}(A(u)x)\right|_{x = \xi_x(u)}\!\!\!\!\xi_x(u)\,du = 
+I_d + \int\limits_s^t A(t)\xi_x(t)\,du \quad\text{или}\nonumber\\
+\label{mainTheorem_eq13}
+\xi_i(t) = e_i + \int\limits_s^t A(t)\xi_i(t)\,du,\quad i=1,\ldots,d
+\end{gather}
+где $\xi_i(t) = \frac{\partial X^{(s,x)}(t)}{\partial x_i}$, $e_i$ --- 
+вектор, у которого $i$-я компонента равна $1$, а остальные равны $0$. 
+К процессу $|\xi_i(t)|^2$ применим формулу Ито:
+\begin{equation}\label{mainTheorem_eq14}
+|\xi_i(t)|^2 = |e_i|^2 + \int\limits_s^{t} B_0(|\xi_i(u)|^2)\,du\le 1  + 
+\int\limits_s^{t}2M|\xi_i(u)|^2 du.
+\end{equation}
+Из (\ref{mainTheorem_eq14}), используя неравенство Гронуолла-Беллмана, 
+получим неравенство
+$|\xi_i(t)|^2 = \left|\frac{\partial X^{(s,x)}(t)}{\partial x_i}\right|^2 \le 
+e^{2M(t-s)}$.
+И значит, $\left|\frac{\partial X^{(s,x)}(t)}{\partial x}\right|^2 = 
+\sum_{i=1}^d\left|\frac{\partial X^{(s,x)}(t)}{\partial x_i}\right|^2 \le
+\linebreak\le d\,e^{2M(t-s)}$. Из (\ref{expStab}) и последнего неравенства 
+следует (\ref{mainTheorem_eq17}):
+\begin{gather}
+\left|\frac{\partial V(s,x)}{\partial x}\right|\le
+\left|\int_s^{s+T}\frac{\partial}{\partial x}|X^{(s,x)}(t)|^2 dt\right| \le 
+2 \int_s^{s+T}\left|\frac{\partial X^{(s,x)}(t)}{\partial x}\right| 
+\left|X^{(s,x)}(t)\right| dt \le\nonumber\\
+\label{mainTheorem_eq17}
+\le 2\sqrt{d\Lambda}|x|\int_s^{s+T}e^{\frac{2M-\lambda}{2}(t-s)} dt =
+\frac{4\sqrt{d\Lambda}\left(e^{\frac{2M-\lambda}{2}T} - 1\right)}{2M - \lambda}
+|x| = K_1|x|.
+\end{gather}
+Без ограничения общности можно считать, что $2M - \lambda > 0$ и $K_1 > 0$.
+
+Для $\left|\frac{\partial^2 V(s,x)}{\partial x^2}\right|$ проводя те же 
+рассуждения (но в роли $X^{(s,x)}$ уже выступает $\xi_x$), используя 
+неравенство Гронулла-Беллмана, покажем, что 
+$\left|\frac{\partial^2 X^{(s,x)}(t)}{\partial x_i \partial x_j}\right|^2 =0$, 
+и значит, $\left|\frac{\partial^2 X^{(s,x)}(t)}{\partial x^2}\right|^2 = 0$. 
+Тогда легко видеть, что
+$\frac{\partial^2}{\partial x^2}|X^{(s,x)}(t)|^2 = 
+2\left(\frac{\partial X^{(s,x)}(t)}{\partial x}\right)^2$,
+и будем иметь оценку 
+$\left|\frac{\partial^2}{\partial x^2}|X^{(s,x)}(t)|^2\right|\le 
+2 \left|\frac{\partial X^{(s,x)}(t)}{\partial x}\right|^2\le 2d\,e^{2M(t-s)}$, 
+из которой выводим (\ref{mainTheorem_eq20}):
+\begin{equation}\label{mainTheorem_eq20}
+\left|\frac{\partial^2 V(s,x)}{\partial x^2}\right|\le
+\left|\int\limits_s^{s+T}\!\!\frac{\partial^2}{\partial x^2}
+|X^{(s,x)}(t)|^2 dt\right| \le 2d\!\int\limits_s^{s+T}e^{2M(t-s)} dt = 
+\frac{2d\left(e^{2M T} {-} 1\right)}{2M } = K_2.
+\end{equation}
+Из неравенств (\ref{mainTheorem_eq10}), (\ref{mainTheorem_eq17}), 
+(\ref{mainTheorem_eq20}), следует оценка $BV(s, x)\le\linebreak\le 
+\left(-\frac{1}{2} + \varepsilon\,K_1 + 
+\frac{\sqrt d}{2}\varepsilon^2K_2\right)|x|^2$.
+За счет выбора достаточно малого $\varepsilon$ добьемся того, чтобы константа 
+при $|x|^2$ была отрицательной. Тогда условие 1) будет выполнено. Теорема 
+доказана.
+
+\begin{remark} Некоторые достаточные условия равномерной экспоненциальной 
+устойчивости системы \textup{(\ref{auxillarySys})} приведены в работе 
+\cite{Ichmann}.
 \end{remark}
 
-\begin{proposition}
-Решение линейного неоднородного уравнения
+\example Приведем пример уравнения, имеющего асимптотически устойчивое по 
+вероятности слабое нулевое решение на основании теоремы~\ref{mainTheorem}. 
+Рассмотрим систему стохастических дифференциальных 
+уравнений~(\ref{suffCond_eq_17})
+\begin{gather}
+dx(t)=((-20-0.1 \sin t)x(t)+0.1 \cos t \ y(t)+\sin^2 x(t))dt,\nonumber\\ 
+\label{suffCond_eq_17}
+dy(t)=(-0.1 \cos t \  x(t)-(20+0.1 \sin t)y(t))dt+\sin^2 y(t)
+\textrm{sgn}(x(t{-}1))dw(t),
+\end{gather}
+при $t\ge 0$ с начальными условиями $x(t)=\psi(t),$ $t \in [-1,0],$ $y(0)=y_0,$
+где $x,$ $y \in\mathbb{R},$ $w(t)$ -- одномерное броуновское движение. 
+Нулевое решение линеаризованной системы 
 \begin{gather*}
-%\label{integration_of_mixed_linear_inhom_eq}
-dx(t) = \bigl(\alpha_1(t)x(t) + \alpha_2(t)\bigr)dt + \bigl(\beta_1(t)x(t) + 
-\beta_2(t)\bigr)dW(t) +\\
-+ \bigl(\gamma_1(t)x(t) + \gamma_2(t)\bigr)dB(t),\quad t \ge 0,
+dx(t)=((-20-0.1 \sin t)x(t)+0.1 \cos t \ y(t))dt,\nonumber\\ 
+dy(t)=(-0.1 \cos t \  x(t)-(20+0.1 \sin t)y(t))dt,
 \end{gather*}
-выражается по формуле
-\begin{gather*}
-x(t) = x_0(t)\biggl(x(0) + \int_0^t \frac{\alpha_2(\tau) - 
-\beta_1(\tau)\beta_2(\tau)}{x_0(\tau)}d\tau +\\
-+ \int_0^t\frac{\beta_2(\tau)}{x_0(\tau)}dW(\tau) + 
-\int_0^t\frac{\gamma_2(\tau)}{x_0(\tau)}dB(\tau)\biggr),
-\end{gather*}
-в которой $x_0(t) {=} \exp\left(\int_0^t\bigl(\alpha_1(\tau) {-} 
-\frac{1}{2}\beta_1^2(\tau)\bigr)d\tau + \int_0^t \beta_1(\tau)dW(\tau) + 
-\int_0^t \gamma_1(\tau)dB(\tau)\right)$ есть решение соответствующего линейного 
-однородного уравнения с начальным условием $x_0(0)=1$.
-\end{proposition}
+является равномерно экспоненциально устойчивым \cite{Ichmann}, и следовательно, 
+нулевое решение системы~(\ref{suffCond_eq_17}) асимптотически устойчиво 
+по вероятности.
 
-\proof Положим $x(t) = x_0(t)y(t)$. Определим уравнение
-$$dy(t) = u(t,y(t))dt + v(t,y(t))dW(t) + b(t, y(t))dB(t),\quad t\ge 0,$$
-которому удовлетворяет процесс $y(t)$. Применим формулу Ито к процессу 
-$y = \frac{x}{x_0} = F(x, x_0)$, рассматривая пару $\bar x = (x,x_0)$ как 
-решение двумерного уравнения
-$$d\bar x(t) = \bigl(\bar\alpha_1(t)\bar x(t) + \bar\alpha_2(t)\bigr)dt + 
-p(t,\bar x(t))d\bar W(t) + \bigl(\bar\gamma_1(t)\bar x(t) + 
-\bar\gamma_2(t)\bigr)dB(t),$$
-с начальным условием $\bar x(0) = (x(0), 1)^T$, где $\bar\alpha_1 = 
-\text{diag}(\alpha_1, \alpha_1)$, $\bar\gamma_1 = \text{diag}(\gamma_1, \gamma_1)$, 
-$\bar\alpha_2 = (\alpha_2, 0)^T$, $\bar\gamma_2 = (\gamma_2, 0)^T$, 
-$p = \text{diag}(\beta_1 x + \beta_2, \beta_1 x_0)$, $\bar W = (W, W)^T$. Ввиду 
-того, что справедливы соотношения
-\begin{gather*}
-F'_t = 0,\quad F'_{\bar x} = \left(\frac{1}{x_0}, -\frac{x}{x_0^2}\right),\quad 
-F''_{\bar x^2} = \left(\begin{array}{cc}0 & -\frac{1}{x_0^2}\\ 
--\frac{1}{x_0^2} & \frac{2x}{x_0^3}\end{array}\right),
-\end{gather*}
-будем иметь:
-\begin{gather*}
-dy =  \left(\frac{\alpha_2}{x_0} - \frac{\beta_1\beta_2}{x_0}\right)dt + 
-\frac{\gamma_2}{x_0}dB + \frac{\beta_2}{x_0}dW.
-\end{gather*}
-Итак, получили простейшее уравнение для $y(t)$, причем $y(0) = 
-\frac{x(0)}{x_0(0)} = x(0)$. Таким, образом, решение исходного уравнения 
-выражается формулой
-\begin{gather*}
-x(t) = x_0(t)y(t) =  x_0(t)\biggl(x(0) + \int_0^t \frac{\alpha_2(\tau) - 
-\beta_1(\tau)\beta_2(\tau)}{x_0(\tau)}d\tau +\\
-+ \int_0^t\frac{\beta_2(\tau)}{x_0(\tau)}dW(\tau) + 
-\int_0^t\frac{\gamma_2(\tau)}{x_0(\tau)}dB(\tau)\biggr),
-\end{gather*}
-что и требовалось.
 
-\begin{example}
-Рассмотрим линейное однородное уравнение
-$$
-dx(t) = -2t \cdot x(t)dt + t^{1-H}x(t)dB(t),\quad t\ge 0,
-$$
-С учетом предложения~\ref{linear_homogenious_explicit_formula_prop} и 
-замечания~\ref{linear_homogenious_explicit_formula_rmk} его решение 
-может быть выражено формулой 
-$$
-x(t) = x(0)\exp\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right).
-$$
-Докажем, что нулевое решение рассматриваемого уравнения
-устойчиво по вероятности, то есть для любых $\varepsilon_1, \varepsilon_2>0$ 
-найдется $\delta > 0$ такая, что для любого решения c начальным 
-значением $x(0)$ таким, что $|x(0)|<\delta$ п.н., выполнено неравенство 
-$\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} < \varepsilon_2$.
+\section{Стохастические дифференциально-функциональные уравнения в 
+произвольных гильбертовых пространствах}
 
-Используя явную фомулу для решения, получим: 
-$$
-\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} = \Prob\left\{
-  \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
-  \ln\frac{\varepsilon_1}{|x(0)|}
-\right\}.
-$$
-Применим неравенство Чебышева:
-$$
-\Prob\left\{
-  \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
-  \ln\frac{\varepsilon_1}{|x(0)|}
-\right\} \le \frac{
-  \E\sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right)
-}{\ln\varepsilon_1 - \ln|x(0)|}
-$$
-Оценим интеграл, используя неравенство Лав-Янга 
-(см. предложение~\ref{LoveYoungIneq}):
-$$
-\int_0^t \!\!\tau^{1-H}dB(\tau) \le 
-C\cdot 
-V_1\left(\tau^{1-H}, [0, t]\right)\cdot 
-V_{1/H}(B(\tau), [0,t]) \le
-C t^{1-H}\|B\|_H t^H = C t\|B\|_H.
-$$
-Здесь $C = \zeta(1+1/H)$, $\zeta$ --- дзета-функция Римана, 
-а в последнем переходе использовалась монотонность функции 
-$\tau^{1-H}$ и связь $1/H$-вариации с нормой Гельдера с 
-показателем $H$ \cite[с. 170]{Friz_Victoir}. Таким образом,
-$$
-\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} \le 
-\frac{\E\sup_{t\ge 0}t(C\|B\|_H - t)}{\ln\varepsilon_1 - \ln|x(0)|} \le
-\frac{\frac{1}{4}C^2\E\|B\|^2_H}{\ln\varepsilon_1 - \ln|x(0)|}.
-$$
-Потребовав, чтобы правая часть последнего неравенства была 
-меньше $\varepsilon_2$, получим значение $\delta$:
-$$
-|x(0)| < \varepsilon_1 
-\exp\left(-\frac{C^2\E\|B\|^2_H}{4\varepsilon_2}\right) =: \delta.
-$$
-\end{example}
+Вернемся к общему случаю сепарабельных гильбертовых пространств $H$ и $U$. 
+Рассмотрим стохастическое эволюционное функциональное уравнение
+\begin{equation}\label{MostGeneralEq}
+dX(t,\omega)=AX(t,\omega)dt+f(t, X(t, \omega))dt+
+g(t, X(t, \omega))dW(t,\omega),
+\quad(t,\omega) \in \mathbb{R}^+\times\Omega
+\end{equation}
+относительно $X \in H$ с начальным условием
+\begin{equation}\label{MostGeneralStartCond}
+X(0,\omega)=\xi(\omega),  \quad \omega \in \Omega,
+\end{equation}
+где $f(t, X)\colon\mathbb{R}^+\times H \to H$,
+$g(t, X)\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(U,H)$ --- 
+измеримые, непрерывные по $X$ (при любом фиксированном 
+$t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор, 
+определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
+$C_0$-полугруппу $S(t)$ на~$H$, $\xi:\Omega \to \EuScript D(A)$ --- 
+$\mathcal{F}_0$-измеримая случайная величина, имеющая конечный 
+момент $\E\|\xi\|^p<\infty$ порядка $p>2$. 
+В дальнейшем для сокращения обозначений аргумент $\omega$ будем опускать. 
+Все интегралы ниже записаны в предположении их существования и конечности.
 \smallskip
 
-\subsection{Приведение к линейным неоднородным уравнениям}
-Ограничимся рассмотрением автономных уравнений
-\begin{equation}\label{integration_of_mixed_main_eq_auto}
-dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0,
+Относительно функций $f(t, X)$ и $g(t, X)$ будем 
+предполагать, что выполнены два условия:
+
+\begin{enumerate}
+\item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
+постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
+$\,\varphi,\psi\in H$, таких, что
+$\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
+\begin{equation}\label{LocalLipshitsCond}
+\|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
+\|g(t,\varphi) - g(t,\psi)\|\le q_a\|\varphi-\psi\|
 \end{equation}
-а также поиском автономной замены $y = F(x)$, приводящей указанное уравнение к 
-линейному неоднородному уравнению
-\begin{equation}\label{integration_of_mixed_linear_inhom_const_eq}
-dy(t) = (\alpha_1y(t) + \alpha_2)dt + (\beta_1 y(t) + \beta_2)dW(t) + 
-(\gamma_1 y(t) + \gamma_2)dB(t),\quad t\ge0
+\item \textit{Условие линейного порядка роста}. Существует непрерывная 
+функция~$k\colon\mathbb{R}^+\to\mathbb{R}^+$ такая, что для всех 
+$t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
+\begin{equation}\label{LinearGrowCond}
+\|f(t,\eta)\|\le k(t)(1+ \|\eta\|), \quad \|g(t,\eta)\|\le k(t)(1+ \|\eta\|).
 \end{equation}
-c постоянными коэффициентами $\alpha_1, \alpha_2, \beta_1, \beta_2, \gamma_1, 
-\gamma_2 \in \mathbb{R}$. Согласно формуле Ито должны выполняться соотношения
-\begin{gather}\label{integration_of_mixed_linear_inhom_eq_1}
-\alpha_1 F(x) + \alpha_2 = F'(x)f(x) + \frac{1}{2}F''(x)g^2(x),\\ 
-\label{integration_of_mixed_linear_inhom_eq_2}
-\beta_1 F(x) + \beta_2 = F'(x)g(x),\\ 
-\label{integration_of_mixed_linear_inhom_eq_3}
-\gamma_1 F(x) + \gamma_2 = F'(x)\sigma(x).
-\end{gather}
-Решая линейные неоднородные по $F$ 
-уравнения~(\ref{integration_of_mixed_linear_inhom_eq_2}),
-(\ref{integration_of_mixed_linear_inhom_eq_3}), находим функцию $F$:
-$$F(x) = C_\beta\exp\left(\beta_1\int_0^x \frac{ds}{g(s)}\right) - 
-\frac{\beta_2}{\beta_1} = C_\gamma
-\exp\left(\gamma_1\int_0^x \frac{ds}{\sigma(s)}\right) - 
-\frac{\gamma_2}{\gamma_1}.$$
-Подставляя в последнюю формулу значение $x=0$, легко найти константы 
-$C_\beta = F(0) + \frac{\beta_2}{\beta_1}$ и $C_\gamma = F(0) + 
-\frac{\gamma_2}{\gamma_1}$. Далее ограничимся случаем $\frac{\beta_2}{\beta_1} =
-\frac{\gamma_2}{\gamma_1}$. Тогда на выбор функций $g,\sigma$ накладывается 
- ограничение
-$$\beta_1\int_0^x \frac{ds}{g(s)} = \gamma_1\int_0^x \frac{ds}{\sigma(s)},$$
-дифференцируя которое, выводим соотношение
-\begin{equation*}
-\frac{\sigma(x)}{g(x)} = \frac{\gamma_1}{\beta_1}=\text{const}.
-\end{equation*}
-Обозначим $G(x) = \int_0^x \frac{ds}{g(s)}$. Подставим выражение для функции 
-$F(x) = \linebreak=C_\beta e^{\beta_1G(x)} - \frac{\beta_2}{\beta_1}$ в 
-формулу~(\ref{integration_of_mixed_linear_inhom_eq_1}):
-\begin{gather}\nonumber
-\alpha_1 C_\beta e^{\beta_1G(x)} + 
-\frac{\alpha_2\beta_1 -\alpha_1\beta_2}{\beta_1} = 
-C_\beta e^{\beta_1G(x)}\frac{\beta_1}{g} f +\\ \nonumber 
-+ \left(C_\beta e^{\beta_1 G(x)}\frac{\beta^2_1}{2g^2} - 
-C_\beta e^{\beta_1G(x)}\frac{\beta_1g'}{2g^2}\right) g^2,\\ 
-\label{integration_of_mixed_linear_inhom_eq_4}
-e^{\beta_1G(x)}\left(\beta_1 \left(\frac{f}{g} - \frac{g'}{2}\right) + 
-\frac{\beta^2_1}{2} - \alpha_1\right) = 
-\frac{\alpha_2\beta_1 -\alpha_1\beta_2}{\beta_1C_\beta}
-\end{gather}
-Обозначим $A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2}$ и продифференцируем 
-последнее соотношение. Получим:
-\begin{equation}\label{integration_of_mixed_linear_inhom_eq_5}
-\beta_1 e^{\beta_1G(x)}\left(A'(x) + \beta_1 \frac{A(x)}{g(x)} + 
-\left(\frac{\beta^2_1}{2} - \alpha_1\right)\frac{1}{g(x)}\right) = 0.
+\end{enumerate}\par
+Стоит отметить, что всякая функция, удовлетворяющая глобальному условию 
+Липшица, удовлетворяет и локальному условию, и в свою очередь, всякая функция, 
+удовлетворяющая локальному условию Липшица, непрерывна.
+\par
+
+\definition Случайный процесс $\,X(t),\,t\,{\ge}0\,$ называют слабым решением 
+уравнения (\ref{MostGeneralEq}) с начальным условием 
+(\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
+\begin{enumerate}
+\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
+\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
+\item $
+X(t)=
+S(t)\xi +\int \limits_0^t \!S(t{-}s)f(s,X(s))ds+\int \limits_0^t
+\!S(t{-}s)g(s,X(s))dW(s), \,t\,{\in}\,\mathbb{R}^+\!.
+$
+\end{enumerate}
+
+\definition Случайный процесс $\,X(t),\,t\,{\ge} 0\,$ называют сильным 
+решением уравнения (\ref{MostGeneralEq}) с начальным условием 
+(\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
+\begin{enumerate}
+\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
+\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
+\item $X\in\EuScript D(A)$ для почти всех 
+$(t,\omega)\in\mathbb{R}^+\times\Omega$.
+\item $
+X(t)=
+\xi+\int\limits_0^t AX(s)\,ds + \int \limits_0^t f(s,X(s))ds+
+\int \limits_0^t g(s,X(s))dW(s),\quad t \in\mathbb{R}^+.
+$
+\end{enumerate}
+
+\definition Будем говорить, что (слабое или сильное) решение~$X(t)$ 
+уравнения~(\ref{MostGeneralEq}) с начальным 
+условием~(\ref{MostGeneralStartCond}) является
+единственным, если для любое другое решение $Y(t)$ 
+уравнения~(\ref{MostGeneralEq}) с начальным 
+условием~(\ref{MostGeneralStartCond}) п.н. совпадает с $X(t)$, т.е.
+$\Prob(X(t)=Y(t) \;\forall t \ge 0)=1.$
+\definition Пусть положительная функция $\lambda(t)$ определена для достаточно 
+больших $t>0$, скажем, $t\ge T > 0$. Предположим, что
+\begin{enumerate}
+\item $\lim\limits_{t\to\infty}\lambda(t) = \infty$.
+\item $\ln\lambda(t)$ равномерно непрерывна по $t\ge T$.
+\item Существует константа $\tau\ge 0$ такая, что 
+$\lim_{t\to\infty}\sup\frac{\ln\ln t}{\ln\lambda(t)}\le\tau$.
+\end{enumerate}
+Будем говорить, что слабое решение 
+задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond}) притягивается к нулю
+со скоростью $\lambda(t)$, если найдется $\gamma>0$ такое, что выполняется 
+неравенство~(\ref{1.5})
+\begin{equation}\label{1.5}
+\lim_{t\to\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le-\gamma
+\qquad\text{п.н.}
 \end{equation}
-Умножим последнее равенство на $\frac{g(x)}{\beta_1}e^{\beta_1G(x)}$ и 
-полученное равенство вновь продифференцируем. Будем иметь:
-\begin{gather*}
-(g(x)A'(x))' + \beta_1 A'(x) = 0.
-\end{gather*}
-Если, к тому же, $A'(x)\ne 0$, то
-\begin{gather*}
-\frac{(g(x)A'(x))'}{A'(x)} = -\beta_1 = \text{const}.
-\end{gather*}
-Таким образом, необходимо выполнение следующих условий:
+
+Через $\rho(A)$ обозначим резольвентное множество оператора $A$, т.е. множество 
+тех значений $l\in\mathbb{C}$ для которых определен оператор $R(l,A) =
+\linebreak= (lI-A)^{-1}$ (резольвента оператора $A$). Обозначим также 
+$R(l) = lR(l,A)$, $\rho_{\mathbb{R}}(A) = \rho(A)\cap~\!\mathbb{R}$.
+
+Для задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond}) построим 
+аппроксимирующую задачу Коши
+\begin{equation}\label{ApproxEq}
+\begin{array}{l} 
+dX^{(l)}(t,\omega) = AX^{(l)}(t,\omega) + R(l)f(t,X^{(l)}(t, \omega))dt+
+R(l)g(t,X^{(l)}(t, \omega))dW(t,\omega),\\
+\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad
+\qquad\qquad\qquad\qquad\qquad\qquad\qquad t \in\mathbb{R}^+,\\
+X^{(l)}(0,\omega) = \xi(\omega),
+\end{array}
+\end{equation}
+где $l\in\rho_{\mathbb{R}}(A)$.
+
+%\newtheorem{lemma}{Лемма}
+\begin{lemma}\label{MainLemma} Для любого достаточно большого 
+$l\in\rho_{\mathbb{R}}(A)$ задача Коши~\textup{(\ref{ApproxEq})} имеет 
+единственное сильное решение $X^{(l)}$ и более того, существует 
+подпоследовательность $X^{(l_n)}$ такая, что $X^{(l_n)}(t) \to X(t)$ при 
+$n\to\infty$ п.н. равномерно по $t\in[0,T]$, где $X(t)$ --- слабое решение 
+задачи~\textup{(\ref{MostGeneralEq})},~\textup{(\ref{MostGeneralStartCond})},
+а~$T>0$ --- произвольное число.\end{lemma}\par
+
+%\newcommand{\proof}{\textbf{Доказательство.} }  
+\proof В \cite[теорема 3.1]{Pazy}, отталкиваясь от определения генератора 
+$C_0$-полугруппы и (как следствие, см. \cite[следствие 2.5]{Pazy}) замкнутости 
+оператора $A$, было доказано интегральное представление резольвенты~(\ref{22})
+\begin{equation}\label{22}
+R(l,A)x = \int_0^{+\infty}e^{-l\, t}S(t)x\,dt,\quad x\in H,
+\end{equation}
+для всех $l\in\rho(A)$, для которых указанный интеграл существует и конечен. 
+Воспользуемся оценкой операторов $C_0$-полугруппы (см. предложение 
+$\ref{PazySemiroupExpBound}$):  $\|S(t)\| \le Me^{\beta t}$ для всех $t\ge0$. 
+Будем иметь оценку~(\ref{23}):
 \begin{gather}
-\label{integration_of_mixed_linear_inhom_cond_1}
-A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
-\label{integration_of_mixed_linear_inhom_cond_2}
-\frac{(g(x)A'(x))'}{A'(x)} = c_1,\\ 
-\label{integration_of_mixed_linear_inhom_cond_3}
-\frac{\sigma(x)}{g(x)} = c_2,
+\|R(l,A)\| = \sup_{\|x\|=1}\|R(l,A)x\|\le \int_0^{+\infty}e^{-l\, t} 
+\sup_{\|x\|=1}\|S(t)x\|\,dt \le\nonumber\\ \label{23}
+\le M\int_0^{+\infty} e^{-(l - \beta)t}dt = \frac{M}{l - \beta},\quad l > \beta
 \end{gather}
-для некоторых постоянных $c_1,c_2\in \mathbb{R}$.
+откуда следует, что $(\beta,+\infty]\subset\rho(A)$ и более того, 
+$\|R(l)\|\le \frac{M\,l}{l-\beta}\le2M$ для $l\ge2\beta$. Далее будем 
+рассматривать только $l\ge2M$, говоря о них, как о «достаточно больших» $\,l$.
 
-Обратно, пусть заданные функции $f(x),g(x),\sigma(x)$ удовлетворяют 
-соотношениям~(\ref{integration_of_mixed_linear_inhom_cond_1}),
-(\ref{integration_of_mixed_linear_inhom_cond_2}),
-(\ref{integration_of_mixed_linear_inhom_cond_3}). Тогда положим 
-$\alpha_2=\beta_2=\gamma_2 = 0$, $\beta_1 = -c_1$, $\gamma_1=c_2\beta_1$ и 
-выберем преобразование $F(x) = e^{\beta_1 G(x)}$. Тогда легко проверить, что 
-соотношения~(\ref{integration_of_mixed_linear_inhom_eq_2}) 
-и~(\ref{integration_of_mixed_linear_inhom_eq_3}) выполнены. Осталось подобрать 
-$\alpha_1, \alpha_2$ так чтобы выполнялось 
-соотношение~(\ref{integration_of_mixed_linear_inhom_eq_1}). Поскольку 
-$(g(x)A'(x))' + \beta_1 A'(x) = 0$, то величина $g(x)A'(x) + \beta_1A(x) = c_3$, 
-$c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} = 
-\frac{c_3}{g(x)}$ и соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}) 
-диктует выбор константы $\alpha_1 = \frac{\beta^2_1}{2} + c_3$. Теперь 
-интергрируя соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}), получим 
-соотношение~(\ref{integration_of_mixed_linear_inhom_eq_4}). Согласно 
-(\ref{integration_of_mixed_linear_inhom_eq_5}) выражение в левой части 
-(полностью определяемое заданными функциями $f,g$) будет константой. При 
-указанном выборе эта константа совпадает с $\alpha_2$. Таким образом, 
-справедлива следующая теорема.
+Докажем, что задача Коши~(\ref{ApproxEq}) имеет единственное слабое решение при 
+достаточно большом $l$. С этой целью заметим, что для любого $r>1$ ввиду 
+условий~(\ref{LocalLipshitsCond})~и~(\ref{LinearGrowCond}) получим 
+оценки~(\ref{24})~--~(\ref{2.7}):
+\begin{gather}\label{24}
+\E\|R(l)f(t,\varphi) {-} R(l)f(t,\psi)\|^r\le 
+(2M)^r\E\|f(t,\varphi) {-} f(t,\psi)\|^r \le 
+(2Mq_a)^r\E\|\varphi {-} \psi\|^r,\\
+\E\|R(l)g(t,\varphi) {-} R(l)g(t,\psi)\|^r\le 
+(2M)^r\E\|g(t,\varphi) {-} g(t,\psi)\|^r \le 
+(2Mq_a)^r\E\|\varphi {-} \psi\|^r,\\
+\E\|R(l)f(t,\eta)\|^r\le(2M)^r\E\bigl(k(t)(1+\|\eta\|)\bigr)^r\le\nonumber\\
+\le(2M)^r\E\bigl((k(t))^r2^{r-1}(1+\|\eta\|^r)\bigr)=
+\frac{(4Mk(t))^r}{2}(1+\E\|\eta\|^r),\\
+\E\|R(l)g(t,\eta)\|^r\le(2M)^r\E\bigl(k(t)(1+\|\eta\|)\bigr)^r\le\nonumber\\
+\label{2.7}
+\le(2M)^r\E\bigl((k(t))^r2^{r-1}(1+\|\eta\|^r)\bigr)=
+\frac{(4Mk(t))^r}{2}(1+\E\|\eta\|^r),
+\end{gather}
+где $\varphi,\psi,\eta\colon \Omega\to H$ --- произвольные 
+$\mathcal F$-измеримые случайные величины с конечным $p$-м моментом, такие, 
+что п.н. $\|\varphi\|\le~a$ и $\|\zeta\| \le a$. Таким образом, задача 
+Коши~(\ref{ApproxEq}) удовлетворяет условиям [\ref{GodovoyOtchet}, теорема 1.1] 
+и следовательно имеет единственное слабое решение $\,X^{(l)}(t),\,t\,{\ge}0$.
 
-\begin{theorem}\label{integration_reduction_to_linear_th}
-Уравнение~(\ref{integration_of_mixed_main_eq_auto}) c $g(x)\ne 0,$ $A'(x) \ne 0$ 
-приводимо к уравнению~(\ref{integration_of_mixed_linear_inhom_const_eq}) тогда и 
-только тогда, когда найдутся постоянные $c_1, c_2$ такие, что оказываются 
-выполненными соотношения~(\ref{integration_of_mixed_linear_inhom_cond_1}),
-(\ref{integration_of_mixed_linear_inhom_cond_2}),
-(\ref{integration_of_mixed_linear_inhom_cond_3}).
+Докажем, что при наложенных ранее ограничениях найденное слабое решение 
+$\,X^{(l)}(t),\,t\,{\ge}0$ будет также являться и сильным решением задачи 
+Коши~(\ref{ApproxEq}). Для этого достаточно проверить условия из 
+\cite[предложение 2.3]{Ichikawa}, предварительно зафиксировав произвольный 
+отрезок времени $t\in[0,T]$. Воспользуемся утверждением (c) из 
+\cite[теорема 2.4]{Pazy}, показывающим, что операторы $A$~и~$S(t)$ 
+(a также $(l\,I - A)$ и $S(t)$) перестановочны. Для любых $\,r\in[0,t)$, 
+$\,\varphi\in H$, $u\in U\,$ элементы~(\ref{2.8}),~(\ref{2.9})
+\begin{gather}\label{2.8}
+(l\,I {-} A)\,\bigl(S(t{-}r)R(l)f(r, \varphi)\bigr) =
+l\,S(t{-}r)f(r, \varphi)\in H,\\ \label{2.9}
+(l\,I {-} A)\,\bigl(S(t{-}r)R(l)g(r, \varphi)u\bigr) = 
+l\,S(t{-}r)g(r, \varphi)u\in H, 
+\end{gather}
+откуда следует, что $\,S(t{-}r)R(l)f(r, \varphi), 
+\,S(t{-}r)R(l)g(r,\varphi)u\in\EuScript{D}(l\,I{-}A) =~\!\EuScript{ D}(A)$. 
+Кроме того, $\xi\in\EuScript{D}(A)$, т.е. условие (a) выполнено. 
+Далее оценим интегралы~(\ref{2.10}) --- (\ref{2.13}) из условия (b):
+\begin{gather}\nonumber
+\int\limits_0^T \int\limits_0^t
+\|AS(t-r)R(l)f(r, X^{(l)}(r))\|drdt\le \\
+\le \int\limits_0^T \int\limits_0^t 
+\|(A - lI)S(t-r)\,l(lI - A)^{-1} f(r, X^{(l)}(r))\|drdt +\nonumber\\
+\label{2.10}
++\int\limits_0^T \int\limits_0^t
+\|lS(t-r)\,l(l\,I - A)^{-1}f(r, X^{(l)}(r))\|drdt = I_1 + I_2,
+\end{gather}
+\begin{gather}
+I_1 = \int\limits_0^T \int\limits_0^t 
+\|(A-l\,I)S(t-r)\,l(l\,I - A)^{-1}f(r, X^{(l)}(r))\|\,dr\,dt =\nonumber\\ 
+=\int\limits_0^T \int\limits_0^t 
+\|S(t-r)(A-lI)\,l(lI-A)^{-1} f(r, X^{(l)}(r))\|drdt  
+= \nonumber \\ \label{2.11}
+= l\int\limits_0^T \int\limits_0^t \|S(t-r)f(r, X^{(l)}(r))\|drdt.
+\end{gather}\par
+Из перестановочности операторов $(l\,I - A)$ и $S(t)$ следует перестановочность 
+операторов $R(l)$ и $S(t)$, так как $(l\,I - A)S(t) = S(t)(l\,I - A)\,
+\Longrightarrow\,S(t) =$ $=(l\,I - A)^{-1}S(t)(l\,I - A)\,\Longrightarrow\, 
+S(t) (l\,I - A)^{-1}=(l\,I - A)^{-1}S(t)$. Поэтому
+\begin{gather}
+I_2 = \int_0^T\int_0^t \|lS(t-r)R(l)f(r, X^{(l)}(r))\|drdt \le \nonumber\\
+\label{2.12}
+\le 2Ml\int_0^T\int_0^t \|S(t-r)f(r, X^{(l)}(r))\|drdt, \\
+\int_0^T \int_0^t \|AS(t-r)R(l)f(r, X^{(l)}(r))\|\,dr\,dt \le\nonumber\\
+\le (2M+1)l\int_0^T\int_0^t \|S(t-r)\|\cdot\|f(r, X^{(l)}(r))\|\,dr\,dt
+\le\nonumber\\ 
+\label{2.13}
+= M(2M+1)l\int_0^T e^{\beta t}dt
+\int_0^t e^{-\beta r}k(r)(1+\|X^{(l)}(r)\|)\,dr = I_3.
+\end{gather}
+Поскольку $X^{(l)}(r)$ п.н непрерывен, то $M_T = 
+\sup\limits_{0\le r\le T}\|X^{(l)}(r)\| < \infty$. А поскольку функция $k(r)$ 
+непрерывна на $[0,T]$, то интеграл 
+$I_3$, очевидно, п.н. конечен, т.е. условие (b) выполнено. Условие (c) 
+проверяется аналогично.
+
+Таким образом, все условия \cite[предложение 2.3]{Ichikawa} выполнены, а значит,
+задача Коши~(\ref{ApproxEq}) имеет сильное решение. Это решение будет также и 
+единственным ввиду того, что всякое сильное решение является слабым (см. 
+\cite[предложение~2.1]{Ichikawa}), а слабое решение~(\ref{ApproxEq}) 
+единственно.
+
+Докажем теперь существование требуемой подпоследовательности $X^{(l_n)}$. 
+Сперва покажем, что для любого $T \in \mathbb{R}^+$ существует постоянная 
+$C(T)>0$ такая, для слабого решения 
+задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond}) выполняется оценка 
+сверху~(\ref{2.14})
+\begin{equation}\label{2.14}
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C(T).
+\end{equation}
+
+Действительно, используя интегральное неравенство Гельдера, 
+условие~(\ref{LinearGrowCond}) и неравенство типа Буркхольдера 
+(см. предложение~\ref{BurkholderTypeIneq}), можно получить 
+(см. [\ref{DiffJournal}]) оценку вида
+\begin{equation}\label{2.16}
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C_1(T) + 
+C_2(T)\int_0^{T}\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)ds.
+\end{equation} \vspace{2pt}
+
+Отсюда согласно неравенству Гронуолла получим неравенство~(\ref{2.17}): 
+\begin{equation}\label{2.17}
+\E\left(\sup\limits_{0\le s\le T}\|X(s)\|^p\right)\le C_1(T)e^{C_2(T)T} =: C(T),
+\end{equation}
+как и утверждалось.
+
+Поскольку $\|R(l)\| \le 2M$ при достаточно больших $l$, то аналогично 
+доказывается оценка для решения $X^{(l)}(t)$ задачи~(\ref{ApproxEq}): 
+существует постоянная $K(T)$ такая, что 
+$\E\left(\sup\limits_{0\le s\le T}\|X^{(l)}(s)\|^p\right)\le K(T)$. 
+Обозначим $C_{T} =\max(C(T), K(T))$.
+
+Для каждых $a, T > 0$ и достаточно большого $l$ определим множество~(\ref{2.18}):
+\begin{equation}\label{2.18}
+\Omega_l^{a,T} = \left\{\omega\in\Omega\,:\;
+\max\left(\sup\limits_{0\le s\le T}\|X(s)\|, 
+\sup\limits_{0\le s\le T}\|X^{(l)}(s)\|\right)\le a\right\}
+\end{equation}
+и его характеристическую функцию $\zeta_l^{a,T} = 1_{\Omega_l^{a,T}}(\omega)$. 
+Заметим, что
+\begin{gather}
+X(t) - X^{(l)}(t) = \int_0^t S(t-s)(I-R(l))f(s, X(s))ds + \nonumber\\
++\int_0^t S(t-s)(I-R(l))g(s, X(s))dW(s) + \nonumber\\ 
++\int_0^t S(t-s)R(l)\left(f(s, X(s)) - f(s, X^{(l)}(s))\right)ds+
+\nonumber\\ 
+\label{2.19}
+ + \int_0^t S(t-s)R(l)\left(g(s,X(s)) - g(s, X^{(l)}(s))\right)dW(s),
+ \quad t\ge0
+\end{gather}
+Оценивая в равенстве~(\ref{2.19}) каждое слагаемое, используя неравенства 
+Гельдера и Буркхольдера, условие линейного порядка роста и теорему о 
+мажорируемой сходимости (предложение~\ref{dominated_convergence_th}), 
+можно показать (см. [\ref{DiffJournal}]), что существуют постоянные 
+$\widetilde{C}(a,T)$ и $\varepsilon(l)>0$ такие, что
+\begin{equation} \label{2.25}
+\E\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p\zeta_l^{a,T} \le 
+\widetilde{C}(a,T)\int_0^{T}\E\sup\limits_{0\le r \le s}\|X(r) - X^{(l)}(r)\|^p
+\zeta_l^{a,T}ds + \varepsilon(l),
+\end{equation}
+где $\varepsilon(l)\xrightarrow[l\to\infty]{} 0$. Применяя к~(\ref{2.25}) лемму 
+Гронуолла, получим~(\ref{2.26}):
+\begin{equation} \label{2.26}
+\E\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p\zeta_l^{a,T}\le 
+\varepsilon(l)e^{T\widetilde{C}(a,T)}\xrightarrow[l\to\infty]{} 0 
+\quad \forall\, (a,T)\in\mathbb{R}^+{\times}\mathbb{R}^+
+\end{equation}\par
+
+Покажем, что отсюда следует сходимость по вероятности: \linebreak
+$\sup\limits_{0\le t\le T}\!\!
+\|X(t) {-} X^{(l)}(t)\|^p\,{\xrightarrow[l\to\infty]{\Prob}}\, 0$ для любого 
+$T\,{\in}\,\mathbb{R}^+$. Неравенство Чебышева~дает:
+
+\begin{gather}\label{2.27}
+\Prob\left(\sup\limits_{0\le t\le T}\|X(t)\|>a\right) \le
+\frac{1}{a^p}\E\left(\sup\limits_{0\le t\le T}\|X(t)\|\right)^p = 
+\frac{1}{a^p}\E\!\sup\limits_{0\le t\le T}\|X(t)\|^p\le\frac{C_{T}}{a^p},\\ 
+\label{2.28}
+\Prob\left(\sup\limits_{0\le t\le T}\|X^{(l)}(t)\|>a\right)\le\frac{C_T}{a^p}.
+\end{gather}
+
+Из~(\ref{2.27}),~(\ref{2.28}) следует, для любого $a>0$ и достаточно больших 
+$l$ справедливо неравенство~(\ref{2.29}) 
+\begin{equation}\label{2.29}
+\Prob\left(\zeta_l^{a,T} = 0\right)\le 
+\Prob\left(\sup\limits_{0\le t\le T}\|X(t)\|>a\right)+
+\Prob\left(\sup\limits_{0\le t\le T}\|X^{(l)}(t)\|>a\right)\le
+\frac{2C_{T}}{a^p}
+\end{equation}\par
+Возьмем произвольные $\varepsilon_1,\varepsilon_2>0$ и положим 
+$a = \left(\frac{4C_{T}}{\varepsilon_2}\right)^{1/p}$. Поскольку 
+$\;\E\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p\zeta_l^{a,T}
+\xrightarrow[l\to\infty]{} 0$, то на основании неравенства Чебышева заключаем, 
+что найдется $l_{\varepsilon_2}$ такое, что для всех $l\ge l_{\varepsilon_2}$ 
+выполняется неравенство 
+$\Prob\left(\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p\zeta_l^{a,T} > 
+\varepsilon_1\right)\le\frac{\varepsilon_2}{2}$. Таким образом, 
+для всех~$l\ge l_{\varepsilon_2}$ справедливо, неравенство~(\ref{2.30})
+\begin{gather*}
+\Prob\left(\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p > 
+\varepsilon_1\right)\le\nonumber\\ \label{2.30}
+\le \Prob\left(\left(\sup\limits_{0\le t\le T}
+\|X(t) - X^{(l)}(t)\|^p\zeta_l^{a,T} > \varepsilon_1\right)\bigcap
+\left(\zeta_l^{a,T} = 1\right)\right) + \Prob\left(\zeta_l^{a,T} = 0\right)
+\le\varepsilon_2,
+\end{gather*}
+что и означает сходимость $\sup\limits_{0\le t\le T}\|X(t) - X^{(l)}(t)\|^p
+\xrightarrow[l\to\infty]{\Prob} 0$.\par
+А поскольку из всякой последовательности случайных величин, 
+сходящейся по вероятности, можно выделить подпоследовательность, 
+сходящуюся п.н., то найдется подпоследовательность $X^{(l_n)}(t)$ такая, 
+что\linebreak
+$\sup\limits_{0\le t\le T}\|X(t) - X^{(l_n)}(t)\|^p
+\xrightarrow[l\to\infty]{\text{п.н.}}~0$, т.е. 
+$X(t)\xrightarrow[l\to\infty]{\text{п.н.}}X^{(l_n)}(t)$ равномерно 
+по~$t\in[0,T]$. Это и есть требуемая подпоследовательность. Лемма доказана.
+
+
+\subsection{Теорема о притяжении к нулю}
+
+Введем операторы $L$, $Q$ по формулам~(\ref{3.1}),~(\ref{3.2}): если 
+положительный функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
+\mathbb{R}^+)$, то
+\begin{gather}
+LV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t, x)\rangle_H + 
+\nonumber\\ 
+\label{3.1}
++\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t, x)Q_w^{1/2})
+(g(t, x)Q_w^{1/2})^\star],
+\quad (t,x)\in\mathbb{R}^+{\times} \EuScript D(A),\\
+QV(t,x) = \textup{tr}[V''_{xx}(t,x)\otimes 
+V''_{xx}(t,x)(g(t, x)Q_w^{1/2})(g(t, x)Q_w^{1/2})^\star],\nonumber\\
+\label{3.2}
+(t,x)\in\mathbb{R}^+{\times}H.
+\end{gather}\par
+Далее для краткости будем опускать индекс $H$ у скалярного 
+произведения~$\langle\cdot,\cdot\rangle_H$ в пространстве $H$.
+
+\begin{theorem}\label{HStabilityTheorem}
+Пусть задан функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
+\mathbb{R}^+)$ и две неотрицательные непрерывные функции 
+$\psi_1(t)$, $\psi_2(t)$. Предположим, что существуют положительные 
+постоянные $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
+невозрастающая положительная функция $\zeta(t)$ такие, что 
+$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены 
+следующие условия:
+\begin{enumerate}
+\item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
+\mathbb{R}^+{\times}H$.
+\item $LV(t, x) + \zeta(t)QV(t, x) \le \psi_1(t) + 
+\psi_2(t)V(t, x)\;$ для всех $\;t\in\mathbb{R}^+$, $x\in\EuScript D(A)\;$.
+\item $\lim\limits_{t\to+\infty}\sup\frac{
+\ln\left(\int_0^t\psi_1(s)\,ds\right)}{\ln\lambda(t)}\,{\le}\,\nu$, 
+$\quad\lim\limits_{t\to+\infty}\sup
+\frac{\int_0^t\psi_2(s)\,ds}{\ln\lambda(t)}\,{\le}\,\theta$, 
+$\quad\lim\limits_{t\to+\infty}\inf\frac{\ln\zeta(t)}{\ln\lambda(t)}\,
+{\ge}\,{-}\mu$.
+\end{enumerate}
+Тогда слабое решение 
+задачи~\textup{(\ref{MostGeneralEq})},~\textup{(\ref{MostGeneralStartCond})} 
+притягивается к нулю со скоростью $\lambda(t)$.
 \end{theorem}
 
-\begin{proposition}
-Уравнение бернуллиевского типа
-$$dx(t) = (\alpha x^n(t) + \beta x(t))dt + \gamma x(t)dW(t) + \delta x(t) dB(t)$$
-приводится к линейному неоднородному уравнению.
-\end{proposition}
 
-\proof В данном случае $G(x) = \int_1^x \frac{ds}{\gamma s} = 
-\frac{1}{\gamma} \ln x,$ $A(x) = \frac{\alpha}{\gamma} x^{n-1} + 
-\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
-\frac{\alpha(n-1)}{\gamma}x^{n-2}(t)$, $(g(x)A'(x))' = \alpha(n-1)^2 x^{n-2}(t)$, 
-$\frac{(g(x)A'(x))'}{A'(x)} = \gamma(n-1) = c_1$. Выберем преобразование 
-$F(x) = C_\beta e^{-c_1 G(x)} = C_\beta x^{1-n}$. Подставляя функцию $F(x)$ в 
-(\ref{integration_of_mixed_linear_inhom_eq_2}), найдем значение константы 
-$C_\beta = \frac{1}{1-n}$. Итак, $y = F(x) = \frac{1}{1-n} x^{1-n}$, 
-$x = \left((1-n)y\right)^{1/(1-n)}$.
-
-Уже найдены значения $\beta_1= -c_1 = \gamma(1-n)$, $\gamma_1 = \delta(1-n)$. 
-Далее имеем: 
-\begin{gather*}
-c_3 = \gamma xA'(x) + \beta_1 A(x) = -\beta(n-1) + \frac{\gamma^2(n-1)}{2},\\
-\alpha_1 = (n-1)\left(-\beta + \frac{\gamma^2n}{2}\right),\\
-\alpha_2 = C_\beta e^{\beta_1G(x)}\left(\beta_1 A(x) + 
-\frac{\beta^2_1}{2} - \alpha_1\right) = \frac{1}{1-n} = 
--F(x)\gamma xA'(x) = \alpha.
-\end{gather*}
-Таким образом, исходное уравнение сводится к следующему линейному неоднородному 
-уравнению:
-\begin{gather*}
-dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)dt +\\
-+ \gamma(1-n)y(t)dW(t)  + \delta (1-n)y(t)dB(t),
-\end{gather*}
-что и требовалось доказать.
-
-\subsection{Переход к уравнению Стратоновича}
-\label{integration_reduction_to_stratonovich}
-Наряду с уравнением (\ref{integration_of_mixed_main_eq}) рассмотрим 
-соответствующее уравнение Стратоновича
-\begin{equation}\label{eq_strat}
-dx(t) = (f(t,x(t))-c(t,x(t)))dt + g(t, x(t))\circ dW(t) + \sigma(t, x(t)) dB(t),
-\quad t \ge 0,
+\proof Применим формулу Ито к функционалу $V(t,x)$ и решению (сильному) 
+$X^l(t)$ задачи~(\ref{ApproxEq}). Будем иметь:
+\begin{gather}
+V(t, X^{(l)}(t)) = V(0,\xi) + I_1(t,l) + 
+\int_0^t LV(s, X^{(l)}(s))\,ds+\nonumber\\ 
+\label{ItoFormula}
+ + I_2(t,l) + \int_0^t\langle V'_x(s, X(s)), g(s,X(s))dW(s)\rangle,
+\end{gather}
+где $I_1$, $I_2$, $L_l$ определяются формулами~(\ref{3.4}) ---~(\ref{3.6}):
+\begin{gather}\label{3.4}
+I_1(t,l) = \int_0^t L_l V(s, X^{(l)}(s))\,ds\, - 
+\int_0^t LV(s, X^{(l)}(s))\,ds,\\ \label{3.5}
+I_2(t,l) = 
+\int_0^t\langle V'_x(s, X^{(l)}(s)), R(l)g(s,X^{(l)}(s))dW(s)\rangle -\nonumber \\ 
+-\int_0^t\langle V'_x(s, X(s)), g(s,X(s))dW(s)\rangle,\\
+L_lV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + 
+R(l)f(t,x)\rangle +\nonumber\\
+\label{3.6}
++ \frac{1}{2}\text{tr}\bigl[V''_{xx}(t,x)(R(l)g(t,x))\circ 
+Q_w\circ(R(l)g(t,x))^\star\bigr].
+\end{gather}\par
+Из равномерной непрерывности функции $\ln\lambda(t)$ следует, что для 
+любого~$\varepsilon>0$ существуют натуральные числа $N = N(\varepsilon)$ и 
+$k_1= k_1(\varepsilon)$ для всех~$k\ge k_1(\varepsilon):\quad$
+$\left|\ln\lambda\left(\frac{k}{2^N}\right) - \ln\lambda(t)\right|\le
+\varepsilon,\quad t\in\left[\frac{k-1}{2^N};\frac{k}{2^N}\right].$
+C другой стороны, по экспоненциальному неравенству~(\ref{3.7}) для мартингалов 
+\cite[лемма~1.1]{Liu}:
+\begin{equation} \label{3.7}
+\Prob\biggl(\!\omega: \!\sup_{0\le t\le w}\!\biggl(\int\limits_0^t\!
+\langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle - 
+\!\int\limits_0^t\!\frac{u}{2}QV(s,X(s))\,ds\!\biggr)\!\! >\! v\!\biggr)\!
+\le e^{-uv}
 \end{equation}
-где $c(t,x)=\frac{1}{2}g'_x(t,x)g(t,x).$
+для любых положительных постоянных $u$, $v$ и $w$. Выбирая их 
+по формуле~(\ref{3.8})
+ \vspace{-8pt}
+\begin{equation} \label{3.8}
+u = 2\zeta\left(\frac{k}{2^N}\right),\quad 
+v =\left.\ln\frac{k-1}{2^N}\right/\zeta\left(\frac{k}{2^N}\right),
+\quad w=\frac{k}{2^N},\quad k=2,3,\ldots,
+\end{equation}
+и применяя затем лемму Бореля-Кантелли, получим что вне множества нулевой 
+вероятностной меры $\widetilde{\Omega}$ ($\Prob(\widetilde{\Omega}) = 0$), т.е. 
+для каждого $\omega\in\Omega\setminus\widetilde{\Omega}$ существует натуральное 
+число $k_0(\varepsilon,\omega)$ такое, что
+\begin{equation} \label{3.9}
+\int_0^t\langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle \le 
+\frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
+\zeta\left(\frac{k}{2^N}\right)\int_0^tQV(s,X(s))\,ds
+\end{equation}
+для всех $t\in\left[0,\frac{k}{2^N}\right]$, $k = k(\omega)\ge 
+k_0(\varepsilon,\omega)$. Подставляя выражение~(\ref{3.9}) в~(\ref{ItoFormula}) 
+и используя 2-е условие теоремы, для всех $\omega\in\Omega\setminus
+\widetilde{\Omega}$, $\Prob(\widetilde{\Omega}) = 0$ будем иметь оценку 
+(см. [\ref{DiffJournal}])
+\begin{gather}\nonumber
+V(t, X^{(l)}) \le \frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
+V(0,\xi) +\\ \label{3.10}
++ \int_0^t\!\!\left(\psi_1(s){+}\psi_2(s)V(s,X^{(l)}(s))\right)\!ds +I_1(t,l) + 
+I_2(t,l) + I_3(t,l),
+\end{gather}
+для всех $t\in[0, \frac{k}{2^N}]$, $k\ge\max\{k_0(\varepsilon,\omega), 
+k_1(\varepsilon)\}$. Здесь $I_3$ определяется формулой~(\ref{3.11})
+\begin{equation}\label{3.11}
+I_3(t,l) = \zeta\left(\frac{k}{2^N}\right)
+\int_0^t\left(QV(s,X(s)) - QV(s,X^{(l)}(s))\right)ds.
+\end{equation}
+Следовательно, согласно лемме Гронуолла, п.н. выполнено неравенство
+\begin{gather*}
+V(t,X^{(l)}(t)) \le \Biggl(V(0,\xi) + 
+\frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + \\
++ \sup_{t\in\left[0, \frac{k}{2^N}\right]}\biggl(|I_1(t,l)| + |I_2(t,l)| + 
+|I_3(t,l)| +\int_0^t\psi_1(s)\,ds\biggl)\Biggr)\cdot
+\exp\left(\int_0^t\psi_2(s)\,ds\right)
+\end{gather*}
+для всех $t\in\left[0,\frac{k}{2^N}\right]$,
+$k\ge\max\{k_0(\varepsilon,\omega), k_1(\varepsilon)\}$.
 
-Поскольку, решения смешанных уравнений, вообще говоря, не являются 
-семимартингалами, то понятие интеграла Стратоновича требует дополнительных 
-разъяснений. 
+Покажем теперь, что существует подпоследовательность 
+$(l_n)_{n=1}^\infty\subset\mathbb{R}^+$ такая, что $I_1(t, l_n)$, $I_2(t, l_n)$ 
+и $I_3(t, l_n)\xrightarrow[n\to\infty]{}~0$ п.н. равномерно по 
+$t\in\left[0,\frac{k}{2^N}\right]$. Действительно, выберем 
+подпоследовательность леммы~2.1: $X^{(l_n)}(t)\xrightarrow[n\to\infty]{}~X(t)$ 
+п.н. равномерно по $t\in\left[0,\frac{k}{2^N}\right]$. Говоря точнее, 
+существуют подмножества $\Omega_k\subset\Omega$ с $\Prob(\Omega_k) = 0$ такие, 
+что для любого $\omega\in\Omega\setminus\Omega_k$: $\,X^{(l_n)}(t)
+\xrightarrow[n\to\infty]{} X(t)$ п.н. равномерно по 
+$t\in\left[0,\frac{k}{2^N}\right]$. Следовательно, для всех 
+$\omega\in\Omega\setminus
+\left(\cup_{k\ge 2}\Omega_k\bigcup\widetilde{\Omega}\right)$, 
+будем иметь оценку~(\ref{3.13}):
+\begin{gather}
+\sup_{t\in\left[0, \frac{k}{2^N}\right]}|I_1(t,l)| \le 
+\int_0^{k/2^N}\left|L_{l_n} V(s,X^{(l_n)}(s)) - 
+LV(s,X^{(l_n)}(s))\right|ds \le\nonumber\\
+\le\int_0^{k/2^N}
+\left|\langle V'_x(s,X^{(l_n)}(s)), (I-R(l_n))f(s,X^{(l_n)}(s))\rangle\right| ds 
++\nonumber\\
++\frac{1}{2}\int_0^{k/2^N}\bigl|\text{tr}
+\bigl[V''_{xx}(s,X^{(l_n)}(s))\bigl\{(R(l_n)g(s,X^{(l_n)}(s))\circ Q_w
+\circ(R(l_n)g(s,X^{(l_n)}(s)))^\star -\nonumber\\ 
+\label{3.13}
+- g(s,X^{(l_n)}(s))\circ Q_w\circ g(s,X^{(l_n)}(s)))^\star\bigr\}\bigr]\bigr|ds
+\xrightarrow[n\to\infty]{} 0
+\end{gather}
+для всех $k\,{\ge}\,\max\{k_0(\varepsilon,\omega), k_1(\varepsilon)\}$. 
+Аналогично доказывается, что 
+$\sup_{t\in\left[0, \frac{k}{2^N}\right]}|I_2(t,l)| 
+\xrightarrow[n\to\infty]{} 0$ и 
+$\;\sup_{t\in\left[0, \frac{k}{2^N}\right]}|I_3(t,l)|
+\xrightarrow[n\to\infty]{} 0$.
 
-Во-первых, отметим, что решения смешанных уравнений 
-(\ref{integration_of_mixed_main_eq}) имеют конечную квадратическую вариацию 
-$[x](t)$ в силу того, что процесс
-$$
-\int_0^t f(s,x(s))ds, \ t \ge 0,
-$$ 
-абсолютно непрерывен, а процесс
-$$
-\int_0^t \sigma(s,x(s))dB(s), \ t \ge 0,
-$$
-имеет непрерывные по Гельдеру траектории порядка $\kappa>1/2.$
-Более того,
-$$
-[x](t)=\int_0^t g^2(s,x(s))ds.
-$$
+Следовательно, устремляя $n\to\infty$, получим, что п.н. верно~(\ref{3.14}):
+\begin{equation}\label{3.14}
+V(t,X(t)) \le \left(V(0,\xi) + 
+\frac{\ln\frac{k}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
+\frac{\ln\frac{k-1}{k}}{\zeta\left(\frac{k}{2^N}\right)} + 
+\int_0^{k/2^N}\!\!\!\!\!\!\psi_1(s)\,ds\right)
+\exp\left(\int_0^t\psi_2(s)\,ds\right)
+\end{equation}
+для всех $t\in\left[0,\frac{k}{2^N}\right]$, 
+$k\ge\max\{k_0(\varepsilon,\omega), k_1(\varepsilon)\}$.
 
-Следуя \cite{Russo_Vallois}, для непрерывных процессов $X(t),$ $Y(t)$ с конечной 
-квадратической вариацией определим прямой, обратный и симметрический 
-стохастические интегралы:
-$$
-\int_0^t Y(s)d^{-}X(s)=\lim_{\varepsilon\to +0} 
-\int_0^t Y(s)\frac{X(s+\varepsilon)-X(s)}{\varepsilon}ds,
-$$
-$$
-\int_0^t Y(s)d^{+}X(s)=\lim_{\varepsilon\to +0} 
-\int_0^t Y(s)\frac{X(s)-X((s-\varepsilon)\vee 0)}{\varepsilon}ds,
-$$
-$$
-\int_0^t Y(s)d^{\circ}X(s)=
-\frac{1}{2}\int_0^t Y(s)d^{-}X(s)+\frac{1}{2}\int_0^t Y(s)d^{+}X(s).
-$$
+Таким образом, используя 3-е условие теоремы и равномерную непрерывность 
+$\ln\lambda(t)$, для заданного $\varepsilon>0$ найдется натуральное 
+$k_2(\varepsilon, \omega)$ такое, что
+\begin{gather}
+\ln V(t, X(t)) \le\nonumber\\
+\le \ln\Biggl(V(0,\xi) + 
+\lambda\left(\frac{k}{2^N}\right)^{(\mu +\tau+2\varepsilon)} \!\!\!+
+\; \lambda\left(\frac{k}{2^N}\right)^{(\mu +\varepsilon)}\ln\frac{k-1}{k}+ 
+\lambda\left(\frac{k}{2^N}\right)^{(\nu+\varepsilon)}\Biggr) +\nonumber\\
++(\theta+\varepsilon)\ln\lambda(t)\le\nonumber\\
+\le\ln\biggl(\!V(0,\xi) +e^{\varepsilon(\mu+\tau+2\varepsilon)}
+\lambda(t)^{(\mu+\tau+2\varepsilon)} +
+e^{\varepsilon(\mu+\varepsilon)}\lambda(t)\ln\frac{k{-}1}{k}+
+e^{\varepsilon(\nu+\varepsilon)}\lambda(t)^{(\nu+\varepsilon)}\!\biggr)+
+\nonumber\\
+\label{3.15}
++ (\theta+\varepsilon)\ln\lambda(t)
+\end{gather}
+для всех $t\in\left[\frac{k-1}{2^N},\frac{k}{2^N}\right]$,
+$k\ge\max\{k_0(\varepsilon,\omega), k_1(\varepsilon),
+k_2(\varepsilon, \omega)\}$. Из~(\ref{3.15}) следует
+\begin{equation}\label{3.16}
+\lim_{t\to+\infty}\sup\frac{\ln V(t, X(t))}{\ln\lambda(t)}\le
+\max\{\nu+\varepsilon, \mu+\tau+2\varepsilon\} + \theta + \varepsilon.
+\end{equation}\par
+Устремляя в~(\ref{3.16}) $\varepsilon\to 0$, получим неравенство~(\ref{3.17})
+\begin{equation}\label{3.17}
+\lim_{t\to+\infty}\sup\frac{\ln V(t, X(t))}{\ln\lambda(t)}\le 
+\max\{\nu,\mu+ \tau\}  + \theta.
+\end{equation}\par
+Окончательно, используя 1-е условие теоремы, будем иметь~(\ref{3.18}):
+\begin{gather}
+\lim_{t\to+\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le
+\lim_{t\to+\infty}\sup\frac{1}{r}
+\frac{\ln\left(\lambda(t)^{-m}V(t,X(t))\right)}{\ln\lambda(t)}\le
+\nonumber\\ 
+\label{3.18}
+\le-\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}\qquad\text{п.н.}
+\end{gather}
+что и требовалось. Теорема доказана.
 
-Квадратической ковариацией процессов $X,$ $Y$ называется процесс
-$$
-[X,Y](t)=\int_0^t Y(s)d^{+}X(s)-\int_0^t Y(s)d^{-}X(s).
-$$
+\example Рассмотрим следующую стохастическую дифференциальную систему 
+(значение параметров $\alpha, m>0$ будет уточнено ниже)
+\begin{gather*}
+dX_t(x) = \left(\frac{d^2}{dx^2}X_t(x) + \alpha \sin\left(X_t(x)+
+e^{-\frac{mt}{2}}\cos X^1_t\right)\right)dt + 
+\alpha e^{-\frac{mt}{2}} X_t(x) dW_t,\\
+dX^1_t = \left(\alpha X^1_t\sin X^1_t + 
+\left(\int_0^\pi X_t(x)^2dx\right)^{1/2}\right)dt + 
+\alpha e^{-\frac{mt}{2}}\left(\int_0^\pi X_t(x)^2dx\right)^{1/2} dW_t,\\
+ t>0,\;\; 0<x<\pi
+\end{gather*}
+как уравнение относительно $\bar X_t = (X_t(\cdot),X^1_t)^\top$ в пространстве 
+$H\times\mathbb{R}$ 
+с начальным условием $\bar X_0=(X_0(x), X^1_0)^\top = (x_0(x), x^1_0), \
+ x\in (0,\pi)$, $H = L_2[0,\pi]$, $U = \mathbb{R}$. В компактной 
+ форме это уравнение примет вид
+\begin{gather}\label{3.18}
+d\bar X_t = (\bar A\bar X_t + f(t, \bar X_t))dt + g(t, \bar X_t)dW_t,\\ \nonumber
+f(t, \bar X_t) = \alpha\left(\sin(X_t(x)+e^{-\frac{mt}{2}}\cos X^1_t), 
+X^1_t \sin X^1_t + \|X_t(x)\|_H\right)^\top,\\ \nonumber
+g(t, \bar X_t) = \alpha e^{-\frac{mt}{2}}\left(X_t(x), 
+\left(\int_0^\pi X_t(x)^2dx\right)^{1/2}\right)^\top, \ 
+\bar A = \begin{pmatrix}A & 0\\ 0 & 0\end{pmatrix}, \\ \nonumber
+A = \frac{d^2}{dx^2}, \quad \EuScript{D}(A) = \{u\in C_2[0,\pi]: 
+u(0)=u(\pi) = 0\}
+\end{gather}
 
-Прямой и симметрический стохастические интегралы $\int\limits_0^t Y(s)d^{-}X(s)$,
-$\int\limits_0^t Y(s)d^{\circ}X(s)$ являются расширением интегралов Ито и 
-Стратоновича соответственно на класс непрерывных процессов с конечной 
-квадратической вариацией.
+Уравнение (\ref{3.18}), записанное в интегральной форме, примет вид
+\begin{gather*}
+\bar X_t = \int_{0}^{\pi} G(t, x, s) \bar X_0(s)ds + 
+\int_0^t\int_{0}^{\pi}G(t-\tau, x, s)f(s, x^1_\tau)ds\,d\tau +\\
++ \int_0^t\int_{0}^{\pi}G(t-\tau, x, s)g(s, x^1_\tau)ds\,dW(\tau),
+\end{gather*}
+где функция $G(t,x,y)$ определяется по формуле%
+~(\ref{ch1_parabolic_eq_solution_func}) при $l=\pi$. 
+Соответственно, оператор $S(t): H\times\mathbb{R}\to 
+H\times\mathbb{R}$ определяется формулой
+$$S(t)\bar u(\cdot) =  \left(\int_{0}^{\pi}G(t, \cdot ,s)u(s)ds, u^1\right).$$
 
-Пусть функция $F(t,x)$ имеет непрерывные частные производные $F'_t,$ $F'_x,$ 
-$F''_{x^2}$. Тогда процесс $y(t)=F(t,x(t))$ является непрерывным, имеет 
-конечную квадратическую вариацию. Так как стохастические дифференциалы 
-процессов $y(t),$ $W(t)$ имеют вид
-$$
-dy(t)=\biggl(F'_t(t,x(t))+F'_x(t,x(t))f(t,x(t))+\frac{1}{2}
-F''_{x^2}(t,x(t))g^2(t,x(t))\biggr)dt+$$ $$+F'_x(t,x(t))g(t,x(t))dW(t)+
-F'_x(t,x(t))\sigma(t,x(t))dB(t),
-$$
-$$
-dW(t)=0\cdot dt+1\cdot dW(t)+0 \cdot dB(t),
-$$
-то квадратическая ковариация процессов $y(t)$ и $W(t)$ равна
-$$
-[y, W](t)=\int_0^t F'_x(s, x(s))g(s,x(s))ds.
-$$
-С другой стороны, в силу определения прямого и симметрического стохастических 
-интегралов имеем
-$$
-\int_0^t F(s,x(s))\circ dW(s)=\int_0^t F(s,x(s))dW(s) +
-\frac{1}{2}[F(\cdot, x(\cdot)), W(\cdot)](t)=
-$$
-$$
-=\int_0^t F(s,x(s)) dW(s) +\frac{1}{2} \int_0^t F'_x(s, x(s))g(s,x(s))ds.
-$$
-Полагая $F(t,x)=g(t,x)$, заключаем, что процесс $x(t)$ является решением 
-уравнения (\ref{integration_of_mixed_main_eq}) тогда и только тогда, когда 
-процесс $x(t)$ является решением уравнения Стратоновича (\ref{eq_strat}).
-
-\begin{remark}
-Легко видеть, что проведенные рассуждения также сохраняют силу в случае 
-многомерного уравнения (\ref{integration_of_mixed_main_eq}) и соответствующего 
-уравнения Стратоновича.
-\end{remark}
-
-\begin{example}
-Для уравнения
-$$
-dx(t)=x^3(t)dt+x^2(t)dW(t)+x^2(t)dB(t), \ x(0)=x_0,
-$$
-соответствующее уравнение Стратоновича имеет вид
-$$
-dx(t)=x^2(t)\circ dW(t)+x^2(t)dB(t).
-$$
-Последнее уравнение имеет решение
-$$
-x(t)=\frac{x_0}{1-x_0(W(t)+B(t))},
-$$
-которое является решением и исходного уравнения.
-\end{example}
-
-\section{Дифференциальные уравнения для математических ожиданий и плотностей 
-распределений решений}
-
-В этом параграфе рассматриваем автономное уравнение 
-(\ref{integration_of_mixed_main_eq}), т.е.
-$$
-dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0.
-$$
-
-Будем предполагать, что выполнены условия, обеспечивающие существование и 
-единственность решений автономного уравнения (\ref{integration_of_mixed_main_eq}).
-
-Через
-$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$ обозначим множество всех непрерывно
-дифференцируемых функций $h:\mathbb{R}^d \to \mathbb{R}^d,$ имеющих линейный порядок
-роста. В дальнейшем будем предполагать, что коэффициенты $\tilde f=f-\frac{1}{2}g'_x g,$
-$g_j,$ $\sigma_j$ ($j=1,\ldots,d$) принадлежат множеству
-$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d).$
-
-Рассмотрим автономное обыкновенное дифференциальное уравнение
+Положим $V(t,\bar u) = V(t, u) = e^{mt} \|u\|^2,\, u\in H$. Очевидно, 
+$V'_t(t,\bar u)=\linebreak=m V(t, u)$. По определению производной по Фреше 
+$V'_u$ в точке $u\in H$ есть линейный ограниченный функционал такой, что для 
+достаточно малых $\|h\|$, $h\in H$ выполняется
+$$V(t, u + h) - V(t, u) -V'_u(t, u) h = o(\|h\|),$$ 
+$$e^{mt}\int_0^\pi (u(s)+h(s))^2\,ds - e^{mt}\int_0^\pi (u(s))^2\,ds = 
+V'_u(t,u)h + o(\|h\|).$$
+Последнее равносильно 
+$2e^{mt}\langle u,h\rangle + e^{mt}\|h\|^2 = V'_u(t,u)h + o(\|h\|)$, 
+откуда $V'_u(t,u) h = 2e^{mt}\langle u,h\rangle \ \forall \,h\in H$. Аналогично 
+$V''_{uu}h = 2e^{mt}\langle h,\cdot \rangle,\; \forall\,h\in H$. Можно показать 
+(см. [\ref{DiffJournal}]), что 
+\begin{gather*}
+\langle V'_u(t, u), Au\rangle = -2\frac{\|u'\|^2}{\|u\|^2}V(u),\\
+\langle V'_u(t, u), f(t, \bar u)\rangle \le 3\alpha V(t, u) + \alpha\pi.
+\end{gather*}
+Нетрудно видеть, что
+$$\|V'_u(t, u)\| = \sup_{\|h\|=1}2e^{mt}|\langle u,h\rangle|\le
+2e^{mt}\sup_{\|h\|=1}\|u\|\cdot\|h\|=2e^{mt}\|u\|$$ и аналогично 
+$\|V''_{uu}(t,u)\|=2e^{mt}\sup_{\|h\|=1}\sup_{\|u\|=1}|\langle h,u\rangle|\le 
+2e^{mt}$. Кроме того,  для любого ограниченного линейного оператора $B$ след 
+$\textup{tr}(BQ_w) = \sum\langle BQ_wu_k, u_k\rangle$ по модулю не превосходит 
+$|\textup{tr}(BQ_w)|\le\|B\|\textup{tr}Q_w$ (достаточно в качестве $(u_k)$ 
+взять базис из собственных векторов $Q_w$). В нашем случае $U=\mathbb{R}$, 
+а значит, $Q_w = I$ и $\textup{tr}Q_w = 1$. Таким образом,
+\begin{gather*}
+\frac{1}{2}\text{tr}[V''_{uu}(t,\bar u)(g(t,\bar u)Q_w^{1/2})
+(g(t,\bar u)Q_w^{1/2})^\star]\le\frac{1}{2}\|V''_{uu}\|\cdot\|g(t,\bar u)\|^2\le\\
+\le 2e^{mt}\alpha^2e^{-mt}\|u\|^2 \le 2\alpha^2V(t, \bar u),\\
+|QV(t,\bar u)|=|\textup{tr}[V''_{uu}(t,\bar u)\otimes V''_{uu}(t,\bar u)
+(g(t,\bar u)Q_w^{1/2})(g(t,\bar u)Q_w^{1/2})^\star]|\le\\
+\le\|V''_{uu}\|^2\|g(t,\bar u)\|^2\le8e^{mt}\alpha^2\|u\|^2 = 
+8\alpha^2V(t, \bar u).
+\end{gather*}
+Итак, выберем в качестве невозрастающей положительной функции 
+$\zeta(t) \equiv 1$, положим $\lambda_0 = 
+\inf_{u\in D(A)}\frac{\|u'\|^2}{\|u\|^2}$ и оценим
 \begin{equation*}
-dz(t)=h(z(t))dt, \ t \in \mathbb{R},
+LV(t,\bar u) + \zeta(t)QV(t,\bar u)\le \alpha\pi + 
+(-2\lambda_0+m+3\alpha+10\alpha^2)V(t,u).
 \end{equation*}
-где $h=\textrm{col}(h^1,\ldots,h^d)\in C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$,
-и обозначим через
-$$z^{y}(t)=\alpha_h(y,t)=\textrm{col}(\alpha_h^1(y,t),\ldots,
-\alpha_h^d(y,t))$$ решение (единственное) данного уравнения с начальным
-условием $\alpha_h(y,0){=}y.$
+Нетрудно показать (см. [\ref{DiffJournal}]), что 
+$\lambda_0\ge\frac{1}{\pi^2}>0$. Поэтому за счет выбора достаточно малого 
+$\alpha > 0$ и достаточно большого $m>0$ добьемся того, чтобы постоянная 
+$\beta = -2\lambda_0+m+3\alpha+10\alpha^2 > 0$, но $-2\lambda_0 + 3\alpha+
+10\alpha^2 < 0$.
 
+Обратимся к условию теоремы. Исходя из первого условия, полагаем $r~=~2$, из 
+второго условия: $\psi_1(t)\equiv \alpha\pi$, $\psi_2(t)~\equiv~\beta$. 
+В качестве $\lambda$ выберем $\lambda(t)=e^t$. Поскольку 
+$\frac{\log\log t}{\log\lambda(t)} = \frac{\log\log t}{t} \mathop{\to}
+\limits_{t \to \infty} 0$, то $\tau = 0$. Далее, 
+$\frac{\log\zeta(t)}{\log\lambda(t)} = 0$, т.е. $\mu = 0$; 
+$\frac{\log\left(\int_0^t\psi_1(s)ds\right)}{\log\lambda(t)} = 
+\frac{\log\alpha\pi t}{t} \mathop{\to}\limits_{t \to \infty} 0$, т.е. $\nu = 0$ 
+и следовательно, $\max\{\nu,\mu+\tau\} = 0$. И наконец, 
+$\frac{\int_0^t\psi_2(s)\,ds}{\log\lambda(t)} = \frac{\beta t}{t} = \beta$, 
+т.е. $\theta = \beta$. Таким образом, согласно теореме~\ref{HStabilityTheorem}:
+$$\limsup_{t\to+\infty}\frac{\log\|X(t)\|}{t}\le
+-\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r} = 
+-\frac{2\lambda_0 - 3\alpha-10\alpha^2 }{2}<0.$$
 
-\begin{proposition}\label{integration_alpha_h_proposition}
-Функция $\alpha_h(y,t)$
-удовлетворяет системе уравнений $$ \frac{\partial
-\alpha_h^j(y,t)}{\partial t}=\sum_{i=1}^d h^i(y)\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i}, \ j=1,\ldots,d, \ t\in \mathbb{R}, \ y \in
-\mathbb{R}^d,$$ и начальному условию $\alpha_h(y,0)=y.$
-\end{proposition}
-
-
-\proof Возьмем произвольные $x \in \mathbb{R}^d,$ $t \in
-\mathbb{R},$ $j\in \{1,\ldots,d\}.$ Тогда
-$$
-\frac{\partial \alpha_h^j(y,t)}{\partial t}=\lim_{r \to 0}
-\frac{\alpha_h^j(y,t+r)-\alpha_h^j(y,t)}{r}=\lim_{r \to 0}
-\frac{\alpha_h^j(\alpha_h(y,r),t)-\alpha_h^j(y,t)}{r}=$$
-$$=\sum_{i=1}^d\frac{\partial \alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0}
-\frac{\alpha_h^i(y,r)-x_i}{r}=\sum_{i=1}^d\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0} \frac{1}{r}\int_0^r
-h^i(\alpha_h(y,s))ds=$$ $$=\sum_{i=1}^d h^i(y)\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i},
-$$
-что и требовалось доказать.
-
-Из предложения~\ref{integration_alpha_h_proposition} вытекает, что $z^y(t)=T_h(t)y,$ где
-$T_h(t){:=}e^{tM_h}$ -- $C_0$-полугруппа на $C(\mathbb{R}^d,\mathbb{R}^d),$ порожденная
-дифференциальным оператором $M_h:C^1(\mathbb{R}^d, \mathbb{R}^d) \to C(\mathbb{R}^d, \mathbb{R}^d)$
-действующим по правилу
-$$
-(M_h w)(y)=\textrm{col}\biggl(\sum_{i=1}^d h^i(y)\frac{\partial
-w^1}{\partial y_i},\ldots,\sum_{i=1}^d h^i(y)\frac{\partial
-w^d}{\partial y_i}  \biggr),
-$$
-где $\ w=\textrm{col}(w^1,\ldots,w^d) \in C^1(\mathbb{R}^d,\mathbb{R}^d), \ y \in
-\mathbb{R}^d.$
-
-\begin{definition}
-Будем говорить, что семейство отображений
-$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$
-порождает коммутирующие потоки, если для любых $\alpha,$ $\beta \in
-A$ операторы $T_{h_{\alpha}}(t_1),$ $T_{h_{\beta}}(t_2)$
-перестановочные для любых $t_1,$ $t_2 \in \mathbb{R}.$
-\end{definition}
-
-\begin{remark}
-Если $d=1,$ то легко видеть, что семейство
-$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R},\mathbb{R})$
-порождает коммутирующие потоки тогда и только тогда, когда для
-любого $\alpha \in A$ найдется постоянная $\gamma_\alpha$ такая, что
-$h_\alpha(x)=\gamma_\alpha \varphi(x),$ где $\varphi \in
-C^1_\textrm{Lin}(\mathbb{R},\mathbb{R}).$
-\end{remark}
-
-Обозначим $\Gamma=\{\tilde f\} \cup \{g_j|j=1,\ldots,d\}\cup
-\{b_j|j=1,\ldots,d\}.$ Через $x^{y}(t)$ будем обозначать
-решение автономного уравнения (\ref{integration_of_mixed_main_eq}) с начальным 
-условием $x(0)=y \in \mathbb{R}^d.$
-
-Определим функцию $F:\mathbb{R}^{3d+1}  \to \mathbb{R}^d$ следующим образом:
-$$
-F(y,t,s_1,\ldots,s_d,\tau_1,\ldots,\tau_d)=(T_{\tilde f}(t)
-T_{g_1}(s_1)\ldots T_{g_d}(s_d)T_{\sigma_1}(\tau_1)\ldots
-T_{\sigma_d}(\tau_d)) (y),
-$$
-где $y \in \mathbb{R}^d,$ $t \in \mathbb{R},$ $s_j, \tau_j \in \mathbb{R}$ ($j=1,\ldots,d$).
-
-\begin{proposition}
-Если семейство $\Gamma$ порождает
-коммутирующие потоки, то
-$$x^y(t)=F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))$$ п.н. для любого
-$t \in \mathbb{R}^+.$
-\end{proposition}
-
-\proof Выберем произвольные $y \in \mathbb{R},$ $t \in \mathbb{R}^+$
-и зафиксируем их. Применяя формулу Ито к процессу $x^y(t),$ используя
-при этом условие коммутирования операторов $T_\alpha(t_1),$
-$T_\beta(t_2),$ $\alpha,$ $\beta \in \Gamma,$ $t_1,$ $t_2 \in \mathbb{R}$,
-получим соотношения
-$$
-F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))=$$
-$$=F(y,0,\ldots,0)+\int_0^t \biggl(\frac{\partial F(y,u,W(u),B(u))}{\partial
-t}+\frac{1}{2}\sum_{j=1}^d\frac{\partial^2 F(y,u,W(u),B(u))}{\partial
-s_j^2}\biggr)du+$$
-$$+\sum_{j=1}^d\int_0^t \frac{\partial F(y,u,W(u),B(u))}{\partial
-s_j}dW^j(u)+\sum_{j=1}^d\int_0^t \frac{\partial
-F(y,u,W(u),B(u))}{\partial \tau_j}dB^j(u)=
-$$
-$$
-=y+\int_0^t f(F(y,u,W(u),B(u)))du+\sum_{j=1}^d\int_0^t
-g_j(F(y,u,W(u),B(u)))dW^j(u)+$$ $$+\sum_{j=1}^d\int_0^t
-\sigma_j(F(y,u,W(u),B(u)))dB^j(u).
-$$
-
-Непрерывность по Гельдеру траекторий процесса $x^y(t)$ вытекает из
-непрерывной дифференцируемости функции $F$ и непрерывности по
-Гельдеру с любым показателем $\alpha<H$ траекторий процесса $B(t),$ а
-также непрерывности по Гельдеру с любым показателем $\alpha<1/2$
-траекторий процесса $W(t).$ Предложение доказано.
-
-
-\begin{theorem}\label{integration_gamma_family_th}
-Пусть семейство $\Gamma$ порождает
-коммутирующие потоки, функция $h:\mathbb{R}^d \to \mathbb{R}$ вместе со своими
-частными производными до второго порядка включительно непрерывна и
-имеет полиномиальный порядок роста. Тогда функция
-$u_h(y,t)=E(h(x^y(t)))$ удовлетворяет уравнению
-$$\frac{\partial u_h(y,t)}{\partial t}=\sum_{j=1}^d f_j(y)\frac{\partial
-u_h(y,t)}{\partial y_j}+\frac{1}{2}\sum_{i,j,k=1}^d
-g_{ik}(y)g_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i \partial
-y_j} +
-$$
-$$
-+\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(y)
-\biggl(\sigma_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i
-\partial y_j}+\frac{\partial \sigma_{jk}(y)}{\partial y_i
-}\frac{\partial u_h(y,t)}{\partial y_j }\biggr), \ t>0, \ y \in
-\mathbb{R}^d,$$ и начальному условию $u_h(y,0)=h(y), \ y \in \mathbb{R}^d.$
-\end{theorem}
-
-\proof Определим функцию $G_d:\mathbb{R}^{d+1} \to \mathbb{R}$
-следующим образом:
-$$
-G_d(y,\tau_d)=h(T_{\sigma_d}(\tau_d) (y)), \ y \in \mathbb{R}^d, \ \tau_d \in \mathbb{R}.
-$$
-Применяя формулу Ито к процессу $G_d(y,B^d(t)),$ $t \in \mathbb{R}^+,$ получим
-соотношение
-\begin{equation}\label{integration_eq23}
-G_d(y,B^d(t))=G_d(y,0)+\int_0^t \frac{\partial G_d(y,B^d(s))}{\partial
-\tau_d} \diamond dB^d(s)+\int_0^t Hs^{2H-1} \frac{\partial^2
-G_d(y,B^d(s))}{\partial \tau_d^2}ds,
-\end{equation}
-где стохастический интеграл в правой части соотношения~(\ref{integration_eq23}) --
-интеграл Вика-Ито-Скорохода \cite{Oksendal_Biagini}.
-
-Используя предложение~\ref{integration_alpha_h_proposition}, выразим частную производную
-$\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}$ через частные
-производные $\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_j},$
-$\frac{\partial G_d(y,\tau_d)}{\partial y_i}$. Получаем
-$$
-\frac{\partial G_d(y,\tau_d)}{\partial \tau_d}=\sum_{j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial \tau_d}=\sum_{i,j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j}\sigma_d^i(y)\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
-$$
-$$
-\frac{\partial^2 G_d(y,\tau_d)}{\partial
-\tau_d^2}=\sum_{i,j,k,l=1}^d \frac{\partial^2 h(T_{\sigma_d}(\tau_d)
-(y))}{\partial y_j \partial y_k}\sigma_d^i(y)\sigma_d^l(y) \frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i}\frac{\partial
-\alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+
-$$
-$$
-+\sum_{i,j,k=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j} \sigma_d^i(y) \biggl( \frac{\partial \sigma^k_d(y)}{\partial
-y_i}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
-y_k}+\sigma^k_d(y)\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_k
-y_i} \biggr),
-$$
-$$
-\frac{\partial G_d(y,\tau_d)}{\partial y_i}=\sum_{j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
-$$
+Отметим, что функция $g$ удовлетворяет глобальному условию Липшица, а $f$ 
+удовлетворяет локальному, но не удовлетворяет глобальному условию Липшица. 
+Действительно, для $g$:
+$$\|g(t, \bar x) - g(t, \bar y)\|^2 = e^{-mt}\alpha^2
+\int_0^\pi |x(s)-y(s)|^2ds + e^{-mt}\alpha^2(\|x\|-\|y\|)^2\le$$
+$$\le 2e^{-mt}\alpha^2\|x-y\|^2\le 2\alpha^2\|\bar x- \bar y\|^2.$$
+Для $f$ имеем: 
 \begin{gather*}
-\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_l}=\sum_{j,k=1}^d
-\frac{\partial^2 h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j\partial
-y_k}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
-y_i}\frac{\partial \alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+\\
-+\sum_{j=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j}\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i\partial
-y_l}.
+\|f(t, \bar x) - f(t, \bar y)\|^2 =
+\int_0^\pi\left|\sin\left(x(s){+}e^{-\frac{mt}{2}}\cos x^1\right) - 
+\sin\left(y(s){+}e^{-\frac{mt}{2}}\cos y^1\right)\right|^2\!\!ds +\\
++ \left|x^1\sin x^1 - y^1\sin y^1 + \|x\|-\|y\|\right|^2.
 \end{gather*}
-
-Таким образом,
-\begin{gather}\nonumber
-\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}=\sum_{i,l=1}^d
-\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i
-y_l}\sigma_d^i(x)\sigma_d^l(y)+\sum_{i,k=1}^d \frac{\partial
-G_d(y,\tau_d)}{\partial y_k}\sigma_d^i(y)\frac{\partial
-\sigma_d^k(y)}{\partial y_i}=\\ \label{integration_eq24}
-=(M^2_{\sigma_d} G_d(\cdot,\tau_d)) (y).
-\end{gather}
-
-Обозначим $\psi_d(y,t)=EG_d(y,B^d(t)).$ Тогда из соотношений~(\ref{integration_eq23}),
-(\ref{integration_eq24}), теоремы Фубини и правила Лейбница вытекает равенство
-\begin{equation}\label{integration_eq25}
-\psi_d(y,t)=\psi_d(y,0)+\int_0^t Hs^{2H-1}(M^2_{\sigma_d}
-\psi_d(\cdot,s)) (y)ds.
-\end{equation}
-Из соотношения~(\ref{integration_eq25}) вытекает справедливость соотношения
-\begin{equation}\label{integration_eq26}
-\frac{\partial \psi_d(\cdot,t)}{\partial t}=Ht^{2H-1}M_{\sigma_d}^2
-\psi_d(\cdot,t).
-\end{equation}
-
-
-Определим функцию $G_{d-1}:\mathbb{R}^{d+1} \times \mathbb{R}^+ \to \mathbb{R}$ 
-равенством
-$$G_{d-1}(y,\tau_{d-1},t)=\psi_d(T_{\sigma_{d-1}}(\tau_{d-1})(y),t), 
-\ y \in \mathbb{R}^d, \ \tau_{d-1}\in \mathbb{R}, \ t \in \mathbb{R}^+.$$
-
-Применяя формулу Ито к процессу $G_{d-1}(y,B^{d-1}(t),t),$ получим
-соотношение
-\begin{gather}\nonumber
-G_{d-1}(y,B^{d-1}(t),t)=G_{d-1}(y,0,0)+\int_0^t \frac{\partial
-G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}}\diamond dB^{d-1}(s)+\\ 
-\label{integration_eq27}
-+\int_0^t \biggl(\frac{\partial G_{d-1}(y,B^{d-1}(s),s)}{\partial
-\tau_d}+ Hs^{2H-1}\frac{\partial^2
-G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}^2}\biggr)ds.
-\end{gather}
-
-Отметим, что для каждых $y \in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ 
-$s \in \mathbb{R}^+$
-справедливо равенство
-\begin{equation}\label{integration_eq28}
-\frac{\partial^2 G_{d-1}(y,\tau_{d-1},s)}{\partial
-\tau_{d-1}^2}=(M^2_{\sigma_{d-1}} G_{d-1}(\cdot,\tau_{d-1},s)) (y).
-\end{equation}
-Действительно, в силу правила Лейбница достаточно проверить, что для
-любых $y\in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ $\tau_{d}\in \mathbb{R}$ 
-справедливо соотношение
-\begin{equation}\label{integration_eq29}
-\frac{\partial^2}{\partial \tau_{d-1}^2} h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (x))=(M^2_{\sigma_{d-1}} h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (\cdot)) (y).
-\end{equation}
-Для каждого фиксированного $\tau_d \in \mathbb{R}$ определим функцию
-$\omega_{\tau_d}:\mathbb{R}^d \to \mathbb{R}$ такую, что
-$$
-\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))=h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (y)).
-$$
-Теперь применяя рассуждения, которыми была доказана формула~(\ref{integration_eq24}),
-заменяя при этом функцию $G_d(y,\tau_d)$ функцией
-$\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))$, устанавливаем
-справедливость соотношения~(\ref{integration_eq29}), а вместе с ним и 
-равенства~(\ref{integration_eq28}).
-
-
-Обозначим $\psi_{d-1}(y,t)=EG_{d-1}(y,B^{d-1}(t),t),$ тогда с помощью
-соотношений~(\ref{integration_eq26}), (\ref{integration_eq27}), 
-(\ref{integration_eq28}), теоремы Фубини и правила Лейбница,
-получаем равенство
-\begin{equation}\label{integration_eq30}
-\psi_{d-1}(y,t)=\psi_{d-1}(y,0)+\int_0^t
-((Hs^{2H-1}M^2_{\sigma_d}+Hs^{2H-1}M^2_{\sigma_{d-1}})
-\psi_{d-1})(\cdot,s)(y)ds.
-\end{equation}
-
-Из соотношения~(\ref{integration_eq30}) получаем, что
-\begin{equation}\label{integration_eq31}
-\frac{\partial \psi_{d-1}(\cdot,t)}{\partial
-t}=(Ht^{2H-1}M^2_{\sigma_d}+Ht^{2H-1}M^2_{\sigma_{d-1}})
-\psi_{d-1}(\cdot,t).
-\end{equation}
-
-
-Далее рассматриваем функцию
-$G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{b_{d-2}}(\tau_{d-2})(y),t),$
-применяем формулу Ито к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
-уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
-$\psi_{d-2}(y,t)=EG_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
-прийдем к следующему уравнению для функции
-$u_h(y,t)=Eh(F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))):$
-$$
-\frac{\partial u_h(\cdot,t)}{\partial t}= \biggl(M_{\tilde
-f}+\frac{1}{2}\sum_{j=1}^d M^2_{g_j}+\sum_{j=1}^d H
-t^{2H-1}M^2_{\sigma_j}\biggr) u_h(\cdot,t).
-$$
-Теорема доказана.
-
-\begin{example}
-Покажем существенность условия коммутирования
-потоков, порожденных функциями из семейства $\Gamma,$ в 
-теореме~\ref{integration_gamma_family_th}.
-Рассмотрим линейное стохастическое уравнение
-\begin{equation}\label{integration_eq32}
-dx(t)=x(t)dt+dB(t)
-\end{equation}
-с начальным условием
-\begin{equation}\label{integration_eq33}
-x(0)=y \in \mathbb{R},
-\end{equation}
-где $B(t)$ -- одномерное дробное броуновское движение с показателем
-Харста $H \in (1/2,1).$ Решение $x^y(t)$ задачи Коши~(\ref{integration_eq32}), 
-(\ref{integration_eq33})
-задается формулой \cite{Vyoral}
-$$
-x^y(t)=ye^t+\int_0^t e^{t-s}dB(s).
-$$
-
-Положим $h(y)=y^2,$ тогда
-$$
-u_h(y,t)=y^2 e^{2t}+e^{2t}2H(2H-1)\int_0^t e^{-s} \int_0^s
-e^{-v}(s-v)^{2H-2}dvds=
-$$
-$$
-=y^2 e^{2t}+e^{2t}H(2H-1)\int_0^t e^{-u}u^{2H-2}du-H(2H-1)\int_0^t
-e^u u^{2H-2}du=
-$$
-$$
-=y^2e^{2t}+H\int_0^t (e^{2t-s}+e^s)s^{2H-1}ds.
-$$
-Следовательно,
-$$
-\frac{\partial u_h(y,t)}{\partial t}=2y^2e^{2t}+2He^t
-t^{2H-1}+2He^{2t}\int_0^t e^{-s}s^{2H-1}ds,
-$$
-$$
-y\frac{\partial u_h(y,t)}{\partial y}+Ht^{2H-1}\frac{\partial^2
-u_h(y,t)}{\partial y^2}=2y^2e^{2t}+2e^{2t}Ht^{2H-1}.
-$$
-Так как
-$$
-\int_0^t e^{-s}s^{2H-1}ds=-e^{-t}t^{2H-1}+(2H-1)\int_0^t
-e^{-s}s^{2H-2}ds<-e^{-t}t^{2H-1}+t^{2H-1}
-$$
-для любых $t>0,$ то функция $u_h(y,t)$ не удовлетворяет уравнению из
-теоремы~\ref{integration_gamma_family_th} ни при каких $t>0,$ $y\in \mathbb{R}.$ 
-Отметим, что операторы
-$T_f(t_1)(y)=e^{t_1}y,$ $T_\sigma(t_2)(y)=t_2+y$ не являются
-перестановочными.
-\end{example}
-
-\begin{example} Рассмотрим линейное однородное уравнение с
-постоянными коэффициентами
-\begin{equation}\label{integration_eq34}
-dx(t)=ax(t)dt+bx(t)dB(t)+cx(t)dW(t),
-\end{equation}
-с начальным условием
-\begin{equation}\label{integration_eq35}
-x(0)=y \in \mathbb{R}.
-\end{equation}
-Пусть $h(y)=y^r,$ $r \ge 2,$ $u_h(y,t)=Eh(x^y(t)),$ где $x^y(t)$ --
-решение задачи Коши~(\ref{integration_eq34}), (\ref{integration_eq35}). Легко 
-видеть, что условия теоремы~\ref{integration_gamma_family_th} выполняются, 
-и функция $u_h(y,t)$ удовлетворяет уравнению
-$$
-\frac{\partial u_h(y,t)}{\partial t}=\frac{\partial u_h(y,t)}{\partial
-y} y (a+b^2 Ht^{2H-1})+\frac{\partial^2 u_h(y,t)}{\partial y^2}y^2
-(c^2/2+b^2 Ht^{2H-1}), \ t>0, \ y \in \mathbb{R},
-$$
-с начальным условием
-$$
-u_h(y,0)=y^r.
-$$
-\end{example}
-
-\begin{theorem}
-Пусть семейство $\Gamma$ порождает
-коммутирующие потоки, решение $x^y(t)$ автономного уравнения 
-\textup{(\ref{integration_of_mixed_main_eq})} с начальным
-условием $x(0)=y$ имеет плотность распределения $p(t,y,z),$ функции
-$f(z),$ $g(z),$ $\sigma(z),$ $p(t,y,z)$ являются достаточно гладкими и
-ограниченными. Тогда функция $p(t,y,z)$ удовлетворяет равенству
+Так как $|\sin x - \sin y| \le |x-y|$, 
+$|\cos x - \cos y| \le |x-y|$ для любых 
+$x,y\in\mathbb{R}$, то
 \begin{gather*}
-\frac{\partial p(t,y,z)}{\partial t}=-
-\sum_{j=1}^d \frac{\partial (f_j(z)p(t,y,z))}{\partial z_j}
-+\frac{1}{2}\sum_{i,j,k=1}^d
-\frac{\partial^2(g_{ik}(z)g_{jk}(z)p(t,y,z))}{\partial z_i
-\partial z_j} +\\
-+\sum_{i,j,k=1}^d
-Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)p(t,y,z))}{\partial
-z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
-\sigma_{jk}(z)}{\partial z_i} p(t,y,z))}{\partial z_j}\biggr), \\
- t>0, \
-y,  z \in \mathbb{R}^d.
+\|f(t, \bar x) - f(t, \bar y)\|^2 \le \int_0^\pi\left|x(s)-y(s) + 
+e^{-\frac{mt}{2}}\cos x^1 - e^{-\frac{mt}{2}}\cos y^1\right|^2ds +\\
++2\left|x^1\sin x^1 - y^1\sin y^1\right|^2 + 2\|x - y\|^2\le \\
+\le 4\|x-y\|^2 + 2\pi\left|x^1-y^1\right|^2 +  
+2\left|x^1\sin x^1 - y^1\sin y^1\right|^2.
 \end{gather*}
-\end{theorem}
-
-\proof Возьмем произвольную функцию $h(z)$ с
-компактным носителем, имеющую ограниченные и непрерывные частные
-производные до второго порядка включительно.
-
-Обозначим через $A_t$ оператор, действующий по правилу
-$$(A_t h)(z)=\sum_{j=1}^d f_j(z)\frac{\partial
-h(z)}{\partial z_j}+\frac{1}{2}\sum_{i,j,k=1}^d
-g_{ik}(z)g_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i \partial z_j}
-+
-$$
-$$
-+\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(z)
-\biggl(\sigma_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i
-\partial z_j}+\frac{\partial \sigma_{jk}(z)}{\partial z_i
-}\frac{\partial h(z)}{\partial z_j }\biggr), \ t>0, \ z \in \mathbb{R}^d.$$
-
-
-Используя соотношение
-$$
-u_h(y,t)=\int_{\mathbb{R}^d} h(z)p(t,y,z)dz,
-$$
-теорему~\ref{integration_gamma_family_th} и правило Лейбница, 
-получаем равенство
-\begin{equation}\label{integration_eq36}
-\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
-t}-p(t,y,z)(A_t h)(z)\biggr)dz=0.
-\end{equation}
-Из соотношения~(\ref{integration_eq36}) вытекает равенство
-\begin{equation}\label{integration_eq37}
-\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
-t}-h(z)(A^*_t p(t,y,\cdot))(z)\biggr)dz=0,
-\end{equation}
-где $A_t^*$ -- сопряженный оператор к оператору $A_t.$ Применяя
-формулу интегрирования по частям, легко видеть, что
-\begin{gather}\nonumber
-(A_t^* \varphi) (z)=-\sum_{j=1}^d \frac{\partial
-(f_j(z)\varphi(z))}{\partial z_j} +\frac{1}{2}\sum_{i,j,k=1}^d
-\frac{\partial^2(g_{ik}(z)g_{jk}(z)\varphi(z))}{\partial y_i
-\partial y_j} +\\ \label{integration_eq38}
-+\sum_{i,j,k=1}^d
-Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)\varphi(z))}{\partial
-z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
-\sigma_{jk}(z)}{\partial z_i} \varphi(z))}{\partial z_j}\biggr).
-\end{gather}
-
-Теперь из соотношений~(\ref{integration_eq37}), (\ref{integration_eq38}) и 
-плотности множества функций с компактным носителем, имеющих непрерывные 
-органиченные производные всех порядков, в $L_1(\mathbb{R}^d,\mathbb{R})$ вытекает 
-требуемое утверждение. Теорема доказана.
-
-\newpage
+Функция $h(x) = x\sin x$, $x\in\mathbb{R}$ удовлетворяет локальному условию 
+Липшица (и не удовлетворяет глобальному), поэтому для любого $a > 0$ найдется 
+постоянная $q_a > 0$ такая, что для всех $|x^1|, |y^1| < a$ выполняется 
+$\left|x^1\sin x^1 - y^1\sin y^1\right|\le q_a|x^1-y^1|$. Но если 
+$\|\bar x\|^2 = \int_0^\pi (x(s))^2ds + (x^1)^2 \le a^2$,
+$\|\bar y\|^2 \le a^2$ то и $\left|x^1\right|\le a$, $|y^1|\le a$. 
+Поэтому при любом $a>0$ при условия $\|\bar x\|,\|\bar y\|\le a$ 
+выполняется неравенство
+$$\|f(\bar x) - f(\bar y)\|^2 \le \max\{4,2(\pi+q_a^2)\}\cdot\|\bar x - \bar y\|^2,$$
+т.е. локальное условие Липшица выполнено.
+\pagebreak
