@@ -12,6 +12,219 @@
     }
 
 
+\section{Предварительные сведения}
+
+\subsection{Прямой, обратный и симметрический стохастические \\ интегралы}
+
+Пусть задано вероятностное пространство $(\Omega, \mathcal{F}, \Prob)$.
+Говорят, что последовательность случайных процессов $(X_n(t))_{n \ge 0}$, сходится
+к случайному процессу $X(t)$, $t\ge 0$, равномерно на компактах по вероятности 
+(сокращенно ucp, см. \cite[c. 57]{Protter}), если для любого $\varepsilon > 0$ и 
+$T\ge 0$ выполнено равенство
+$$
+\lim_{n\to\infty} \Prob\left\{\sup_{0\le t\le T} |X_n(t) - X(t)| > \varepsilon \right\} = 0.
+$$
+
+Следуя \cite{Russo_Vallois_1, Russo_Vallois, Russo_Vallois_2}, для непрерывных 
+процессов $X(t),$ $Y(t)$ с конечной квадратической вариацией определим
+квадратичную ковариацию:
+$$
+[X,Y](t)\stackrel{ucp}{=}\lim_{\varepsilon\to +0}\frac{1}{\varepsilon}
+\int_0^t (Y(s+\varepsilon) - Y(s))(X(s+\varepsilon) - X(s))ds,
+$$
+а также прямой, обратный и симметрический стохастические интегралы соответственно:
+$$
+\int_0^t Y(s)d^{-}X(s)\stackrel{ucp}{=}\lim_{\varepsilon\to +0} 
+\int_0^t Y(s)\frac{X(s+\varepsilon)-X(s)}{\varepsilon}ds,
+$$
+$$
+\int_0^t Y(s)d^{+}X(s)\stackrel{ucp}{=}\lim_{\varepsilon\to +0} 
+\int_0^t Y(s)\frac{X(s)-X((s-\varepsilon)\vee 0)}{\varepsilon}ds,
+$$
+$$
+\int_0^t Y(s)d^{\circ}X(s)=
+\frac{1}{2}\int_0^t Y(s)d^{-}X(s)+\frac{1}{2}\int_0^t Y(s)d^{+}X(s),
+$$
+где знак $\stackrel{ucp}{=}$ означает то, что соответствующие пределы понимаются
+в смысле равномерной на компактах сходимости по вероятности.
+
+Существование квадратической ковариации $[X,Y]$ равносильно существовнию одного
+из указанных интегралов (прямого или обратного), и более того справедлива следущая
+формула \cite[с. 85--86]{Russo_Vallois_2}: 
+$$
+[X,Y](t)=\int_0^t Y(s)d^{+}X(s)-\int_0^t Y(s)d^{-}X(s).
+$$
+
+Определение $[X, Y]$ обобщает понятие квадратической ковариации для 
+семимартингалов, а прямой и симметрический стохастические интегралы 
+$\int\limits_0^t Y(s)d^{-}X(s)$, $\int\limits_0^t Y(s)d^{\circ}X(s)$ 
+являются расширением интегралов Ито и Стратоновича соответственно 
+на класс непрерывных процессов с конечной 
+квадратической вариацией \cite[с. 5]{Russo_Vallois}, 
+\cite[предложение 1.1]{Russo_Vallois_2}.
+
+\subsection{Интеграл Вика-Ито-Скорохода}
+
+Определим интеграл Вика-Ито-Скорохода по дробному броуновскому движению
+$B^{(H)}(t)$ с индексом Харста $H > 1/2$.
+
+Пусть $\EuScript{S}(\mathbb{R}) = 
+\{f\in C^\infty(\mathbb{R}, \mathbb{R}): 
+\sup_{x\in\mathbb{R}}|x^\alpha D^\beta f(x)| < \infty\; 
+\forall \alpha, \beta \in \mathbb{N}\}$~--- пространство Шварца быстро 
+убывающих функций из $\mathbb{R}$ в $\mathbb{R}$, 
+$\mathit{\Omega} := \EuScript{S}'(\mathbb{R})$~--- двойственное
+к $\EuScript{S}(\mathbb{R})$ пространство. Построим вероятностное пространство
+$(\mathit{\Omega}, \mathcal{F}, \Prob)$, в котором $\Prob$ --- вероятностная мера,
+определеная на множествах борелевской $\sigma$-алгебры $\mathcal{F}=
+\mathcal{B}(\EuScript{S}'(\mathbb{R}))$ и обладающая следующим свойством:
+$$
+\int_{\EuScript{S}'(\mathbb{R})} e^{i<\omega, f>}d\Prob(\omega) =
+\exp\left(-\frac{1}{2}\langle f, f\rangle_{L_2(\mathbb{R})}\right),
+$$
+где $<\omega, f>=\omega(f)$ --- образ 
+$f{\in}\EuScript{S}(\mathbb{R})$ при отображении $\omega\in\mathit{\Omega} =
+\EuScript{S}'(\mathbb{R})$,~$i^2=-1$.
+
+Определим оператор $M = M_H$,
+действующий на функции $f\in \EuScript{S}(\mathbb{R})$ по следующему правилу:
+$$
+Mf(x) = C_H \int_\mathbb{R} \frac{f(t)}{|t-x|^{3/2 - H}} dt, \quad x\in\mathbb{R},
+$$
+где $C_H = \left(
+  2\Gamma\left(H - \frac{1}{2}\right)
+  \cos\left(\frac{\pi}{2}\left(H-\frac{1}{2}\right)
+\right)\right)^{-1}
+(\Gamma(2H+1)\sin(\pi H))^{1/2}$ --- константа, выраженная через значения 
+гамма-функции $\Gamma$.
+
+Зададим функцию $I_{[0,t]}(\cdot)$: $I_{[0,t]}(s) = \sign(s)\textbf{1}_{[-t, t]}$, 
+$s\ne 0$, $I_{[0,t]}(0)=1$. Для каждого $t\in\mathbb{R}$ определим процесс
+$$
+\tilde B^{(H)}(t) = \tilde B^{(H)}(t, \omega) = <\omega, MI_{[0,t]}(\cdot)>.
+$$
+Для данного процесса существует непрерывная версия $B^{(H)}(t)$,
+которая является дробным броуновским движением в пространстве 
+$(\mathit{\Omega}, \mathcal{F}, \Prob)$ \cite[гл. 4]{Oksendal_Biagini}.
+
+Пусть $h_n(x) = (-1)^n e^{x^2/2}\frac{d^n}{dx^n}\bigl(e^{-x^2/2}\bigr)$,
+$n=0,1,2\ldots$ --- многочлены Эмита. Введем в рассмотрение функции Эрмита 
+$$
+\xi_n(x) = \pi^{-1/4} ((n-1)!)^{-1/2} h_{n-1}(\sqrt{2}x)e^{-x^2/2}, \quad n\in\mathbb{N}.
+$$
+Функции $(\xi_n)_{n=1}^\infty$ образуют ортонормированный 
+базис в $L_2(\mathbb{R})$.
+
+Пусть $\mathcal{J}$ --- множество мультииндексов $\alpha = (\alpha_1, \alpha_2, \ldots)$
+конечной длины $l(\alpha) = \max\{i: \alpha_i\ne 0\} < \infty$ с компонентами 
+$\alpha_i\in\{0,1,2,\ldots\}$ для всех~$i$. Для мультииндексов 
+$\alpha=(\alpha_1, \ldots, \alpha_n)\in\mathcal{J}$ длины $n$ будем использовать 
+обозначение $\alpha! = \alpha_1!\ldots\alpha_n!$, а также рассматривать величины
+$$
+\EuScript{H}_{\alpha}(\omega) = 
+h_{\alpha_1}(<\omega, \xi_1>)
+h_{\alpha_2}(<\omega, \xi_2>)\ldots
+h_{\alpha_n}(<\omega, \xi_n>).
+$$
+Важным частным случаем являются мультииндексы $\alpha = \varepsilon^{(n)} =
+(0, \ldots, 0, 1)$, $l(\varepsilon^{(n)})=n$, для них 
+$\EuScript{H}_{\varepsilon^{(n)}}(\omega) = h_1(<\omega, \xi_n>) = <\omega, \xi_n>$.
+
+Для любой случайной величины $F\in L_2(\Prob)$ существует
+единственное семейство $(c_\alpha)_{\alpha\in\mathcal{J}}$ констант 
+$c_\alpha\in\mathbb{R}$ таких, что $F(\omega) = \sum_{\alpha\in\mathcal{J}}
+c_\alpha \EuScript{H}_{\alpha}(\omega)$ (предел в $L_2(\Prob)$), причем
+$\E F^2 = \sum_{\alpha\in\mathcal{J}} c^2_\alpha \alpha!$ 
+(см. \cite[теорема A.1.3]{Oksendal_Biagini}).
+
+Определим пространства Хиды $\EuScript{S}$ и $(\EuScript{S})^*$ 
+(см. \cite[приложение A]{Oksendal_Biagini}):
+\begin{enumerate}
+\item %
+Пространством Хиды $\EuScript{S}$ называют множество фунций 
+$\psi\in L_2(\Prob)$, чьи разложения
+$\psi(\omega) = \sum_{\alpha\in\mathcal{J}} a_\alpha \EuScript{H}_{\alpha}(\omega)$
+удовлетворяют соотношению 
+$\|\psi\|^2_k := \sum_{\alpha\in\mathcal{J}} 
+a^2_\alpha \alpha! (2\mathbb{N})^{k\alpha} < \infty$ для всех $k\in\mathbb{N}$,
+где $(2\mathbb{N})^\gamma = (2\cdot 1)^{\gamma_1}\ldots (2\cdot n)^{\gamma_n}$
+для $\gamma =(\gamma_1, \ldots, \gamma_n)\in\mathcal{J}$.
+\item
+Для фиксированного $q\in\mathbb{N}$ пространством Хиды $(\EuScript{S})^*$ 
+называют множество формальных разложений
+$G(\omega) = \sum_{\alpha\in\mathcal{J}} b_\alpha \EuScript{H}_{\alpha}(\omega)$,
+удовлетворяющих соотношению 
+$\|G\|^2_q := \sum_{\alpha\in\mathcal{J}} 
+b^2_\alpha \alpha! (2\mathbb{N})^{-q\alpha} < \infty$
+\end{enumerate}
+Пространство $(\EuScript{S})^*$ является двойственным к пространству $\EuScript{S}$,
+и действие $G\in (\EuScript{S})^*$ на $\psi\in\EuScript{S}$ определяется равенством
+$<G, \psi> = \sum_{\alpha\in\mathcal{J}} a_\alpha b_\alpha \alpha!$
+
+Функцию $Z \colon \mathbb{R} \to (\EuScript{S})^*$ обладающую тем свойством, что 
+$<Z(\cdot), \psi>\in L_1(\mathbb{R})$ для любого $\psi\in \EuScript{S}$, называют 
+$dt$-интегрируемой в $(\EuScript{S})^*$ и определяют интеграл $\int_\mathbb{R}Z(t)dt$
+как единственный элемент в $(\EuScript{S})^*$, удовлетворяющий соотношению
+$<\int_\mathbb{R}Z(t)dt, \psi> = \int_\mathbb{R} <Z(t), \psi>dt$ для любого 
+$\psi\in \EuScript{S}$.
+
+Если $F_i(\omega) = \sum_{\alpha\in\mathcal{J}}
+c^{(i)}_\alpha \EuScript{H}_{\alpha}(\omega)$.,
+$i=1,2$ --- два элемента пространства $(\EuScript{S})^*$, то их произведение Вика
+$(F_1\diamond F_2)(\omega)$ определяется следующим образом:
+$$
+(F_1\diamond F_2)(\omega) = 
+\sum_{\alpha, \beta\in\mathcal{J}} 
+c^{(1)}_\alpha c^{(2)}_\beta 
+\EuScript{H}_{\alpha + \beta}(\omega) =
+\sum_{\gamma\in\mathcal{J}}
+\biggl(\sum_{\alpha + \beta = \gamma} c^{(1)}_\alpha c^{(2)}_\beta \biggr)
+\EuScript{H}_{\gamma}(\omega)
+$$
+
+Определим дробный белый шум $W^{(H)}(t)$ следующей формулой:
+$$W^{(H)}(t) = \sum_{k=1}^\infty M\xi_k(t) \EuScript{H}_{\varepsilon^{(k)}}(\omega).$$
+
+Пусть функция $Y\colon \mathbb{R} \to (\EuScript{S})^*$ такова, что выражение
+$Y(t)\diamond W^{(H)}(t)$ является $dt$-интегрируемым в $(\EuScript{S})^*$.
+Для функций $Y(t)=Y(t,\omega)$ указанного класса определяют интеграл 
+Вика-Ито-Скорохода по дробному броуновскому движению $B^{(H)}(t)$ как
+$$
+\int_\mathbb{R} Y(t,\omega)\diamond dB^{(H)}(t) := 
+\int_\mathbb{R} Y(t)\diamond W^{(H)}dt.
+$$
+Интеграл Вика-Ито-Скорохода на конечном отрезке $[0, T]\subset\mathbb{R}$
+определяют следующим образом:
+$$
+\int_0^T Y(t,\omega)\diamond dB^{(H)}(t) := 
+\int_\mathbb{R} Y(t)\textbf{1}_{[0, T]}\diamond W^{(H)}(t) dt.
+$$
+
+\begin{proposition}[(\!\!{\cite[теорема 4.2.6]{Oksendal_Biagini}})]
+Пусть функция $f(t, x)\colon\mathbb{R}^2 \to \mathbb{R}$,
+имеющая непрерывные производные $\frac{\partial f}{\partial t}$, 
+$\frac{\partial f}{\partial x}$, $\frac{\partial^2 f}{\partial x^2}$ такова, что все
+случайные величины
+$$
+f(t, B^{(H)}(t)), \quad 
+\int_0^t \frac{\partial f}{\partial s}(s, B^{(H)}(s))ds, \quad
+\int_0^t \frac{\partial^2 f}{\partial x^2}(s, B^{(H)}(s))ds
+$$
+принадлежат пространству $L_2(\Prob)$. Тогда справедлива следующая
+дробная формула Ито:
+\begin{gather}
+f(t, B^{(H)}(t)) = 
+f(0,0) + \int_0^t \frac{\partial f}{\partial s}(s, B^{(H)}(s))ds + \nonumber\\
+\label{WIS_Ito_formula}
++ \int_0^t \frac{\partial f}{\partial x}(s, B^{(H)}(s)) \diamond dB^{(H)}(s) + 
+H \int_0^t \frac{\partial^2 f}{\partial x^2}(s, B^{(H)}(s))s^{2H-1}ds.
+\end{gather}
+\end{proposition}
+
+
+\section{Методы интегрирования одномерных уравнений смешанного типа}
+
+
 Пусть на вероятностном пространстве $(\Omega,\mathcal{F},P)$ заданы
 $d$-мерное стандартное броуновское движение
 $W(t)$ и $d$-мерное дробное броуновское движение 
@@ -42,8 +255,7 @@ x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
 \sigma(s,x(s))dB(s),
 $$
 где интеграл по процессу $W(t)$ -- стохастический интеграл Ито, а
-интеграл по процессу $B(t)$ -- потраекторный интеграл
-Римана-Стилтьеса \cite{Guerra}.
+интеграл по процессу $B(t)$ -- потраекторный интеграл Янга \cite{Guerra}.
 \end{definition}
 
 \begin{remark}
@@ -70,11 +282,9 @@ g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 \int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
 \end{gather}
 
-\section{Методы интегрирования одномерных уравнений смешанного типа}
-
 В данном параграфе будем рассматривать одномерное уравнение 
-(\ref{integration_of_mixed_main_eq}), т.е. $d=1.$ В рамках настоящего параграфа 
-будем предполагать, что коэффициенты рассматриваемых уравнений являются 
+(\ref{integration_of_mixed_main_eq}), считая, что $d=1.$ В рамках настоящего 
+параграфа будем предполагать, что коэффициенты рассматриваемых уравнений являются 
 достаточно гладкими функциями, обеспечивающими возможность достаточного числа 
 дифференцирований и применений формулы замены переменных 
 (\ref{integration_of_mixed_ito_formula}).
@@ -488,35 +698,10 @@ $$
 [x](t)=\int_0^t g^2(s,x(s))ds.
 $$
 
-Следуя \cite{Russo_Vallois}, для непрерывных процессов $X(t),$ $Y(t)$ с конечной 
-квадратической вариацией определим прямой, обратный и симметрический 
-стохастические интегралы:
-$$
-\int_0^t Y(s)d^{-}X(s)=\lim_{\varepsilon\to +0} 
-\int_0^t Y(s)\frac{X(s+\varepsilon)-X(s)}{\varepsilon}ds,
-$$
-$$
-\int_0^t Y(s)d^{+}X(s)=\lim_{\varepsilon\to +0} 
-\int_0^t Y(s)\frac{X(s)-X((s-\varepsilon)\vee 0)}{\varepsilon}ds,
-$$
-$$
-\int_0^t Y(s)d^{\circ}X(s)=
-\frac{1}{2}\int_0^t Y(s)d^{-}X(s)+\frac{1}{2}\int_0^t Y(s)d^{+}X(s).
-$$
-
-Квадратической ковариацией процессов $X,$ $Y$ называется процесс
-$$
-[X,Y](t)=\int_0^t Y(s)d^{+}X(s)-\int_0^t Y(s)d^{-}X(s).
-$$
-
-Прямой и симметрический стохастические интегралы $\int\limits_0^t Y(s)d^{-}X(s)$,
-$\int\limits_0^t Y(s)d^{\circ}X(s)$ являются расширением интегралов Ито и 
-Стратоновича соответственно на класс непрерывных процессов с конечной 
-квадратической вариацией.
-
 Пусть функция $F(t,x)$ имеет непрерывные частные производные $F'_t,$ $F'_x,$ 
 $F''_{x^2}$. Тогда процесс $y(t)=F(t,x(t))$ является непрерывным, имеет 
-конечную квадратическую вариацию. Так как стохастические дифференциалы 
+конечную квадратическую вариацию. Ввиду формулы Ито~%
+(\ref{integration_of_mixed_ito_formula}) стохастические дифференциалы 
 процессов $y(t),$ $W(t)$ имеют вид
 $$
 dy(t)=\biggl(F'_t(t,x(t))+F'_x(t,x(t))f(t,x(t))+\frac{1}{2}
@@ -526,7 +711,8 @@ $$
 $$
 dW(t)=0\cdot dt+1\cdot dW(t)+0 \cdot dB(t),
 $$
-то квадратическая ковариация процессов $y(t)$ и $W(t)$ равна
+Поскольку $[t, W(t)] =0$, $[W, B](t) = 0$, $[W, W](t) = t$, то ввиду леммы 4.9 
+\cite{Russo_Vallois} квадратическая ковариация процессов $y(t)$ и $W(t)$ равна
 $$
 [y, W](t)=\int_0^t F'_x(s, x(s))g(s,x(s))ds.
 $$
@@ -718,7 +904,8 @@ $$
 $$
 G_d(y,\tau_d)=h(T_{\sigma_d}(\tau_d) (y)), \ y \in \mathbb{R}^d, \ \tau_d \in \mathbb{R}.
 $$
-Применяя формулу Ито к процессу $G_d(y,B^d(t)),$ $t \in \mathbb{R}^+,$ получим
+Применяя дробную формулу Ито~(\ref{WIS_Ito_formula}) к процессу 
+$G_d(y,B^d(t)),$ $t \in \mathbb{R}^+,$ получим
 соотношение
 \begin{equation}\label{integration_eq23}
 G_d(y,B^d(t))=G_d(y,0)+\int_0^t \frac{\partial G_d(y,B^d(s))}{\partial
@@ -726,7 +913,7 @@ G_d(y,B^d(t))=G_d(y,0)+\int_0^t \frac{\partial G_d(y,B^d(s))}{\partial
 G_d(y,B^d(s))}{\partial \tau_d^2}ds,
 \end{equation}
 где стохастический интеграл в правой части соотношения~(\ref{integration_eq23}) --
-интеграл Вика-Ито-Скорохода \cite{Oksendal_Biagini}.
+интеграл Вика-Ито-Скорохода.
 
 Используя предложение~\ref{integration_alpha_h_proposition}, выразим частную производную
 $\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}$ через частные
@@ -796,8 +983,8 @@ G_d(y,\tau_d)}{\partial y_k}\sigma_d^i(y)\frac{\partial
 $$G_{d-1}(y,\tau_{d-1},t)=\psi_d(T_{\sigma_{d-1}}(\tau_{d-1})(y),t), 
 \ y \in \mathbb{R}^d, \ \tau_{d-1}\in \mathbb{R}, \ t \in \mathbb{R}^+.$$
 
-Применяя формулу Ито к процессу $G_{d-1}(y,B^{d-1}(t),t),$ получим
-соотношение
+Применяя дробную формулу Ито~(\ref{WIS_Ito_formula}) к процессу 
+$G_{d-1}(y,B^{d-1}(t),t),$ получим соотношение
 \begin{gather}\nonumber
 G_{d-1}(y,B^{d-1}(t),t)=G_{d-1}(y,0,0)+\int_0^t \frac{\partial
 G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}}\diamond dB^{d-1}(s)+\\ 
@@ -855,7 +1042,8 @@ t}=(Ht^{2H-1}M^2_{\sigma_d}+Ht^{2H-1}M^2_{\sigma_{d-1}})
 
 Далее рассматриваем функцию
 $G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{b_{d-2}}(\tau_{d-2})(y),t),$
-применяем формулу Ито к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
+применяем дробную формулу Ито~(\ref{WIS_Ito_formula}) 
+к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
 уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
 $\psi_{d-2}(y,t)=EG_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
 прийдем к следующему уравнению для функции
