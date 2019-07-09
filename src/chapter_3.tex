@@ -225,7 +225,7 @@ H \int_0^t \frac{\partial^2 f}{\partial x^2}(s, B^{(H)}(s))s^{2H-1}ds.
 \section{Методы интегрирования одномерных уравнений смешанного типа}
 
 
-Пусть на вероятностном пространстве $(\Omega,\mathcal{F},P)$ заданы
+Пусть на вероятностном пространстве $(\Omega,\mathcal{F},\Prob)$ заданы
 $d$-мерное стандартное броуновское движение
 $W(t)$ и $d$-мерное дробное броуновское движение 
 $B(t)$ c показателем Харста $H \in(1/2,1).$
@@ -242,7 +242,7 @@ $\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$ ---
 \begin{definition}
 Под решением уравнения (\ref{integration_of_mixed_main_eq}) понимаем процесс
 $x(t),$ $t\in \mathbb{R}^+,$ заданный на вероятностном пространстве
-$(\Omega,\mathcal{F},P),$ согласованный с потоком $\sigma$-алгебр
+$(\Omega,\mathcal{F},\Prob),$ согласованный с потоком $\sigma$-алгебр
 $\mathcal{F}_t,$ порожденным процессами $W(t)$ и $B(t),$ такой, что
 выполняются условия:
 
@@ -526,7 +526,6 @@ $$
 \exp\left(-\frac{C^2\E\|B\|^2_H}{4\varepsilon_2}\right) =: \delta.
 $$
 \end{example}
-\smallskip
 
 \subsection{Приведение к линейным неоднородным уравнениям}
 Ограничимся рассмотрением автономных уравнений
@@ -627,12 +626,13 @@ $c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} =
 справедлива следующая теорема.
 
 \begin{theorem}\label{integration_reduction_to_linear_th}
-Уравнение~(\ref{integration_of_mixed_main_eq_auto}) c $g(x)\ne 0,$ $A'(x) \ne 0$ 
-приводимо к уравнению~(\ref{integration_of_mixed_linear_inhom_const_eq}) тогда и 
-только тогда, когда найдутся постоянные $c_1, c_2$ такие, что оказываются 
-выполненными соотношения~(\ref{integration_of_mixed_linear_inhom_cond_1}),
-(\ref{integration_of_mixed_linear_inhom_cond_2}),
-(\ref{integration_of_mixed_linear_inhom_cond_3}).
+Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})}
+c $g(x)\ne 0,$ $A'(x) \ne 0$ приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
+тогда и только тогда, когда найдутся постоянные $c_1, c_2$ такие, 
+что оказываются выполненными 
+соотношения~\textup{(\ref{integration_of_mixed_linear_inhom_cond_1})},
+\textup{(\ref{integration_of_mixed_linear_inhom_cond_2})},
+\textup{(\ref{integration_of_mixed_linear_inhom_cond_3})}.
 \end{theorem}
 
 \begin{proposition}
@@ -790,14 +790,14 @@ $$z^{y}(t)=\alpha_h(y,t)=\textrm{col}(\alpha_h^1(y,t),\ldots,
 \end{proposition}
 
 
-\proof Возьмем произвольные $x \in \mathbb{R}^d,$ $t \in
+\proof Возьмем произвольные $y \in \mathbb{R}^d,$ $t \in
 \mathbb{R},$ $j\in \{1,\ldots,d\}.$ Тогда
 $$
 \frac{\partial \alpha_h^j(y,t)}{\partial t}=\lim_{r \to 0}
 \frac{\alpha_h^j(y,t+r)-\alpha_h^j(y,t)}{r}=\lim_{r \to 0}
 \frac{\alpha_h^j(\alpha_h(y,r),t)-\alpha_h^j(y,t)}{r}=$$
 $$=\sum_{i=1}^d\frac{\partial \alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0}
-\frac{\alpha_h^i(y,r)-x_i}{r}=\sum_{i=1}^d\frac{\partial
+\frac{\alpha_h^i(y,r)-y_i}{r}=\sum_{i=1}^d\frac{\partial
 \alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0} \frac{1}{r}\int_0^r
 h^i(\alpha_h(y,s))ds=$$ $$=\sum_{i=1}^d h^i(y)\frac{\partial
 \alpha_h^j(y,t)}{\partial y_i},
@@ -834,7 +834,7 @@ C^1_\textrm{Lin}(\mathbb{R},\mathbb{R}).$
 \end{remark}
 
 Обозначим $\Gamma=\{\tilde f\} \cup \{g_j|j=1,\ldots,d\}\cup
-\{b_j|j=1,\ldots,d\}.$ Через $x^{y}(t)$ будем обозначать
+\{\sigma_j|j=1,\ldots,d\}.$ Через $x^{y}(t)$ будем обозначать
 решение автономного уравнения (\ref{integration_of_mixed_main_eq}) с начальным 
 условием $x(0)=y \in \mathbb{R}^d.$
 
@@ -1006,7 +1006,7 @@ $s \in \mathbb{R}^+$
 справедливо соотношение
 \begin{equation}\label{integration_eq29}
 \frac{\partial^2}{\partial \tau_{d-1}^2} h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (x))=(M^2_{\sigma_{d-1}} h(T_{\sigma_{d-1}}(\tau_{d-1})
+T_{\sigma_d}(\tau_d) (y))=(M^2_{\sigma_{d-1}} h(T_{\sigma_{d-1}}(\tau_{d-1})
 T_{\sigma_d}(\tau_d) (\cdot)) (y).
 \end{equation}
 Для каждого фиксированного $\tau_d \in \mathbb{R}$ определим функцию
@@ -1041,7 +1041,7 @@ t}=(Ht^{2H-1}M^2_{\sigma_d}+Ht^{2H-1}M^2_{\sigma_{d-1}})
 
 
 Далее рассматриваем функцию
-$G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{b_{d-2}}(\tau_{d-2})(y),t),$
+$G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{\sigma_{d-2}}(\tau_{d-2})(y),t),$
 применяем дробную формулу Ито~(\ref{WIS_Ito_formula}) 
 к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
 уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
@@ -1136,9 +1136,12 @@ $$
 Пусть семейство $\Gamma$ порождает
 коммутирующие потоки, решение $x^y(t)$ автономного уравнения 
 \textup{(\ref{integration_of_mixed_main_eq})} с начальным
-условием $x(0)=y$ имеет плотность распределения $p(t,y,z),$ функции
-$f(z),$ $g(z),$ $\sigma(z),$ $p(t,y,z)$ являются достаточно гладкими и
-ограниченными. Тогда функция $p(t,y,z)$ удовлетворяет равенству
+условием $x(0)=y$ имеет плотность распределения $p(t,y,z),$ функция
+$f(z)$ принадлежит классу $C^1_b(\mathbb{R}^d)$, функции $g(z),$ 
+$\sigma(z)$ --- классу $C^2_b(\mathbb{R}^d)$, а функция $p(t,y,z)$ 
+имеет непрерывные и ограниченные производные до первого порядка 
+включительно по $t$ и до второго порядка включительно по $z$. 
+Тогда функция $p(t,y,z)$ удовлетворяет равенству
 \begin{gather*}
 \frac{\partial p(t,y,z)}{\partial t}=-
 \sum_{j=1}^d \frac{\partial (f_j(z)p(t,y,z))}{\partial z_j}
