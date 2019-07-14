@@ -494,17 +494,16 @@ $$
 $$
 Так как решение уравнения (\ref{eq_Ito}) обладает марковским свойством 
 \cite[теорема~7.1.2]{OksendalBook}, то, полагая $N=2$ в соотношении 
-(\ref{bounds_3_43}), получим, что семейство операторов $\textbf{P}_t$ является 
-$C_0$-полугруппой с генератором
+(\ref{bounds_3_43}), получим, что функция $u(x,t)=\textup{\textbf{P}}_t g(x)$
+удовлетворяет обратному уравнению Колмогорова
+$$
+\frac{\partial u}{\partial t}=\mathcal{A}u
+$$
+с дифференциальным оператором
 $$
 \mathcal{A}=\sum_{j=1}^n \tilde f_{0,j}(\cdot) \frac{\partial}{\partial x_j} + 
 \frac{1}{2} \sum_{k=1}^d \biggl( 
 \sum_{j=1}^n f_{k,j}(\cdot) \frac{\partial}{\partial x_j} \biggr)^2.
-$$
-Таким образом, для функции $u(x,t)=\textup{\textbf{P}}_t g(x)$ получаем 
-обратное уравнение Колмогорова
-$$
-\frac{\partial u}{\partial t}=\mathcal{A}u.
 $$
 Отметим, что даже для простейшего одномерного уравнения
 $
@@ -933,8 +932,8 @@ $$X^x_t = F(x, B_t), \quad t \in [0, T], \; x\in\mathbb{R}^n,$$
 $(x, y)\in\mathbb{R}^n\times\mathbb{R}^{d+1}$.
 \end{proposition}
 
-\proof Поскольку операторы $D_f^{(i)}$ коммутируют, 
-потоки~$(e^{t D_f^{(i)}})_{t\ge 0}$ также коммутируют. Для пары 
+\proof Поскольку операторы $D_f^{(i)}$ коммутируют, то 
+операторы~$(e^{t D_f^{(i)}})_{t\ge 0}$ также коммутируют. Для пары 
 $(x,y)\in \mathbb{R}^n\times\mathbb{R}^{d+1}$ обозначим
 $$
 F(x,y) = \left(e^{y_0 D_f^{(0)}}\circ\ldots\circ e^{y_d D_f^{(d)}}\right)(x).
