@@ -980,7 +980,7 @@ $$
 коммутирующие потоки, функция $h:\mathbb{R}^d \to \mathbb{R}$ вместе со своими
 частными производными до второго порядка включительно непрерывна и
 имеет полиномиальный порядок роста. Тогда функция
-$u_h(y,t)=E(h(x^y(t)))$ удовлетворяет уравнению
+$u_h(y,t)=\E h(x^y(t))$ удовлетворяет уравнению
 $$\frac{\partial u_h(y,t)}{\partial t}=\sum_{j=1}^d f_j(y)\frac{\partial
 u_h(y,t)}{\partial y_j}+\frac{1}{2}\sum_{i,j,k=1}^d
 g_{ik}(y)g_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i \partial
@@ -1060,7 +1060,7 @@ G_d(y,\tau_d)}{\partial y_k}\sigma_d^i(y)\frac{\partial
 =(M^2_{\sigma_d} G_d(\cdot,\tau_d)) (y).
 \end{gather}
 
-Обозначим $\psi_d(y,t)=EG_d(y,B^d(t)).$ Тогда из соотношений~(\ref{integration_eq23}),
+Обозначим $\psi_d(y,t)=\E G_d(y,B^d(t)).$ Тогда из соотношений~(\ref{integration_eq23}),
 (\ref{integration_eq24}), теоремы Фубини и правила Лейбница вытекает равенство
 \begin{equation}\label{integration_eq25}
 \psi_d(y,t)=\psi_d(y,0)+\int_0^t Hs^{2H-1}(M^2_{\sigma_d}
@@ -1117,7 +1117,7 @@ $\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))$, устанавливаем
 равенства~(\ref{integration_eq28}).
 
 
-Обозначим $\psi_{d-1}(y,t)=EG_{d-1}(y,B^{d-1}(t),t),$ тогда с помощью
+Обозначим $\psi_{d-1}(y,t)=\E G_{d-1}(y,B^{d-1}(t),t),$ тогда с помощью
 соотношений~(\ref{integration_eq26}), (\ref{integration_eq27}), 
 (\ref{integration_eq28}), теоремы Фубини и правила Лейбница,
 получаем равенство
@@ -1140,9 +1140,9 @@ $G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{\sigma_{d-2}}(\tau_{d-2})(y),t),$
 применяем дробную формулу Ито~(\ref{WIS_Ito_formula}) 
 к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
 уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
-$\psi_{d-2}(y,t)=EG_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
+$\psi_{d-2}(y,t)=\E G_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
 прийдем к следующему уравнению для функции
-$u_h(y,t)=Eh(F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))):$
+$u_h(y,t)=\E h(F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))):$
 $$
 \frac{\partial u_h(\cdot,t)}{\partial t}= \biggl(M_{\tilde
 f}+\frac{1}{2}\sum_{j=1}^d M^2_{g_j}+\sum_{j=1}^d H
@@ -1212,7 +1212,7 @@ dx(t)=ax(t)dt+bx(t)dB(t)+cx(t)dW(t),
 \begin{equation}\label{integration_eq35}
 x(0)=y \in \mathbb{R}.
 \end{equation}
-Пусть $h(y)=y^r,$ $r \ge 2,$ $u_h(y,t)=Eh(x^y(t)),$ где $x^y(t)$ --
+Пусть $h(y)=y^r,$ $r \ge 2,$ $u_h(y,t)=\E h(x^y(t)),$ где $x^y(t)$ --
 решение задачи Коши~(\ref{integration_eq34}), (\ref{integration_eq35}). Легко 
 видеть, что условия теоремы~\ref{integration_gamma_family_th} выполняются, 
 и функция $u_h(y,t)$ удовлетворяет уравнению
