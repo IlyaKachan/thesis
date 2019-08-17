@@ -1305,102 +1305,14 @@ u(0)=u(\pi) = 0\}
 H\times\mathbb{R}$ определяется формулой
 $$S(t)\bar u(\cdot) =  \left(\int_{0}^{\pi}G(t, \cdot ,s)u(s)ds, u^1\right).$$
 
-Положим $V(t,\bar u) = V(t, u) = e^{mt} \|u\|^2,\, u\in H$. Очевидно, 
-$V'_t(t,\bar u)=\linebreak=m V(t, u)$. По определению производной по Фреше 
-$V'_u$ в точке $u\in H$ есть линейный ограниченный функционал такой, что для 
-достаточно малых $\|h\|$, $h\in H$ выполняется
-$$V(t, u + h) - V(t, u) -V'_u(t, u) h = o(\|h\|),$$ 
-$$e^{mt}\int_0^\pi (u(s)+h(s))^2\,ds - e^{mt}\int_0^\pi (u(s))^2\,ds = 
-V'_u(t,u)h + o(\|h\|).$$
-Последнее равносильно 
-$2e^{mt}\langle u,h\rangle + e^{mt}\|h\|^2 = V'_u(t,u)h + o(\|h\|)$, 
-откуда $V'_u(t,u) h = 2e^{mt}\langle u,h\rangle \ \forall \,h\in H$. Аналогично 
-$V''_{uu}h = 2e^{mt}\langle h,\cdot \rangle,\; \forall\,h\in H$. Можно показать 
-(см. [\ref{DiffJournal}]), что 
-\begin{gather*}
-\langle V'_u(t, u), Au\rangle = -2\frac{\|u'\|^2}{\|u\|^2}V(u),\\
-\langle V'_u(t, u), f(t, \bar u)\rangle \le 3\alpha V(t, u) + \alpha\pi.
-\end{gather*}
-Нетрудно видеть, что
-$$\|V'_u(t, u)\| = \sup_{\|h\|=1}2e^{mt}|\langle u,h\rangle|\le
-2e^{mt}\sup_{\|h\|=1}\|u\|\cdot\|h\|=2e^{mt}\|u\|$$ и аналогично 
-$\|V''_{uu}(t,u)\|=2e^{mt}\sup_{\|h\|=1}\sup_{\|u\|=1}|\langle h,u\rangle|\le 
-2e^{mt}$. Кроме того,  для любого ограниченного линейного оператора $B$ след 
-$\textup{tr}(BQ_w) = \sum\langle BQ_wu_k, u_k\rangle$ по модулю не превосходит 
-$|\textup{tr}(BQ_w)|\le\|B\|\textup{tr}Q_w$ (достаточно в качестве $(u_k)$ 
-взять базис из собственных векторов $Q_w$). В нашем случае $U=\mathbb{R}$, 
-а значит, $Q_w = I$ и $\textup{tr}Q_w = 1$. Таким образом,
-\begin{gather*}
-\frac{1}{2}\text{tr}[V''_{uu}(t,\bar u)(g(t,\bar u)Q_w^{1/2})
-(g(t,\bar u)Q_w^{1/2})^\star]\le\frac{1}{2}\|V''_{uu}\|\cdot\|g(t,\bar u)\|^2\le\\
-\le 2e^{mt}\alpha^2e^{-mt}\|u\|^2 \le 2\alpha^2V(t, \bar u),\\
-|QV(t,\bar u)|=|\textup{tr}[V''_{uu}(t,\bar u)\otimes V''_{uu}(t,\bar u)
-(g(t,\bar u)Q_w^{1/2})(g(t,\bar u)Q_w^{1/2})^\star]|\le\\
-\le\|V''_{uu}\|^2\|g(t,\bar u)\|^2\le8e^{mt}\alpha^2\|u\|^2 = 
-8\alpha^2V(t, \bar u).
-\end{gather*}
-Итак, выберем в качестве невозрастающей положительной функции 
-$\zeta(t) \equiv 1$, положим $\lambda_0 = 
-\inf_{u\in D(A)}\frac{\|u'\|^2}{\|u\|^2}$ и оценим
-\begin{equation*}
-LV(t,\bar u) + \zeta(t)QV(t,\bar u)\le \alpha\pi + 
-(-2\lambda_0+m+3\alpha+10\alpha^2)V(t,u).
-\end{equation*}
-Нетрудно показать (см. [\ref{DiffJournal}]), что 
-$\lambda_0\ge\frac{1}{\pi^2}>0$. Поэтому за счет выбора достаточно малого 
-$\alpha > 0$ и достаточно большого $m>0$ добьемся того, чтобы постоянная 
-$\beta = -2\lambda_0+m+3\alpha+10\alpha^2 > 0$, но $-2\lambda_0 + 3\alpha+
-10\alpha^2 < 0$.
-
-Обратимся к условию теоремы. Исходя из первого условия, полагаем $r~=~2$, из 
-второго условия: $\psi_1(t)\equiv \alpha\pi$, $\psi_2(t)~\equiv~\beta$. 
-В качестве $\lambda$ выберем $\lambda(t)=e^t$. Поскольку 
-$\frac{\log\log t}{\log\lambda(t)} = \frac{\log\log t}{t} \mathop{\to}
-\limits_{t \to \infty} 0$, то $\tau = 0$. Далее, 
-$\frac{\log\zeta(t)}{\log\lambda(t)} = 0$, т.е. $\mu = 0$; 
-$\frac{\log\left(\int_0^t\psi_1(s)ds\right)}{\log\lambda(t)} = 
-\frac{\log\alpha\pi t}{t} \mathop{\to}\limits_{t \to \infty} 0$, т.е. $\nu = 0$ 
-и следовательно, $\max\{\nu,\mu+\tau\} = 0$. И наконец, 
-$\frac{\int_0^t\psi_2(s)\,ds}{\log\lambda(t)} = \frac{\beta t}{t} = \beta$, 
-т.е. $\theta = \beta$. Таким образом, согласно теореме~\ref{HStabilityTheorem}:
-$$\limsup_{t\to+\infty}\frac{\log\|X(t)\|}{t}\le
--\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r} = 
--\frac{2\lambda_0 - 3\alpha-10\alpha^2 }{2}<0.$$
-
-Отметим, что функция $g$ удовлетворяет глобальному условию Липшица, а $f$ 
-удовлетворяет локальному, но не удовлетворяет глобальному условию Липшица. 
-Действительно, для $g$:
-$$\|g(t, \bar x) - g(t, \bar y)\|^2 = e^{-mt}\alpha^2
-\int_0^\pi |x(s)-y(s)|^2ds + e^{-mt}\alpha^2(\|x\|-\|y\|)^2\le$$
-$$\le 2e^{-mt}\alpha^2\|x-y\|^2\le 2\alpha^2\|\bar x- \bar y\|^2.$$
-Для $f$ имеем: 
-\begin{gather*}
-\|f(t, \bar x) - f(t, \bar y)\|^2 =
-\int_0^\pi\left|\sin\left(x(s){+}e^{-\frac{mt}{2}}\cos x^1\right) - 
-\sin\left(y(s){+}e^{-\frac{mt}{2}}\cos y^1\right)\right|^2\!\!ds +\\
-+ \left|x^1\sin x^1 - y^1\sin y^1 + \|x\|-\|y\|\right|^2.
-\end{gather*}
-Так как $|\sin x - \sin y| \le |x-y|$, 
-$|\cos x - \cos y| \le |x-y|$ для любых 
-$x,y\in\mathbb{R}$, то
-\begin{gather*}
-\|f(t, \bar x) - f(t, \bar y)\|^2 \le \int_0^\pi\left|x(s)-y(s) + 
-e^{-\frac{mt}{2}}\cos x^1 - e^{-\frac{mt}{2}}\cos y^1\right|^2ds +\\
-+2\left|x^1\sin x^1 - y^1\sin y^1\right|^2 + 2\|x - y\|^2\le \\
-\le 4\|x-y\|^2 + 2\pi\left|x^1-y^1\right|^2 +  
-2\left|x^1\sin x^1 - y^1\sin y^1\right|^2.
-\end{gather*}
-Функция $h(x) = x\sin x$, $x\in\mathbb{R}$ удовлетворяет локальному условию 
-Липшица (и не удовлетворяет глобальному), поэтому для любого $a > 0$ найдется 
-постоянная $q_a > 0$ такая, что для всех $|x^1|, |y^1| < a$ выполняется 
-$\left|x^1\sin x^1 - y^1\sin y^1\right|\le q_a|x^1-y^1|$. Но если 
-$\|\bar x\|^2 = \int_0^\pi (x(s))^2ds + (x^1)^2 \le a^2$,
-$\|\bar y\|^2 \le a^2$ то и $\left|x^1\right|\le a$, $|y^1|\le a$. 
-Поэтому при любом $a>0$ при условия $\|\bar x\|,\|\bar y\|\le a$ 
-выполняется неравенство
-$$\|f(\bar x) - f(\bar y)\|^2 \le \max\{4,2(\pi+q_a^2)\}\cdot\|\bar x - \bar y\|^2,$$
-т.е. локальное условие Липшица выполнено.
-
+Положим $V(t,\bar u) = V(t, u) = e^{mt} \|u\|^2,\, u\in H$, $\lambda(t)=e^t$, 
+$\psi_1(t)\equiv \alpha\pi$, $\psi_2(t)\equiv\theta$, $\tau=\mu=\nu=0$. 
+В статье [\ref{DiffJournal}] показано, что при таком выборе, достаточно 
+малом $\alpha$ и достаточно большом $m$, условия 
+теоремы~\ref{HStabilityTheorem} будут выполнены, т.е. имеет место притяжение 
+решений к нулю. При этом функция~$g$ удовлетворяет глобальному условию 
+Липшица, а функция~$f$ удовлетворяет локальному, но не удовлетворяет
+глобальному условию Липшица.
 
 \section*{Выводы}
 \addcontentsline{toc}{section}{Выводы}
