@@ -16,95 +16,6 @@
 
 \section{Предварительные сведения}
 
-\subsection{Теория полугрупп}
-
-Пусть $X$ --- банахово пространство. Через  $\mathcal{L}(X)$ обозначим 
-множество линейных ограниченных операторов, действующих из $X$ в $X$.
-Однопараметрическое семейство операторов $(S(t))_{t \ge 0} \subset
-\mathcal{L}(X)$ называют полугруппой на $X,$ если $S(0)=I$ и
-$S(t+s)=S(t)S(s)$ для любых $s, t \ge 0$. Полугруппу 
-операторов  $(S(t))_{t \ge 0}$ называют сильно непрерывной ($C_0$-полугруппой), 
-если $\|S(t)x-S(t_0)x\| \xrightarrow[t \to t_0]{} 0$ для любого~$x 
-\in X$. Для сильно непрерывной полугруппы~$(S(t))_{t\ge 0}$ на $X$ оператор $A$, 
-определенный на множестве $\EuScript{D}(A)=\left\{ x \in X : \exists \lim \limits_{t \to +0} 
-\frac{S(t)x-x}{t} \in X \right\}$ формулой $Ax=\lim\limits_{t \to +0} 
-\frac{S(t)x-x}{t},$ $x \in \EuScript{D}(A)$, называют генератором полугруппы%
-~$(S(t))_{t \ge 0}$.
-
-\begin{proposition}[ {\cite[теорема 2.2]{Pazy}}]\label{PazySemiroupExpBound}
-Пусть $(S(t))_{t \ge 0}$ --- сильно непрерывная полугруппа на банаховом 
-пространстве $X$. Тогда существуют постоянные~$M \ge 1$ и $\beta\in\mathbb{R}$ 
-такие, что $\|S(t)\|_{\mathcal{L}(X)} \le M e^{\beta t}$ для всех $t \ge 0.$
-\end{proposition}
-
-Теория полугрупп имеет тесные связи как с обыкновенныи дифференциальными 
-уравнениями, так и с дифференциальными уравнениями в частных производных.
-
-\begin{example}
-Рассмотрим задачу Коши для системы линейных дифференциальных уравнений 
-с постоянными коэффициентами порядка $d$. В векторном виде она примет вид
-\begin{gather*}
-\frac{dx}{dt} = Ax + f(t),\quad t\in\mathbb{R}^+,\\
-x(0) = \xi,
-\end{gather*}
-где $A\in\mathbb{R}^{n\times n}$, $f\colon\mathbb{R}^+\to\mathbb{R}^d$,
-$\xi\in\mathbb{R}^d$. Решение данной задачи выражается формулой Коши:
-$$x(t) = S(t)\xi + \int_0^t S(t)S^{-1}(s)f(s)ds,$$
-где $S(t)$ --- базисная матрица системы, $S(0) = I_d$. 
-Каноничесим выбором служит оператор $S(t) = e^{At}$. Нетрудно убедиться 
-в том, что при таком выборе семейство операторов $(S(t))_{t\ge 0}$ является 
-сильно непрерывной полугруппой в~$\mathbb{R}^d$ с генератором 
-$A\in\mathcal{L}(\mathbb{R}^d)$.
-\end{example}
-
-\begin{example}
-Рассмотрим начально-краевую задачу для уравнения в частных производных 
-параболического типа
-\begin{gather}\label{ch1_parabolic_eq}
-\frac{\partial u}{\partial t} =a^2 \frac{\partial^2 u}{\partial x^2} + f(t, x),
-\quad t\in\mathbb{R}^+, x\in (0,l),\\ \label{ch1_parabolic_init_val}
-u(0, x) = \varphi(x),\quad x\in[0,l], \\ \label{ch1_parabolic_border_val}
-u(t, 0) = u(t, l) = 0,\quad t\in\mathbb{R}^+.
-\end{gather}
-где функции $\varphi$, $f$ таковы, что $\varphi(0)=\varphi(l)=0$, 
-$f(t,0) = f(t, l) = 0$, $t\in\mathbb{R}^+$.
-Ее решение может быть выражено следующей формулой:
-\begin{gather}
-\label{ch1_parabolic_eq_solution}
-u(t,x) = \int_0^t G(t,x,\xi)\varphi(\xi)d\xi + 
-\int_0^t\int_0^l G(t-\tau, x, \xi)f(\tau, \xi)d\xi d\tau, \\
-\label{ch1_parabolic_eq_solution_func}
-G(t, x, y) = \frac{2}{l}\sum_{n=1}^\infty e^{-(\pi n / l)^2 t}
-\sin\left(\frac{\pi n x}{l}\right)\sin\left(\frac{\pi n y}{l}\right).
-\end{gather}
-
-Задача~(\ref{ch1_parabolic_eq})~---~(\ref{ch1_parabolic_border_val}) может
-быть представлена в виде задачи Коши для обыкновенного дифференциального
-уравнения первого порядка в гильбертовом пространстве. Пусть 
-$H = \{z(\cdot)\in L_2[a,b] \,:\, z(0)=z(l)=0\}$ --- гильбертово пространство,
-$X(t) = u(t,\cdot)\in H$, $F(t) = f(t,\cdot)\in H$, $\psi = \varphi(\cdot)\in H$, 
-$A = a^2\frac{\partial^2}{\partial x^2}$ --- оператор, действующий из 
-$H$ в $H$, с областью определения
-$\EuScript{D}(A) = \{z(\cdot)\in \mathcal{W}^{2,2}[a,b] \,:\, z(0)=z(l)=0\}$,
-всюду плотной в $H$. Задача~(\ref{ch1_parabolic_eq})~---~%
-(\ref{ch1_parabolic_border_val}) может быть интерпретирована следующим образом:
-\begin{gather}
-\label{ch1_parabolic_ode_eq}
-\frac{dX}{dt} =AX(t) + F(t), \quad t\in\mathbb{R}^+,\\ 
-\label{ch1_parabolic_ode_init_val}
-X(0) = \psi.
-\end{gather}
-
-Можно показать, что оператор $A$ является генератором $C_0$-полугруппы 
-$(S(t))_{t\ge 0}$ в $H$, определяемой соотношением
-$$S(t)z(\cdot) = \int_0^l G(t, \cdot, \xi) z(\xi) d\xi, \quad t>0; \quad S(0)=I.$$
-
-При этом равенство~(\ref{ch1_parabolic_eq_solution}) перепишется в виде
-соотношения, определяющего слабое решение задачи%
-~(\ref{ch1_parabolic_ode_eq}),~(\ref{ch1_parabolic_ode_init_val}): 
-$X(t) = S(t)\psi + \int_0^t S(t-s)F(s)ds$.
-\end{example}
-
 \subsection{Прямой, обратный и симметрический стохастические \\ интегралы}
 
 Пусть задано вероятностное пространство $(\Omega, \mathcal{F}, \Prob)$.
@@ -154,171 +65,8 @@ $\int\limits_0^t Y(s)d^{-}X(s)$, $\int\limits_0^t Y(s)d^{\circ}X(s)$
 квадратической вариацией \cite[с. 5]{Russo_Vallois}, 
 \cite[предложение 1.1]{Russo_Vallois_2}.
 
-\subsection{Интеграл Вика-Ито-Скорохода}
 
-Определим интеграл Вика-Ито-Скорохода по дробному броуновскому движению
-$B^{(H)}(t)$ с индексом Харста $H > 1/2$.
-
-Пусть $\EuScript{S}(\mathbb{R}) = 
-\{f\in C^\infty(\mathbb{R}, \mathbb{R}): 
-\sup_{x\in\mathbb{R}}|x^\alpha D^\beta f(x)| < \infty\; 
-\forall \alpha, \beta \in \mathbb{N}\}$~--- пространство Шварца быстро 
-убывающих функций из $\mathbb{R}$ в $\mathbb{R}$, 
-$\mathit{\Omega} := \EuScript{S}'(\mathbb{R})$~--- двойственное
-к $\EuScript{S}(\mathbb{R})$ пространство. Построим вероятностное пространство
-$(\mathit{\Omega}, \mathcal{F}, \Prob)$, в котором $\Prob$ --- вероятностная мера,
-определеная на множествах борелевской $\sigma$-алгебры $\mathcal{F}=
-\mathcal{B}(\EuScript{S}'(\mathbb{R}))$ и обладающая следующим свойством:
-$$
-\int_{\EuScript{S}'(\mathbb{R})} e^{i<\omega, f>}d\Prob(\omega) =
-\exp\left(-\frac{1}{2}\langle f, f\rangle_{L_2(\mathbb{R})}\right),
-$$
-где $<\omega, f>=\omega(f)$ --- образ 
-$f{\in}\EuScript{S}(\mathbb{R})$ при отображении $\omega\in\mathit{\Omega} =
-\EuScript{S}'(\mathbb{R})$,~$i^2=-1$.
-
-Определим оператор $M = M_H$,
-действующий на функции $f\in \EuScript{S}(\mathbb{R})$ по следующему правилу:
-$$
-Mf(x) = C_H \int_\mathbb{R} \frac{f(t)}{|t-x|^{3/2 - H}} dt, \quad x\in\mathbb{R},
-$$
-где $C_H = \left(
-  2\Gamma\left(H - \frac{1}{2}\right)
-  \cos\left(\frac{\pi}{2}\left(H-\frac{1}{2}\right)
-\right)\right)^{-1}
-(\Gamma(2H+1)\sin(\pi H))^{1/2}$ --- константа, выраженная через значения 
-гамма-функции $\Gamma$.
-
-Зададим функцию $I_{[0,t]}(\cdot)$: $I_{[0,t]}(s) = \sign(s)\textbf{1}_{[-t, t]}$, 
-$s\ne 0$, $I_{[0,t]}(0)=1$. Для каждого $t\in\mathbb{R}$ определим процесс
-$$
-\tilde B^{(H)}(t) = \tilde B^{(H)}(t, \omega) = <\omega, MI_{[0,t]}(\cdot)>.
-$$
-Для данного процесса существует непрерывная версия $B^{(H)}(t)$,
-которая является дробным броуновским движением в пространстве 
-$(\mathit{\Omega}, \mathcal{F}, \Prob)$ \cite[гл. 4]{Oksendal_Biagini}.
-
-Пусть $h_n(x) = (-1)^n e^{x^2/2}\frac{d^n}{dx^n}\bigl(e^{-x^2/2}\bigr)$,
-$n=0,1,2\ldots$ --- многочлены Эмита. Введем в рассмотрение функции Эрмита 
-$$
-\xi_n(x) = \pi^{-1/4} ((n-1)!)^{-1/2} h_{n-1}(\sqrt{2}x)e^{-x^2/2}, \quad n\in\mathbb{N}.
-$$
-Функции $(\xi_n)_{n=1}^\infty$ образуют ортонормированный 
-базис в $L_2(\mathbb{R})$.
-
-Пусть $\mathcal{J}$ --- множество мультииндексов $\alpha = (\alpha_1, \alpha_2, \ldots)$
-конечной длины $l(\alpha) = \max\{i: \alpha_i\ne 0\} < \infty$ с компонентами 
-$\alpha_i\in\{0,1,2,\ldots\}$ для всех~$i$. Для мультииндексов 
-$\alpha=(\alpha_1, \ldots, \alpha_n)\in\mathcal{J}$ длины $n$ будем использовать 
-обозначение $\alpha! = \alpha_1!\ldots\alpha_n!$, а также рассматривать величины
-$$
-\EuScript{H}_{\alpha}(\omega) = 
-h_{\alpha_1}(<\omega, \xi_1>)
-h_{\alpha_2}(<\omega, \xi_2>)\ldots
-h_{\alpha_n}(<\omega, \xi_n>).
-$$
-Важным частным случаем являются мультииндексы $\alpha = \varepsilon^{(n)} =
-(0, \ldots, 0, 1)$, $l(\varepsilon^{(n)})=n$, для них 
-$\EuScript{H}_{\varepsilon^{(n)}}(\omega) = h_1(<\omega, \xi_n>) = <\omega, \xi_n>$.
-
-Для любой случайной величины $F\in L_2(\Prob)$ существует
-единственное семейство $(c_\alpha)_{\alpha\in\mathcal{J}}$ констант 
-$c_\alpha\in\mathbb{R}$ таких, что $F(\omega) = \sum_{\alpha\in\mathcal{J}}
-c_\alpha \EuScript{H}_{\alpha}(\omega)$ (предел в $L_2(\Prob)$), причем
-$\E F^2 = \sum_{\alpha\in\mathcal{J}} c^2_\alpha \alpha!$ 
-(см. \cite[теорема A.1.3]{Oksendal_Biagini}).
-
-Определим пространства Хиды $\EuScript{S}$ и $(\EuScript{S})^*$ 
-(см. \cite[приложение A]{Oksendal_Biagini}):
-\begin{enumerate}
-\item %
-Пространством Хиды $\EuScript{S}$ называют множество фунций 
-$\psi\in L_2(\Prob)$, чьи разложения
-$\psi(\omega) = \sum_{\alpha\in\mathcal{J}} a_\alpha \EuScript{H}_{\alpha}(\omega)$
-удовлетворяют соотношению 
-$\|\psi\|^2_k := \sum_{\alpha\in\mathcal{J}} 
-a^2_\alpha \alpha! (2\mathbb{N})^{k\alpha} < \infty$ для всех $k\in\mathbb{N}$,
-где $(2\mathbb{N})^\gamma = (2\cdot 1)^{\gamma_1}\ldots (2\cdot n)^{\gamma_n}$
-для $\gamma =(\gamma_1, \ldots, \gamma_n)\in\mathcal{J}$.
-\item
-Для фиксированного $q\in\mathbb{N}$ пространством Хиды $(\EuScript{S})^*$ 
-называют множество формальных разложений
-$G(\omega) = \sum_{\alpha\in\mathcal{J}} b_\alpha \EuScript{H}_{\alpha}(\omega)$,
-удовлетворяющих соотношению 
-$\|G\|^2_q := \sum_{\alpha\in\mathcal{J}} 
-b^2_\alpha \alpha! (2\mathbb{N})^{-q\alpha} < \infty$
-\end{enumerate}
-Пространство $(\EuScript{S})^*$ является двойственным к пространству $\EuScript{S}$,
-и действие $G\in (\EuScript{S})^*$ на $\psi\in\EuScript{S}$ определяется равенством
-$<G, \psi> = \sum_{\alpha\in\mathcal{J}} a_\alpha b_\alpha \alpha!$
-
-Функцию $Z \colon \mathbb{R} \to (\EuScript{S})^*$ обладающую тем свойством, что 
-$<Z(\cdot), \psi>\in L_1(\mathbb{R})$ для любого $\psi\in \EuScript{S}$, называют 
-$dt$-интегрируемой в $(\EuScript{S})^*$ и определяют интеграл $\int_\mathbb{R}Z(t)dt$
-как единственный элемент в $(\EuScript{S})^*$, удовлетворяющий соотношению
-$<\int_\mathbb{R}Z(t)dt, \psi> = \int_\mathbb{R} <Z(t), \psi>dt$ для любого 
-$\psi\in \EuScript{S}$.
-
-Если $F_i(\omega) = \sum_{\alpha\in\mathcal{J}}
-c^{(i)}_\alpha \EuScript{H}_{\alpha}(\omega)$.,
-$i=1,2$ --- два элемента пространства $(\EuScript{S})^*$, то их произведение Вика
-$(F_1\diamond F_2)(\omega)$ определяется следующим образом:
-$$
-(F_1\diamond F_2)(\omega) = 
-\sum_{\alpha, \beta\in\mathcal{J}} 
-c^{(1)}_\alpha c^{(2)}_\beta 
-\EuScript{H}_{\alpha + \beta}(\omega) =
-\sum_{\gamma\in\mathcal{J}}
-\biggl(\sum_{\alpha + \beta = \gamma} c^{(1)}_\alpha c^{(2)}_\beta \biggr)
-\EuScript{H}_{\gamma}(\omega)
-$$
-
-Определим дробный белый шум $W^{(H)}(t)$ следующей формулой:
-$$W^{(H)}(t) = \sum_{k=1}^\infty M\xi_k(t) \EuScript{H}_{\varepsilon^{(k)}}(\omega).$$
-
-Пусть функция $Y\colon \mathbb{R} \to (\EuScript{S})^*$ такова, что выражение
-$Y(t)\diamond W^{(H)}(t)$ является $dt$-интегрируемым в $(\EuScript{S})^*$.
-Для функций $Y(t)=Y(t,\omega)$ указанного класса определяют интеграл 
-Вика-Ито-Скорохода по дробному броуновскому движению $B^{(H)}(t)$ как
-$$
-\int_\mathbb{R} Y(t,\omega)\diamond dB^{(H)}(t) := 
-\int_\mathbb{R} Y(t)\diamond W^{(H)}dt.
-$$
-Интеграл Вика-Ито-Скорохода на конечном отрезке $[0, T]\subset\mathbb{R}$
-определяют следующим образом:
-$$
-\int_0^T Y(t,\omega)\diamond dB^{(H)}(t) := 
-\int_\mathbb{R} Y(t)\textbf{1}_{[0, T]}\diamond W^{(H)}(t) dt.
-$$
-
-Интеграл Вика-Ито-Скорохода обладает нулевым средним~
-\cite[c. 107]{Oksendal_Biagini}, а также для него справедлива следующая 
-формула Ито.
-
-\begin{proposition}[(\!\!{\cite[теорема 4.2.6]{Oksendal_Biagini}})]
-Пусть функция $f(t, x)\colon\mathbb{R}^2 \to \mathbb{R}$,
-имеющая непрерывные производные $\frac{\partial f}{\partial t}$, 
-$\frac{\partial f}{\partial x}$, $\frac{\partial^2 f}{\partial x^2}$ такова, что все
-случайные величины
-$$
-f(t, B^{(H)}(t)), \quad 
-\int_0^t \frac{\partial f}{\partial s}(s, B^{(H)}(s))ds, \quad
-\int_0^t \frac{\partial^2 f}{\partial x^2}(s, B^{(H)}(s))ds
-$$
-принадлежат пространству $L_2(\Prob)$. Тогда справедлива следующая
-дробная формула Ито:
-\begin{gather}
-f(t, B^{(H)}(t)) = 
-f(0,0) + \int_0^t \frac{\partial f}{\partial s}(s, B^{(H)}(s))ds + \nonumber\\
-\label{WIS_Ito_formula}
-+ \int_0^t \frac{\partial f}{\partial x}(s, B^{(H)}(s)) \diamond dB^{(H)}(s) + 
-H \int_0^t \frac{\partial^2 f}{\partial x^2}(s, B^{(H)}(s))s^{2H-1}ds.
-\end{gather}
-\end{proposition}
-
-
-\section{Методы интегрирования одномерных уравнений смешанного типа}
-
+\subsection{Стохастические дифференциальные уравнения смешанного типа}
 
 Пусть на вероятностном пространстве $(\Omega,\mathcal{F},\Prob)$ заданы
 $d$-мерное стандартное броуновское движение
@@ -367,7 +115,7 @@ $F'_x(t,x),$ $F''_{x^2}(t,x).$  Если функции $f,$ $g$ измеримы по Борелю,
 функция $\sigma$ удовлетворяет $(\delta,\rho)$-условию Гельдера по $(t,x)$ при 
 некоторых $\delta>1-H,$ $\rho>2-2H,$ а решение $x(t)$ имеет непрерывные по 
 Гельдеру порядка $\alpha$ траектории п.н. при $\alpha\rho>1,$ то имеет место 
-аналог формулы Ито \cite[P. 184]{Mishura}:
+аналог формулы Ито \cite[с. 184]{Mishura}:
 \begin{gather}\nonumber
 F(t, x(t)) = F(0, x(0)) +\\ \nonumber+ \int_0^t \biggl(F'_t(\tau, x(\tau)) + 
 F'_x(\tau, x(\tau))f(\tau, x(\tau)) +\\ \nonumber
@@ -377,14 +125,16 @@ g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 \int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
 \end{gather}
 
-В данном параграфе будем рассматривать одномерное уравнение 
-(\ref{integration_of_mixed_main_eq}), считая, что $d=1.$ В рамках настоящего 
-параграфа будем предполагать, что коэффициенты рассматриваемых уравнений являются 
-достаточно гладкими функциями, обеспечивающими возможность достаточного числа 
+В данной главе будем рассматривать одномерное уравнение 
+(\ref{integration_of_mixed_main_eq}), считая, что $d=1.$ Также будем предполагать, 
+что коэффициенты рассматриваемых уравнений являются достаточно гладкими 
+функциями, обеспечивающими возможность достаточного числа 
 дифференцирований и применений формулы замены переменных 
 (\ref{integration_of_mixed_ito_formula}).
 
-\subsection{Приведение к простейшим уравнениям}
+
+\section{Приведение к простейшим уравнениям}
+
 
 Рассмотрим простейшее уравнение
 \begin{equation}\label{integration_of_mixed_simplest_eq}
@@ -457,7 +207,7 @@ $F$, из соотношений~(\ref{integration_of_mixed_simplest_eq_1}),
 и $b(t)$. Таким образом, справедлива следующая теорема.
 
 \begin{theorem}
-Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c $g(t,x)\ne 0$ 
+Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c функцией $g(t,x)\ne 0$ 
 приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
 помощью некоторого дважды непрерывно дифференцируемого и обратимого 
 относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
@@ -622,7 +372,10 @@ $$
 $$
 \end{example}
 
-\subsection{Приведение к линейным неоднородным уравнениям}
+
+\section{Приведение к линейным неоднородным уравнениям}
+
+
 Ограничимся рассмотрением автономных уравнений
 \begin{equation}\label{integration_of_mixed_main_eq_auto}
 dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0,
@@ -722,7 +475,7 @@ $c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} =
 
 \begin{theorem}\label{integration_reduction_to_linear_th}
 Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})}
-c $g(x)\ne 0,$ $A'(x) \ne 0$ приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
+c функциями $g(x)\ne 0,$ $A'(x) \ne 0$ приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
 тогда и только тогда, когда найдутся постоянные $c_1, c_2$ такие, 
 что оказываются выполненными 
 соотношения~\textup{(\ref{integration_of_mixed_linear_inhom_cond_1})},
@@ -763,8 +516,10 @@ dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)d
 \end{gather*}
 что и требовалось доказать.
 
-\subsection{Переход к уравнению Стратоновича}
-\label{integration_reduction_to_stratonovich}
+
+\section{Переход к уравнению Стратоновича}\label{integration_reduction_to_stratonovich}
+
+
 Наряду с уравнением (\ref{integration_of_mixed_main_eq}) рассмотрим 
 соответствующее уравнение Стратоновича
 \begin{equation}\label{eq_strat}
@@ -846,462 +601,6 @@ $$
 которое является решением и исходного уравнения.
 \end{example}
 
-\section{Дифференциальные уравнения для математических ожиданий и плотностей 
-распределений решений}
-
-В этом параграфе рассматриваем автономное уравнение 
-(\ref{integration_of_mixed_main_eq}), т.е.
-$$
-dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0.
-$$
-
-Будем предполагать, что выполнены условия, обеспечивающие существование и 
-единственность решений автономного уравнения (\ref{integration_of_mixed_main_eq}).
-
-Через
-$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$ обозначим множество всех непрерывно
-дифференцируемых функций $h:\mathbb{R}^d \to \mathbb{R}^d,$ имеющих линейный порядок
-роста. В дальнейшем будем предполагать, что коэффициенты $\tilde f=f-\frac{1}{2}g'_x g,$
-$g_j,$ $\sigma_j$ ($j=1,\ldots,d$) принадлежат множеству
-$C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d).$
-
-Рассмотрим автономное обыкновенное дифференциальное уравнение
-\begin{equation*}
-dz(t)=h(z(t))dt, \ t \in \mathbb{R},
-\end{equation*}
-где $h=\textrm{col}(h^1,\ldots,h^d)\in C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$,
-и обозначим через
-$$z^{y}(t)=\alpha_h(y,t)=\textrm{col}(\alpha_h^1(y,t),\ldots,
-\alpha_h^d(y,t))$$ решение (единственное) данного уравнения с начальным
-условием $\alpha_h(y,0){=}y.$
-
-
-\begin{proposition}\label{integration_alpha_h_proposition}
-Функция $\alpha_h(y,t)$
-удовлетворяет системе уравнений $$ \frac{\partial
-\alpha_h^j(y,t)}{\partial t}=\sum_{i=1}^d h^i(y)\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i}, \ j=1,\ldots,d, \ t\in \mathbb{R}, \ y \in
-\mathbb{R}^d,$$ и начальному условию $\alpha_h(y,0)=y.$
-\end{proposition}
-
-
-\proof Возьмем произвольные $y \in \mathbb{R}^d,$ $t \in
-\mathbb{R},$ $j\in \{1,\ldots,d\}.$ Тогда
-$$
-\frac{\partial \alpha_h^j(y,t)}{\partial t}=\lim_{r \to 0}
-\frac{\alpha_h^j(y,t+r)-\alpha_h^j(y,t)}{r}=\lim_{r \to 0}
-\frac{\alpha_h^j(\alpha_h(y,r),t)-\alpha_h^j(y,t)}{r}=$$
-$$=\sum_{i=1}^d\frac{\partial \alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0}
-\frac{\alpha_h^i(y,r)-y_i}{r}=\sum_{i=1}^d\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i} \lim_{r \to 0} \frac{1}{r}\int_0^r
-h^i(\alpha_h(y,s))ds=$$ $$=\sum_{i=1}^d h^i(y)\frac{\partial
-\alpha_h^j(y,t)}{\partial y_i},
-$$
-что и требовалось доказать.
-
-Из предложения~\ref{integration_alpha_h_proposition} вытекает, что $z^y(t)=T_h(t)y,$ где
-$T_h(t){:=}e^{tM_h}$ -- $C_0$-полугруппа на $C(\mathbb{R}^d,\mathbb{R}^d),$ порожденная
-дифференциальным оператором $M_h:C^1(\mathbb{R}^d, \mathbb{R}^d) \to C(\mathbb{R}^d, \mathbb{R}^d)$
-действующим по правилу
-$$
-(M_h w)(y)=\textrm{col}\biggl(\sum_{i=1}^d h^i(y)\frac{\partial
-w^1}{\partial y_i},\ldots,\sum_{i=1}^d h^i(y)\frac{\partial
-w^d}{\partial y_i}  \biggr),
-$$
-где $\ w=\textrm{col}(w^1,\ldots,w^d) \in C^1(\mathbb{R}^d,\mathbb{R}^d), \ y \in
-\mathbb{R}^d.$
-
-\begin{definition}
-Будем говорить, что семейство отображений
-$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R}^d,\mathbb{R}^d)$
-порождает коммутирующие потоки, если для любых $\alpha,$ $\beta \in
-A$ операторы $T_{h_{\alpha}}(t_1),$ $T_{h_{\beta}}(t_2)$
-перестановочные для любых $t_1,$ $t_2 \in \mathbb{R}.$
-\end{definition}
-
-\begin{remark}
-Если $d=1,$ то легко видеть, что семейство
-$\{h_\alpha\}_{\alpha \in A} \subseteq  C^1_\textrm{Lin}(\mathbb{R},\mathbb{R})$
-порождает коммутирующие потоки тогда и только тогда, когда для
-любого $\alpha \in A$ найдется постоянная $\gamma_\alpha$ такая, что
-$h_\alpha(x)=\gamma_\alpha \varphi(x),$ где $\varphi \in
-C^1_\textrm{Lin}(\mathbb{R},\mathbb{R}).$
-\end{remark}
-
-Обозначим $\Gamma=\{\tilde f\} \cup \{g_j|j=1,\ldots,d\}\cup
-\{\sigma_j|j=1,\ldots,d\}.$ Через $x^{y}(t)$ будем обозначать
-решение автономного уравнения (\ref{integration_of_mixed_main_eq}) с начальным 
-условием $x(0)=y \in \mathbb{R}^d.$
-
-Определим функцию $F:\mathbb{R}^{3d+1}  \to \mathbb{R}^d$ следующим образом:
-$$
-F(y,t,s_1,\ldots,s_d,\tau_1,\ldots,\tau_d)=(T_{\tilde f}(t)
-T_{g_1}(s_1)\ldots T_{g_d}(s_d)T_{\sigma_1}(\tau_1)\ldots
-T_{\sigma_d}(\tau_d)) (y),
-$$
-где $y \in \mathbb{R}^d,$ $t \in \mathbb{R},$ $s_j, \tau_j \in \mathbb{R}$ ($j=1,\ldots,d$).
-
-\begin{proposition}
-Если семейство $\Gamma$ порождает
-коммутирующие потоки, то
-$$x^y(t)=F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))$$ п.н. для любого
-$t \in \mathbb{R}^+.$
-\end{proposition}
-
-\proof Выберем произвольные $y \in \mathbb{R},$ $t \in \mathbb{R}^+$
-и зафиксируем их. Применяя формулу Ито к процессу $x^y(t),$ используя
-при этом условие коммутирования операторов $T_\alpha(t_1),$
-$T_\beta(t_2),$ $\alpha,$ $\beta \in \Gamma,$ $t_1,$ $t_2 \in \mathbb{R}$,
-получим соотношения
-$$
-F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))=$$
-$$=F(y,0,\ldots,0)+\int_0^t \biggl(\frac{\partial F(y,u,W(u),B(u))}{\partial
-t}+\frac{1}{2}\sum_{j=1}^d\frac{\partial^2 F(y,u,W(u),B(u))}{\partial
-s_j^2}\biggr)du+$$
-$$+\sum_{j=1}^d\int_0^t \frac{\partial F(y,u,W(u),B(u))}{\partial
-s_j}dW^j(u)+\sum_{j=1}^d\int_0^t \frac{\partial
-F(y,u,W(u),B(u))}{\partial \tau_j}dB^j(u)=
-$$
-$$
-=y+\int_0^t f(F(y,u,W(u),B(u)))du+\sum_{j=1}^d\int_0^t
-g_j(F(y,u,W(u),B(u)))dW^j(u)+$$ $$+\sum_{j=1}^d\int_0^t
-\sigma_j(F(y,u,W(u),B(u)))dB^j(u).
-$$
-
-Непрерывность по Гельдеру траекторий процесса $x^y(t)$ вытекает из
-непрерывной дифференцируемости функции $F$ и непрерывности по
-Гельдеру с любым показателем $\alpha<H$ траекторий процесса $B(t),$ а
-также непрерывности по Гельдеру с любым показателем $\alpha<1/2$
-траекторий процесса $W(t).$ Предложение доказано.
-
-
-\begin{theorem}\label{integration_gamma_family_th}
-Пусть семейство $\Gamma$ порождает
-коммутирующие потоки, функция $h:\mathbb{R}^d \to \mathbb{R}$ вместе со своими
-частными производными до второго порядка включительно непрерывна и
-имеет полиномиальный порядок роста. Тогда функция
-$u_h(y,t)=\E h(x^y(t))$ удовлетворяет уравнению
-$$\frac{\partial u_h(y,t)}{\partial t}=\sum_{j=1}^d f_j(y)\frac{\partial
-u_h(y,t)}{\partial y_j}+\frac{1}{2}\sum_{i,j,k=1}^d
-g_{ik}(y)g_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i \partial
-y_j} +
-$$
-$$
-+\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(y)
-\biggl(\sigma_{jk}(y)\frac{\partial^2 u_h(y,t)}{\partial y_i
-\partial y_j}+\frac{\partial \sigma_{jk}(y)}{\partial y_i
-}\frac{\partial u_h(y,t)}{\partial y_j }\biggr), \ t>0, \ y \in
-\mathbb{R}^d,$$ и начальному условию $u_h(y,0)=h(y), \ y \in \mathbb{R}^d.$
-\end{theorem}
-
-\proof Определим функцию $G_d:\mathbb{R}^{d+1} \to \mathbb{R}$
-следующим образом:
-$$
-G_d(y,\tau_d)=h(T_{\sigma_d}(\tau_d) (y)), \ y \in \mathbb{R}^d, \ \tau_d \in \mathbb{R}.
-$$
-Применяя дробную формулу Ито~(\ref{WIS_Ito_formula}) к процессу 
-$G_d(y,B^d(t)),$ $t \in \mathbb{R}^+,$ получим
-соотношение
-\begin{equation}\label{integration_eq23}
-G_d(y,B^d(t))=G_d(y,0)+\int_0^t \frac{\partial G_d(y,B^d(s))}{\partial
-\tau_d} \diamond dB^d(s)+\int_0^t Hs^{2H-1} \frac{\partial^2
-G_d(y,B^d(s))}{\partial \tau_d^2}ds,
-\end{equation}
-где стохастический интеграл в правой части соотношения~(\ref{integration_eq23}) --
-интеграл Вика-Ито-Скорохода.
-
-Используя предложение~\ref{integration_alpha_h_proposition}, выразим частную производную
-$\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}$ через частные
-производные $\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_j},$
-$\frac{\partial G_d(y,\tau_d)}{\partial y_i}$. Получаем
-$$
-\frac{\partial G_d(y,\tau_d)}{\partial \tau_d}=\sum_{j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial \tau_d}=\sum_{i,j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j}\sigma_d^i(y)\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
-$$
-$$
-\frac{\partial^2 G_d(y,\tau_d)}{\partial
-\tau_d^2}=\sum_{i,j,k,l=1}^d \frac{\partial^2 h(T_{\sigma_d}(\tau_d)
-(y))}{\partial y_j \partial y_k}\sigma_d^i(y)\sigma_d^l(y) \frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i}\frac{\partial
-\alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+
-$$
-$$
-+\sum_{i,j,k=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j} \sigma_d^i(y) \biggl( \frac{\partial \sigma^k_d(y)}{\partial
-y_i}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
-y_k}+\sigma^k_d(y)\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_k
-y_i} \biggr),
-$$
-$$
-\frac{\partial G_d(y,\tau_d)}{\partial y_i}=\sum_{j=1}^d
-\frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j}\frac{\partial
-\alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i},
-$$
-\begin{gather*}
-\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i y_l}=\sum_{j,k=1}^d
-\frac{\partial^2 h(T_{\sigma_d}(\tau_d) (y))}{\partial y_j\partial
-y_k}\frac{\partial \alpha_{\sigma_d}^j(y,\tau_d)}{\partial
-y_i}\frac{\partial \alpha_{\sigma_d}^k(y,\tau_d)}{\partial y_l}+\\
-+\sum_{j=1}^d \frac{\partial h(T_{\sigma_d}(\tau_d) (y))}{\partial
-y_j}\frac{\partial^2 \alpha_{\sigma_d}^j(y,\tau_d)}{\partial y_i\partial
-y_l}.
-\end{gather*}
-
-Таким образом,
-\begin{gather}\nonumber
-\frac{\partial^2 G_d(y,\tau_d)}{\partial \tau_d^2}=\sum_{i,l=1}^d
-\frac{\partial^2 G_d(y,\tau_d)}{\partial y_i
-y_l}\sigma_d^i(x)\sigma_d^l(y)+\sum_{i,k=1}^d \frac{\partial
-G_d(y,\tau_d)}{\partial y_k}\sigma_d^i(y)\frac{\partial
-\sigma_d^k(y)}{\partial y_i}=\\ \label{integration_eq24}
-=(M^2_{\sigma_d} G_d(\cdot,\tau_d)) (y).
-\end{gather}
-
-Обозначим $\psi_d(y,t)=\E G_d(y,B^d(t)).$ Тогда из соотношений~(\ref{integration_eq23}),
-(\ref{integration_eq24}), теоремы Фубини и правила Лейбница вытекает равенство
-\begin{equation}\label{integration_eq25}
-\psi_d(y,t)=\psi_d(y,0)+\int_0^t Hs^{2H-1}(M^2_{\sigma_d}
-\psi_d(\cdot,s)) (y)ds.
-\end{equation}
-Из соотношения~(\ref{integration_eq25}) вытекает справедливость соотношения
-\begin{equation}\label{integration_eq26}
-\frac{\partial \psi_d(\cdot,t)}{\partial t}=Ht^{2H-1}M_{\sigma_d}^2
-\psi_d(\cdot,t).
-\end{equation}
-
-
-Определим функцию $G_{d-1}:\mathbb{R}^{d+1} \times \mathbb{R}^+ \to \mathbb{R}$ 
-равенством
-$$G_{d-1}(y,\tau_{d-1},t)=\psi_d(T_{\sigma_{d-1}}(\tau_{d-1})(y),t), 
-\ y \in \mathbb{R}^d, \ \tau_{d-1}\in \mathbb{R}, \ t \in \mathbb{R}^+.$$
-
-Применяя дробную формулу Ито~(\ref{WIS_Ito_formula}) к процессу 
-$G_{d-1}(y,B^{d-1}(t),t),$ получим соотношение
-\begin{gather}\nonumber
-G_{d-1}(y,B^{d-1}(t),t)=G_{d-1}(y,0,0)+\int_0^t \frac{\partial
-G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}}\diamond dB^{d-1}(s)+\\ 
-\label{integration_eq27}
-+\int_0^t \biggl(\frac{\partial G_{d-1}(y,B^{d-1}(s),s)}{\partial
-\tau_d}+ Hs^{2H-1}\frac{\partial^2
-G_{d-1}(y,B^{d-1}(s),s)}{\partial \tau_{d-1}^2}\biggr)ds.
-\end{gather}
-
-Отметим, что для каждых $y \in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ 
-$s \in \mathbb{R}^+$
-справедливо равенство
-\begin{equation}\label{integration_eq28}
-\frac{\partial^2 G_{d-1}(y,\tau_{d-1},s)}{\partial
-\tau_{d-1}^2}=(M^2_{\sigma_{d-1}} G_{d-1}(\cdot,\tau_{d-1},s)) (y).
-\end{equation}
-Действительно, в силу правила Лейбница достаточно проверить, что для
-любых $y\in \mathbb{R}^d,$ $\tau_{d-1}\in \mathbb{R},$ $\tau_{d}\in \mathbb{R}$ 
-справедливо соотношение
-\begin{equation}\label{integration_eq29}
-\frac{\partial^2}{\partial \tau_{d-1}^2} h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (y))=(M^2_{\sigma_{d-1}} h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (\cdot)) (y).
-\end{equation}
-Для каждого фиксированного $\tau_d \in \mathbb{R}$ определим функцию
-$\omega_{\tau_d}:\mathbb{R}^d \to \mathbb{R}$ такую, что
-$$
-\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))=h(T_{\sigma_{d-1}}(\tau_{d-1})
-T_{\sigma_d}(\tau_d) (y)).
-$$
-Теперь применяя рассуждения, которыми была доказана формула~(\ref{integration_eq24}),
-заменяя при этом функцию $G_d(y,\tau_d)$ функцией
-$\omega_{\tau_d}(T_{\sigma_{d-1}}(\tau_{d-1})(y))$, устанавливаем
-справедливость соотношения~(\ref{integration_eq29}), а вместе с ним и 
-равенства~(\ref{integration_eq28}).
-
-
-Обозначим $\psi_{d-1}(y,t)=\E G_{d-1}(y,B^{d-1}(t),t),$ тогда с помощью
-соотношений~(\ref{integration_eq26}), (\ref{integration_eq27}), 
-(\ref{integration_eq28}), теоремы Фубини и правила Лейбница,
-получаем равенство
-\begin{equation}\label{integration_eq30}
-\psi_{d-1}(y,t)=\psi_{d-1}(y,0)+\int_0^t
-((Hs^{2H-1}M^2_{\sigma_d}+Hs^{2H-1}M^2_{\sigma_{d-1}})
-\psi_{d-1})(\cdot,s)(y)ds.
-\end{equation}
-
-Из соотношения~(\ref{integration_eq30}) получаем, что
-\begin{equation}\label{integration_eq31}
-\frac{\partial \psi_{d-1}(\cdot,t)}{\partial
-t}=(Ht^{2H-1}M^2_{\sigma_d}+Ht^{2H-1}M^2_{\sigma_{d-1}})
-\psi_{d-1}(\cdot,t).
-\end{equation}
-
-
-Далее рассматриваем функцию
-$G_{d-2}(y,\tau_{d-2},t)=\psi_{d-1}(T_{\sigma_{d-2}}(\tau_{d-2})(y),t),$
-применяем дробную формулу Ито~(\ref{WIS_Ito_formula}) 
-к процессу $G_{d-2}(y,B^{d-2}(t),t),$ получим
-уравнение, аналогичное уравнению~(\ref{integration_eq31}) для функции
-$\psi_{d-2}(y,t)=\E G_{d-2}(y,\tau_{d-2},t),$ и так далее. Тем самым
-прийдем к следующему уравнению для функции
-$u_h(y,t)=\E h(F(y,t,W^1(t),\ldots,W^d(t),B^1(t),\ldots,B^d(t))):$
-$$
-\frac{\partial u_h(\cdot,t)}{\partial t}= \biggl(M_{\tilde
-f}+\frac{1}{2}\sum_{j=1}^d M^2_{g_j}+\sum_{j=1}^d H
-t^{2H-1}M^2_{\sigma_j}\biggr) u_h(\cdot,t).
-$$
-Теорема доказана.
-
-\begin{example}
-Покажем существенность условия коммутирования
-потоков, порожденных функциями из семейства $\Gamma,$ в 
-теореме~\ref{integration_gamma_family_th}.
-Рассмотрим линейное стохастическое уравнение
-\begin{equation}\label{integration_eq32}
-dx(t)=x(t)dt+dB(t)
-\end{equation}
-с начальным условием
-\begin{equation}\label{integration_eq33}
-x(0)=y \in \mathbb{R},
-\end{equation}
-где $B(t)$ -- одномерное дробное броуновское движение с показателем
-Харста $H \in (1/2,1).$ Решение $x^y(t)$ задачи Коши~(\ref{integration_eq32}), 
-(\ref{integration_eq33})
-задается формулой \cite{Vyoral}
-$$
-x^y(t)=ye^t+\int_0^t e^{t-s}dB(s).
-$$
-
-Положим $h(y)=y^2,$ тогда
-$$
-u_h(y,t)=y^2 e^{2t}+e^{2t}2H(2H-1)\int_0^t e^{-s} \int_0^s
-e^{-v}(s-v)^{2H-2}dvds=
-$$
-$$
-=y^2 e^{2t}+e^{2t}H(2H-1)\int_0^t e^{-u}u^{2H-2}du-H(2H-1)\int_0^t
-e^u u^{2H-2}du=
-$$
-$$
-=y^2e^{2t}+H\int_0^t (e^{2t-s}+e^s)s^{2H-1}ds.
-$$
-Следовательно,
-$$
-\frac{\partial u_h(y,t)}{\partial t}=2y^2e^{2t}+2He^t
-t^{2H-1}+2He^{2t}\int_0^t e^{-s}s^{2H-1}ds,
-$$
-$$
-y\frac{\partial u_h(y,t)}{\partial y}+Ht^{2H-1}\frac{\partial^2
-u_h(y,t)}{\partial y^2}=2y^2e^{2t}+2e^{2t}Ht^{2H-1}.
-$$
-Так как
-$$
-\int_0^t e^{-s}s^{2H-1}ds=-e^{-t}t^{2H-1}+(2H-1)\int_0^t
-e^{-s}s^{2H-2}ds<-e^{-t}t^{2H-1}+t^{2H-1}
-$$
-для любых $t>0,$ то функция $u_h(y,t)$ не удовлетворяет уравнению из
-теоремы~\ref{integration_gamma_family_th} ни при каких $t>0,$ $y\in \mathbb{R}.$ 
-Отметим, что операторы
-$T_f(t_1)(y)=e^{t_1}y,$ $T_\sigma(t_2)(y)=t_2+y$ не являются
-перестановочными.
-\end{example}
-
-\begin{example} Рассмотрим линейное однородное уравнение с
-постоянными коэффициентами
-\begin{equation}\label{integration_eq34}
-dx(t)=ax(t)dt+bx(t)dB(t)+cx(t)dW(t),
-\end{equation}
-с начальным условием
-\begin{equation}\label{integration_eq35}
-x(0)=y \in \mathbb{R}.
-\end{equation}
-Пусть $h(y)=y^r,$ $r \ge 2,$ $u_h(y,t)=\E h(x^y(t)),$ где $x^y(t)$ --
-решение задачи Коши~(\ref{integration_eq34}), (\ref{integration_eq35}). Легко 
-видеть, что условия теоремы~\ref{integration_gamma_family_th} выполняются, 
-и функция $u_h(y,t)$ удовлетворяет уравнению
-$$
-\frac{\partial u_h(y,t)}{\partial t}=\frac{\partial u_h(y,t)}{\partial
-y} y (a+b^2 Ht^{2H-1})+\frac{\partial^2 u_h(y,t)}{\partial y^2}y^2
-(c^2/2+b^2 Ht^{2H-1}), \ t>0, \ y \in \mathbb{R},
-$$
-с начальным условием
-$$
-u_h(y,0)=y^r.
-$$
-\end{example}
-
-\begin{theorem}
-Пусть семейство $\Gamma$ порождает
-коммутирующие потоки, решение $x^y(t)$ автономного уравнения 
-\textup{(\ref{integration_of_mixed_main_eq})} с начальным
-условием $x(0)=y$ имеет плотность распределения $p(t,y,z),$ функция
-$f(z)$ принадлежит классу $C^1_b(\mathbb{R}^d)$, функции $g(z),$ 
-$\sigma(z)$ --- классу $C^2_b(\mathbb{R}^d)$, а функция $p(t,y,z)$ 
-имеет непрерывные и ограниченные производные до первого порядка 
-включительно по $t$ и до второго порядка включительно по $z$. 
-Тогда функция $p(t,y,z)$ удовлетворяет равенству
-\begin{gather*}
-\frac{\partial p(t,y,z)}{\partial t}=-
-\sum_{j=1}^d \frac{\partial (f_j(z)p(t,y,z))}{\partial z_j}
-+\frac{1}{2}\sum_{i,j,k=1}^d
-\frac{\partial^2(g_{ik}(z)g_{jk}(z)p(t,y,z))}{\partial z_i
-\partial z_j} +\\
-+\sum_{i,j,k=1}^d
-Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)p(t,y,z))}{\partial
-z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
-\sigma_{jk}(z)}{\partial z_i} p(t,y,z))}{\partial z_j}\biggr), \\
- t>0, \
-y,  z \in \mathbb{R}^d.
-\end{gather*}
-\end{theorem}
-
-\proof Возьмем произвольную функцию $h(z)$ с
-компактным носителем, имеющую ограниченные и непрерывные частные
-производные до второго порядка включительно.
-
-Обозначим через $A_t$ оператор, действующий по правилу
-$$(A_t h)(z)=\sum_{j=1}^d f_j(z)\frac{\partial
-h(z)}{\partial z_j}+\frac{1}{2}\sum_{i,j,k=1}^d
-g_{ik}(z)g_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i \partial z_j}
-+
-$$
-$$
-+\sum_{i,j,k=1}^d Ht^{2H-1}\sigma_{ik}(z)
-\biggl(\sigma_{jk}(z)\frac{\partial^2 h(z)}{\partial z_i
-\partial z_j}+\frac{\partial \sigma_{jk}(z)}{\partial z_i
-}\frac{\partial h(z)}{\partial z_j }\biggr), \ t>0, \ z \in \mathbb{R}^d.$$
-
-
-Используя соотношение
-$$
-u_h(y,t)=\int_{\mathbb{R}^d} h(z)p(t,y,z)dz,
-$$
-теорему~\ref{integration_gamma_family_th} и правило Лейбница, 
-получаем равенство
-\begin{equation}\label{integration_eq36}
-\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
-t}-p(t,y,z)(A_t h)(z)\biggr)dz=0.
-\end{equation}
-Из соотношения~(\ref{integration_eq36}) вытекает равенство
-\begin{equation}\label{integration_eq37}
-\int_{\mathbb{R}^d} \biggl( h(z)\frac{\partial p(t,y,z)}{\partial
-t}-h(z)(A^*_t p(t,y,\cdot))(z)\biggr)dz=0,
-\end{equation}
-где $A_t^*$ -- сопряженный оператор к оператору $A_t.$ Применяя
-формулу интегрирования по частям, легко видеть, что
-\begin{gather}\nonumber
-(A_t^* \varphi) (z)=-\sum_{j=1}^d \frac{\partial
-(f_j(z)\varphi(z))}{\partial z_j} +\frac{1}{2}\sum_{i,j,k=1}^d
-\frac{\partial^2(g_{ik}(z)g_{jk}(z)\varphi(z))}{\partial y_i
-\partial y_j} +\\ \label{integration_eq38}
-+\sum_{i,j,k=1}^d
-Ht^{2H-1}\biggl(\frac{\partial^2(\sigma_{ik}(z)\sigma_{jk}(z)\varphi(z))}{\partial
-z_i \partial z_j}-\frac{\partial (\sigma_{ik}(z)\frac{\partial
-\sigma_{jk}(z)}{\partial z_i} \varphi(z))}{\partial z_j}\biggr).
-\end{gather}
-
-Теперь из соотношений~(\ref{integration_eq37}), (\ref{integration_eq38}) и 
-плотности множества функций с компактным носителем, имеющих непрерывные 
-органиченные производные всех порядков, в $L_1(\mathbb{R}^d,\mathbb{R})$ вытекает 
-требуемое утверждение. Теорема доказана.
-
 
 \section*{Выводы}
 \addcontentsline{toc}{section}{Выводы}
@@ -1321,12 +620,5 @@ $H > 1/2$.
 Построен метод перехода от рассматриваемых уравнений типа Ито к уравнениям типа 
 Стратоновича и приведен пример, когда данный переход позволяет получить решение 
 исходного уравнения в явном виде.
-
-Для автономных уравнений смешанного типа $dx(t) = f(x(t))dt +\linebreak+ g(x(t))dW(t) + 
-\sigma(x(t)) dB(t)$, $t \ge 0$ получены уравнения в частных производных 
-колмогоровского типа для математических ожиданий функционалов от решений
-$u_h(y, t) = \E h(x^y(t))$ и плотности распределения $p(t,y,z)$ решений $x^y(t)$
-указанных уравнений с начальными условиями $x^y(0) = y$. Приведены примеры, 
-иллюстрирующие применение данных результатов.
 
 \newpage

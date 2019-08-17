@@ -15,6 +15,95 @@
 
 \section{Предварительные сведения}
 
+\subsection{Теория полугрупп}
+
+Пусть $X$ --- банахово пространство. Через  $\mathcal{L}(X)$ обозначим 
+множество линейных ограниченных операторов, действующих из $X$ в $X$.
+Однопараметрическое семейство операторов $(S(t))_{t \ge 0} \subset
+\mathcal{L}(X)$ называют полугруппой на $X,$ если $S(0)=I$ и
+$S(t+s)=S(t)S(s)$ для любых $s, t \ge 0$. Полугруппу 
+операторов  $(S(t))_{t \ge 0}$ называют сильно непрерывной ($C_0$-полугруппой), 
+если $\|S(t)x-S(t_0)x\| \xrightarrow[t \to t_0]{} 0$ для любого~$x 
+\in X$. Для сильно непрерывной полугруппы~$(S(t))_{t\ge 0}$ на $X$ оператор $A$, 
+определенный на множестве $\EuScript{D}(A)=\left\{ x \in X : \exists \lim \limits_{t \to +0} 
+\frac{S(t)x-x}{t} \in X \right\}$ формулой $Ax=\lim\limits_{t \to +0} 
+\frac{S(t)x-x}{t},$ $x \in \EuScript{D}(A)$, называют генератором полугруппы%
+~$(S(t))_{t \ge 0}$.
+
+\begin{proposition}[ {\cite[теорема 2.2]{Pazy}}]\label{PazySemiroupExpBound}
+Пусть $(S(t))_{t \ge 0}$ --- сильно непрерывная полугруппа на банаховом 
+пространстве $X$. Тогда существуют постоянные~$M \ge 1$ и $\beta\in\mathbb{R}$ 
+такие, что $\|S(t)\|_{\mathcal{L}(X)} \le M e^{\beta t}$ для всех $t \ge 0.$
+\end{proposition}
+
+Теория полугрупп имеет тесные связи как с обыкновенныи дифференциальными 
+уравнениями, так и с дифференциальными уравнениями в частных производных.
+
+\begin{example}
+Рассмотрим задачу Коши для системы линейных дифференциальных уравнений 
+с постоянными коэффициентами порядка $d$. В векторном виде она примет вид
+\begin{gather*}
+\frac{dx}{dt} = Ax + f(t),\quad t\in\mathbb{R}^+,\\
+x(0) = \xi,
+\end{gather*}
+где $A\in\mathbb{R}^{n\times n}$, $f\colon\mathbb{R}^+\to\mathbb{R}^d$,
+$\xi\in\mathbb{R}^d$. Решение данной задачи выражается формулой Коши:
+$$x(t) = S(t)\xi + \int_0^t S(t)S^{-1}(s)f(s)ds,$$
+где $S(t)$ --- базисная матрица системы, $S(0) = I_d$. 
+Каноничесим выбором служит оператор $S(t) = e^{At}$. Нетрудно убедиться 
+в том, что при таком выборе семейство операторов $(S(t))_{t\ge 0}$ является 
+сильно непрерывной полугруппой в~$\mathbb{R}^d$ с генератором 
+$A\in\mathcal{L}(\mathbb{R}^d)$.
+\end{example}
+
+\begin{example}
+Рассмотрим начально-краевую задачу для уравнения в частных производных 
+параболического типа
+\begin{gather}\label{ch1_parabolic_eq}
+\frac{\partial u}{\partial t} =a^2 \frac{\partial^2 u}{\partial x^2} + f(t, x),
+\quad t\in\mathbb{R}^+, x\in (0,l),\\ \label{ch1_parabolic_init_val}
+u(0, x) = \varphi(x),\quad x\in[0,l], \\ \label{ch1_parabolic_border_val}
+u(t, 0) = u(t, l) = 0,\quad t\in\mathbb{R}^+.
+\end{gather}
+где функции $\varphi$, $f$ таковы, что $\varphi(0)=\varphi(l)=0$, 
+$f(t,0) = f(t, l) = 0$, $t\in\mathbb{R}^+$.
+Ее решение может быть выражено следующей формулой:
+\begin{gather}
+\label{ch1_parabolic_eq_solution}
+u(t,x) = \int_0^t G(t,x,\xi)\varphi(\xi)d\xi + 
+\int_0^t\int_0^l G(t-\tau, x, \xi)f(\tau, \xi)d\xi d\tau, \\
+\label{ch1_parabolic_eq_solution_func}
+G(t, x, y) = \frac{2}{l}\sum_{n=1}^\infty e^{-(\pi n / l)^2 t}
+\sin\left(\frac{\pi n x}{l}\right)\sin\left(\frac{\pi n y}{l}\right).
+\end{gather}
+
+Задача~(\ref{ch1_parabolic_eq})~---~(\ref{ch1_parabolic_border_val}) может
+быть представлена в виде задачи Коши для обыкновенного дифференциального
+уравнения первого порядка в гильбертовом пространстве. Пусть 
+$H = \{z(\cdot)\in L_2[a,b] \,:\, z(0)=z(l)=0\}$ --- гильбертово пространство,
+$X(t) = u(t,\cdot)\in H$, $F(t) = f(t,\cdot)\in H$, $\psi = \varphi(\cdot)\in H$, 
+$A = a^2\frac{\partial^2}{\partial x^2}$ --- оператор, действующий из 
+$H$ в $H$, с областью определения
+$\EuScript{D}(A) = \{z(\cdot)\in \mathcal{W}^{2,2}[a,b] \,:\, z(0)=z(l)=0\}$,
+всюду плотной в $H$. Задача~(\ref{ch1_parabolic_eq})~---~%
+(\ref{ch1_parabolic_border_val}) может быть интерпретирована следующим образом:
+\begin{gather}
+\label{ch1_parabolic_ode_eq}
+\frac{dX}{dt} =AX(t) + F(t), \quad t\in\mathbb{R}^+,\\ 
+\label{ch1_parabolic_ode_init_val}
+X(0) = \psi.
+\end{gather}
+
+Можно показать, что оператор $A$ является генератором $C_0$-полугруппы 
+$(S(t))_{t\ge 0}$ в $H$, определяемой соотношением
+$$S(t)z(\cdot) = \int_0^l G(t, \cdot, \xi) z(\xi) d\xi, \quad t>0; \quad S(0)=I.$$
+
+При этом равенство~(\ref{ch1_parabolic_eq_solution}) перепишется в виде
+соотношения, определяющего слабое решение задачи%
+~(\ref{ch1_parabolic_ode_eq}),~(\ref{ch1_parabolic_ode_init_val}): 
+$X(t) = S(t)\psi + \int_0^t S(t-s)F(s)ds$.
+\end{example}
+
 \subsection{Операторы Гильберта-Шмидта}
 
 Зафиксируем некоторые банаховы пространства $X,$ $Y$, а также некоторый 
