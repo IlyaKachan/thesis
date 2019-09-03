@@ -57,9 +57,9 @@ $$
 [X,Y](t)=\int_0^t Y(s)d^{+}X(s)-\int_0^t Y(s)d^{-}X(s).
 $$
 
-Определение $[X, Y]$ обобщает понятие квадратической ковариации для 
-семимартингалов, а прямой и симметрический стохастические интегралы 
-$\int\limits_0^t Y(s)d^{-}X(s)$, $\int\limits_0^t Y(s)d^{\circ}X(s)$ 
+Определение $[X, Y]$ обобщает понятие квадратической ковариации $\langle X, Y \rangle$ 
+для семимартингалов \cite[гл. 2]{Vatanabe}, а прямой и симметрический стохастические 
+интегралы $\int\limits_0^t Y(s)d^{-}X(s)$, $\int\limits_0^t Y(s)d^{\circ}X(s)$ 
 являются расширением интегралов Ито и Стратоновича соответственно 
 на класс непрерывных процессов с конечной 
 квадратической вариацией \cite[с. 5]{Russo_Vallois}, 
@@ -120,7 +120,7 @@ $F'_x(t,x),$ $F''_{x^2}(t,x).$  Если функции $f,$ $g$ измеримы по Борелю,
 F(t, x(t)) = F(0, x(0)) +\\ \nonumber+ \int_0^t \biggl(F'_t(\tau, x(\tau)) + 
 F'_x(\tau, x(\tau))f(\tau, x(\tau)) +\\ \nonumber
 + \frac{1}{2}\textrm{tr}(F''_{x^2}(\tau, x(\tau))g(\tau, x(\tau))
-g^T(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
+g^\top(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 + \int_0^t F'_x(\tau, x(\tau))g(\tau,x(\tau))dW(\tau) + 
 \int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
 \end{gather}
@@ -520,70 +520,115 @@ dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)d
 \section{Переход к уравнению Стратоновича}\label{integration_reduction_to_stratonovich}
 
 
-Наряду с уравнением (\ref{integration_of_mixed_main_eq}) рассмотрим 
-соответствующее уравнение Стратоновича
+Наряду с уравнением (\ref{integration_of_mixed_main_eq}) в пространстве $\mathbb{R}^d$ 
+рассмотрим соответствующее уравнение Стратоновича
 \begin{equation}\label{eq_strat}
 dx(t) = (f(t,x(t))-c(t,x(t)))dt + g(t, x(t))\circ dW(t) + \sigma(t, x(t)) dB(t),
 \quad t \ge 0,
 \end{equation}
-где $c(t,x)=\frac{1}{2}g'_x(t,x)g(t,x).$
+в котором $f\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$,
+$g\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$c\colon \mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$ и
+$$
+c_i(t,x)=\frac{1}{2}\sum_{j,k=1}^d \frac{\partial g_{ij}(t,x)}{\partial x_k}g_{kj}(t,x),
+\quad i=1, \ldots, d.
+$$
 
-Поскольку, решения смешанных уравнений, вообще говоря, не являются 
+Поскольку решения смешанных уравнений, вообще говоря, не являются 
 семимартингалами, то понятие интеграла Стратоновича требует дополнительных 
 разъяснений. 
 
-Во-первых, отметим, что решения смешанных уравнений 
-(\ref{integration_of_mixed_main_eq}) имеют конечную квадратическую вариацию 
-$[x](t)$ в силу того, что процесс
+Отметим, что компоненты решений смешанных уравнений 
+(\ref{integration_of_mixed_main_eq}) имеют конечные квадратические 
+вариации $[x_i](t)$ для любого $i=1,\ldots,d$. Действительно, процесс
 $$
-\int_0^t f(s,x(s))ds, \ t \ge 0,
+\int_0^t f_i(s,x(s))ds, \ t \ge 0,
 $$ 
-абсолютно непрерывен, а процесс
+абсолютно непрерывен, а значит имеет конечную квадратическую вариацию. 
+Процессы
 $$
-\int_0^t \sigma(s,x(s))dB(s), \ t \ge 0,
+\int_0^t \sigma_{ij}(s,x(s))dB_j(s), \ t \ge 0,
 $$
-имеет непрерывные по Гельдеру траектории порядка $\kappa>1/2.$
-Более того,
+для любого $j=1,\ldots,d$ имеют непрерывные по Гельдеру траектории 
+порядка~$\kappa>1/2,$ а значит имеют нулевую квадратическую вариацию. 
+В свою очередь, квадратическая вариация $[I(g_{ij})](t)$ процессов
 $$
-[x](t)=\int_0^t g^2(s,x(s))ds.
+I(g_{ij})(t) = \int_0^t g_{ij}(s,x(s))dW_j(s), \ t \ge 0,
 $$
+конечна и совпадает с квадратической вариацией для семимартингалов 
+$\langle I(g_{ij})\rangle (t)$. Более того, нетрудно видеть, что
+$$
+\left[\int_0^\cdot f_i(s,x(s))ds, \int_0^\cdot \sigma_{ij}(s,x(s))dB_j(s)\right](t) = 0,
+$$
+$$
+\left[\int_0^\cdot f_i(s,x(s))ds, \int_0^\cdot g_{ij}(s,x(s))dW_j(s) \right](t) = 0,
+$$
+$$
+\left[\int_0^\cdot \sigma_{ij}(s,x(s))dB_j(s), \int_0^\cdot g_{ij}(s,x(s))dW_j(s) \right](t) = 0,
+$$
+поскольку суммы показателей непрерывности Гельдера соответсвтвующих процессов
+превосходят $1$.
 
-Пусть функция $F(t,x)$ имеет непрерывные частные производные $F'_t,$ $F'_x,$ 
-$F''_{x^2}$. Тогда процесс $y(t)=F(t,x(t))$ является непрерывным, имеет 
+Рассмотрим некоторую функцию $F(t,x)=(F_{ij}(t,x))_{i,j=1}^d$, принимающующую 
+значения в пространстве $\mathbb{R}^{d\times d}$ и имеющую непрерывные 
+частные производные $\frac{\partial F_{ij}}{\partial t}$, $\frac{\partial F_{ij}}{\partial x},$ 
+$\frac{\partial F_{ij}}{\partial x^2}$ для всех $i,j=1,\ldots, d$ (выбор функции $F$
+будет оговорен ниже). Зафиксируем произвольные индексы $i,j\in\{1,\ldots, d\}$. 
+Заметим, что процесс $y_{ij}(t)=F_{ij}(t,x(t))$ является непрерывным и имеет 
 конечную квадратическую вариацию. Ввиду формулы Ито~%
 (\ref{integration_of_mixed_ito_formula}) стохастические дифференциалы 
-процессов $y(t),$ $W(t)$ имеют вид
+процессов $y_{ij}(t),$ $W_j(t)$ имеют вид
 $$
-dy(t)=\biggl(F'_t(t,x(t))+F'_x(t,x(t))f(t,x(t))+\frac{1}{2}
-F''_{x^2}(t,x(t))g^2(t,x(t))\biggr)dt+$$ $$+F'_x(t,x(t))g(t,x(t))dW(t)+
-F'_x(t,x(t))\sigma(t,x(t))dB(t),
+dy_{ij}(t) = \biggl(\frac{\partial F_{ij}(t,x(t))}{\partial t} + 
+\frac{\partial F_{ij}(t,x(t))}{\partial x}f(t,x(t)) + 
 $$
 $$
-dW(t)=0\cdot dt+1\cdot dW(t)+0 \cdot dB(t),
++\frac{1}{2}\textrm{tr}\left(\frac{\partial^2 F_{ij}(t,x(t))}{\partial x^2}
+g(t,x(t))g^\top(t,x(t))\right)\biggr)dt+
+$$ 
 $$
-Поскольку $[t, W(t)] =0$, $[W, B](t) = 0$, $[W, W](t) = t$, то ввиду леммы 4.9 
-\cite{Russo_Vallois} квадратическая ковариация процессов $y(t)$ и $W(t)$ равна
++\frac{\partial F_{ij}(t,x(t))}{\partial x}g(t,x(t))dW(t)+
+\frac{\partial F_{ij}(t,x(t))}{\partial x}\sigma(t,x(t))dB(t),
 $$
-[y, W](t)=\int_0^t F'_x(s, x(s))g(s,x(s))ds.
+$$
+dW_j(t)=0\cdot dt+1\cdot dW_j(t)+0 \cdot dB_j(t),
+$$
+Поскольку $[t, W_j(t)] =0$, $[W_j, B_l](t) = 0$, $[W_j, W_l](t) = \delta_{jl}\cdot t$ 
+для любого $l=1,\ldots,d$, где $\delta_{jl}$ --- символ Кронекера, то ввиду 
+предложения 2.3 \cite{Vatanabe} квадратическая ковариация процессов 
+$y_{ij}(t)$ и $W_j(t)$ равна
+$$
+[y_{ij}, W_j](t)=\left[
+  \sum_{k,l=1}^d 
+    \int_0^t \frac{\partial F_{ij}(s,x(s))}{\partial x_k}g_{kl}(s,x(s))dW_l(s), 
+  \int_0^t dW_j(s) \right] =
+$$
+$$
+= \sum_{k,l=1}^d \int_0^t \frac{\partial F_{ij}(s,x(s))}{\partial x_k}g_{kl}(s,x(s))d[W_l, W_j](s)
+=\sum_{k=1}^d \int_0^t \frac{\partial F_{ij}(s,x(s))}{\partial x_k}g_{kj}(s,x(s))ds.
 $$
 С другой стороны, в силу определения прямого и симметрического стохастических 
 интегралов имеем
 $$
-\int_0^t F(s,x(s))\circ dW(s)=\int_0^t F(s,x(s))dW(s) +
-\frac{1}{2}[F(\cdot, x(\cdot)), W(\cdot)](t)=
+\int_0^t F_{ij}(s,x(s))\circ dW_j(s)=\int_0^t F_{ij}(s,x(s))dW_j(s) +
+\frac{1}{2}[F_{ij}(\cdot, x(\cdot)), W_j(\cdot)](t)=
 $$
 $$
-=\int_0^t F(s,x(s)) dW(s) +\frac{1}{2} \int_0^t F'_x(s, x(s))g(s,x(s))ds.
+=\int_0^t F_{ij}(s,x(s)) dW_j(s) +\frac{1}{2} 
+\int_0^t \sum_{k=1}^d\frac{\partial F_{ij}(s,x(s))}{\partial x_k}g_{kj}(s,x(s))ds
 $$
-Полагая $F(t,x)=g(t,x)$, заключаем, что процесс $x(t)$ является решением 
-уравнения (\ref{integration_of_mixed_main_eq}) тогда и только тогда, когда 
-процесс $x(t)$ является решением уравнения Стратоновича (\ref{eq_strat}).
+для любых $i,j=1,2,\ldots$
 
-\begin{remark}
-Легко видеть, что проведенные рассуждения также сохраняют силу в случае 
-многомерного уравнения (\ref{integration_of_mixed_main_eq}) и соответствующего 
-уравнения Стратоновича.
-\end{remark}
+Полагая $F(t,x)=g(t,x)$ и суммируя по индексу $j=1,\ldots,d$, заключаем, что 
+справедливо следующее равенство:
+$$
+\int_0^t g(s,x(s))\circ dW(s) = \int_0^t g(s,x(s)) dW(s) + \frac{1}{2}\int_0^t c(s, x(s))ds.
+$$
+
+Таким образом, процесс $x(t)$ является решением уравнения 
+(\ref{integration_of_mixed_main_eq}) тогда и только тогда, когда 
+процесс $x(t)$ является решением уравнения Стратоновича~(\ref{eq_strat}).
 
 \begin{example}
 Для уравнения
