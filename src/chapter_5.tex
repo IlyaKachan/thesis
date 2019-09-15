@@ -154,204 +154,180 @@ $$ \langle
 L,M\rangle_{\mathfrak{L}_2(K_Q,H)}=\textup{tr}((LQ^{1/2})(MQ^{1/2})^\star).
 $$
 
+\subsection{Стохастический интеграл Ито в гильбертовом пространстве}
 
-\subsection{Стохастический интеграл Ито в конечномерном гильбертовом пространстве}
+Ниже будет дано определение стохастического интеграла Ито по винеровскому
+процессу $W(t)$, принимающему значения в сепарабельном гильбертовом
+пространстве $K$, c ковариационным оператором $Q$.
 
-Рассмотрим случай, когда $B(t)=W(t)$ --- стандартное броуновское движение 
-($H=1/2$), принимающее значения в $\mathbb{R}^d$. Поскольку процесс $B(t)$ 
-имеет неограниченную вариацию, то интегральные суммы Стилтьеса для интеграла 
-$\int_S^T \phi(t,\omega) dB(t,\omega)$ п.н. не будут сходиться, т.е. данный 
-интеграл невозможно определить в потраекторном смысле как интеграл Стилтьеса. 
-Приведем простой пример, иллюстрирующий данный факт: рассмотрим интеграл 
-$\int_0^T B(t,\omega) dB(t,\omega)$ по одномерному стандартному броуновскому 
-движению $B(t)$ как потраекторный предел (для почти всех $\omega\in\Omega$) 
-двух интегральных сумм:
-$$I^{(1)}_{\mathcal{P}} = \sum_{t_j, t_{j+1}\in\mathcal{P}} B(t_j)(B(t_{j+1}) - 
-B(t_j)),\quad I^{(2)}_{\mathcal{P}} = \sum_{t_j, t_{j+1}\in\mathcal{P}} 
-B(t_{j+1})(B(t_{j+1}) - B(t_j))$$
-на разбиении $\mathcal{P} = \{0= t_0 \le t_1 \le \ldots \le t_n = T\}$ отрезка 
-$[0,T]$. Тогда с одной стороны ввиду независимости приращений $B(t)$:
-$$\E I^{(1)}_{\mathcal{P}} = \sum_{t_j, t_{j+1}\in\mathcal{P}} \E B(t_j)
-\E(B(t_{j+1}) - B(t_j)) = 0.$$
-А с другой стороны, поскольку приращения $B(t)-B(s)$ распределены по 
-нормальному закону с дисперсией $t-s$:
-$$\E I^{(2)}_{\mathcal{P}} =\E (I^{(2)}_{\mathcal{P}} - I^{(1)}_{\mathcal{P}}) 
-= \sum_{t_j, t_{j+1}\in\mathcal{P}}\E(B(t_{j+1}) - B(t_j))^2 = 
-\sum_{t_j, t_{j+1}\in\mathcal{P}}(t_{j+1} - t_j) = T.$$
-Таким образом, предел интегральных сумм Римана-Стилтьеса зависит от выбора 
-промежуточных точек, что недопустимо. Поэтому для стандартного броуновского 
-движения предел интегральных сумм понимается в смысле $\mathcal{L}_2$, а сами 
-суммы строятся несколько иначе. Далее приведем краткое описание подхода Ито к 
-построению таких интегралов.
+Пусть $\mathcal{E}(\mathcal{L}(K,H))$ --- класс
+$(\mathcal{F}_t)$-согласованных элементарных процессов вида
+$$
+\Phi(t,\omega)=\Phi_0(\omega)\textbf{1}_{\{0\}}(t)+
+\sum\nolimits_{j=0}^{n-1}\Phi_j(\omega)\textbf{1}_{(t_j,t_{j+1}]}(t),
+$$
+где $0=t_0\leq t_1\leq\ldots\leq t_n=a$ и $\Phi_j,
+j=0,1,\ldots,n-1,$ соответственно $(\mathcal{F}_{t_j})$-измеримые
+$\mathfrak{L}_2(K_Q,H)$-значные случайные величины такие, что
+$\Phi_j(\omega)\in\mathcal{L}(K,H), j=0,1,\ldots,n-1.$
+%(отметим, что
+%$\mathcal{L}(K,H)\subset \mathcal{L}_2(K_Q,H)$).
+Мы скажем, что
+элементарный процесс $\Phi$ ограничен, если он ограничен в
+$\mathfrak{L}_2(K_Q,H).$ Для ограниченного элементарного процесса
+$\Phi\in \mathcal{E}(\mathcal{L}(K,H))$ мы определим стохастический
+интеграл относительно $Q$-винеровского процесса следующим образом:
+$$
+\int_0^t\Phi(s)dW(s)=\sum\nolimits_{j=0}^{n-1}\Phi_j(W(t_{j+1}\wedge
+t)-W(t_{j}\wedge t))
+$$
+для $t\in[0,T].$ Для ограниченных элементарных процессов $\Phi\in
+\mathcal{E}(\mathcal{L}(K,H))$ имеет место равенство
+\begin{equation}\label{p710}
+\E\Big{(}\Bigl\|\int_0^t\Phi(s)dW(s)\Bigr\|^2_H\Big{)}=
+\E\Big{(}\int_0^t\|\Phi(s))\|^2_{\mathfrak{L}_2(K_Q,H)}ds\Big{)}<\infty.
+\end{equation}
+для $t\in[0,T].$
 
-Рассмотрим для начала одномерный процесс $B(t)\in\mathbb{R}$. Выделим класс 
-случайных процессов $\phi(t,\omega)\colon \mathbb{R}^+\times \Omega \to 
-\mathbb{R}$, обозначаемый $\mathcal{L}_2(S,T)$, со следующими свойствами:
+Пусть $\Lambda_2(K_Q,H)$ --- подмножество пространства
+$\mathfrak{L}_2(K_Q,H),$ состоящее из $(\mathcal{B}([0,T])\times
+\mathcal{F}, \mathcal{B}(\mathfrak{L}_2(K_Q,H)))$-измеримых
+$(\mathcal{F}_t)$-согласованных процессов, удовлетворяющих условию
+$\E(\int\nolimits_0^T\|\Phi(s))\|^2_{\mathfrak{L}_2(K_Q,H)}ds)<\infty.$
+Отметим, что $\Lambda_2(K_Q,H)$ с нормой
+$\|\Phi\|_{\Lambda_2(K_Q,H)}=\Big{(}\E(\int\nolimits_0^T\|\Phi(s))\|^2_{\mathfrak{L}_2(K_Q,H)}ds)\Big{)^{1/2}}$
+является банаховым пространством. Множество ограниченных
+элементарных процессов плотно в $\Lambda_2(K_Q,H).$
+
+За стохастический интеграл от процесса $\Phi\in\Lambda_2(K_Q,H)$
+относительно $Q$-винеровского процесса $W(t)$ принимают единственное
+изометрическое линейное расширение отображения $\Phi(\cdot)\to
+\int\nolimits_0^a\Phi(s)dW(s)$ (которое выше определено на множестве
+ограниченных элементарных процессов),
+%со значениями в $L^2(\Omega,H)$
+на  процессы из пространства $\Lambda_2(K_Q,H),$
+%в $L^2(\Omega,H)$
+и при этом образ каждого элементарного процесса
+$\Phi_0(\omega)\textbf{1}_{\{0\}}(t)+\sum\limits_{j=0}^{n-1}\Phi_j(\omega)
+\textbf{1}_{(t_j,t_{j+1}]}(t)$
+есть $\sum\limits_{j=0}^{n-1}\Phi_j(W(t_{j+1}\wedge~t)-W(t_{j}\wedge
+t)).$ Стохастический интеграл $\int\nolimits_0^t\Phi(s)dW(s)$
+определяют посредством равенства
+\begin{equation}\label{p720}
+\int\nolimits_0^t\Phi(s)dW(s)=\int\nolimits_0^T\Phi(s)\textbf{1}_{[0,t]}(s)dW(s).
+\end{equation}
+
+Стохастический интеграл $\int\nolimits_0^t\Phi(s)dW(s)$ является
+непрерывным квадратично интегрируемым мартингалом,
+удовлетворяющим условию~(\ref{p710}).
+
+Пусть теперь $\mathcal{P}(K_Q,H)$ --- подмножество
+$(\mathcal{B}([0,T])\times \mathcal{F},
+\mathcal{B}(\mathfrak{L}_2(K_Q,H)))$-из--\linebreakмеримых
+$(\mathcal{F}_t)$-согласованных процессов из пространства
+$\mathfrak{L}_2(K_Q,H),$ удовлетворяющих условию
+$\Prob(\int\nolimits_0^T\|\Phi(s))\|^2_{\mathfrak{L}_2(K_Q,H)}ds <\infty) = 1.$
+Очевидно, $\Lambda_2(K_Q,H)\subset\mathcal{P}(K_Q,H).$ Для каждого
+процесса $\Phi\in\mathcal{P}(K_Q,H)$ существует последовательность
+$\Phi_n$ в $\Lambda_2(K_Q,H)$ такая, что
+$$
+\Prob\Big{(}\int\nolimits_0^T
+\|\Phi_n(s,\omega))-\Phi(t,\omega)\|^2_{\mathfrak{L}_2(K_Q,H)}dt>0\Big{)}
+\mathop{\to}\limits_{n\to+\infty} 0,
+$$
+и существует $H$-значная $(\mathcal{F}_T)$-измеримая случайная
+величина, обозначаемая $\int\nolimits_0^T\Phi(t)dW(t),$ к которой
+последовательность $\int\nolimits_0^T\Phi_n(t)dW(t)$ сходится по
+вероятности. Предел $\int\nolimits_0^T\Phi(t)dW(t)$ не зависит от
+выбора последовательности~$\Phi_n.$
+
+Случайную величину $\int_0^T\Phi(t)dW(t)$ называют
+стохастическим интегралом от процесса
+$\Phi\in\mathcal{P}(K_Q,H)$ по $Q$-винеровскому процессу. Для
+$t\in[0,T]$ интеграл $\int\nolimits_0^t\Phi(t)dW(t)$ определяют
+посредством равенства (\ref{p720}). 
+
+Приведем некоторые свойства стохастического интеграла Ито 
+\cite[раздел 2.2.3]{Gawarecki}, \cite[гл. 3]{OksendalBook}, \cite[с. 56--60]{Vatanabe}:
 \begin{enumerate}
-\item процесс $\phi(t,\omega)$ является  
-$(\mathcal{B}(\mathbb{R}^+)\times\mathcal{F},
-\mathcal{B}(\mathbb{R}))$-измеримым;
-\item процесс $\phi(t,\omega)$ является $\mathcal{F}_t$-согласованным;
-\item $\|\phi\|^2_{\mathcal{L}_2(S,T)} = \E \int_S^T (\phi(t,\omega))^2dt < 
-+\infty$.
-\end{enumerate}
-Будем говорить, что последовательность $\phi_n \in \mathcal{L}_2(S,T)$ сходится 
-к $\phi\in\mathcal{L}_2(S,T)$ в $\mathcal{L}_2(S,T)$, если 
-$\|\phi - \phi_n\|^2_{\mathcal{L}_2(S,T)}\xrightarrow[n\to\infty]{}0$.
-
-Для каждой функции $\phi\in\mathcal{L}_2(S,T)$ можно построить сходящуюся к 
-$\phi$ в~$\mathcal{L}_2(S,T)$ последовательность ограниченных непрерывных 
-по $t$ функций $\phi_n\in\linebreak\in\mathcal{L}_2(S,T)$ следующим образом 
-\cite[гл. 3]{OksendalBook}:
-\begin{gather*}
-\phi_n(t,\omega) = \int_0^t \psi_n(s-t)\bar\phi_n(t,\omega)ds,\\
-\bar\phi_n(t,\omega) = \left\{
-\begin{array}{ll}
--n, & \text{если } \phi(t,\omega) < -n,\\
-\phi(t,\omega) & \text{если } -n\le \phi(t,\omega)\le n,\\
-n, & \text{если } \phi(t,\omega) > n\\
-\end{array}\right.
-\end{gather*}
-Здесь $\psi_n(t)$ --- любые наперед заданные непрерывные функции такие, что 
-$\psi(t) = 0$, $t\not\in(1/n, 0)$ и $\int_{-\infty}^{+\infty}\psi_n(t) = 1$. 
-В свою очередь, для $\phi_n(t,\omega)$ можно построить последовательность 
-ступенчатых функций $\phi_{nm}(t,\omega)\in\mathcal{L}_2(S,T)$, сходящуюся к 
-$\phi_n$ в $\mathcal{L}_2(S,T)$, следующего вида \cite[гл. 3]{OksendalBook}:
-$$\phi_{nm}(t,\omega) = 
-\sum_{j=0}^{m} \phi_n(t_j, \omega) \textbf{1}_{[t_j, t_{j+1})}(t),$$
-где точки $t_j\in\mathcal{P}$ образуют разбиение отрезка $[S,T]$, $t_0=S$, 
-$t_{m+1}=T$. Таким образом, для любой функции $\phi\in\mathcal{L}_2(S,T)$ можно 
-построить сходящуюся к ней в $\mathcal{L}_2(S,T)$ последовательность 
-ступенчатых функций $\phi_m\in\mathcal{L}_2(S,T)$.
-
-Интегралом Ито $\int_S^T \phi(t,\omega) dB(t,\omega)$ функции 
-$\phi\in \mathcal{L}_2(S,T)$ называют элемент 
-$\mathcal{I}(\phi)\in \mathcal{L}_2(S,T)$, являющийся пределом 
-последовательности $\mathcal{I}(\phi_m)$ в~$\mathcal{L}_2(S,T)$ интегралов Ито 
-от ступенчатых функций $\phi_m$ следующего вида:
-$$I(\phi_m) = \sum_{j=0}^m \phi_m(t_j,\omega)
-(B(t_{j+1}, \omega) - B(t_j, \omega)).$$
-Интеграл Ито от функции $\phi\colon \mathbb{R}^+\times\Omega \to 
-\mathbb{R}^{n\times d}$ по $d$-мерному броуновскому движению $B(t)$ 
-определяется аналогичным образом. Говорят, что функция~$\phi(t,\omega) = 
-(\phi_{jk}(t,\omega))\in\mathcal{L}_2(S,T)$, если каждая ее компонента 
-$\phi_{jk}(t,\omega)\in\linebreak\in\mathcal{L}_2(S,T)$, 
-$j=\overline{1,n}$, $k=\overline{1,d}$. Интеграл Ито $\int_S^T 
-\phi(t,\omega) dB(t,\omega)$ представляет собой вектор размера $n$, 
-в которой элемент в позиции $j$ есть сумма одномерных интегралов Ито, 
-определенных выше:
-$$\int_S^T \phi(t,\omega) dB(t,\omega) = \left(\sum_{k=1}^d\int_S^T 
-\phi_{jk}(t,\omega) dB^{(k)}(t,\omega)\right)_{j=1}^n.$$
-Приведем некоторые свойства интеграла Ито \cite[гл. 3]{OksendalBook}, 
-\cite[с. 56--60]{Vatanabe}:
-\begin{enumerate}
-\item нулевое среднее: $\E\int_S^T \phi(t,\omega) dB(t,\omega) = 0$;
-\item изометрия: $\E\left(\int_S^T \phi(t,\omega) dB(t,\omega)\right)^2 = 
-\E \int_S^T (\phi(t,\omega))^2 dt$;
-\item интеграл Ито $\int_0^t \phi(\tau,\omega) dB(\tau,\omega)$ является 
+\item Стохастический интеграл имеет непрерывную модификацию.
+\item Стохастический интеграл имеет нулевое среднее: $\E\int_0^t \Phi(s)dW(s) = 0$.
+\item Стохастический интеграл обладает свойством изометрии: \linebreak
+$\E\left\|\int_0^t \Phi(s)dW(s)\right\|^2_H = 
+\E \int_0^t \|\Phi(s)\|^2_{\mathfrak{L}_2(K_Q, H)} ds$.
+\item Стохастический интеграл $\int_0^t \Phi(s)dW(s)$ является 
 $(\mathcal{F}_t)$-мартингалом.
 \end{enumerate}
 
-Пусть заданы измеримые $\mathcal{F}_t$-согласованные процессы 
-$a\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^n$, 
-$b\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{n\times d}$ такие, что 
-$\int_0^t |a(s,\omega)|^2 ds<+\infty$ и $\int_0^t |b(s,\omega)| ds<+\infty$ 
-п.н. для любого $t\ge 0$, $X(0,\omega)$ --- $\mathcal{F}_0$-измеримая случайная 
-величина и $X(t,\omega)$ --- $n$-мерный случайный процесс, определяемый 
-равенством
-$$X(t,\omega) = X(0,\omega) + \int_0^t a(s,\omega)ds + 
-\int_0^t b(s,\omega)dB(s).$$
-
-\begin{proposition}[(фомула Ито, {\cite[теорема 5.1]{Vatanabe}})] 
-Пусть $f\colon\mathbb{R}^+{\times}\mathbb{R}^d\to\mathbb{R}$~--- функция, 
-непрерывная вместе со своими частными производными 
-$\frac{\partial f}{\partial t}$, $\frac{\partial f}{\partial x_i}$, 
-$\frac{\partial^2 f}{\partial x_i\partial x_j}$, $i,j = 1,\ldots, n$. 
-Тогда для процесса $X(t,\omega)$, определенного выше, п.н. справедливо 
-равенство
-\begin{gather*}
-f(t,X(t,\omega)) = f(0, X(0,\omega)) +\int_0^t \biggl(
-\frac{\partial f(\tau, X(\tau, \omega))}{\partial t} + 
-\frac{\partial f(\tau, X(\tau, \omega))}{\partial x}a(\tau, \omega) +\\
-+ \frac{1}{2}\textup{tr}\left(
-\frac{\partial^2 f(\tau, X(\tau, \omega))}{\partial x^2}
-b(\tau,\omega)b(\tau,\omega)^\top\right)\biggr)d\tau + 
-\int_0^t \frac{\partial f(\tau, X(\tau, \omega))}{\partial x}
-b(\tau, \omega)dB(\tau,\omega).
-\end{gather*}
-\end{proposition}
-
-\subsection{Стохастический интеграл Ито в бесконечномерном гильбертовом пространстве}
-
-Далее будет дано определение интеграла Ито по $\mathcal{F}_t$-согласованному 
-$Q$-броуновскому движению $W(t)$ со значениями в сепарабельном гильбертовом 
-пространстве $U$, $Q$ --- симметрический положительно определенный ядерный 
-оператор. Пусть $H$ --- также сепарабельное гильбертово пространство. Введем 
-пространство измеримых $\mathcal{F}_t$-согласованных процессов~$\Phi\colon
-\mathbb{R}_+ \times \Omega \to \mathfrak{L}_2(U,H)$ (обозначаемое $\mathcal{L}_2$) таких, 
-что для любого~$T>0$:
-\begin{eqnarray*}
-&&\Vert \Phi(t) \Vert_{2,T}=\Biggl(\E\int \limits_0^T 
-\Vert \Phi(s) \Vert^2_{\mathfrak{L}_2(U,H)}ds\Biggr)^{1/2}=\\
-&&=\Biggl(\E \int \limits_0^T 
-\text{tr}\left((\Phi(s)Q^{1/2})(\Phi(s)Q^{1/2})^\star\right)ds\Biggr)^{1/2}
-<\infty.
-\end{eqnarray*}
-Процессы $\Phi,\Phi'$ отождествляются, если $\Vert \Phi-\Phi' \Vert_{2,T}=0$ 
-для любого $T>0.$ Выделим подмножество $\mathcal{L}_0 \subset \mathcal{L}_2$ 
-процессов $\Phi \in \mathcal{L}_0$, для которых существует последовательность 
-вещественных чисел $0=t_0<t_1<\ldots<t_n<~\ldots,$ $t_n \to \infty,$ а также 
-последовательность $\mathcal{F}_{t_i}$-измеримых случайных величин~$(\Phi_i)$ 
-со значениями в $\mathfrak{L}_2(U,H)$ таких, что $\sup_i ess \sup_\omega \ 
-\Vert f_i(\omega) \Vert<\infty$ и $\Phi(0,\omega)=\linebreak=\Phi_0(\omega),$ 
-$\Phi(t,\omega)=\Phi_i(t,\omega)$ для $t \in (t_i,t_{i+1}],$ $i=1,2,\ldots$ 
-Для $\Phi \in \mathcal{L}_0$ положим $\int_0^t \Phi(s) dW(s)=\sum_{i=0}^{n-1} 
-\Phi_i(W(t_{i+1})-W(t_i))+\Phi_n(W(t)-W(t_n))$ для~$t_n<t \le t_{n+1},$ 
-$n=1,2,\ldots$ Можно показать, что множество $\mathcal{L}_0$ плотно в 
-$\mathcal{L}_2$ по норме пространства $\mathcal{L}_2$, а посему для любого 
-процесса $\Phi \in \mathcal{L}_2$ найдется последовательность процессов 
-$(\Phi_n)\subset\mathcal{L}_0$, сходящаяся к $\Phi$ по норме $\mathcal{L}_2.$ 
-Предел сходящейся последовательности $\int_0^t \Phi_n(s)dW(s)$, являющийся 
-$H$-значным непрерывным п.н. мартингалом, обозначаемым $\int_0^t \Phi(s)dW(s)$, 
-называют интегралом Ито от процесса $\Phi(t)$ по $Q$-броуновскому 
-движению $W(t).$
-
 \begin{proposition}
 \textbf{\textup{(Формула Ито для гильбертовых пространств 
-\cite[с.~105]{DaPrato})}.}
-Пусть $\Phi(t),$ $t\in [0,T],$ --- квадратично интегрируемый случайный процесс 
-со значениями в $\mathfrak{L}_2(U,H)$, $\varphi(t),$ $t \in [0,T],$ --- предсказуемый 
-случайный процесс со значениями в $H$ такой, что функция $\|\varphi(t)\|_{H}$ 
-является $(\mathcal{F}, \mathcal{B}(\mathbb{R}^+))$-измеримой и 
-$\int_{\Omega}\|\varphi(t)\|_Hd\Prob < \infty$. Пусть также $X(0)$ --- 
+\cite[теорема 2.9]{Gawarecki})}.}
+Пусть $\Phi \in \mathcal{P}(K_Q,H)$, $\Psi(t),$ $t \in [0,T]$ --- 
+$(\mathcal{F}_t)$-согласованный случайный процесс со значениями в $H$, 
+интегрируемый по Бохнеру на отрезке $[0,T]$ п.н. Пусть также $X(0)$ --- 
 $\mathcal{F}_0$-измеримая случайная величина со значениями в $H$, а процесс 
 $X(t)$ определяется равенством
-$$X(t)=X(0)+\int\limits_0^t \varphi(s)ds+\int \limits_0^t \Phi(s)dW(s),
+$$X(t)=X(0)+\int\limits_0^t \Psi(s)ds+\int \limits_0^t \Phi(s)dW(s),
  \ t \in [0,T].$$
-Тогда для любой функции $F\colon[0,T] \times H \to \mathbb{R},$ равномерно 
-непрерывной на каждом ограниченном подмножестве из $[0,T] \times H$ вместе со 
-своими частными производными $F'_t,$ $F'_x,$ $F''_{xx},$ для любого 
-$t \in [0,T]$ п.н. справедливо равенство
+Предположим, что функция $F\colon[0,T] \times H \to \mathbb{R}$ вместе со 
+своими частными производными $F'_t,$ $F'_x,$ $F''_{xx}$
+непрерывна и ограничена на каждом ограниченном подмножестве 
+из $[0,T] \times H$. Для любого $t \in [0,T]$ п.н. справедливо равенство
 \begin{gather*}
 F(t,X(t))=F(0,X(0))+\int \limits_0^t \biggl(F'_t(s,X(s))+\langle F'_x(s,X(s)),
-\varphi(s)\rangle + \\
+\Psi(s)\rangle + \\
 +\frac{1}{2}\textup{tr}\left(F''_{xx}(s,X(s))(\Phi(s)Q^{1/2})
 (\Phi(s)Q^{1/2})^\star\right)\biggr)ds + \int \limits_0^t \langle
 F'_x(s,X(s)),\Phi(s)dW(s) \rangle.
 \end{gather*}
 \end{proposition}
 
-\begin{proposition}[(Неравенство Буркхольдера \cite{DaPratoConvolutions})]
+Приведем также классическую формулу Ито для случайных процессов, 
+принимающих значения в конечномерном гильбертовом пространстве 
+$H{=}\mathbb{R}^d$.
+
+\begin{proposition}[(фомула Ито, {\cite[теорема 5.1]{Vatanabe}})]
+Пусть заданы измеримые $\mathcal{F}_t$-согласованные процессы 
+$a\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^n$, 
+$b\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{n\times d}$ такие, что 
+$\int_0^t |a(s,\omega)|^2 ds<+\infty$ и $\int_0^t |b(s,\omega)| ds<+\infty$ 
+п.н. для любого $t\ge 0$, $X(0,\omega)$~---~$\mathcal{F}_0$-измеримая случайная 
+величина и $X(t,\omega)$~---~$n$-мерный случайный процесс, определяемый 
+равенством
+$$
+X(t,\omega) = X(0,\omega) + \int_0^t a(s,\omega)ds + \int_0^t b(s,\omega)dB(s).
+$$
+Пусть $F\colon\mathbb{R}^+{\times}\mathbb{R}^n\to\mathbb{R}$~--- функция, 
+непрерывная вместе со своими частными производными 
+$\frac{\partial F}{\partial t}$, $\frac{\partial F}{\partial x_i}$, 
+$\frac{\partial^2 F}{\partial x_i\partial x_j}$, $i,j = 1,\ldots, n$. 
+Тогда для процесса $X(t,\omega)$, определенного выше, п.н. справедливо 
+равенство
+\begin{gather*}
+F(t,X(t,\omega)) = F(0, X(0,\omega)) +\int_0^t \biggl(
+\frac{\partial F(\tau, X(\tau, \omega))}{\partial t} + 
+\frac{\partial F(\tau, X(\tau, \omega))}{\partial x}a(\tau, \omega) +\\
++ \frac{1}{2}\textup{tr}\left(
+\frac{\partial^2 F(\tau, X(\tau, \omega))}{\partial x^2}
+b(\tau,\omega)b(\tau,\omega)^\top\right)\biggr)d\tau + 
+\int_0^t \frac{\partial F(\tau, X(\tau, \omega))}{\partial x}
+b(\tau, \omega)dB(\tau,\omega).
+\end{gather*}
+\end{proposition}
+
+\begin{proposition}[(Неравенство Буркхольдера {\cite[лемма 3.3]{Gawarecki}})]
 \label{BurkholderTypeIneq}
-Пусть $p{>}1$, $S(t)$ --- $C_0$-полугруппа на $H$. Тогда для любого 
-$\mathcal{F}_t$-согласованного процесса~$\Phi\colon[0,T]\times\Omega\to 
-\mathfrak{L}_2(U, H)$ такого, что $\E\left(\int_0^T \|\Phi(s)\|^p ds\right)<+\infty$, 
-выполнятся неравенство
-$$\E\left(\sup_{\tau\in[0,t]}
-\left\|\int_0^\tau S(\tau-s)\Phi(s)dW(s)\right\|^p\right) \le 
-C_{p,T}\E\left(\int_0^t\|\Phi(s)\|^p ds\right),\; t\in[0,T]$$
-где $C_{p,T} = \left(\frac{p^2-p}{2}\right)^{p/2}
-\left(\sup_{t\in[0,T]}\|S(t)\|\right)^p T^{p/2 - 1}$.
+Пусть $p > 1$, $S(t)$ --- $C_0$-полугруппа на $H$. Тогда для любого 
+процесса~$\Phi\in\Lambda_2(K_Q, H)$ такого, что 
+$\E\left(\int_0^T \|\Phi(s)\|^{2p}_{\mathfrak{L}_2(K_Q, H)} ds\right)<+\infty$, 
+существует непрерывная модификация процесса $\int_0^t S(t-s)\Phi(s)dW(s)$, 
+и для любого $t\in[0,T]$ выполнятся неравенство
+$$
+\E\left(\sup_{\tau\in[0,t]}
+\left\|\int_0^\tau S(\tau-s)\Phi(s)dW(s)\right\|^{2p}_{\mathfrak{L}_2(K_Q, H)}\right) \le 
+C_{p,T}\E\left(\int_0^t\|\Phi(s)\|^{2p}_{\mathfrak{L}_2(K_Q, H)} ds\right),
+$$
+где $C_{p,T}$ --- константа, зависящая лишь от $p, T$.
 \end{proposition}
 
 
@@ -359,16 +335,16 @@ C_{p,T}\E\left(\int_0^t\|\Phi(s)\|^p ds\right),\; t\in[0,T]$$
 
 Пусть заданы следующие объекты: вероятностное пространство 
 $(\Omega, \mathcal{F}, \Prob)$ с потоком $\sigma$-алгебр 
-$(\mathcal{F}_t)_{t\ge 0}$, два сепарабельных гильбертовых пространства $H$~и~$U;$ 
-ядерный симметрический положительно определенный оператор $Q_w$ на 
-пространстве~$U$; $\mathcal{F}_t$-согласованное $Q_w$-броуновское 
-движение~$W(t,\omega)$ со значениями в $U$ и ковариационным оператором $Q_w$.
+$(\mathcal{F}_t)_{t\ge 0}$, два сепарабельных гильбертовых пространства $H$~и~$K;$ 
+ядерный симметрический положительно определенный оператор $Q$ на 
+пространстве~$K$; $\mathcal{F}_t$-согласованное $Q$-броуновское 
+движение~$W(t,\omega)$ со значениями в $K$ и ковариационным оператором $Q$.
 
 \section{Стохастические дифференциальные уравнения в конечномерных 
 гильбертовых пространствах}
 
 Данный раздел посвящен исследованию устойчивости в конечномерных пространствах 
-$H= U = \mathbb{R}^d$. В этом случае $Q_w = I_d$ и $W(t)$ --- стандартное 
+$H= K = \mathbb{R}^d$. В этом случае $Q = I_d$ и $W(t)$ --- стандартное 
 броуновское движение со значениями в $\mathbb{R}^d$. Рассмотрим стохастическое 
 дифференциальное уравнение
 \begin{equation}\label{general_equation_1}
@@ -736,7 +712,7 @@ dy(t)=(-0.1 \cos t \  x(t)-(20+0.1 \sin t)y(t))dt,
 \section{Стохастические дифференциально-функциональные уравнения в 
 произвольных гильбертовых пространствах}
 
-Вернемся к общему случаю сепарабельных гильбертовых пространств $H$ и $U$. 
+Вернемся к общему случаю сепарабельных гильбертовых пространств $H$ и $K$. 
 Рассмотрим стохастическое эволюционное функциональное уравнение
 \begin{equation}\label{MostGeneralEq}
 dX(t,\omega)=AX(t,\omega)dt+f(t, X(t, \omega))dt+
@@ -748,7 +724,7 @@ g(t, X(t, \omega))dW(t,\omega),
 X(0,\omega)=\xi(\omega),  \quad \omega \in \Omega,
 \end{equation}
 где $f(t, X)\colon\mathbb{R}^+\times H \to H$,
-$g(t, X)\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(U,H)$ --- 
+$g(t, X)\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(K,H)$ --- 
 измеримые, непрерывные по $X$ (при любом фиксированном 
 $t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор, 
 определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
@@ -914,7 +890,7 @@ $\,X^{(l)}(t),\,t\,{\ge}0$ будет также являться и сильным решением задачи
 отрезок времени $t\in[0,T]$. Воспользуемся утверждением (c) из 
 \cite[теорема 2.4]{Pazy}, показывающим, что операторы $A$~и~$S(t)$ 
 (a также $(l\,I - A)$ и $S(t)$) перестановочны. Для любых $\,r\in[0,t)$, 
-$\,\varphi\in H$, $u\in U\,$ элементы~(\ref{2.8}),~(\ref{2.9})
+$\,\varphi\in H$, $u\in K\,$ элементы~(\ref{2.8}),~(\ref{2.9})
 \begin{gather}\label{2.8}
 (l\,I {-} A)\,\bigl(S(t{-}r)R(l)f(r, \varphi)\bigr) =
 l\,S(t{-}r)f(r, \varphi)\in H,\\ \label{2.9}
@@ -1309,7 +1285,7 @@ dX^1_t = \left(\alpha X^1_t\sin X^1_t +
 как уравнение относительно $\bar X_t = (X_t(\cdot),X^1_t)^\top$ в пространстве 
 $H\times\mathbb{R}$ 
 с начальным условием $\bar X_0=(X_0(x), X^1_0)^\top = (x_0(x), x^1_0), \
- x\in (0,\pi)$, $H = L_2[0,\pi]$, $U = \mathbb{R}$. В компактной 
+ x\in (0,\pi)$, $H = L_2[0,\pi]$, $K = \mathbb{R}$. В компактной 
  форме это уравнение примет вид
 \begin{gather}\label{3.18}
 d\bar X_t = (\bar A\bar X_t + f(t, \bar X_t))dt + g(t, \bar X_t)dW_t,\\ \nonumber
