@@ -229,25 +229,27 @@ $\bigl\|\varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)'\bigr\|_H \le
 \|D\varphi\|_{\infty}\|Df\|_{\infty}\right)\|\widehat X^{(c)}\|_H <\linebreak 
 <\infty$. Таким образом, ввиду неравенства $\bigl||a|-|b|\bigr|\le |a-b|$ и 
 предложения~\ref{hairer_th_4_10}, будем иметь:
-\begin{gather}\nonumber
+\begin{gather*}
+\nonumber
 \left|\int_s^t \varphi\bigl(\widehat X^{(c)}_{c r}\bigr)\,dB^{(i_1)}_r - 
 \varphi\bigl(\widehat X^{(c)}_{c s}\bigr)B^{(i_1)}_{s,t}\right| \le 
 c^{H_{i_1}}\|D\varphi\|_{\infty}\|f\|_{\infty}\|\mathbb{B}^{(i_1)}\|_{2H}
-|t-s|^{2H} + \\ \nonumber
+|t-s|^{2H} + \\
+\nonumber
 + C \left(\|B^{(i_1)}\|_{H}
 \bigl\|R^{\varphi(\widehat X^{(c)}_{c\,\cdot}); i_1}\bigr\|_{2H} + 
 \|\mathbb{B}^{(i_1)}\|_{2H}\bigl\|
-\varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)'\bigr\|_H\right)|t-s|^{3H} \le \\ 
+\varphi\bigl(\widehat X^{(c)}_{c\,\cdot}\bigr)'\bigr\|_H\right)|t-s|^{3H} \le \\
 \nonumber
-\le \|D\varphi\|_{\infty}\|f\|_{\infty}\|\mathbb{B}\|_{2H}|t-s|^{2H} + \\ 
+\le \|D\varphi\|_{\infty}\|f\|_{\infty}\|\mathbb{B}\|_{2H}|t-s|^{2H} +
+\end{gather*}
+\begin{gather}  
 \nonumber
 + C \biggl(\left(\frac{1}{2}\|D^2\varphi\|_{\infty}\|\widehat X^{(c)}\|^2_H + 
 \|D\varphi\|_{\infty}\|R^{\widehat X^{(c)}}\|_{2H}\right)\|B\|_{H} + \\ 
-\nonumber
 + \left(\|D^2\varphi\|_{\infty}\|f\|_\infty + 
 \|D\varphi\|_{\infty}\|Df\|_{\infty}\right) 
-\|\widehat X^{(c)}\|_H \|\mathbb{B}\|_{2H} \biggr)|t-s|^{2H} \le \\ 
-\le M_1|t-s|^{2H},
+\|\widehat X^{(c)}\|_H \|\mathbb{B}\|_{2H} \biggr)|t-s|^{2H} \le M_1|t-s|^{2H}
 \end{gather}
 где $M_1 = \Bigl(C(\|D^2\varphi\|_{\infty}\|f\|_\infty + 
 \|D\varphi\|_{\infty}\|Df\|_{\infty})\|\widehat X^{(c)}\|_H + 
@@ -572,9 +574,8 @@ $$\E\biggl(\int_{\Delta^{2k}[0,1]} dB^{(I_{2k})}\biggr) =
 Поскольку функции $B^{(N)}$ абсолютно непрерывны п.н., то справедливы 
 соотношения
 \begin{gather} \nonumber
-\int_{\Delta^{2k}[0,1]} (dB^{(N)})^{(I_{2k})}=
-\end{gather}
-\begin{gather}\nonumber
+\int_{\Delta^{2k}[0,1]} (dB^{(N)})^{(I_{2k})}=\\
+\nonumber
 = \int_0^1\int_0^{t_{2k}}\ldots \int_0^{t_2} d\bigl(B^{(N)}_{t_1}\bigr)^{(i_1)} 
 \ldots d\bigl(B^{(N)}_{t_{2k-1}}\bigr)^{(i_{2k-1})}
 d\bigl(B^{(N)}_{t_{2k}}\bigr)^{(i_{2k})}= \\ \nonumber
@@ -677,8 +678,6 @@ dt_1\ldots dt_{2k}+ \\
 +  \frac{2^{2Nk}}{k! 2^k}\sum_{\sigma\in{S}_{2k}} \int_{\Delta^{2k}[0,1]} 
 \sum_{\alpha=0}^{k-1}\sum_{\pi\in{S}_k}\biggl(\prod_{l=1}^\alpha
 \sum_{\substack{u,v=0\\ |u-v|> 1}}^{2^N-1} f^{(\pi(l))}_{u,v}(t)\biggr)\times \\
-\end{gather*}
-\begin{gather*}
 \times \biggl( \prod_{l=\alpha+1}^k \sum_{\substack{u,v=0\\ |u-v|\le 1}}^{2^N-1}
 f^{(\pi(l))}_{u,v}(t)\biggr) dt_1\ldots dt_{2k}:= I^{(N)}_1 + I^{(N)}_2.
 \end{gather*}
@@ -694,7 +693,9 @@ I^{(N)}_1 = \frac{2^{2Nk}}{k! 2^k}\sum_{\sigma\in{S}_{2k}}
 I^{(N)}_2 = \frac{2^{2Nk}}{k! 2^k}\sum_{\sigma\in{S}_{2k}} 
 \int_{\Delta^{2k}[0,1]} \sum_{\alpha=0}^{k-1}
 \sum_{\pi\in{S}_k}\biggl(\prod_{l=1}^\alpha\sum_{\substack{u,v=0\\ |u-v|> 1}}^{2^N-1} 
-f^{(\pi(l))}_{u,v}(t)\biggr)\times \\
+f^{(\pi(l))}_{u,v}(t)\biggr)\times
+\end{gather*}
+\begin{gather*}
 \times \biggl( \prod_{l=\alpha+1}^k \sum_{\substack{u,v=0\\ |u-v|\le 1}}^{2^N-1}
 f^{(\pi(l))}_{u,v}(t)\biggr) dt_1\ldots dt_{2k}.
 \end{gather*}
