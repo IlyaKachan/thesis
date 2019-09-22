@@ -112,7 +112,7 @@ $$
 
 Пусть функция $F(t,x)$ непрерывна вместе со своими производными $F'_t(t,x),$ 
 $F'_x(t,x),$ $F''_{x^2}(t,x).$  Если функции $f,$ $g$ измеримы по Борелю, 
-функция $\sigma$ удовлетворяет $(\delta,\rho)$-условию Гельдера по $(t,x)$ при 
+функция~$\sigma$ удовлетворяет $(\delta,\rho)$-условию Гельдера по $(t,x)$ при 
 некоторых $\delta>1-H,$ $\rho>2-2H,$ а решение $x(t)$ имеет непрерывные по 
 Гельдеру порядка $\alpha$ траектории п.н. при $\alpha\rho>1,$ то имеет место 
 аналог формулы Ито \cite[с. 184]{Mishura}:
@@ -125,10 +125,8 @@ g^\top(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 \int F'_x(\tau, x(\tau))\sigma(\tau, x(\tau)) dB(\tau).
 \end{gather}
 
-В данной главе будем рассматривать одномерное уравнение 
-(\ref{integration_of_mixed_main_eq}), считая, что $d=1.$ Также будем предполагать, 
-что коэффициенты рассматриваемых уравнений являются достаточно гладкими 
-функциями, обеспечивающими возможность достаточного числа 
+Будем предполагать, что коэффициенты рассматриваемых уравнений являются 
+достаточно гладкими функциями, обеспечивающими возможность достаточного числа 
 дифференцирований и применений формулы замены переменных 
 (\ref{integration_of_mixed_ito_formula}).
 
@@ -136,7 +134,8 @@ g^\top(\tau, x(\tau)))\biggr) d\tau +\\ \label{integration_of_mixed_ito_formula}
 \section{Приведение к простейшим уравнениям}
 
 
-Рассмотрим простейшее уравнение
+Будем рассматривать одномерное уравнение (\ref{integration_of_mixed_main_eq}), 
+считая, что $d=1$. Вместе с ним рассмотрим простейшее уравнение
 \begin{equation}\label{integration_of_mixed_simplest_eq}
 dy(t)=u(t)dt + v(t)dW(t) + b(t)dB(t),\quad t\ge 0.
 \end{equation}
@@ -456,15 +455,15 @@ A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\
 соотношениям~(\ref{integration_of_mixed_linear_inhom_cond_1}),
 (\ref{integration_of_mixed_linear_inhom_cond_2}),
 (\ref{integration_of_mixed_linear_inhom_cond_3}). Тогда положим 
-$\alpha_2=\beta_2=\gamma_2 = 0$, $\beta_1 = -c_1$, $\gamma_1=c_2\beta_1$ и 
+$\alpha_2=\beta_2=\gamma_2 = 0$, $\beta_1 = -c_1$, $\gamma_1=\linebreak=c_2\beta_1$ и 
 выберем преобразование $F(x) = e^{\beta_1 G(x)}$. Тогда легко проверить, что 
 соотношения~(\ref{integration_of_mixed_linear_inhom_eq_2}) 
 и~(\ref{integration_of_mixed_linear_inhom_eq_3}) выполнены. Осталось подобрать 
 $\alpha_1, \alpha_2$ так чтобы выполнялось 
 соотношение~(\ref{integration_of_mixed_linear_inhom_eq_1}). Поскольку 
 $(g(x)A'(x))' + \beta_1 A'(x) = 0$, то величина $g(x)A'(x) + \beta_1A(x) = c_3$, 
-$c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} = 
-\frac{c_3}{g(x)}$ и соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}) 
+$c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} = \linebreak
+=\frac{c_3}{g(x)}$ и соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}) 
 диктует выбор константы $\alpha_1 = \frac{\beta^2_1}{2} + c_3$. Теперь 
 интергрируя соотношение~(\ref{integration_of_mixed_linear_inhom_eq_5}), получим 
 соотношение~(\ref{integration_of_mixed_linear_inhom_eq_4}). Согласно 
@@ -490,10 +489,10 @@ $$dx(t) = (\alpha x^n(t) + \beta x(t))dt + \gamma x(t)dW(t) + \delta x(t) dB(t)$
 \end{proposition}
 
 \proof В данном случае $G(x) = \int_1^x \frac{ds}{\gamma s} = 
-\frac{1}{\gamma} \ln x,$ $A(x) = \frac{\alpha}{\gamma} x^{n-1} + 
-\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
+\frac{1}{\gamma} \ln x,$ $A(x) = \frac{\alpha}{\gamma} x^{n-1} + \linebreak
++\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
 \frac{\alpha(n-1)}{\gamma}x^{n-2}(t)$, $(g(x)A'(x))' = \alpha(n-1)^2 x^{n-2}(t)$, 
-$\frac{(g(x)A'(x))'}{A'(x)} = \gamma(n-1) = c_1$. Выберем преобразование 
+$\frac{(g(x)A'(x))'}{A'(x)} =\linebreak= \gamma(n-1) = c_1$. Выберем преобразование 
 $F(x) = C_\beta e^{-c_1 G(x)} = C_\beta x^{1-n}$. Подставляя функцию $F(x)$ в 
 (\ref{integration_of_mixed_linear_inhom_eq_2}), найдем значение константы 
 $C_\beta = \frac{1}{1-n}$. Итак, $y = F(x) = \frac{1}{1-n} x^{1-n}$, 

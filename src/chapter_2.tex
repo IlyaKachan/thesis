@@ -50,9 +50,9 @@ $f^{-1}(M)\in \mathcal{F}_1$. Отображение $f\colon T_1\to T_2$ называют
 $X$ --- банахово пространство. Функция $f\colon T \to X$ называется простой, 
 если существуют $x_1,\ldots,x_n,\ldots \in X$ и 
 $E_1,\ldots,E_n,\ldots \in \mathcal{F},$ такие, что $E_i \cap E_j=\emptyset,$ 
-$i \ne j,$ $\cup_{i=1}^\infty E_i=T,$ $f=\sum_{i=1}^\infty x_i \textbf{1}_{E_i}.$ 
+$i{\ne}j,$ $\cup_{i=1}^\infty E_i=T,$ $f=\sum_{i=1}^\infty x_i \textbf{1}_{E_i}.$ 
 Функция $f\colon T \to X$ называется $\mu$-измеримой, если существует 
-последовательность простых функций $(f_n)$, что 
+последовательность простых функций $(f_n)$ такая, что 
 $\lim \limits_{n \to \infty} \|f_n(t)-f(t)\|=0$ для $\mu$-почти всех $t \in T.$ 
 Если последовательность $(f_n)$ $\mu$-измеримых функций почти всюду
 сходится к $f,$ то $f$ также $\mu$-измерима. $\mu$-измеримая функция 
@@ -143,16 +143,17 @@ $\E(X(s)|\mathcal{F}_t) = X(t)$ для всех $s\ge t$.
 
 Пусть $K$ --- сепарабельное гильбертово пространство. Зафиксируем некоторый 
 ядерный симметрический положительно определенный оператор 
-$Q\in\linebreak\in\mathcal{L}(K)$, для которого существуют полный 
-ортонормированный базис $\{e_k\}\subset\linebreak \subset K$ и 
+$Q\in\linebreak\in\mathcal{L}(K, K)$, для которого существуют полный 
+ортонормированный базис $\{e_k\} \subset K$ и 
 последовательность положительных действительных чисел $(\lambda_k),$ таких, 
 что $Qe_k=\lambda_k e_k,$ $k \ge 1,$ $\text{tr}Q=\sum_k \lambda_k<\infty.$
 $\mathcal{F}_t$-согласованным $Q$-броуновским движением (винеровским процессом) 
 со значениями в $K$ называют непрерывный случайный процесс $W(t)$, $t\ge 0$, 
-принимающий значения в~$\mathbb{R}^d$ и удовлетворяющий равенству
-$$\E \left(\left.e^{i\langle \xi, W(t) - W(s)\rangle_K} \right| 
+принимающий значения в~$\mathbb{R}^d$ и п.н. удовлетворяющий равенству
+$$
+\E \left(\left.e^{i\langle \xi, W(t) - W(s)\rangle_K} \right| 
 \mathcal{F}_s\right) = e^{-(t-s)\langle Q\xi, \xi \rangle_K / 2}
-\quad \text{п.н.}$$
+$$
 для любого $\xi \in K$ и любых $t\ge s\ge 0$. Если $W(t)$ --- 
 $\mathcal{F}_t$-согласованное $Q$-броуновское движение, то существует 
 последовательность независимых одномерных $\mathcal{F}_t$-броуновских 
@@ -172,12 +173,12 @@ $t_0, t_1, \ldots, t_n$ таких, что $t_0 \le t_1 \le\ldots\le t_n$ случайные
 -- приращения $W(t) - W(s)$ для любых $t> s\ge 0$ распределены по нормальному 
 закону с нулевым средним и дисперсией $(t-s)$;
 
--- процесс $W(t)$ имеет неограниченную вариацию на любом отрезке~$[S, T]\subset 
+-- процесс $W(t)$ имеет неограниченную вариацию на любом отрезке~$[s, t]\subset 
 \mathbb{R}^+$, т.е. 
 $$\sup_{\mathcal{P}}\sum_{j=1}^{n} |W(t_{j}) - W(t_{j-1})| = +\infty,
 \quad \text{п.н.}$$
-где супремум берется по всем разбиениям $\mathcal{P} = \{S\le t_0 \le t_1 \le
-\ldots \le t_n \le T\}$;
+где супремум берется по всем разбиениям $\mathcal{P} = \{s\le t_0 \le t_1 \le
+\ldots \le t_n \le t\}$;
 
 -- процесс $W(t)$ является $(\mathcal{F}_t)$-мартингалом.
 
@@ -212,7 +213,7 @@ $$\|B^{(H)}\|_{H-\varepsilon} =
 не дифференцируемы).
 
 Под $d$-мерным дробным броуновским движением будем понимать процесс $B(t) = 
-(B_1(t), \ldots, B_d(t))$, принимающий значения в $\mathbb{R}^d$, компоненты 
+(B_1(t), \ldots, B_d(t))^\top$, принимающий значения в $\mathbb{R}^d$, компоненты 
 которого являются независимыми одномерными дробными броуновскими движениями.
 
 \subsection{Потраекторный интеграл Янга}
@@ -535,11 +536,11 @@ C_{1,H} |t-s| \|B^{(j)}\|_{\frac{1}{H}-var; [s,t]} \le
 C_{0}\|B^{(j)}\|_{H} |t-s|^{2H},$$
 в котором $C_0 = C_{1,H}T^{1-H}$ --- константа (зависящая только от $H, T$), 
 а также была использована зависимость между $\frac{1}{H}$-вариацией и величиной
-$\|\cdot\|_H$ \cite[с. 170]{Friz_Victoir}. Очевидно, 
+$\|\cdot\|_H$ \cite[с.~170]{Friz_Victoir}. Очевидно, 
 $\left|\mathbb{B}^{(0,0)}_{s,t}\right| \le \frac{1}{2}T^{2-2H} |t-s|^{2H}$. 
 Также из теоремы 10.4 \cite{Hairer} следует, что $(\widetilde{B}, 
 \widetilde{\mathbb{B}})\in \mathscr{C}^H_g([0,T], \mathbb{R}^d)$, что в свою 
-очередь влечет $\left|\mathbb{B}^{(i,j)}_{s,t}\right| \le 
+очередь влечет $\left|\mathbb{B}^{(i,j)}_{s,t}\right| \le \linebreak \le
 \left|\widetilde{\mathbb{B}}_{s,t}\right| \le 
 \|\widetilde{\mathbb{B}}\|_{2H} |t-s|^{2H}$, 
 $\|\widetilde{\mathbb{B}}\|_{2H}<\infty$ п.н. для всех $1\le i,j\le d$. 
@@ -575,7 +576,7 @@ $\E\|\widetilde{\mathbb{B}}\|^q_{2H} < \infty$ и $\E\|B^{(j)}\|^q_H < \infty$
 X_t = X_0 + \int_0^t f(X_s) dB_s,\quad t\in [0, T],
 \end{equation}
 где интеграл понимается как потраекторный интеграл Губинелли. 
-Пусть $x{\in}\mathbb{R}^n$. Решение уравнения (\ref{chapter3_main_eq_compact}) 
+Пусть $x\in\linebreak\in\mathbb{R}^n$. Решение уравнения (\ref{chapter3_main_eq_compact}) 
 с начальным условием $X_0 = x$ будем называть п.н. единственным, если для 
 любого другого решения $Y_t$ уравнения (\ref{chapter3_main_eq_compact}) с 
 начальным условием $Y_0 = x$ выполняется равенство 
@@ -774,8 +775,8 @@ $\widetilde{\xi}$ --- случайные величины. В частности, для согласованности со
 Пусть $Y \in C^\alpha([0,T], U)$, $U$ --- конечномерное 
 банахово пространство, $\mathcal{I}\subset [0,T]$ --- фиксированный отрезок. 
 Если для некторых фиксированных $\delta \le |\mathcal{I}|$ 
-и $M>0$ выполнено неравенство $\|Y\|_{\alpha; \mathcal{I}, \delta}\le M$, то также
-справедливо и неравенство $\|Y\|_{\alpha; \mathcal{I}} \le 
+и $M>0$ выполнено неравенство $\|Y\|_{\alpha; \mathcal{I}, \delta}\le\linebreak\le M$, 
+то также справедливо и неравенство $\|Y\|_{\alpha; \mathcal{I}} \le 
 M\left(1\vee 2\delta^{-(1-\alpha)}|\mathcal{I}|^{1-\alpha}\right)$.
 \end{proposition}
 
@@ -876,9 +877,9 @@ $j=0,1,\ldots$ Тогда справедливо неравенство $\|Y\|_{H;\delta} \le 2^{1-H}
 \bigvee_{j=0}^{\lfloor T/\delta\rfloor} \|Y\|_{H;\mathcal{I}_j}$.
 \end{proposition}
 
-\proof Зафиксируем произвольные $s,t\in [0,T]$ такие, что $0<|t-s|<\delta$, 
-$s<t$. Если $s,t\in \mathcal{I}_j$ для некоторого $j$, то, очевидно, $|Y_{s,t}| \le 
-\|Y\|_{H;\mathcal{I}_j}|t-s|^H\le |t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
+\proof Зафиксируем произвольные $s,t\in [0,T]$ такие, что $0<\linebreak<|t-s|<\delta$, 
+$s<t$. Если $s,t\in \mathcal{I}_j$ для некоторого $j$, то, очевидно, $|Y_{s,t}| \le\linebreak
+\le \|Y\|_{H;\mathcal{I}_j}|t-s|^H\le |t-s|^H\bigvee_{j=0}^{\lfloor T/\delta\rfloor} 
 \|Y\|_{H;\mathcal{I}_j}.$ Иначе $s\in \mathcal{I}_{j-1}$, $t\in \mathcal{I}_j$.
 В таком случае
 \begin{gather*}
@@ -1565,7 +1566,7 @@ $$c_4|\mathcal{I}|^{H} \le \frac{1}{2} \,\Longleftrightarrow\, |\mathcal{I}| \le
 (2c_4)^{-1/H}=:\delta_0,$$
 
 Таким образом, для любого отрезка $\mathcal{I}=[u, v]\subset [0, T]$ длины 
-$|\mathcal{I}| \le  1\wedge T \wedge \delta_0$ справедливо неравенство
+$|\mathcal{I}| \le\linebreak\le  1\wedge T \wedge \delta_0$ справедливо неравенство
 \begin{equation}\label{stab_theorem_T_xi_small_eq}
 \|X-\widetilde X\|_{H; \mathcal{I}} \le c|X_u -\widetilde X_u| + 
 c_f \|f - \widetilde f\|_{C^2_b},
@@ -1724,7 +1725,7 @@ $j=3,4,5$ для любого $r>0$. Теорема доказана.
 В данной главе диссертации рассмотрены общие свойства стохастических
 дифференциальных уравнений $dX_t = f(X_t)dB_t$, $t\in[0,T]$ с многомерным
 дробным броуновским движением $B_t = (B^{(0)}_t, B^{(1)}_t, \ldots, B^{(d)}_t)^\top$,
-компоненты $B^{(i)}_t$ которого имеют различные показатели Харста $H_i > 1/3$,
+компоненты~$B^{(i)}_t$ которого имеют различные показатели Харста $H_i > 1/3$,
 $i \ge 1$, а также содержащих снос $dB^{(0)}_t = dt$.
 
 Построено определение процесса второго порядка $\mathbb{B}_{s,t}$, фигурирующего
