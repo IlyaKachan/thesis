@@ -347,7 +347,7 @@ $$\text{Sym}(\mathbb{Z}_{s,t}) = \frac{1}{2}\left(\mathbb{Z}_{s,t} +
 $(Y, Y')\in \mathcal{D}^{2\alpha}_Z([0, T], \mathcal{L}(W, V))$. Потраекторным 
 интегралом Губинелли $Y$ по $Z$ называют предел интегральных сумм
 \begin{equation}
-\int_0^T YdZ = \lim_{|\mathcal{P}|\to 0}\sum_{t_i, t_{i+1}\in\mathcal{P}}
+\int_0^T Y_t \,dZ_t = \lim_{|\mathcal{P}|\to 0}\sum_{t_i, t_{i+1}\in\mathcal{P}}
 (Y_{t_i}Z_{t_i, t_{i+1}} + Y'_{t_i}\mathbb{Z}_{t_i, t_{i+1}}),
 \end{equation}
 где $|\mathcal{P}| = \max |t_{i+1}-t_i|$ --- диаметр разбиения 
@@ -357,9 +357,11 @@ $Z\in C^{\beta}([0, T], W),$ $Y\in C^\gamma([0,T], \mathcal{L}(W, V))$,
 $\beta+\gamma>1,$ то потраекторный интеграл Губинелли совпадает с потраекторным 
 интегралом Янга, определяемым как предел интегральных сумм
 $$
-\int_0^T YdZ = \lim_{|\mathcal{P}|\to 0}
+\int_0^T Y_t \,dZ_t = \lim_{|\mathcal{P}|\to 0}
 \sum_{t_i, t_{i+1}\in\mathcal{P}}Y_{t_i}Z_{t_i, t_{i+1}}.
 $$
+Интеграл по произвольному отрезку $[s, t]\subset [0, T]$ определяется равенством
+$\int_s^t Y_r\, dZ_r = \int_0^T Y_r\textbf{1}_{[s,t]}(r)\,dZ_r$.
 
 \remark \label{bilinear_products_sense_remark} Слагаемое 
 $Y'_{t_i}\mathbb{Z}_{t_i, t_{i+1}}$ записано корректно в том смысле, 
