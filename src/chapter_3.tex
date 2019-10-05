@@ -783,15 +783,15 @@ $\textbf{P}_t g(x)$, $g\in C^5_b (\mathbb{R}, \mathbb{R})$ справедливо
 
 В данном разделе будем предполагать, что компоненты $f_i\colon \mathbb{R}^n\to 
 \mathbb{R}^{n}$ правой части уравнения~(\ref{chapter3_main_eq_compact}) 
-являются векторными полями из класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
+являются функциями из класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
 такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$, 
-для любых $0\le i,j\le d$. 
+для любых $i, j =\linebreak= 0, \ldots, d$. 
 
-Для каждого $i=\overline{0,d}$ обозначим через $(e^{tD_f^{(i)}})_{t\in\mathbb{R}}
+Для каждого $i=0, \ldots, d$ обозначим через $(e^{tD_f^{(i)}})_{t\in\mathbb{R}}
 \subset\mathcal{L}(\mathbb{R}^n, \mathbb{R}^n)$ семейство операторов, определяемое 
-соотношением $e^{tD_f^{(i)}}(x) = X^x_t$ для любых $t\in\mathbb{R}$, $x\in\linebreak
-\in\mathbb{R}^n$, в котором $X^x_t$ --- решение обыкновенного дифференциального 
-уравнения
+соотношением $e^{tD_f^{(i)}}(x) = X^x_t$ для любых $t\in\mathbb{R}$, 
+$x\in\mathbb{R}^n$, в котором $X^x_t$ --- решение обыкновенного 
+дифференциального уравнения
 $$\frac{dX_t}{dt} = f_i(X_t)$$
 с начальным условием $X_0 = x$.
 
@@ -840,7 +840,9 @@ $$\varphi(t,x) = \E \left(g(X^{x}_t)\right),$$
 \sum_{i=1}^d H_it^{2H_i - 1} (D_f^{(i)})^2 \varphi,
 \end{equation}
 с начальным условием
-$$\varphi(0, x) = g(x).$$
+\begin{equation}
+\varphi(0, x) = g(x).
+\end{equation}
 \end{theorem}
 
 \proof Применяя формулу Ито для дробного броуновского движения из \cite{Cheridito}, 
