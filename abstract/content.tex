@@ -228,6 +228,33 @@ O(t^{(N+1)H}),
 индексов Харста дробных броуновских движений $B^{(i_1)}, B^{(i_2)},\ldots, 
 B^{(i_k)}$.}
 
+Также в третьей главе получены аналоги уравнений Колмогорова для математических
+ожиданий функционалов от решений в предположении, что компоненты 
+$f_i\colon \mathbb{R}^n\to \mathbb{R}^{n}$ правой части
+уравнения~(\ref{chapter3_main_eq_compact}) 
+являются функциями класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
+такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$, 
+для любых $i, j = 0, \ldots, d$. В таком случае справедлива следующая теорема.
+
+\textbf{Теорема 3.3} [\ref{StochasticAnalysis}]
+\textit{Для любой функции $g\in C^{d+3}_b(\mathbb{R}^n, \mathbb{R})$ 
+справедливо равенство}
+$$
+\E\left(g(X^{x}_t)\right) = \left(\exp\left(t D_f^{(0)} + 
+\frac{1}{2}\sum_{i=1}^d t^{2H_i}(D_f^{(i)})^2\right) g\right)(x).
+$$
+\textit{Другими словами, функция}
+$$\varphi(t,x) = \E \left(g(X^{x}_t)\right),$$
+\textit{удовлетворяет дифференциальному уравнению в частных производных}
+\begin{equation}\label{chapter_3_commut_case_main_eq}
+\frac{\partial \varphi}{\partial t} = D_f^{(0)}\varphi + 
+\sum_{i=1}^d H_it^{2H_i - 1} (D_f^{(i)})^2 \varphi,
+\end{equation}
+\textit{с начальным условием}
+\begin{equation}
+\varphi(0, x) = g(x).
+\end{equation}
+
 Четвертая глава диссертации посвящена получению методов интегрирования 
 стохастических дифференциальных уравнений смешанного типа.
 
