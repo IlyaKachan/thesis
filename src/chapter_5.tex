@@ -350,21 +350,21 @@ $H= K = \mathbb{R}^d$. В этом случае $Q = I_d$ и $W(t)$ --- стандартное
 броуновское движение со значениями в $\mathbb{R}^d$. Рассмотрим стохастическое 
 дифференциальное уравнение
 \begin{equation}\label{general_equation_1}
-dx(t) = f(t, x(t))dt + g(t, x(t))dW(t),
+dX(t) = f(t, X(t))dt + g(t, X(t))dW(t),
 \end{equation}
 где $f : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
 \mathbb{R}^{d}$, $g : \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
 \mathbb{R}^{d \times d}$ --- измеримые по Борелю функции такие, что 
-$f(t, 0) = 0$ и $g(t, 0) = 0$ при всех $t\in\mathbb{R}^d$ и выполнено 
+$f(t, 0) = 0$ и $g(t, 0) = 0$ при всех $t\in\mathbb{R}^+$ и выполнено 
 условие линейного порядка роста по $x$, то есть существует 
 постоянная~$C$ такая, что для любых $t \in \mathbb{R}^{+}$, $x \in 
 \mathbb{R}^{d}$, выполняется неравенство 
 $|f(t, x)| + |g(t, x)| \le\linebreak\le C(1+|x|)$.
 
 Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
-\mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, 
-$B(t,x)$, содержащими соответственно матрицу $\sigma(t, x)$ и вектор $f(t,x)$ 
-и все предельные точки $\sigma(t,x')$ и $f(t, x')$ при $x'\to x$.
+\mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, $G(t,x)$ и
+$F(t,x)$, содержащими соответственно матрицы $\sigma(t, x)$, $g(t, x)$ и вектор $f(t,x)$ 
+и все предельные точки $\sigma(t,x')$, $g(t,x')$ и $f(t, x')$ при $x'\to x$.
 
 \begin{definition} 
 Если:
@@ -376,7 +376,7 @@ $X\colon\Omega\to C(\mathbb{R}^+, \mathbb{R}^d)$ такие,
 $(\mathcal{B}(\mathbb{R}^+)\times\mathcal{F}, 
 \mathcal{B}(\mathbb{R}^d)$-измерима и $\mathcal{F}_t$-согласована;
 
-2) существует $(\mathcal{F}_t)$-броуновское движение $W(t)$, $W(0) = 0$ п. н.;
+2) существует $(\mathcal{F}_t)$-броуновское движение $W(t)$, $W(0) = 0$ п.н.;
 
 3) существуют измеримые $(\mathcal{F}_t)$-согласованные процессы
 $v\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^d$ и
@@ -384,7 +384,7 @@ $u\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{d\times d}$, удовлетворяющие
 для $(\mu\times\mathbb{P})$-почти всех $(t,\omega)\in\mathbb{R}^+\times\Omega$
 включениям
 $$
-v(t)\in B(t, X(t, \omega)),\quad u(t)u^\top(t)\in A(t, X(t, \omega)),
+v(t)\in F(t, X(t, \omega)),\quad u(t)u^\top(t)\in A(t, X(t, \omega)),
 $$
 и такие, что для любого $T\in\mathbb{R}^+$ п.н. выполняется следующее неравенство:
 $\int_0^T (|v(s)| + |u(s)|^2) ds <\infty$;
@@ -400,33 +400,27 @@ $$X(t) = X(0) + \int_0^t v(\tau)d\tau + \int_0^t u(\tau)dW(\tau),$$
 существование нулевого решения уравнения (\ref{general_equation_1}). Из теоремы
 2.3 книги \cite{Levakov_Vaskouski_book} следует, что если функции $f$ и $g$ 
 измеримы по Борелю и имеют линейный порядок роста, то для любой 
-вероятности $\nu$ на $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ с 
-компактным носителем уравнение (\ref{general_equation_1}) имеет слабое решение 
-$(\Omega, \mathcal F, \p, \mathcal F_{t}, W(t), x(t), v(t), u(t))$ с начальным 
-распределением $\nu$.
+вероятностной меры $\nu$ на $(\mathbb{R}^d,\mathcal{B}(\mathbb{R}^d))$ с 
+компактным носителем уравнение (\ref{general_equation_1}) имеет $\beta$-слабое 
+решение с начальным распределением~$\nu$.
 
 \begin{definition} 
 Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
 устойчиво по вероятности, если для любых $\varepsilon_{1},$ $\varepsilon_{2}>0$ 
-существует~$\delta > 0$ такое, что для каждого слабого решения $x(t)$ уравнения
-(\ref{general_equation_1}), удовлетворяющего условию $|x_0| \le \delta$ п.н., 
-выполняется неравенство (\ref{glava1_prob_stab}):
-\begin{equation}\label{glava1_prob_stab}
-\p\{ \sup_{t \ge 0} |x(t)| > \varepsilon_{1}\}
-< \varepsilon_{2}.
-\end{equation}
+существует~$\delta > 0$ такое, что для каждого $\beta$-слабого решения $X(t)$ уравнения
+(\ref{general_equation_1}), удовлетворяющего условию $|X(0)| \le \delta$ п.н., 
+выполняется неравенство 
+$\p\left(\sup_{t \ge 0} |X(t)| > \varepsilon_{1}\right) < \varepsilon_{2}$.
 \end{definition} 
 
 \begin{definition} 
 Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
 асимптотически устойчиво по вероятности, если нулевое решение уравнения 
 (\ref{general_equation_1}) устойчиво по вероятности и для любого 
-$ \varepsilon> 0$ существует~$ \delta > 0$ такое, что для каждого слабого 
-решения $x(t)$ уравнения (\ref{general_equation_1}), удовлетворяющего условию
-$|x_0| \le \delta$ п.н., выполняется неравенство (\ref{glava1_prob_asymp_stab}):
-\begin{equation}\label{glava1_prob_asymp_stab}
-\p\{\lim_{t \to \infty} x(t) = 0\} \ge 1 -\varepsilon.
-\end{equation}
+$\varepsilon> 0$ существует~$ \delta > 0$ такое, что для каждого $\beta$-слабого 
+решения $X(t)$ уравнения (\ref{general_equation_1}), удовлетворяющего условию
+$|X(0)| \le \delta$ п.н., выполняется неравенство
+$\p\left(\lim_{t \to \infty} X(t) = 0\right) \ge 1 -\varepsilon$.
 \end{definition}
 
 Предположим, что определена функция $V: \mathbb{R}^{+} \times \mathbb{R}^d \to 
@@ -486,7 +480,7 @@ $|x| \le \delta$, и всех $t \in \mathbb{R}^{+}$,
 асимптотически устойчиво по вероятности.
 \end{theorem}
 
-Исследуем устойчивость слабого нулевого решения стохастического 
+Исследуем устойчивость $\beta$-слабого нулевого решения стохастического 
 дифференциального уравнения~(\ref{general_equation_1}) c выделенной линейной 
 частью вида 
 \begin{equation}\label{mainSys}
@@ -690,7 +684,7 @@ $\left|\frac{\partial^2}{\partial x^2}|X^{(s,x)}(t)|^2\right|\le
 \end{remark}
 
 \example Приведем пример уравнения, имеющего асимптотически устойчивое по 
-вероятности слабое нулевое решение на основании теоремы~\ref{mainTheorem}. 
+вероятности $\beta$-слабое нулевое решение на основании теоремы~\ref{mainTheorem}. 
 Рассмотрим систему стохастических дифференциальных 
 уравнений~(\ref{suffCond_eq_17})
 \begin{gather}
@@ -725,8 +719,8 @@ g(t, X(t, \omega))dW(t,\omega),
 \begin{equation}\label{MostGeneralStartCond}
 X(0,\omega)=\xi(\omega),  \quad \omega \in \Omega,
 \end{equation}
-где $f(t, X)\colon\mathbb{R}^+\times H \to H$,
-$g(t, X)\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(K,H)$ --- 
+где $f\colon\mathbb{R}^+\times H \to H$,
+$g\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(K,H)$ --- 
 измеримые, непрерывные по $X$ (при любом фиксированном 
 $t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор, 
 определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
@@ -770,7 +764,7 @@ $t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
 \item $
 X(t)=
 S(t)\xi +\int \limits_0^t \!S(t{-}s)f(s,X(s))ds+\int \limits_0^t
-\!S(t{-}s)g(s,X(s))dW(s), \,t\,{\in}\,\mathbb{R}^+\!.
+\!S(t{-}s)g(s,X(s))dW(s), \,t\ge 0.
 $
 \end{enumerate}
 
@@ -785,7 +779,7 @@ $(t,\omega)\in\mathbb{R}^+\times\Omega$.
 \item $
 X(t)=
 \xi+\int\limits_0^t AX(s)\,ds + \int \limits_0^t f(s,X(s))ds+
-\int \limits_0^t g(s,X(s))dW(s),\quad t \in\mathbb{R}^+.
+\int \limits_0^t g(s,X(s))dW(s),\quad t \ge 0.
 $
 \end{enumerate}
 
@@ -806,11 +800,10 @@ $\lim_{t\to\infty}\sup\frac{\ln\ln t}{\ln\lambda(t)}\le\tau$.
 \end{enumerate}
 Будем говорить, что слабое решение 
 задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond}) притягивается к нулю
-со скоростью $\lambda(t)$, если найдется $\gamma>0$ такое, что выполняется 
-неравенство~(\ref{1.5})
+со скоростью $\lambda(t)$, если найдется $\gamma>0$ такое, что п.н. выполняется 
+неравенство
 \begin{equation}\label{1.5}
-\lim_{t\to\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le-\gamma
-\qquad\text{п.н.}
+\lim_{t\to\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le-\gamma.
 \end{equation}
 
 Через $\rho(A)$ обозначим резольвентное множество оператора $A$, т.е. множество,
@@ -1064,18 +1057,21 @@ $X(t)\xrightarrow[l\to\infty]{\text{п.н.}}X^{(l_n)}(t)$ равномерно
 
 \subsection{Теорема о притяжении к нулю}
 
-Введем операторы $L$, $Q$ по формулам~(\ref{3.1}),~(\ref{3.2}): если 
-положительный функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
-\mathbb{R}^+)$, то
+Рассмотрим функционал $V(t,x)$ класса $C^{1,2}(\mathbb{R}^+{\times} H, 
+\mathbb{R}^+)$, т.е. принимающий значения в $\mathbb{R}^+$ и имеющий 
+непрерывные производные по Фреше по переменной $t\in\mathbb{R}^+$ --- 
+до первого порядка, по переменной $x\in H$ --- до второго порядка 
+(включительно). Введем операторы $L$, $B$,
+действующие на $V$ следующим образом:
 \begin{gather}
 LV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t, x)\rangle_H + 
 \nonumber\\ 
 \label{3.1}
-+\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t, x)Q_w^{1/2})
-(g(t, x)Q_w^{1/2})^\star],
++\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t, x)Q^{1/2})
+(g(t, x)Q^{1/2})^\star],
 \quad (t,x)\in\mathbb{R}^+{\times} \EuScript D(A),\\
-QV(t,x) = \textup{tr}[V''_{xx}(t,x)\otimes 
-V''_{xx}(t,x)(g(t, x)Q_w^{1/2})(g(t, x)Q_w^{1/2})^\star],\nonumber\\
+BV(t,x) = \textup{tr}[V''_{xx}(t,x)\otimes 
+V''_{xx}(t,x)(g(t, x)Q^{1/2})(g(t, x)Q^{1/2})^\star],\nonumber\\
 \label{3.2}
 (t,x)\in\mathbb{R}^+{\times}H.
 \end{gather}\par
@@ -1086,15 +1082,15 @@ V''_{xx}(t,x)(g(t, x)Q_w^{1/2})(g(t, x)Q_w^{1/2})^\star],\nonumber\\
 Пусть задан функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
 \mathbb{R}^+)$ и две неотрицательные непрерывные функции 
 $\psi_1(t)$, $\psi_2(t)$. Предположим, что существуют положительные 
-постоянные $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
+$r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
 невозрастающая положительная функция $\zeta(t)$ такие, что 
 $\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены 
 следующие условия:
 \begin{enumerate}
 \item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
 \mathbb{R}^+{\times}H$.
-\item $LV(t, x) + \zeta(t)QV(t, x) \le \psi_1(t) + 
-\psi_2(t)V(t, x)\;$ для всех $\;t\in\mathbb{R}^+$, $x\in\EuScript D(A)\;$.
+\item $LV(t, x) + \zeta(t)BV(t, x) \le \psi_1(t) + 
+\psi_2(t)V(t, x)\;$ для всех $(t,x)\in \mathbb{R}^+{\times}\EuScript D(A)$.
 \item $\lim\limits_{t\to+\infty}\sup\frac{
 \ln\left(\int_0^t\psi_1(s)\,ds\right)}{\ln\lambda(t)}\,{\le}\,\nu$, 
 $\quad\lim\limits_{t\to+\infty}\sup
@@ -1127,7 +1123,7 @@ L_lV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax +
 R(l)f(t,x)\rangle +\nonumber\\
 \label{3.6}
 + \frac{1}{2}\text{tr}\bigl[V''_{xx}(t,x)(R(l)g(t,x))\circ 
-Q_w\circ(R(l)g(t,x))^\star\bigr].
+Q\circ(R(l)g(t,x))^\star\bigr].
 \end{gather}\par
 Из равномерной непрерывности функции $\ln\lambda(t)$ следует, что для 
 любого~$\varepsilon>0$ существуют натуральные числа $N = N(\varepsilon)$ и 
@@ -1139,7 +1135,7 @@ C другой стороны, по экспоненциальному неравенству~(\ref{3.7}) для мартингалов
 \begin{equation} \label{3.7}
 \Prob\biggl(\!\omega: \!\sup_{0\le t\le w}\!\biggl(\int\limits_0^t\!
 \langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle - 
-\!\int\limits_0^t\!\frac{u}{2}QV(s,X(s))\,ds\!\biggr)\!\! >\! v\!\biggr)\!
+\!\int\limits_0^t\!\frac{u}{2}BV(s,X(s))\,ds\!\biggr)\!\! >\! v\!\biggr)\!
 \le e^{-uv}
 \end{equation}
 для любых положительных постоянных $u$, $v$ и $w$. Выбирая их 
@@ -1157,7 +1153,7 @@ v =\left.\ln\frac{k-1}{2^N}\right/\zeta\left(\frac{k}{2^N}\right),
 \begin{equation} \label{3.9}
 \int_0^t\langle V'_x(s,X(s)), g(s,X(s))dW(s)\rangle \le 
 \frac{\ln\frac{k-1}{2^N}}{\zeta\left(\frac{k}{2^N}\right)} + 
-\zeta\left(\frac{k}{2^N}\right)\int_0^tQV(s,X(s))\,ds
+\zeta\left(\frac{k}{2^N}\right)\int_0^t BV(s,X(s))\,ds
 \end{equation}
 для всех $t\in\left[0,\frac{k}{2^N}\right]$, $k = k(\omega)\ge 
 k_0(\varepsilon,\omega)$. Подставляя выражение~(\ref{3.9}) в~(\ref{ItoFormula}) 
@@ -1174,7 +1170,7 @@ I_2(t,l) + I_3(t,l),
 k_1(\varepsilon)\}$. Здесь $I_3$ определяется формулой~(\ref{3.11})
 \begin{equation}\label{3.11}
 I_3(t,l) = \zeta\left(\frac{k}{2^N}\right)
-\int_0^t\left(QV(s,X(s)) - QV(s,X^{(l)}(s))\right)ds.
+\int_0^t\left(BV(s,X(s)) - BV(s,X^{(l)}(s))\right)ds.
 \end{equation}
 Следовательно, согласно лемме Гронуолла, п.н. выполнено неравенство
 \begin{gather*}
@@ -1208,10 +1204,10 @@ LV(s,X^{(l_n)}(s))\right|ds \le\nonumber\\
 \left|\langle V'_x(s,X^{(l_n)}(s)), (I-R(l_n))f(s,X^{(l_n)}(s))\rangle\right| ds 
 +\nonumber\\
 +\frac{1}{2}\int_0^{k/2^N}\bigl|\text{tr}
-\bigl[V''_{xx}(s,X^{(l_n)}(s))\bigl\{(R(l_n)g(s,X^{(l_n)}(s))\circ Q_w
+\bigl[V''_{xx}(s,X^{(l_n)}(s))\bigl\{(R(l_n)g(s,X^{(l_n)}(s))\circ Q
 \circ(R(l_n)g(s,X^{(l_n)}(s)))^\star -\nonumber\\ 
 \label{3.13}
-- g(s,X^{(l_n)}(s))\circ Q_w\circ g(s,X^{(l_n)}(s)))^\star\bigr\}\bigr]\bigr|ds
+- g(s,X^{(l_n)}(s))\circ Q\circ g(s,X^{(l_n)}(s)))^\star\bigr\}\bigr]\bigr|ds
 \xrightarrow[n\to\infty]{} 0
 \end{gather}
 для всех $k\,{\ge}\,\max\{k_0(\varepsilon,\omega), k_1(\varepsilon)\}$. 
