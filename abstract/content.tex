@@ -1,0 +1,592 @@
+{\let\clearpage\relax\vspace{6ex}
+\chapter*{\MakeUppercase{ОСНОВНАЯ ЧАСТЬ}}}
+
+В первой главе приводится обзор литературных источников по теме диссертации.
+
+Во второй и третьей главе диссертации исследуются стохастические 
+дифференциальные уравнения с дробными броуновскими движениями, 
+имеющими различные индексы Харста, большие 1/3.
+
+Рассмотрим вероятностное пространство $(\Omega, \mathcal{F}, \Prob)$, на 
+котором определены независимые одномерные дробные броуновские 
+движения~$B_t^{(1)},\ldots,B_t^{(d)}$ с индексами Харста 
+$H_1,\ldots, H_d \in (1/3,1).$ Введем обозначение 
+$B_t=(B_t^{(0)}, \ldots, B_t^{(d)})^\top$ для $(d+1)$-мерного дробного 
+броуновского движения, в котором $B_t^{(0)}=t.$ Пусть также $H_0=1.$
+Пусть $H_{\min}$ --- значение наименьшего из индексов Харста $H_i,$ 
+$i=0,\ldots, d.$ Выберем и зафиксируем некоторое $H \in (1/3, 1/2]$ такое, 
+что $H<H_{\min}$.
+
+Объектом изучения второй главы является следующее стохастическое 
+дифференциальное уравнение:
+\begin{equation}\label{chapter3_main_eq_compact}
+dX_t = f(X_t)dB_t, \ t \in [0,T],
+\end{equation}
+в котором $f$ --- $(n\times(d+1))$-матрица, столбцами которой являются векторы 
+$f_i:\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots, d$. 
+Через $X_t^x$ будем обозначать решение уравнения~(\ref{chapter3_main_eq_compact}) 
+с начальным условием $X_0=x \in \mathbb{R}^n.$
+
+Для определение решения уравнения~(\ref{chapter3_main_eq_compact}) потребуются 
+некоторые понятия теории грубых траекторий\footnote{
+\textit{Friz, P.}\; A Course on Rough Paths with an introduction to regularity 
+structures~/ P. Friz, M. Hairer. --- Cham : Springer International Publishing 
+AG, 2014. --- 262 p.}.
+Будем обозначать через $U$, $V$, $W$ 
+конечномерные  банаховы пространства над полем $\mathbb{R}$. Множество функций, 
+непрерывных по Гельдеру с показателем~$\alpha \in (0,1]$, будем обозначать следующим 
+образом:
+$$
+ C^\alpha([0,T], W) = \left\{Z\colon[0,T]\to W\;\Bigl|\;\|Z\|_\alpha =
+ \sup\limits_{s,t\in[0,T]: s\ne t}\frac{|Z_t - Z_s|_W}{|t-s|^\alpha} 
+ < \infty\right\}.
+$$
+
+Через $C^\alpha_2([0,T]^2, U)$ будем обозначать множество функций двух переменных 
+$R(s,t) = R_{s,t}$, для каждой из которых существует константа~$C$ такая, что 
+$|R_{s,t}|\le C|t-s|^\alpha$ для всех~$(s,t)\in [0,T]^2$. Наименьшую такую 
+константу для функции $R$ будем обозначать следующим образом:
+$$\|R\|_{\alpha} = \sup_{s,t\in[0,T]: s\ne t}\frac{|R_{s,t}|_U}{|t-s|^\alpha}.$$
+Отметим также, что если $Z\in C^\alpha([0,T], W)$ --- непрерывная по Гельдеру 
+функция одной переменной, то ее приращения $(s, t) \mapsto Z_t - Z_s$ 
+принадлежат множеству~$C^\alpha_2([0,T]^2, W)$. Поэтому обозначение 
+$Z_{s,t} = Z_t - Z_s$ будет также использоваться для приращений функции одной 
+переменной $Z$, определенной на $[0, T]$.
+
+Пусть далее $\alpha \in (1/3,1/2]$.
+
+Говорят, что для функции $Z\colon[0,T]\to W$ функция $\mathbb{Z}\colon[0,T]^2
+\to W\otimes W$ является процессом второго порядка над $Z$, если она 
+удовлетворяет следующему тождеству Чена:
+$$\mathbb{Z}_{s,t} - \mathbb{Z}_{s,u} - \mathbb{Z}_{u,t} = 
+Z_{s,u}\otimes Z_{u,t}$$
+для любой тройки $(s,u,t)\in [0,T]^3$.
+
+Под множеством $\alpha$-непрерывных по Гельдеру грубых траекторий над~$W$ 
+(обозначаемым $\mathscr{C}^\alpha ([0,T], W)$) понимают множество всех пар 
+$(Z, \mathbb{Z})$ таких, что функция $Z\in C^\alpha([0,T], W)$ и $\mathbb{Z}$ 
+является процессом второго порядка над $Z$, удовлетворяющим условию 
+$\|\mathbb{Z}\|_{2\alpha} < \infty$.
+
+Говорят, что функция $Y\in C^\alpha([0,T], \mathcal{L}(W, V))$ управляется 
+функцией~$Z\in\linebreak\in C^\alpha([0,T], W)$, если существует $Y'\in C^\alpha\bigl([0,T], 
+\mathcal{L}(W, \mathcal{L}(W, V))\bigr)$ (называемое производной Губинелли $Y$),
+такое, что остаток $R^Y_{s,t} = Y_{s,t} - Y'_s Z_{s,t}$ удовлетворяет 
+неравенству $\|R^Y\|_{2\alpha} < +\infty$. Множество всех $(Y, Y')$ таких, 
+что~$Y$ управляется~$Z$, будем обозначать $\mathcal{D}^{2\alpha}_Z([0,T],
+\mathcal{L}(W, V))$.
+
+Пусть $(Z,\mathbb{Z})\in\mathscr{C}^\alpha([0,T], W)$, а также 
+$(Y, Y')\in \mathcal{D}^{2\alpha}_Z([0, T], \mathcal{L}(W, V))$. Потраекторным 
+интегралом Губинелли $Y$ по $Z$ называют предел интегральных сумм
+$$
+\int_0^T Y_t \,dZ_t = \lim_{|\mathcal{P}|\to 0}\sum_{t_i, t_{i+1}\in\mathcal{P}}
+(Y_{t_i}Z_{t_i, t_{i+1}} + Y'_{t_i}\mathbb{Z}_{t_i, t_{i+1}}),
+$$
+где $|\mathcal{P}| = \max |t_{i+1}{-}t_i|$ --- диаметр разбиения 
+$\mathcal{P} = \{0{=}t_0 {<} t_1 {<} \ldots {<} t_{l} {=}T \}$, а предел понимается не 
+зависящим от последовательности разбиений $\mathcal{P}$.
+Интеграл по произвольному отрезку $[s, t]\subset [0, T]$ определяется равенством
+$\int_s^t Y_r\, dZ_r = \int_0^T Y_r\textbf{1}_{[s,t]}(r)\,dZ_r$.
+
+Приведем конструктивное определение процесса второго порядка над дробным 
+броуновским движением $B$.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 2.1. Процессом второго порядка над дробным 
+броуновским движением $B$ 
+будем называть процесс $\mathbb{B}\colon [0,T]^2\times \Omega \to 
+\mathbb{R}^{(d+1)\times(d+1)}$, определенный следующими равенствами:
+\begin{gather*}
+\mathbb{B}_{s,t} = \left(\mathbb{B}^{(i,j)}_{s,t}\right)^{d}_{i,j=0},\\
+\mathbb{B}^{(i,j)}_{s,t} \stackrel{L^2}{=}
+\lim\limits_{|\mathcal{P}|\to 0}\int_{\mathcal{P}} B^{(i)}_{s,r} dB^{(j)}_{r}, 
+\;\; \int_{\mathcal{P}} B^{(i)}_{s,r} dB^{(j)}_{r} \!=\!\!\!\!\! 
+\sum\limits_{t_k, t_{k+1}\in\mathcal{P}} 
+\!\!\!\!\!B^{(i)}_{s, t_k}B^{(j)}_{t_k, t_{k+1}},\quad 1\le i < j \le d,\\
+\mathbb{B}^{(0,j)}_{s,t} =\int_s^t B^{(j)}_{s,r} dr \stackrel{\text{п.н.}}{=} 
+\lim\limits_{|\mathcal{P}|\to 0} \sum\limits_{t_k, t_{k+1}\in\mathcal{P}} 
+B^{(j)}_{s, t_k}(t_{k+1} - t_k),\quad 1\le j\le d,\\
+\mathbb{B}^{(i,i)}_{s,t} = \frac{1}{2} \left(B^{(i)}_{s,t}\right)^2,
+\quad 0\le i\le d,\\
+\mathbb{B}^{(i,j)}_{s,t} = -\mathbb{B}^{(j,i)}_{s,t} + 
+B^{(i)}_{s,t}B^{(j)}_{s,t},\quad 0\le j < i \le d
+\end{gather*}
+для любой пары $(s,t)\in [0,T]^2$, где 
+$\mathcal{P} = \{s=t_0 < t_1 < \ldots < t_{l} =t \}$ --- 
+произвольное разбиение отрезка $[s,t]$, $|\mathcal{P}| = 
+\max |t_{k+1}-t_k|$, а все пределы понимаются не зависящими от 
+последовательности разбиений $\mathcal{P}$. Здесь обозначения 
+$\stackrel{L^2}{=}$,  $\stackrel{\text{п.н.}}{=}$ применяются для того, 
+чтобы показать, что соответствующие пределы понимаются в смысле 
+$L^2(\Omega, \mathcal{F}, \Prob)$ и $\Prob=1$ соответственно.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 2.2. Случайный процесс $X_t$ такой, что $(X, X')\in\linebreak\in
+\mathcal{D}^{2H}_B([0, T], \mathbb{R}^n)$ п.н., будем называть решением 
+уравнения~(\ref{chapter3_main_eq_compact}), если он п.н. удовлетворяет равенству
+$$
+X_t = X_0 + \int_0^t f(X_s) dB_s,\quad t\in [0, T],
+$$
+где интеграл понимается как потраекторный интеграл Губинелли. 
+Пусть $x\in\linebreak\in\mathbb{R}^n$. Решение уравнения~(\ref{chapter3_main_eq_compact}) 
+с начальным условием $X_0 = x$ будем называть п.н. единственным, если для 
+любого другого решения $Y_t$ уравнения~(\ref{chapter3_main_eq_compact}) с 
+начальным условием $Y_0 = x$ выполняется равенство 
+$\Prob(X_t = Y_t\; \forall t\in[0, T]) =~1$.
+
+Через $C^k_b(V, U)$ будем обозначать пространство функций 
+$\varphi\colon V\to U$, имеющих непрерывные и
+ограниченные производные до порядка $k$ включительно с нормой 
+$\|\varphi\|_{C^k_b} = \sum_{j=0}^k \|D^j \varphi \|_{\infty}$, где
+$\|D^j\varphi\|_{\infty} = \max_{x\in V}|D^j\varphi(x)|$.
+Следующая теорема дает достаточное 
+условие существования и единственности решения 
+уравнения~(\ref{chapter3_main_eq_compact}).
+
+\textbf{Теорема 2.1.}\footnote{
+Trees and asymptotic expansions for fractional 
+stochastic differential equations~/ A. Neuenkirch [et al.] // Annales de 
+I Institut Henri Poincar\'{e} (B) Probability and Statistics. --- 2009. --- 
+Vol. 45, № 1. ---~P.~157--174.
+}
+\textit{Если $f\in C^2_b(\mathbb{R}^n, \mathbb{R}^{n\times(d+1)})$, то для 
+любого~$x\in\mathbb{R}^n$ уравнение~\textup{(\ref{chapter3_main_eq_compact})} 
+имеет единственное решение с начальным условием $X_0 = x$, 
+причем $X' = f(X)$, $(f(X), (f(X))')\in \mathcal{D}^{2H}_B([0, T], 
+\mathbb{R}^{n\times(d+1)})$ п.н. Более того, если $H_i> H^*\ge1/2$ для 
+всех $i=0,\ldots, d,$ то справедливо включение 
+$X \in C^{H^*}([0,T], \mathbb{R}^{n})$ п.н. и интеграл в определении решения 
+уравнения \textup{(\ref{chapter3_main_eq_compact})} является потраекторным 
+интегралом Янга.}
+
+Следующие две теоремы являются основными результатами второй главы.
+
+\textbf{Теорема 2.2.} [\ref{StochasticAnalysis}].
+\textit{Пусть $f\in C^3_b(\mathbb{R}^n, \mathbb{R}^{n \times (d+1)})$, 
+$g\in C^3_b(\mathbb{R}^n, \mathbb{R})$. Тогда для любых $s,$ $t \in [0,T]$ п.н. 
+справедлива следующая формула замены переменных:}
+\begin{equation}
+g(X_t) = g(X_s) + \int_s^t Dg(X_r)f(X_r)dB_r,\qquad s,t\in [0, T],
+\end{equation}
+\textit{где $X_t$ --- решение уравнения \textup{(\ref{chapter3_main_eq_compact})}.}
+
+Наряду с уравнением~(\ref{chapter3_main_eq_compact}) рассмотрим аналогичное 
+уравнение с возмущенной правой частью
+\begin{equation}\label{stability_intro_main_eq_1}
+d\widetilde X_t = \widetilde f(\widetilde X_t)dB_t,\quad t\in[0,T],
+\end{equation}
+в котором $\widetilde f$ --- $(n\times(d+1))$-матрица, столбцами которой являются 
+векторы $\widetilde f_i\colon\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots,d$.
+
+\textbf{Теорема 2.3.} [\ref{IzvestiyaNanRB}].
+\textit{Пусть $f,\widetilde f \in C^3_b(\mathbb{R}^n, \mathbb{R}^{n\times(d+1)})$, 
+причем функция $\widetilde f$ такова, что $\|f - \widetilde f\|_{C^2_b} \le 1$. 
+Обозначим через $X_t$, $\widetilde X_t$ решения 
+уравнений~\textup{(\ref{chapter3_main_eq_compact})}, 
+\textup{(\ref{stability_intro_main_eq_1})} c начальными условиями 
+$X_0=\xi$, $\widetilde X_0 = \widetilde \xi$ соответственно. Тогда:}
+
+1) \textit{почти наверное справедлива следующая оценка}
+\begin{equation}
+\|X - \widetilde X\|_H \le C \left(|\xi - \widetilde \xi| + 
+\|f - \widetilde f\|_{C^2_b}\right)
+\end{equation}
+\textit{для некоторой случайной величины $C=C(H, T, \|f\|_{C^3_b}, \|B\|_H, 
+\|\mathbb{B}\|_{2H})$. Причем~$C$ может быть выбрана не зависящей от~$T$, 
+если $T\in (0,1];$}
+
+2) \textit{имеет место следующее неравенство}
+\begin{equation}
+\mathbb{E}\bigl(\ln\|X - \widetilde X\|_H\bigr) \le C + 
+\ln\bigl(\mathbb{E}|\xi - \widetilde\xi| + \|f-\widetilde f\|_{C^2_b}\bigr),
+\end{equation}
+\textit{где $C = C(H, H_1, \ldots, H_d, T, \|f\|_{C^3_b})\in\mathbb{R}$ --- 
+константа, вообще говоря, зависящая от $H$, $H_1,\ldots, H_d$, $T$, 
+$\|f\|_{C^3_b}$.}
+
+Третья глава диссертации посвящена исследованию асимптотических разложений
+математических ожиданий функционалов от решений уравнения~(\ref{chapter3_main_eq_compact}).
+
+Будем придерживаться следующих компактных записей:
+\begin{gather}
+\Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\} \\
+\int_{\Delta^k[0,t]} dB^{(I_k)}= \int_0^t\int_0^{t_k}\ldots 
+\int_0^{t_2} dB^{(i_1)}_{t_1} \ldots dB^{(i_{k-1})}_{t_{k-1}}dB^{(i_k)}_{t_k},\\
+ I_k=(i_1,\ldots, i_k)\in \mathbb{N}^k_d:=\{0,\ldots, d\}^k,\\
+\quad D^{(i)}_f = \sum_{j=1}^n f_{ji}(x)\frac{\partial}{\partial x_j},\; 
+i \in \{0,\ldots, d\}\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f, \\
+\textbf{P}_t g(x) = \E g(X^{x}_t),\quad t\ge 0.
+\end{gather}
+Основной результат третьей главы представлен следующей теоремой.
+
+\textbf{Теорема 3.1.} [\ref{DokladyNanRB}, \ref{StochasticAnalysis}].
+\textit{Пусть $f\in C^{N+2}_b(\mathbb{R}^n, \mathbb{R}^{n \times (d+1)})$,
+$g\in C^{N+3}_b(\mathbb{R}^n, \mathbb{R})$, \linebreak $N\in\mathbb{N}$. Тогда для любого 
+фиксированного $H\in(1/3, 1/2]$ такого, что $H <\linebreak< H_{min} = 
+\min\limits_{i=0,\ldots d} H_i$ справедливо следующее асимптотическое разложение:}
+\begin{equation}
+\textup{\textbf{P}}_t g(x) = g(x) + 
+\sum_{k=1}^N \sum_{I_{k}\in\{0,\ldots, d\}^{k}} t^{|H_{I_k}|}\cdot 
+(D^{(I_{k})}_f g)(x)\E\biggl(\int_{\Delta^{k}[0,1]}dB^{(I_{k})}\biggr) + 
+O(t^{(N+1)H}),
+\end{equation}
+\textit{при $t\to 0$, где $|H_{I_k}| = H_{i_1} + H_{i_2}+ \ldots + H_{i_k}$ --- сумма 
+индексов Харста дробных броуновских движений $B^{(i_1)}, B^{(i_2)},\ldots, 
+B^{(i_k)}$.}
+
+Четвертая глава диссертации посвящена получению методов интегрирования 
+стохастических дифференциальных уравнений смешанного типа.
+
+Пусть на вероятностном пространстве $(\Omega,\mathcal{F},\Prob)$ заданы
+$d$-мерное стандартное броуновское движение
+$W(t)$ и $d$-мерное дробное броуновское движение 
+$B(t)$ c показателем Харста $H \in(1/2,1).$
+
+Объектом изучения четвертой главны является стохастическое дифференциальное 
+уравнение смешанного типа
+\begin{equation}\label{integration_of_mixed_main_eq}
+dx(t) = f(t,x(t))dt + g(t, x(t))dW(t) + \sigma(t, x(t)) dB(t),\quad t \ge 0,
+\end{equation}
+где $f\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$,
+$g\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$ ---
+детерминированные функции.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 4.1. Под решением 
+уравнения~(\ref{integration_of_mixed_main_eq}) понимаем процесс
+$x(t),$ $t\in \mathbb{R}^+,$ заданный на вероятностном пространстве
+$(\Omega,\mathcal{F},\Prob),$ согласованный с потоком $\sigma$-алгебр
+$\mathcal{F}_t,$ порожденным процессами $W(t)$ и $B(t),$ такой, что
+выполняются условия:
+
+1) существует $\alpha>1-H$ такое, что процесс $x(t)$ имеет п.н. непрерывные по 
+Гельдеру с показателем $\alpha$ траектории;
+
+2) для любого $t\in \mathbb{R}^+$ почти наверное выполняется равенство
+$$
+x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
+\sigma(s,x(s))dB(s),
+$$
+где интеграл по процессу $W(t)$ -- стохастический интеграл Ито, а
+интеграл по процессу $B(t)$ -- потраекторный интеграл Янга\footnote{
+\textit{Guerra, J.} Stochastic differential equations driven by fractional 
+Brownian motion and standard Brownian motion~/ J. Guerra, D. Nualart // 
+Stochastic Analysis and Applications. --- 2008. --- Vol. 26, № 5. --- 
+P. 1053--1075.
+}.
+
+Будем рассматривать одномерное уравнение~(\ref{integration_of_mixed_main_eq}), 
+считая, что $d=1$. Вместе с ним рассмотрим простейшее уравнение
+\begin{equation}\label{integration_of_mixed_simplest_eq}
+dy(t)=u(t)dt + v(t)dW(t) + b(t)dB(t),\quad t\ge 0.
+\end{equation}
+
+Решение уравнения~(\ref{integration_of_mixed_simplest_eq}) выражается 
+следующей формулой:
+\begin{equation*}
+y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) + 
+\int_0^t b(\tau)dB(\tau),\quad t\ge 0.
+\end{equation*}
+
+Предположим, что существуют некоторые функции $r(t), q(t)$ такие, что
+\begin{gather}\label{integration_of_mixed_simplest_cond_1}
+g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
+\frac{1}{2}g''_{x^2}(t,x)\right) = r(t),\\ 
+\label{integration_of_mixed_simplest_cond_2}
+\frac{\sigma(t,x)}{g(t,x)} = q(t).
+\end{gather}
+
+\textbf{Теорема 4.1.} [\ref{IntegrationMethodsIzvestiya}].
+\textit{Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c функцией $g(t,x)\ne 0$ 
+приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
+помощью некоторого дважды непрерывно дифференцируемого и обратимого 
+относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
+найдутся функции $q(t), r(t)$ такие, что оказываются выполненными 
+соотношения~\textup{(\ref{integration_of_mixed_simplest_cond_1})},
+\textup{(\ref{integration_of_mixed_simplest_cond_2})}.}
+
+Далее рассмотрим одномерное автономное уравнение
+\begin{equation}\label{integration_of_mixed_main_eq_auto}
+dx(t) = f(x(t))dt + g(x(t))dW(t) + \sigma(x(t)) dB(t),\quad t \ge 0,
+\end{equation}
+и будем исследовать наличие автономной замены $y = F(x)$, приводящей 
+указанное уравнение к линейному неоднородному уравнению
+\begin{equation}\label{integration_of_mixed_linear_inhom_const_eq}
+dy(t) = (\alpha_1y(t) + \alpha_2)dt + (\beta_1 y(t) + \beta_2)dW(t) + 
+(\gamma_1 y(t) + \gamma_2)dB(t),\; t\ge 0
+\end{equation}
+c постоянными коэффициентами $\alpha_1, \alpha_2, \beta_1, \beta_2, \gamma_1, 
+\gamma_2 \in \mathbb{R}$.
+
+Предположим, что существуют некоторые постоянные $c_1,c_2\in \mathbb{R}$
+такие, что
+\begin{gather}
+\label{integration_of_mixed_linear_inhom_cond_1}
+A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
+\label{integration_of_mixed_linear_inhom_cond_2}
+\frac{(g(x)A'(x))'}{A'(x)} = c_1,\\ 
+\label{integration_of_mixed_linear_inhom_cond_3}
+\frac{\sigma(x)}{g(x)} = c_2,
+\end{gather}
+
+\textbf{Теорема 4.2.} [\ref{IntegrationMethodsIzvestiya}].
+\textit{Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})} 
+c функциями $g(x)\ne 0,$ $A'(x) \ne 0$ 
+приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
+тогда и только тогда, когда найдутся 
+постоянные $c_1, c_2$ такие, что оказываются выполненными 
+соотношения~\textup{(\ref{integration_of_mixed_linear_inhom_cond_1})},
+\textup{(\ref{integration_of_mixed_linear_inhom_cond_2})},
+\textup{(\ref{integration_of_mixed_linear_inhom_cond_3})}.}
+
+Вернемся к уравнению~(\ref{integration_of_mixed_main_eq}) в пространстве 
+$\mathbb{R}^d$ и вместе с ним рассмотрим соответствующее уравнение Стратоновича
+\begin{equation}\label{eq_strat}
+dx(t) = (f(t,x(t))-c(t,x(t)))dt + g(t, x(t))\circ dW(t) + \sigma(t, x(t)) dB(t),
+\quad t \ge 0,
+\end{equation}
+в котором $f\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$,
+$g\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$,
+$c\colon \mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^d$ и
+$$
+c_i(t,x)=\frac{1}{2}\sum_{j,k=1}^d \frac{\partial g_{ij}(t,x)}{\partial x_k}g_{kj}(t,x),
+\quad i=1, \ldots, d.
+$$
+
+Справедлива следующая теорема.
+
+\textbf{Теорема 4.3.} [\ref{IntegrationMethodsIzvestiya}].
+\textit{Процесс $x(t)$ является решением 
+уравнения~\textup{(\ref{integration_of_mixed_main_eq})} тогда и 
+только тогда, когда процесс $x(t)$ является решением уравнения 
+Стратоновича~\textup{(\ref{eq_strat})}}.
+
+Глава 5 посвящена исследованию устойчивости и притяжения решений стохастических
+дифференциальных уравнений со стандартным броуновским движением в гильбертовых
+пространствах.
+
+В первой части главы 5 рассматриваются стохастические 
+дифференциальные уравнения в конечномерном гильбертовом 
+пространстве $\mathbb{R}^d$:
+\begin{equation}\label{general_equation_1}
+dX(t) = f(t, X(t))dt + g(t, X(t))dW(t),
+\end{equation}
+где $W(t)$ --- стандартное $d$-мерное броуновское движение, 
+$f\colon \mathbb{R}^{+} {\times} \mathbb{R}^{d} {\to}\mathbb{R}^{d}$, 
+$g\colon \mathbb{R}^{+} \times \mathbb{R}^{d} \to 
+\mathbb{R}^{d \times d}$ --- измеримые по Борелю функции такие, что 
+$f(t, 0) = 0$ и $g(t, 0) = 0$ при всех $t\in\mathbb{R}^+$ и выполнено 
+условие линейного порядка роста по $x$, то есть существует 
+постоянная~$C$ такая, что для любых $t \in \mathbb{R}^{+}$, $x \in 
+\mathbb{R}^{d}$, выполняется неравенство 
+$|f(t, x)| + |g(t, x)| \le C(1+|x|)$.
+
+Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
+\mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, 
+$F(t,x)$, содержащими соответственно матрицу $\sigma(t, x)$ и вектор $f(t,x)$ 
+и все предельные точки $\sigma(t,x')$ и $f(t, x')$ при $x'\to x$. Будем использовать  
+обозначение $C(\mathbb{R}^+, \mathbb{R}^d)$ для пространства непрерывных функций 
+$\varphi\colon\mathbb{R}^+\to\mathbb{R}^d$, а символ $\mathcal{B}$ --- для борелевской
+$\sigma$-алгебры. 
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.1.
+Если:
+
+1) существуют вероятностное пространство $(\Omega, \mathcal{F}, \mathbb{P})$
+с потоком $\mathcal{F}_t$ и отображение 
+$X\colon\Omega\to C(\mathbb{R}^+, \mathbb{R}^d)$ такие,
+что функция $(t, \omega) \to X(t, \omega) \in \mathbb{R}^d$ --- 
+$(\mathcal{B}(\mathbb{R}^+)\times\mathcal{F}, 
+\mathcal{B}(\mathbb{R}^d)$-измерима и $\mathcal{F}_t$-согласована;
+
+2) существует $(\mathcal{F}_t)$-броуновское движение $W(t)$, $W(0) = 0$ п.н.;
+
+3) существуют измеримые $(\mathcal{F}_t)$-согласованные процессы
+$v\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^d$ и
+$u\colon\mathbb{R}^+\times\Omega\to\mathbb{R}^{d\times d}$, удовлетворяющие
+для $(\mu\times\mathbb{P})$-почти всех $(t,\omega)\in\mathbb{R}^+\times\Omega$
+включениям
+$$
+v(t)\in F(t, X(t, \omega)),\quad u(t)u^\top(t)\in A(t, X(t, \omega)),
+$$
+и такие, что для любого $T\in\mathbb{R}^+$ п.н. выполняется следующее неравенство:
+$\int_0^T (|v(s)| + |u(s)|^2) ds <\infty$;
+
+4) с вероятностью $1$ для всех $t\in\mathbb{R}^+$ выполняется равенство
+$$X(t) = X(0) + \int_0^t v(\tau)d\tau + \int_0^t u(\tau)dW(\tau),$$
+то набор $(X, \Omega, \mathcal{F}, \mathbb{P}, \mathcal{F}_t, W(t), v(t), u(t))$
+(или короче $X$) называем $\beta$-слабым решением уравнения 
+\textup{(\ref{general_equation_1})}.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.2.
+Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
+устойчиво по вероятности, если для любых $\varepsilon_{1},$ $\varepsilon_{2}>0$ 
+существует~$\delta > 0$ такое, что для каждого $\beta$-слабого решения $X(t)$ 
+уравнения~(\ref{general_equation_1}), удовлетворяющего условию $|X(0)| \le \delta$ п.н., 
+выполняется неравенство 
+$\p\left(\sup_{t \ge 0} |X(t)| > \varepsilon_{1}\right) < \varepsilon_{2}$.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.3.
+Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
+асимптотически устойчиво по вероятности, если нулевое решение 
+уравнения~(\ref{general_equation_1}) устойчиво по вероятности и для любого 
+$\varepsilon> 0$ существует~$ \delta > 0$ такое, что для каждого $\beta$-слабого 
+решения $X(t)$ уравнения~(\ref{general_equation_1}), удовлетворяющего условию
+$|X(0)| \le \delta$ п.н., выполняется неравенство
+$\p\left(\lim_{t \to \infty} X(t) = 0\right) \ge 1 -\varepsilon$.
+
+Исследуем устойчивость $\beta$-слабого нулевого решения стохастического 
+дифференциального уравнения c выделенной линейной 
+частью вида 
+\begin{equation}\label{mainSys}
+dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
+\end{equation}
+Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
+непрерывная функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
+удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
+
+Наряду с уравнением~(\ref{mainSys}) рассмотрим линейное однородное 
+детерминированное уравнение
+\begin{equation}\label{auxillarySys}
+dX(t) = A(t)X(t)dt,\quad t\ge 0,
+\end{equation}
+Через $X^{(s,x)}(t)$ будем обозначать (единственное) решение уравнения~(\ref{auxillarySys}), 
+удовлетворяющее равенству $X^{(s,x)}(s) = x$.
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.4. Будем говорить, что уравнение~(\ref{auxillarySys}) имеет 
+\textit{равномерно экспоненциально устойчивое} нулевое решение, если существуют 
+константы $\Lambda, \lambda > 0$, не зависящие от $s$, $x$, такие, что для любых 
+$s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство 
+$$
+|X^{(s,x)}(t)|^2\le\Lambda|x|^2 e^{-\lambda(t-s)}.
+$$
+
+\textbf{Теорема 5.3.} [\ref{VestnikBGU}].
+\textit{Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
+при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
+что выполняются  неравенства}
+\begin{equation}
+|f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
+\end{equation}
+\textit{для любых $\,x$, $|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
+а система~\textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
+устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
+асимптотически устойчивое по вероятности  нулевое решение.}
+
+Пусть $H$ и $K$ --- сепарабельные гильбертовы пространства, 
+$\mathfrak{L}_2(K,H)$ --- пространство операторов Гильберта-Шмидта, 
+действующих из $K$ в $H$, $Q$ --- ядерный симметрический положительно 
+определенный оператор на пространстве~$K$, $W(t,\omega)$ --- $Q$-броуновское 
+движение со значениями в $K$ и ковариационным оператором $Q$. Во второй части 
+главы 5 рассматриваются эволюционные функциональные уравнения в 
+пространстве $H$ следующего вида:
+\begin{equation}\label{MostGeneralEq}
+dX(t,\omega)=AX(t,\omega)dt+f(t, X(t, \omega))dt+
+g(t, X(t, \omega))dW(t,\omega),
+\quad(t,\omega) \in \mathbb{R}^+\times\Omega
+\end{equation}
+относительно $X \in H$ с начальным условием
+\begin{equation}\label{MostGeneralStartCond}
+X(0,\omega)=\xi(\omega),  \quad \omega \in \Omega,
+\end{equation}
+где $f\colon\mathbb{R}^+\times H \to H$,
+$g\colon\mathbb{R}^+\times H \to \mathfrak{L}_2(K,H)$ --- 
+измеримые, непрерывные по $X$ (при любом фиксированном 
+$t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор, 
+определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
+$C_0$-полугруппу $S(t)$ на~$H$, $\xi:\Omega \to \EuScript D(A)$ --- 
+$\mathcal{F}_0$-измеримая случайная величина, имеющая конечный 
+момент $\E\|\xi\|^p<\infty$ порядка $p>2$. 
+В дальнейшем для сокращения обозначений аргумент $\omega$ будем опускать. 
+Все интегралы ниже записаны в предположении их существования и конечности.
+
+Относительно функций $f(t, X)$ и $g(t, X)$ будем 
+предполагать, что выполнены два условия:
+
+\begin{enumerate}
+\item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
+постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
+$\,\varphi,\psi\in H$, таких, что
+$\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
+$$
+\|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
+\|g(t,\varphi) - g(t,\psi)\|\le q_a\|\varphi-\psi\|.
+$$
+\item \textit{Условие линейного порядка роста}. Существует непрерывная 
+функция~$k\colon\mathbb{R}^+\to\mathbb{R}^+$ такая, что для всех 
+$t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
+$$
+\|f(t,\eta)\|\le k(t)(1+ \|\eta\|), \quad \|g(t,\eta)\|\le k(t)(1+ \|\eta\|).
+$$
+\end{enumerate}
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.5. Случайный процесс $\,X(t),\,t\, \ge 0\,$ 
+называют слабым решением уравнения~(\ref{MostGeneralEq}) с начальным условием 
+(\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
+\begin{enumerate}
+\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
+\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
+\item $
+X(t)=
+S(t)\xi +\int \limits_0^t \!S(t{-}s)f(s,X(s))ds+\int \limits_0^t
+\!S(t{-}s)g(s,X(s))dW(s), \,t\ge 0.
+$
+\end{enumerate}
+
+О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.8. Пусть положительная функция $\lambda(t)$ 
+определена для достаточно больших $t>0$, скажем, $t\ge T > 0$. Предположим, что
+\begin{enumerate}
+\item $\lim\limits_{t\to\infty}\lambda(t) = \infty$.
+\item $\ln\lambda(t)$ равномерно непрерывна по $t\ge T$.
+\item Существует константа $\tau\ge 0$ такая, что 
+$\lim_{t\to\infty}\sup\frac{\ln\ln t}{\ln\lambda(t)}\le\tau$.
+\end{enumerate}
+Будем говорить, что слабое решение задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond})
+притягивается к нулю со скоростью $\lambda(t)$, если найдется $\gamma>0$ такое, 
+что п.н. выполняется неравенство
+$$
+\lim_{t\to\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le-\gamma.
+$$
+
+Рассмотрим функционал $V(t,x)$ класса $C^{1,2}(\mathbb{R}^+{\times} H, 
+\mathbb{R}^+)$, т.е. принимающий значения в $\mathbb{R}^+$ и имеющий 
+непрерывные производные по Фреше по переменной $t\in\mathbb{R}^+$ --- 
+до первого порядка, по переменной $x\in H$ --- до второго порядка 
+(включительно). Введем операторы $L$, $B$,
+действующие на $V$ следующим образом:
+\begin{gather}
+LV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t, x)\rangle_H + 
+\nonumber\\ 
+\label{3.1}
++\frac{1}{2}\textup{tr}[V''_{xx}(t,x)(g(t, x)Q^{1/2})
+(g(t, x)Q^{1/2})^\star],
+\quad (t,x)\in\mathbb{R}^+{\times} \EuScript D(A),\\
+BV(t,x) = \textup{tr}[V''_{xx}(t,x)\otimes 
+V''_{xx}(t,x)(g(t, x)Q^{1/2})(g(t, x)Q^{1/2})^\star],\nonumber\\
+\label{3.2}
+(t,x)\in\mathbb{R}^+{\times}H.
+\end{gather}
+
+\textbf{Теорема 5.4.} [\ref{DiffJournal}].
+\textit{Пусть задан функционал $V(t,x)\in C^{1,2}(\mathbb{R}^+{\times} H, 
+\mathbb{R}^+)$ и две неотрицательные непрерывные функции 
+$\psi_1(t)$, $\psi_2(t)$. Предположим, что существуют 
+постоянные $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
+невозрастающая положительная функция $\zeta(t)$ такие, что 
+$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены 
+следующие условия:}
+\begin{enumerate}
+\item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
+\mathbb{R}^+{\times}H$.
+\item $LV(t, x) + \zeta(t)BV(t, x) \le \psi_1(t) + 
+\psi_2(t)V(t, x)\;$ для всех $(t,x)\in \mathbb{R}^+{\times}\EuScript D(A)$.
+\item $\lim\limits_{t\to+\infty}\sup\frac{
+\ln\left(\int_0^t\psi_1(s)\,ds\right)}{\ln\lambda(t)}\,{\le}\,\nu$, 
+$\quad\lim\limits_{t\to+\infty}\sup
+\frac{\int_0^t\psi_2(s)\,ds}{\ln\lambda(t)}\,{\le}\,\theta$, 
+$\quad\lim\limits_{t\to+\infty}\inf\frac{\ln\zeta(t)}{\ln\lambda(t)}\,
+{\ge}\,{-}\mu$.
+\end{enumerate}
+\textit{Тогда слабое решение 
+задачи~\textup{(\ref{MostGeneralEq})},~\textup{(\ref{MostGeneralStartCond})} 
+притягивается к нулю со скоростью~$\lambda(t)$.}
