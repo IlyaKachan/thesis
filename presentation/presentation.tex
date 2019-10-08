@@ -117,7 +117,7 @@
     \textbf{Некоторые сферы применения}: обобщение задач математической физики, 
     фильтрации, нейрофизиологии, генетики популяции, финансовой математики.
 
-    \textit{Монографии}: Дж. Да Прато, Е. Забзик (1992), Б. Оксендаль (2003).
+    \textit{Монографии}: Дж. Да Прато, Е. Забчик (1992), Б. Оксендаль (2003).
   \end{block}
 
 \end{frame}
@@ -289,16 +289,78 @@
     класса $C^4_b$.
   \end{block}
 
-\begin{block}{Применение теоремы 3.1}
-Пусть $g\in C^5_b (\mathbb{R}, \mathbb{R})$, тогда справедливо 
-асимптотическое разложение следующего вида:
-\begin{gather*}
-\textbf{P}_t g(x) = g(x) + t\,b(x)Dg(x) + 
-\frac{1}{2} t^2 \left(b(x)Db(x)Dg(x) + b^2(x) D^2g(x)\right) +\\ 
-+\frac{1}{2} t^{2H}\left(\sigma(x)D\sigma(x)Dg(x) + \sigma^2(x) D^2g(x)\right) +
- O\left(t^{3H}\right).
-\end{gather*}
-\end{block}
+  \begin{block}{Применение теоремы 3.1}
+    Пусть $g\in C^5_b (\mathbb{R}, \mathbb{R})$, тогда справедливо 
+    асимптотическое разложение следующего вида:
+    \begin{gather*}
+      \textbf{P}_t g(x) = g(x) + t\,b(x)Dg(x) + 
+      \frac{1}{2} t^2 \left(b(x)Db(x)Dg(x) + b^2(x) D^2g(x)\right) +\\ 
+      +\frac{1}{2} t^{2H}\left(\sigma(x)D\sigma(x)Dg(x) + \sigma^2(x) D^2g(x)\right) +
+      O\left(t^{3H}\right).
+    \end{gather*}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Глава 3: уравнения Колмогорова}
+
+  \begin{block}{Коммутативный случай}
+    Предположим, что компоненты 
+    $f_i\colon \mathbb{R}^n\to \mathbb{R}^{n}$ правой части
+    уравнения~(\ref{chapter3_main_eq_compact}) 
+    являются функциями класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
+    такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$, 
+    для любых $i, j = 0, \ldots, d$.
+  \end{block}
+
+  \begin{block}{Теорема 3.3}
+    Для любой функции $g\in C^{d+3}_b(\mathbb{R}^n, \mathbb{R})$ 
+    справедливо равенство
+    \vspace{-1ex}
+    $$
+      \E\left(g(X^{x}_t)\right) = \left(\exp\left(t D_f^{(0)} + 
+      \frac{1}{2}\sum_{i=1}^d t^{2H_i}(D_f^{(i)})^2\right) g\right)(x).
+      \vspace{-1ex}
+    $$
+    Другими словами, функция $\varphi(t,x) = \E \left(g(X^{x}_t)\right)$
+    удовлетворяет дифференциальному уравнению в частных производных
+    \vspace{-1ex}
+    \begin{equation}\label{chapter_3_commut_case_main_eq}
+      \frac{\partial \varphi}{\partial t} = D_f^{(0)}\varphi + 
+      \sum_{i=1}^d H_it^{2H_i - 1} (D_f^{(i)})^2 \varphi,
+      \vspace{-1ex}
+    \end{equation}
+    с начальным условием
+    \begin{equation}
+      \varphi(0, x) = g(x).
+    \end{equation}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Глава 3: уравнения Колмогорова, пример}
+
+  \begin{block}{}
+    Рассмотрим одномерное стохастическое дифференциальное 
+    уравнение:
+    $$dX_t = \sin X_t \,dt + 2H^{-1}\sin X_t \,dB^H_t,$$
+    в котором $B^H_t$ --- одномерное дробное броуновское движение с индексом 
+    Харста $H\in(1/3,1)$. Пусть также задано начальное условие 
+    $X_0 = x\in\mathbb{R}$.
+  \end{block}
+
+  \begin{block}{Применение теоремы 3.3}
+    Функция $\varphi(t,x) = \E g(X^x_t)$ будет являться решением 
+    уравнения в частных производных
+    $$
+      \frac{\partial\varphi}{\partial t} = \left(\sin x + t^{2H-1}\sin 2x\right)
+      \frac{\partial\varphi}{\partial x} + \frac{4t^{2H-1}}{H}\sin^2 x\, 
+      \frac{\partial^2\varphi}{\partial x^2}
+    $$
+    с начальным условием $\varphi(0,x) = g(x)$.
+  \end{block}
 
 \end{frame}
 
@@ -501,7 +563,7 @@
     Соответствующее линейное неоднородное уравнение:
     \begin{gather*}
       dy(t) = \left(\alpha +(n-1)\left(-\beta + \frac{\gamma^2n}{2}\right)y(t)\right)dt +\\
-      + \gamma(1-n)y(t)dW(t)  + \delta (1-n)y(t)dB(t),
+      + \gamma(1-n)y(t)dW(t)  + \delta (1-n)y(t)dB(t).
     \end{gather*}
   \end{block} 
 
