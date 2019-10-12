@@ -24,7 +24,7 @@
 (сокращенно ucp, см. \cite[c. 57]{Protter}), если для любого $\varepsilon > 0$ и 
 $T\ge 0$ выполнено равенство
 $$
-\lim_{n\to\infty} \Prob\left\{\sup_{0\le t\le T} |X_n(t) - X(t)| > \varepsilon \right\} = 0.
+\lim_{n\to\infty} \Prob\left(\sup_{0\le t\le T} |X_n(t) - X(t)| > \varepsilon \right) = 0.
 $$
 
 Следуя \cite{Russo_Vallois_1, Russo_Vallois, Russo_Vallois_2}, для непрерывных 
@@ -336,17 +336,17 @@ $\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} < \varepsilon_2$.
 
 Используя явную формулу для решения, получим: 
 $$
-\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} = \Prob\left\{
+\Prob(\sup_{t\ge 0}|x(t)| > \varepsilon_1) = \Prob\left(
   \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
   \ln\frac{\varepsilon_1}{|x(0)|}
-\right\}.
+\right).
 $$
 Применим неравенство Чебышева:
 $$
-\Prob\left\{
+\Prob\left(
   \sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right) > 
   \ln\frac{\varepsilon_1}{|x(0)|}
-\right\} \le \frac{
+\right) \le \frac{
   \E\sup_{t\ge 0}\left(-t^2 + \int_0^t \tau^{1-H}dB(\tau)\right)
 }{\ln\varepsilon_1 - \ln|x(0)|}
 $$
@@ -364,7 +364,7 @@ $$
 $\tau^{1-H}$ и связь $1/H$-вариации с величиной $\|\cdot\|_H$ 
 \cite[с. 170]{Friz_Victoir}. Таким образом,
 $$
-\Prob\{\sup_{t\ge 0}|x(t)| > \varepsilon_1\} \le 
+\Prob(\sup_{t\ge 0}|x(t)| > \varepsilon_1) \le 
 \frac{\E\sup_{t\ge 0}t(C\|B\|_H - t)}{\ln\varepsilon_1 - \ln|x(0)|} \le
 \frac{\frac{1}{4}C^2\E\|B\|^2_H}{\ln\varepsilon_1 - \ln|x(0)|}.
 $$

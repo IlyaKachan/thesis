@@ -362,7 +362,7 @@ $|f(t, x)| + |g(t, x)| \le\linebreak\le C(1+|x|)$.
 
 Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
 \mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, $G(t,x)$ и
-$F(t,x)$, содержащими соответственно матрицы $\sigma(t, x)$, $g(t, x)$ и вектор $f(t,x)$ 
+$F(t,x)$, содержащие соответственно матрицы $\sigma(t, x)$, $g(t, x)$, вектор $f(t,x)$ 
 и все предельные точки $\sigma(t,x')$, $g(t,x')$ и $f(t, x')$ при $x'\to x$.
 
 \begin{definition} 
@@ -485,8 +485,8 @@ $|x| \le \delta$, и всех $t \in \mathbb{R}^{+}$,
 \begin{equation}\label{mainSys}
 dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
 \end{equation}
-Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
-непрерывная функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
+Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно-непрерывная
+функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
 удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
 
 Наряду с уравнением~(\ref{mainSys}) рассмотрим линейное однородное 
@@ -736,7 +736,7 @@ $\mathcal{F}_0$-измеримая случайная величина, имеющая конечный
 \begin{enumerate}
 \item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
 постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
-$\,\varphi,\psi\in H$, таких, что
+$\,\varphi,\psi\in H$ таких, что
 $\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
 \begin{equation}\label{LocalLipshitsCond}
 \|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
@@ -1083,7 +1083,7 @@ V''_{xx}(t,x)(g(t, x)Q^{1/2})(g(t, x)Q^{1/2})^\star],\nonumber\\
 $\psi_1(t)$, $\psi_2(t)$. Предположим, что существуют положительные 
 $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
 невозрастающая положительная функция $\zeta(t)$ такие, что 
-$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены 
+$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0$, и выполнены 
 следующие условия:
 \begin{enumerate}
 \item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
@@ -1114,7 +1114,9 @@ V(t, X^{(l)}(t)) = V(0,\xi) + I_1(t,l) +
 где $I_1$, $I_2$, $L_l$ определяются формулами~(\ref{3.4}) ---~(\ref{3.6}):
 \begin{gather}\label{3.4}
 I_1(t,l) = \int_0^t L_l V(s, X^{(l)}(s))\,ds\, - 
-\int_0^t LV(s, X^{(l)}(s))\,ds,\\ \label{3.5}
+\int_0^t LV(s, X^{(l)}(s))\,ds,
+\end{gather}
+\begin{gather}\label{3.5}
 I_2(t,l) = 
 \int_0^t\langle V'_x(s, X^{(l)}(s)), R(l)g(s,X^{(l)}(s))dW(s)\rangle -\nonumber \\ 
 -\int_0^t\langle V'_x(s, X(s)), g(s,X(s))dW(s)\rangle,\\

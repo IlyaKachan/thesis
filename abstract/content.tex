@@ -27,7 +27,7 @@ $f_i:\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots, d$.
 Через $X_t^x$ будем обозначать решение уравнения~(\ref{chapter3_main_eq_compact}) 
 с начальным условием $X_0=x \in \mathbb{R}^n.$
 
-Для определение решения уравнения~(\ref{chapter3_main_eq_compact}) потребуются 
+Для определения решения уравнения~(\ref{chapter3_main_eq_compact}) потребуются 
 некоторые понятия теории грубых траекторий\footnote{
 \textit{Friz, P.}\; A Course on Rough Paths with an introduction to regularity 
 structures~/ P. Friz, M. Hairer. --- Cham : Springer International Publishing 
@@ -154,7 +154,7 @@ Vol. 45, № 1. ---~P.~157--174.
 причем $X' = f(X)$, $(f(X), (f(X))')\in \mathcal{D}^{2H}_B([0, T], 
 \mathbb{R}^{n\times(d+1)})$ п.н. Более того, если $H_i> H^*\ge1/2$ для 
 всех $i=0,\ldots, d,$ то справедливо включение 
-$X \in C^{H^*}([0,T], \mathbb{R}^{n})$ п.н. и интеграл в определении решения 
+$X \in\linebreak\in C^{H^*}([0,T], \mathbb{R}^{n})$ п.н. и интеграл в определении решения 
 уравнения \textup{(\ref{chapter3_main_eq_compact})} является потраекторным 
 интегралом Янга.}
 
@@ -208,12 +208,12 @@ $\|f\|_{C^3_b}$.}
 
 Будем придерживаться следующих компактных записей:
 \begin{gather}
-\Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\} \\
+\Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\}, \\
 \int_{\Delta^k[0,t]} dB^{(I_k)}= \int_0^t\int_0^{t_k}\ldots 
 \int_0^{t_2} dB^{(i_1)}_{t_1} \ldots dB^{(i_{k-1})}_{t_{k-1}}dB^{(i_k)}_{t_k},\\
  I_k=(i_1,\ldots, i_k)\in \mathbb{N}^k_d:=\{0,\ldots, d\}^k,\\
 \quad D^{(i)}_f = \sum_{j=1}^n f_{ji}(x)\frac{\partial}{\partial x_j},\; 
-i \in \{0,\ldots, d\}\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f, \\
+i \in \{0,\ldots, d\},\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f, \\
 \textbf{P}_t g(x) = \E g(X^{x}_t),\quad t\ge 0.
 \end{gather}
 Основной результат третьей главы представлен следующей теоремой.
@@ -221,7 +221,7 @@ i \in \{0,\ldots, d\}\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f, \\
 \textbf{Теорема 3.1.} [\ref{DokladyNanRB}, \ref{StochasticAnalysis}].
 \textit{Пусть $f\in C^{N+2}_b(\mathbb{R}^n, \mathbb{R}^{n \times (d+1)})$,
 $g\in C^{N+3}_b(\mathbb{R}^n, \mathbb{R})$, \linebreak $N\in\mathbb{N}$. Тогда для любого 
-фиксированного $H\in(1/3, 1/2]$ такого, что $H <\linebreak< H_{min} = 
+фиксированного $H\in(1/3, 1/2]$ такого, что $H <\linebreak< H_{\textup{min}} = 
 \min\limits_{i=0,\ldots d} H_i$ справедливо следующее асимптотическое разложение:}
 \begin{equation}
 \textup{\textbf{P}}_t g(x) = g(x) + 
@@ -238,7 +238,7 @@ B^{(i_k)}$.}
 $f_i\colon \mathbb{R}^n\to \mathbb{R}^{n}$ правой части
 уравнения~(\ref{chapter3_main_eq_compact}) 
 являются функциями класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
-такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$, 
+такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$
 для любых $i, j = 0, \ldots, d$. В таком случае справедлива следующая теорема.
 
 \textbf{Теорема 3.3} [\ref{StochasticAnalysis}]
@@ -412,7 +412,7 @@ $|f(t, x)| + |g(t, x)| \le C(1+|x|)$.
 
 Пусть $\sigma(t,x) = g(t,x)g(t,x)^\top$. Для каждого $(t, x) \in \mathbb{R}^{+} \times
 \mathbb{R}^{d}$ построим наименьшие выпуклые замкнутые множества $A(t,x)$, 
-$F(t,x)$, содержащими соответственно матрицу $\sigma(t, x)$ и вектор $f(t,x)$ 
+$F(t,x)$, содержащие соответственно матрицу $\sigma(t, x)$, вектор $f(t,x)$ 
 и все предельные точки $\sigma(t,x')$ и $f(t, x')$ при $x'\to x$. Будем использовать  
 обозначение $C(\mathbb{R}^+, \mathbb{R}^d)$ для пространства непрерывных функций 
 $\varphi\colon\mathbb{R}^+\to\mathbb{R}^d$, а символ $\mathcal{B}$ --- для борелевской
@@ -470,8 +470,8 @@ $\p\left(\lim_{t \to \infty} X(t) = 0\right) \ge 1 -\varepsilon$.
 \begin{equation}\label{mainSys}
 dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
 \end{equation}
-Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно 
-непрерывная функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
+Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно-непрерывная 
+функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
 удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
 
 Наряду с уравнением~(\ref{mainSys}) рассмотрим линейное однородное 
@@ -535,7 +535,7 @@ $\mathcal{F}_0$-измеримая случайная величина, имеющая конечный
 \begin{enumerate}
 \item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
 постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
-$\,\varphi,\psi\in H$, таких, что
+$\,\varphi,\psi\in H$ таких, что
 $\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
 $$
 \|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
@@ -602,7 +602,7 @@ V''_{xx}(t,x)(g(t, x)Q^{1/2})(g(t, x)Q^{1/2})^\star],\nonumber\\
 $\psi_1(t)$, $\psi_2(t)$. Предположим, что существуют 
 постоянные $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и 
 невозрастающая положительная функция $\zeta(t)$ такие, что 
-$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0 $ и выполнены 
+$\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0$, и выполнены 
 следующие условия:}
 \begin{enumerate}
 \item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 

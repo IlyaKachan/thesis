@@ -19,13 +19,13 @@
 
 ¬ данном разделе будем придерживатьс€ следующих компактных записей:
 \begin{gather} \label{bounds_3_39}
-\Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\} \\ \nonumber
+\Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\}, \\ \nonumber
 \int_{\Delta^k[0,t]} dB^{(I_k)}= \int_0^t\int_0^{t_k}\ldots 
 \int_0^{t_2} dB^{(i_1)}_{t_1} \ldots dB^{(i_{k-1})}_{t_{k-1}}dB^{(i_k)}_{t_k},\\
  I_k=(i_1,\ldots, i_k)\in \mathbb{N}^k_d:=\{0,\ldots, d\}^k,\\ 
  \label{bounds_3_41}
 \quad D^{(i)}_f = \sum_{j=1}^n f_{ji}(x)\frac{\partial}{\partial x_j},\; 
-i \in \{0,\ldots, d\}\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f,\\
+i \in \{0,\ldots, d\},\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f,\\
 \textbf{P}_t g(x) = \E g(X^{x}_t),\quad t\ge 0.
 \end{gather}
 ¬ дальнейшем дл€ краткости будем опускать верхний индекс $x$ и обозначать 
@@ -34,7 +34,7 @@ i \in \{0,\ldots, d\}\qquad D^{(I_k)}_f = D^{(i_1)}_f\ldots D^{(i_k)}_f,\\
 \begin{theorem}\label{chapter_3_asympt_development}
 ѕусть $f\in C^{N+2}_b(\mathbb{R}^n, \mathbb{R}^{n \times (d+1)})$,
 $g\in C^{N+3}_b(\mathbb{R}^n, \mathbb{R})$, $N\in\mathbb{N}$. “огда дл€ любого 
-фиксированного $H\in(1/3, 1/2]$ такого, что $H < H_{min} =\linebreak= 
+фиксированного $H\in(1/3, 1/2]$ такого, что $H < H_{\textup{min}} =\linebreak= 
 \min\limits_{i=0,\ldots d} H_i$ справедливо следующее асимптотическое разложение:
 \begin{equation}\label{bounds_3_43}
 \textup{\textbf{P}}_t g(x) = g(x) + 
@@ -784,7 +784,7 @@ $\textbf{P}_t g(x)$, $g\in C^5_b (\mathbb{R}, \mathbb{R})$ справедливо
 ¬ данном разделе будем предполагать, что компоненты $f_i\colon \mathbb{R}^n\to 
 \mathbb{R}^{n}$ правой части уравнени€~(\ref{chapter3_main_eq_compact}) 
 €вл€ютс€ функци€ми из класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
-такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$, 
+такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$ 
 дл€ любых $i, j =\linebreak= 0, \ldots, d$. 
 
 ƒл€ каждого $i=0, \ldots, d$ обозначим через $(e^{tD_f^{(i)}})_{t\in\mathbb{R}}
