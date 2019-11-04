@@ -86,7 +86,7 @@ G(t, x, y) = \frac{2}{l}\sum_{n=1}^\infty e^{-(\pi n / l)^2 t}
 $\mathcal{W}^{k,p}[a,b]$~--- пространство Cоболева классов эквивалентности функций 
 $f\colon[a,b]\to\mathbb{R}$, имеющих обобщенные производные
 класса $L_p[a,b]$ до порядка $k$ включительно, $k\in\mathbb{N}$.
-Пусть $H = \{z(\cdot)\in L_2[a,b] \,:\, z(0)=z(l)=0\}$ --- гильбертово пространство,
+Пусть $H = L_2[a,b]$ --- гильбертово пространство,
 $X(t) = u(t,\cdot)\in H$, $F(t) = f(t,\cdot)\in H$, $\psi = \varphi(\cdot)\in H$, 
 $A = a^2\frac{\partial^2}{\partial x^2}$ --- оператор, действующий из 
 $H$ в $H$, с областью определения
@@ -1294,7 +1294,7 @@ X^1_t \sin X^1_t + \|X_t(x)\|_H\right)^\top,\\ \nonumber
 g(t, \bar X_t) = \alpha e^{-\frac{mt}{2}}\left(X_t(x), 
 \left(\int_0^\pi X_t(x)^2dx\right)^{1/2}\right)^\top, \ 
 \bar A = \begin{pmatrix}A & 0\\ 0 & 0\end{pmatrix}, \\ \nonumber
-A = \frac{d^2}{dx^2}, \quad \EuScript{D}(A) = \{u\in C_2[0,\pi]: 
+A = \frac{d^2}{dx^2}, \quad \EuScript{D}(A) = \{u\in \mathcal{W}^{2,2}[0,\pi]: 
 u(0)=u(\pi) = 0\}
 \end{gather}
 
