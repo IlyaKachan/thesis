@@ -462,10 +462,9 @@ $V\colon\mathbb{R}^{+} {\times}\mathbb{R}^{d} \to \mathbb{R}^{+}$,
 дифференцируемая по $t \in \mathbb{R}^{+}$, дважды дифференцируемая по~$x$,
 удовлетворяющие условиям:
 
-\textup{1)} $BV(t, x) < \beta(\varepsilon) < 0$  при всех $x$
-таких, что $\varepsilon \le |x| \le \delta,$ и
-при всех~$t \in \mathbb{R}^{+}$, где 
-$\beta : \mathbb{R}^{+} \to \mathbb{R}^{-}$ -- некоторая функция;
+\textup{1)} Для любого $\varepsilon \in (0, \delta)$ существует $\beta(\varepsilon) < 0$ 
+такое, что выполняется неравенство $BV(t, x) < \beta(\varepsilon)$ при всех $x$
+таких, что $\varepsilon \le |x| \le \delta,$ и всех~$t \in \mathbb{R}^{+}$;
 
 \textup{2)} $\lim\limits_{x \to 0} \sup\limits_{t>0}V(t, x) = 0$;
 
@@ -523,16 +522,13 @@ s\in\mathbb{R}^+,\,x\in\mathbb{R}^d,\,\varphi\in C_h.
 \end{gather}
 
 \begin{theorem}\label{mainTheorem}
-Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
-при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
-что выполняются  неравенства
+Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что выполнены соотношения
 \begin{equation}\label{mainTheorem_eq1}
-|f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
+\frac{|f(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0,\qquad \frac{|g(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0
 \end{equation}
-для любых $\,x$, 
-$|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
-а система \textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
-устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
+равномерно по $t\in\mathbb{R}^+$, а система \textup{(\ref{auxillarySys})} 
+имеет равномерно экспоненциально устойчивое нулевое решение. 
+Тогда система~\textup{(\ref{mainSys})} имеет 
 асимптотически устойчивое по вероятности  нулевое решение.  
 \end{theorem}\par
 

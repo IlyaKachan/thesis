@@ -50,7 +50,7 @@
 % Add a date and possibly the name of the event to the slides
 %  - again first a short version to be shown at the bottom of each slide
 %  - second the full date and event name for the title slide
-\date[10 октября 2019]{
+\date[12 ноября 2019]{
   Минск, 2019}
 
 \begin{document}
@@ -122,6 +122,60 @@
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Введение: теория грубых траекторий}
+
+  \begin{block}{Одномерное ДУ $dy_t = f(y_t)dx_t$, управляемое $x_t\in C^{1-var}$}
+    $$
+      y_t = y_s + \int_s^t f(y_\tau)dx_\tau \Rightarrow
+      y_t = y_s + \sum_{n=1}^\infty (V^n_f f)(y_s) \int_{s<t_1<\ldots < t_n < t}dx_{t_1}\ldots dx_{t_n},
+    $$
+    где $(V_f g)(x) = f(x)g'(x)$. Таким образом, можно положить по определению
+    $$
+      \int_s^t f(y_\tau)dx_\tau := \sum_{n=1}^\infty (V^n_f f)(y_s) 
+      \int_{s<t_1<\ldots < t_n < t}dx_{t_1}\ldots dx_{t_n}.
+    $$
+    и поставить в соответствие $x\in C^{1-var} \mapsto \mathcal{J}(x) = 1 + \sum_{k=1}^\infty \int_{\Delta^k} dx^{\otimes k}$.
+  \end{block}
+
+  \begin{block}{Многомерное ДУ $dy_t = f(y_t)dx_t$, управляемое $x_t\in C^{p-var}$}
+    \textbf{Теорема Лайонса} (1998). $x\in C^{p-var}(\mathbb{R}, \mathbb{R}^d) 
+      \Rightarrow \mathcal{J}(x) = 1 + \sum_{k=1}^{[p]} \int_{\Delta^k} dx^{\otimes k}$,
+      $\mathcal{J}(x) \in \mathbb{T}^{[p]}(\mathbb{R}^d) := 
+      \otimes^{[p]}_{k=0} (\mathbb{R}^d)^{\otimes k}$.
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Введение: теория грубых траекторий}
+
+  \begin{block}{Процесс второго порядка}
+    Пусть $W$ --- конечномерное БП над $\mathbb{R}$. 
+    Процессом второго порядка над $X\colon [0, T]\to W$ называется отображение
+    $\mathbb{X}\colon[0,T]^2\to W^{\otimes 2}$, удовлетворяющее тождеству Чена:
+    $$
+      \mathbb{X}_{s,t} - \mathbb{X}_{s, u} - \mathbb{X}_{u, t} = 
+      (X_u - X_s) \otimes (X_t - X_u), \forall (s,u,t)\in[0,T]^3.
+    $$
+  \end{block}
+
+  \begin{block}{}
+    \textbf{Пример}. Если отображение $X\colon [0, T]\to \mathbb{R}$ достаточно 
+    регулярное и определен интеграл Янга
+    $$
+      I_{s,t} = \int_s^t (X_r - X_s)dX_r = \iint_{s<r<\tau<t} dX_r dX_\tau,
+    $$
+    то $I_{s,t}$ является примером процесса второго порядка над $X$, а тождество
+    Чена выражает свойство аддитивности кратного интеграла:
+    $$
+      \int_s^t (X_r - X_s)dX_r = \int_s^u (X_r - X_s)dX_r + \int_u^t (X_r - X_u) dX_r + 
+      (X_u - X_s)(X_t - X_u).
+    $$
+  \end{block}
+
+\end{frame}
+
 \section{Результаты диссертации}
 
 \begin{frame}
@@ -152,6 +206,109 @@
   
 \end{frame}
 
+\begin{frame}{Глава 2: процесс второго порядка}
+
+\begin{block}{Процесс второго порядка над $B_t$}
+\vspace{-2ex}
+\begin{gather*}
+\mathbb{B}\colon [0,T]^2\times \Omega \to \mathbb{R}^{(d+1)\times(d+1)}, \quad
+\mathbb{B}_{s,t} = \left(\mathbb{B}^{(i,j)}_{s,t}\right)^{d}_{i,j=0}.\\
+\mathbb{B}^{(i,j)}_{s,t} \stackrel{L^2}{=}
+\lim\limits_{|\mathcal{P}|\to 0}\int_{\mathcal{P}} B^{(i)}_{s,r} dB^{(j)}_{r}, 
+\;\; \int_{\mathcal{P}} B^{(i)}_{s,r} dB^{(j)}_{r} \!=\!\!\!\!\! 
+\sum\limits_{t_k, t_{k+1}\in\mathcal{P}} 
+\!\!\!\!\!B^{(i)}_{s, t_k}B^{(j)}_{t_k, t_{k+1}},\quad 1\le i < j \le d,\\
+\mathbb{B}^{(0,j)}_{s,t} =\int_s^t B^{(j)}_{s,r} dr \stackrel{\text{п.н.}}{=} 
+\lim\limits_{|\mathcal{P}|\to 0} \sum\limits_{t_k, t_{k+1}\in\mathcal{P}} 
+B^{(j)}_{s, t_k}(t_{k+1} - t_k),\quad 1\le j\le d,\\
+\mathbb{B}^{(i,i)}_{s,t} = \frac{1}{2} \left(B^{(i)}_{s,t}\right)^2,
+\quad 0\le i\le d,\\
+\mathbb{B}^{(i,j)}_{s,t} = -\mathbb{B}^{(j,i)}_{s,t} + 
+B^{(i)}_{s,t}B^{(j)}_{s,t},\quad 0\le j < i \le d
+\end{gather*}
+для любой пары $(s,t)\in [0,T]^2$, где 
+$\mathcal{P} = \{s=t_0 < t_1 < \ldots < t_{l} =t \}$ --- 
+произвольное разбиение отрезка $[s,t]$, $|\mathcal{P}| = 
+\max |t_{k+1}-t_k|$, а все пределы понимаются не зависящими от 
+последовательности разбиений $\mathcal{P}$. 
+
+Обозначения 
+$\stackrel{L^2}{=}$,  $\stackrel{\text{п.н.}}{=}$ применяются для того, 
+чтобы показать, что соответствующие пределы понимаются в смысле 
+$L^2(\Omega, \mathcal{F}, \Prob)$ и п.н. соответственно.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Глава 2: элементы теории грубых траекторий}
+
+\begin{block}{Обозначения}
+Пусть $\alpha \in (1/3,1/2]$.
+
+$V$, $W$ --- конечномерные банаховы пространства над $\mathbb{R}$.
+
+$C^\alpha([0,T], W) = \left\{Z\colon[0;T]\to W\;\Bigl|\;\|Z\|_\alpha = \sup\limits_{s,t\in[0,T]: s\ne t}\frac{|Z_t - Z_s|_W}{|t-s|^\alpha} < \infty\right\}.$
+
+Для функций $R \colon [0,T]^2 \to W$ обозначим $\|R\|_{2\alpha} = \sup_{s,t\in[0,T]: s\ne t}\frac{|R_{s,t}|_W}{|t-s|^{2\alpha}}.$
+
+Для функций $Z \colon [0,T] \to W$ обозначим их приращения как $Z_{s,t} = Z_t - Z_s$.
+
+$\mathcal{L}(W, V)$ --- пространство линейных ограниченных операторов, действующих из $W$ в~$V$.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Глава 2: элементы теории грубых траекторий}
+
+\begin{block}{Производная Губинелли}
+Говорят, что функция $Y\in C^\alpha([0,T], \mathcal{L}(W, V))$ управляется 
+функцией~$Z\in\linebreak\in C^\alpha([0,T], W)$, если существует $Y'\in C^\alpha\bigl([0,T], 
+\mathcal{L}(W, \mathcal{L}(W, V))\bigr)$ (называемое производной Губинелли $Y$),
+такое, что остаток $R^Y_{s,t} = Y_{s,t} - Y'_s Z_{s,t}$ удовлетворяет 
+неравенству $\|R^Y\|_{2\alpha} < +\infty$. Множество всех $(Y, Y')$ таких, 
+что~$Y$ управляется~$Z$, будем обозначать $\mathcal{D}^{2\alpha}_Z([0,T],
+\mathcal{L}(W, V))$.
+\end{block}
+
+\begin{block}{}
+\textbf{Пример}: $Z_t = t$, $Y_t - Y_s = \frac{dY_t}{dt}(t-s) + o(|t-s|)$. 
+Производная Губинелли $Y' = \frac{dY_t}{dt}$
+\end{block}
+
+\begin{block}{Множество управляемых функций}
+В терминах предыдущего определения, множество всех $(Y, Y')$ таких, 
+что~$Y$ управляется~$Z$, будем обозначать $\mathcal{D}^{2\alpha}_Z([0,T],
+\mathcal{L}(W, V))$.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Глава 2: потраекторный интеграл Губинелли и определение решения}
+
+\begin{block}{Потраекторный интеграл Губинелли (П. Фриц, М. Хайрер, 2014)}
+Пусть $(Y, Y')\in \mathcal{D}^{2\alpha}_Z([0, T], \mathcal{L}(W, V))$. Потраекторным 
+интегралом Губинелли $Y$ по $Z$ называют предел интегральных сумм
+$$
+\int_0^T Y_t \,dZ_t = \lim_{|\mathcal{P}|\to 0}\sum_{t_i, t_{i+1}\in\mathcal{P}}
+(Y_{t_i}Z_{t_i, t_{i+1}} + Y'_{t_i}\mathbb{Z}_{t_i, t_{i+1}}),
+$$
+где $|\mathcal{P}| = \max |t_{i+1}{-}t_i|$ --- диаметр разбиения 
+$\mathcal{P} = \{0{=}t_0 {<} t_1 {<} \ldots {<} t_{l} {=}T \}$, а предел понимается не 
+зависящим от последовательности разбиений $\mathcal{P}$.
+\end{block}
+
+\begin{block}{Решение основного уравнения}
+Случайный процесс $X_t$ такой, что $(X, X')\in
+\mathcal{D}^{2H}_B([0, T], \mathbb{R}^n)$ п.н., будем называть решением 
+уравнения~(\ref{chapter3_main_eq_compact}), если он п.н. удовлетворяет равенству
+$$
+X_t = X_0 + \int_0^t f(X_s) dB_s,\quad t\in [0, T],
+$$
+где интеграл понимается как потраекторный интеграл Губинелли.
+\end{block}
+
+\end{frame}
+
 \begin{frame}
   \frametitle{Глава 2: существование решений}
 
@@ -162,7 +319,7 @@
     $\varphi\colon V\to U$, имеющих непрерывные и
     ограниченные производные до порядка $k$ включительно с нормой 
     $\|\varphi\|_{C^k_b} = \sum_{j=0}^k \|D^j \varphi \|_{\infty}$, где
-    $\|D^j\varphi\|_{\infty} = \max_{x\in V}|D^j\varphi(x)|$.
+    $\|D^j\varphi\|_{\infty} = \sup_{x\in V}|D^j\varphi(x)|$.
   \end{block}
 
   \begin{block}{Теорема 2.1.}
@@ -400,8 +557,8 @@
   \end{block}
 
   \begin{block}{Решение простейшего уравнения}
-    Решение уравнения~(\ref{integration_of_mixed_simplest_eq}) выражается 
-    следующей формулой:
+    Решение уравнения~(\ref{integration_of_mixed_simplest_eq}) определяется следующим 
+    соотношением:
     \begin{equation*}
       y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) + 
       \int_0^t b(\tau)dB(\tau),\quad t\ge 0.
@@ -646,6 +803,11 @@
     $|f(t, x)| + |g(t, x)| \le C(1+|x|)$ (выполнено условие линейного порядка роста по $x$).
   \end{block}
 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Глава 5, раздел 5.2: основной результат}
+
   \vspace{-1ex}
   \begin{block}{Детерминированное линейное приближение}
     \begin{equation}\label{auxillarySys}
@@ -655,29 +817,24 @@
     такое, что $X^{(s,x)}(s) = x$.
   \end{block}
 
-\end{frame}
-
-\begin{frame}
-  \frametitle{Глава 5, раздел 5.2: основной результат}
-
-  \begin{block}{О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.4.}
+  \vspace{-1ex}
+  \begin{block}{}
     Будем говорить, что уравнение~(\ref{auxillarySys}) имеет 
     \textit{равномерно экспоненциально устойчивое} нулевое решение, если существуют 
     константы $\Lambda, \lambda > 0$, не зависящие от $s$, $x$, такие, что для любых 
     $s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство 
-    $$
+    $
       |X^{(s,x)}(t)|^2\le\Lambda|x|^2 e^{-\lambda(t-s)}.
-    $$
+    $
   \end{block}
 
+  \vspace{-1ex}
   \begin{block}{Теорема 5.3. [1].}
-    Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
-    при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
-    что выполняются  неравенства
+    Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что выполнены соотношения
     \begin{equation}
-      |f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
+      \frac{|f(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0,\qquad \frac{|g(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0
     \end{equation}
-    для любых $\,x$, $|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
+    равномерно по $t\in\mathbb{R}^+$,  
     а система~\textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
     устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
     асимптотически устойчивое по вероятности  нулевое решение.
@@ -825,6 +982,7 @@
       \label{3.2}
       (t,x)\in\mathbb{R}^+{\times}H.
     \end{gather}
+    ($Q$ --- ковариационный оператор броуновского движения $W(t)$)
   \end{block}
 \end{frame}
 
@@ -917,8 +1075,8 @@
 
   \vspace{-1ex}
   \begin{enumerate}
-    \setlength{\itemsep}{2pt}
-    \setlength{\parskip}{2pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{1pt}
     \item Формула замены переменных и теорема о непрерывной зависимости 
       от начальных данных решений стохастических дифференциальных уравнений, 
       управляемых дробными броуновскими движениями с различными 
@@ -927,8 +1085,10 @@
       нуля для математических ожиданий функционалов от решений стохастических 
       дифференциальных уравнений, управляемых дробными броуновскими 
       движениями с различными показателями Харста (теорема 3.1).
-    \item Методы точного интегрирования стохастических дифференциальных 
-      уравнений с дробными броуновскими движениями смешанного типа (теоремы 4.1, 4.2, 4.3).
+    \item Методы интегрирования стохастических дифференциальных уравнений с дробными 
+      броуновскими движениями смешанного типа, основанные на приведении к простейшим 
+      уравнениям, линейным неоднородным уравнениям и переходе к уравнению Стратоновича
+      (теоремы 4.1, 4.2, 4.3).
     \item Теорема об асимптотической устойчивости системы нелинейных 
       стохастических дифференциальных уравнений Ито с разрывными 
       коэффициентами по нестационарному линейному приближению. Достаточные 

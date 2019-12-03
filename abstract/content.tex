@@ -1,5 +1,5 @@
-{\let\clearpage\relax\vspace{6ex}
-\chapter*{\MakeUppercase{ОСНОВНАЯ ЧАСТЬ}}}
+{\let\clearpage\relax\vspace{4ex}
+\chapter*{\MakeUppercase{ОСНОВНАЯ ЧАСТЬ}}\vspace{-2ex}}
 
 В первой главе приводится обзор литературных источников по теме диссертации.
 
@@ -137,7 +137,7 @@ $\Prob(X_t = Y_t\; \forall t\in[0, T]) =~1$.
 $\varphi\colon V\to U$, имеющих непрерывные и
 ограниченные производные до порядка $k$ включительно с нормой 
 $\|\varphi\|_{C^k_b} = \sum_{j=0}^k \|D^j \varphi \|_{\infty}$, где
-$\|D^j\varphi\|_{\infty} = \max_{x\in V}|D^j\varphi(x)|$.
+$\|D^j\varphi\|_{\infty} = \sup_{x\in V}|D^j\varphi(x)|$.
 Следующая теорема дает достаточное 
 условие существования и единственности решения 
 уравнения~(\ref{chapter3_main_eq_compact}).
@@ -267,7 +267,7 @@ $d$-мерное стандартное броуновское движение
 $W(t)$ и $d$-мерное дробное броуновское движение 
 $B(t)$ c показателем Харста $H \in(1/2,1).$
 
-Объектом изучения четвертой главны является стохастическое дифференциальное 
+Объектом изучения четвертой главы является стохастическое дифференциальное 
 уравнение смешанного типа
 \begin{equation}\label{integration_of_mixed_main_eq}
 dx(t) = f(t,x(t))dt + g(t, x(t))dW(t) + \sigma(t, x(t)) dB(t),\quad t \ge 0,
@@ -306,8 +306,8 @@ P. 1053--1075.
 dy(t)=u(t)dt + v(t)dW(t) + b(t)dB(t),\quad t\ge 0.
 \end{equation}
 
-Решение уравнения~(\ref{integration_of_mixed_simplest_eq}) выражается 
-следующей формулой:
+Решение уравнения~(\ref{integration_of_mixed_simplest_eq}) определяется следующим 
+соотношением:
 \begin{equation*}
 y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) + 
 \int_0^t b(\tau)dB(\tau),\quad t\ge 0.
@@ -349,7 +349,9 @@ c постоянными коэффициентами $\alpha_1, \alpha_2, \beta_1, \beta_2, \gamma_1,
 \label{integration_of_mixed_linear_inhom_cond_1}
 A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
 \label{integration_of_mixed_linear_inhom_cond_2}
-\frac{(g(x)A'(x))'}{A'(x)} = c_1,\\ 
+\frac{(g(x)A'(x))'}{A'(x)} = c_1,
+\end{gather}
+\begin{gather} 
 \label{integration_of_mixed_linear_inhom_cond_3}
 \frac{\sigma(x)}{g(x)} = c_2,
 \end{gather}
@@ -491,13 +493,11 @@ $$
 $$
 
 \textbf{Теорема 5.3.} [\ref{VestnikBGU}].
-\textit{Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что 
-при достаточно малом $\varepsilon > 0$ найдется $\delta_\varepsilon > 0$ такое, 
-что выполняются  неравенства}
+\textit{Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что выполнены соотношения
 \begin{equation}
-|f(t, x)|\le\varepsilon|x|,\qquad |g(t, x)|\le\varepsilon|x|,
+\frac{|f(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0,\qquad \frac{|g(t, x)|}{|x|}\xrightarrow[x\to 0]{} 0
 \end{equation}
-\textit{для любых $\,x$, $|x|\le \delta_\varepsilon,\,t\in\mathbb{R}^+$, 
+равномерно по $t\in\mathbb{R}^+$,  
 а система~\textup{(\ref{auxillarySys})} имеет равномерно экспоненциально 
 устойчивое нулевое решение. Тогда система~\textup{(\ref{mainSys})} имеет 
 асимптотически устойчивое по вероятности  нулевое решение.}
