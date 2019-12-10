@@ -1,4 +1,4 @@
-{\let\clearpage\relax\vspace{4ex}
+{\let\clearpage\relax\vspace{2.2ex}
 \chapter*{\MakeUppercase{ОСНОВНАЯ ЧАСТЬ}}\vspace{-2ex}}
 
 \textbf{В первой главе} приводится обзор литературных источников по теме диссертации.
@@ -32,35 +32,29 @@ $f_i:\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots, d$.
 \textit{Friz, P.}\; A Course on Rough Paths with an introduction to regularity 
 structures~/ P. Friz, M. Hairer. --- Cham : Springer International Publishing 
 AG, 2014. --- 262 p.}.
-Будем обозначать через $U$, $V$, $W$ 
-конечномерные  банаховы пространства над полем $\mathbb{R}$. Множество функций, 
-непрерывных по Гельдеру с показателем~$\alpha \in (0,1]$, будем обозначать следующим 
-образом:
-$$
- C^\alpha([0,T], W) = \left\{Z\colon[0,T]\to W\;\Bigl|\;\|Z\|_\alpha =
- \sup\limits_{s,t\in[0,T]: s\ne t}\frac{|Z_t - Z_s|_W}{|t-s|^\alpha} 
- < \infty\right\}.
-$$
+Пусть $U$, $V$, $W$ --- конечномерные  банаховы пространства над полем $\mathbb{R}$. 
+Множество функций $Z\colon[0,T]\to W$, непрерывных по Гельдеру с показателем~$\alpha \in (0,1]$, 
+будем обозначать через $C^\alpha([0,T], W)$, а их коэффициент непрерывности --- 
+через $\|Z\|_\alpha =
+ \sup\limits_{s,t\in[0,T]: s\ne t}\frac{|Z_t - Z_s|_W}{|t-s|^\alpha}$.
 
 Через $C^\alpha_2([0,T]^2, U)$ будем обозначать множество функций двух переменных 
 $R(s,t) = R_{s,t}$, для каждой из которых существует константа~$C$ такая, что 
 $|R_{s,t}|\le C|t-s|^\alpha$ для всех~$(s,t)\in [0,T]^2$. Наименьшую такую 
-константу для функции $R$ будем обозначать следующим образом:
-$$\|R\|_{\alpha} = \sup_{s,t\in[0,T]: s\ne t}\frac{|R_{s,t}|_U}{|t-s|^\alpha}.$$
+константу для функции $R$ будем обозначать через $\|R\|_{\alpha} = 
+\sup_{s,t\in[0,T]: s\ne t}\frac{|R_{s,t}|_U}{|t-s|^\alpha}.$
 Отметим также, что если $Z\in C^\alpha([0,T], W)$ --- непрерывная по Гельдеру 
 функция одной переменной, то ее приращения $(s, t) \mapsto Z_t - Z_s$ 
 принадлежат множеству~$C^\alpha_2([0,T]^2, W)$. Поэтому обозначение 
 $Z_{s,t} = Z_t - Z_s$ будет также использоваться для приращений функции одной 
-переменной $Z$, определенной на $[0, T]$.
+переменной $Z_t$, $t\in [0, T]$.
 
 Пусть далее $\alpha \in (1/3,1/2]$.
 
 Говорят, что для функции $Z\colon[0,T]\to W$ функция $\mathbb{Z}\colon[0,T]^2
 \to W\otimes W$ является процессом второго порядка над $Z$, если она 
-удовлетворяет следующему тождеству Чена:
-$$\mathbb{Z}_{s,t} - \mathbb{Z}_{s,u} - \mathbb{Z}_{u,t} = 
-Z_{s,u}\otimes Z_{u,t}$$
-для любой тройки $(s,u,t)\in [0,T]^3$.
+удовлетворяет тождеству Чена $\mathbb{Z}_{s,t} - \mathbb{Z}_{s,u} - \mathbb{Z}_{u,t} =
+ Z_{s,u}\otimes Z_{u,t}$ для любой тройки $(s,u,t)\in [0,T]^3$.
 
 Под множеством $\alpha$-непрерывных по Гельдеру грубых траекторий над~$W$ 
 (обозначаемым $\mathscr{C}^\alpha ([0,T], W)$) понимают множество всех пар 
@@ -86,8 +80,6 @@ $$
 где $|\mathcal{P}| = \max |t_{i+1}{-}t_i|$ --- диаметр разбиения 
 $\mathcal{P} = \{0{=}t_0 {<} t_1 {<} \ldots {<} t_{l} {=}T \}$, а предел понимается не 
 зависящим от последовательности разбиений $\mathcal{P}$.
-Интеграл по произвольному отрезку $[s, t]\subset [0, T]$ определяется равенством
-$\int_s^t Y_r\, dZ_r = \int_0^T Y_r\textbf{1}_{[s,t]}(r)\,dZ_r$.
 
 Приведем конструктивное определение процесса второго порядка над дробным 
 броуновским движением $B$.
@@ -233,32 +225,6 @@ O(t^{(N+1)H}),
 индексов Харста дробных броуновских движений $B^{(i_1)}, B^{(i_2)},\ldots, 
 B^{(i_k)}$.}
 
-Также в третьей главе получены аналоги уравнений Колмогорова для математических
-ожиданий функционалов от решений в предположении, что компоненты 
-$f_i\colon \mathbb{R}^n\to \mathbb{R}^{n}$ правой части
-уравнения~(\ref{chapter3_main_eq_compact}) 
-являются функциями класса $C^{d+2}_b(\mathbb{R}^n, \mathbb{R}^n)$ 
-такими, что справедливо равенство $D_f^{(i)} \circ D_f^{(j)} = D_f^{(j)} \circ D_f^{(i)}$
-для любых $i, j = 0, \ldots, d$. В таком случае справедлива следующая теорема.
-
-\textbf{Теорема 3.3} [\ref{StochasticAnalysis}]
-\textit{Для любой функции $g\in C^{d+3}_b(\mathbb{R}^n, \mathbb{R})$ 
-справедливо равенство}
-$$
-\E\left(g(X^{x}_t)\right) = \left(\exp\left(t D_f^{(0)} + 
-\frac{1}{2}\sum_{i=1}^d t^{2H_i}(D_f^{(i)})^2\right) g\right)(x).
-$$
-\textit{Другими словами, функция $\varphi(t,x) = \E \left(g(X^{x}_t)\right)$
-удовлетворяет дифференциальному уравнению в частных производных}
-\begin{equation}\label{chapter_3_commut_case_main_eq}
-\frac{\partial \varphi}{\partial t} = D_f^{(0)}\varphi + 
-\sum_{i=1}^d H_it^{2H_i - 1} (D_f^{(i)})^2 \varphi,
-\end{equation}
-\textit{с начальным условием}
-\begin{equation}
-\varphi(0, x) = g(x).
-\end{equation}
-
 \textbf{Четвертая глава} диссертации посвящена получению методов интегрирования 
 стохастических дифференциальных уравнений смешанного типа.
 
@@ -282,12 +248,9 @@ $\sigma\colon\mathbb{R}^+\times\mathbb{R}^d\to\mathbb{R}^{d \times d}$ ---
 $x(t),$ $t\in \mathbb{R}^+,$ заданный на вероятностном пространстве
 $(\Omega,\mathcal{F},\Prob),$ согласованный с потоком $\sigma$-алгебр
 $\mathcal{F}_t,$ порожденным процессами $W(t)$ и $B(t),$ такой, что
-выполняются условия:
-
-1) существует $\alpha>1-H$ такое, что процесс $x(t)$ имеет п.н. непрерывные по 
-Гельдеру с показателем $\alpha$ траектории;
-
-2) для любого $t\in \mathbb{R}^+$ почти наверное выполняется равенство
+существует $\alpha>1-H$ такое, что процесс $x(t)$ имеет п.н. непрерывные по 
+Гельдеру с показателем $\alpha$ траектории, и для любого $t\in \mathbb{R}^+$ 
+п.н. выполняется равенство
 $$
 x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
 \sigma(s,x(s))dB(s),
@@ -486,9 +449,9 @@ dX(t) = A(t)X(t)dt,\quad t\ge 0,
 \textit{равномерно экспоненциально устойчивое} нулевое решение, если существуют 
 константы $\Lambda, \lambda > 0$, не зависящие от $s$, $x$, такие, что для любых 
 $s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство 
-$$
+$
 |X^{(s,x)}(t)|^2\le\Lambda|x|^2 e^{-\lambda(t-s)}.
-$$
+$
 
 \textbf{Теорема 5.3.} [\ref{VestnikBGU}].
 \textit{Предположим, что функции $f(t, x)$ и $g(t, x)$ таковы, что выполнены соотношения
@@ -523,9 +486,7 @@ $t\in\mathbb{R}^+$) функции, $A$ --- линейный оператор,
 определенный на всюду плотном в $H$ множестве $\EuScript D(A)$ и порождающий 
 $C_0$-полугруппу $S(t)$ на~$H$, $\xi:\Omega \to \EuScript D(A)$ --- 
 $\mathcal{F}_0$-измеримая случайная величина, имеющая конечный 
-момент $\E\|\xi\|^p<\infty$ порядка $p>2$. 
-В дальнейшем для сокращения обозначений аргумент $\omega$ будем опускать. 
-Все интегралы ниже записаны в предположении их существования и конечности.
+момент $\E\|\xi\|^p<\infty$ порядка $p>2$.
 
 Относительно функций $f(t, X)$ и $g(t, X)$ будем 
 предполагать, что выполнены два условия:
@@ -536,53 +497,43 @@ labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, 
 постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
 $\,\varphi,\psi\in H$ таких, что
 $\|\varphi\|\le a$, $\|\psi\|\le a\,$, выполняются неравенства
-$$
-\|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\quad
+$
+\|f(t, \varphi) - f(t, \psi)\|\le q_a\|\varphi-\psi\|,\linebreak
 \|g(t,\varphi) - g(t,\psi)\|\le q_a\|\varphi-\psi\|.
-$$
+$
 \item\textit{Условие линейного порядка роста}. Существует непрерывная 
 функция~$k\colon\mathbb{R}^+\to\mathbb{R}^+$ такая, что для всех 
 $t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
-$$
-\|f(t,\eta)\|\le k(t)(1+ \|\eta\|), \quad \|g(t,\eta)\|\le k(t)(1+ \|\eta\|).
-$$
+$
+\|f(t,\eta)\|\le k(t)(1+ \|\eta\|), \; \|g(t,\eta)\|\le k(t)(1+ \|\eta\|).
+$
 \end{enumerate}
 
 О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.5. Случайный процесс $\,X(t),\,t\, \ge 0\,$ 
 называют слабым решением уравнения~(\ref{MostGeneralEq}) с начальным условием 
-(\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
-\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
-labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
-\item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
-\item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
-\item $
+(\ref{MostGeneralStartCond}), если он является $\mathcal{F}_t$-согласованным, п.н. 
+непрерывен по $t$ и удовлетворяет равенству 
+$$
 X(t)=
 S(t)\xi +\int \limits_0^t \!S(t{-}s)f(s,X(s))ds+\int \limits_0^t
-\!S(t{-}s)g(s,X(s))dW(s), \,t\ge 0.
-$
-\end{enumerate}
+\!S(t{-}s)g(s,X(s))dW(s)
+$$
+для любого $t\ge 0$ п.н.
 
 О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.8. Пусть положительная функция $\lambda(t)$ 
 определена для достаточно больших $t>0$, скажем, $t\ge T > 0$. Предположим, что
-\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
-labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
-\item $\lim\limits_{t\to\infty}\lambda(t) = \infty$.
-\item $\ln\lambda(t)$ равномерно непрерывна по $t\ge T$.
-\item Существует константа $\tau\ge 0$ такая, что 
+$\lim\limits_{t\to\infty}\lambda(t) = \infty$, функция $\ln\lambda(t)$ равномерно 
+непрерывна по $t\ge T$, и существует константа $\tau\ge 0$ такая, что 
 $\lim_{t\to\infty}\sup\frac{\ln\ln t}{\ln\lambda(t)}\le\tau$.
-\end{enumerate}
 Будем говорить, что слабое решение задачи~(\ref{MostGeneralEq}),~(\ref{MostGeneralStartCond})
 притягивается к нулю со скоростью $\lambda(t)$, если найдется $\gamma>0$ такое, 
 что п.н. выполняется неравенство
-$$
+$
 \lim_{t\to\infty}\sup\frac{\ln\|X(t)\|}{\ln\lambda(t)}\le-\gamma.
-$$
+$
 
 Рассмотрим функционал $V(t,x)$ класса $C^{1,2}(\mathbb{R}^+{\times} H, 
-\mathbb{R}^+)$, т.е. принимающий значения в $\mathbb{R}^+$ и имеющий 
-непрерывные производные по Фреше по переменной $t\in\mathbb{R}^+$ --- 
-до первого порядка, по переменной $x\in H$ --- до второго порядка 
-(включительно). Введем операторы $L$, $B$,
+\mathbb{R}^+)$. Введем операторы $L$, $B$,
 действующие на $V$ следующим образом:
 \begin{gather}
 LV(t,x) = V'_t(t,x) + \langle V'_x(t,x), Ax + f(t, x)\rangle_H + 

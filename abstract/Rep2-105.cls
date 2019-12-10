@@ -140,9 +140,9 @@
 
 %  Команды для подстройки вида заголовков:
 %   расстояние между заголовком и текстом
-\newlength\GostAfterTitleSkip    \setlength\GostAfterTitleSkip    {36pt}%15mm}
+\newlength\GostAfterTitleSkip    \setlength\GostAfterTitleSkip    {24pt}%15mm}
 \newlength\GostBetweenTitleSkip  \setlength\GostBetweenTitleSkip  {1.8ex}%8mm}
-\newlength\GostBeforTitleSkip    \setlength\GostBeforTitleSkip    {36pt}%\GostAfterTitleSkip}
+\newlength\GostBeforTitleSkip    \setlength\GostBeforTitleSkip    {24pt}%\GostAfterTitleSkip}
 \newlength\GostBeforNoTitleSkip  \setlength\GostBeforNoTitleSkip  {1.0ex}
 \newlength\GostHTitleSpace       \setlength\GostHTitleSpace       {2mm}
 \newlength\GostTitleIndent       \setlength\GostTitleIndent       {10mm}
