@@ -48,16 +48,16 @@
 % –азмеры страницы мои дл€ формата ј4
 %%\setlength{\hoffset}{-1in}% убираем отступ слева в 1 дюйм
 %%\setlength{\voffset}{-1in}% убираем отступ сверху в 1 дюйм
-\setlength{\hoffset}{0mm} \setlength{\voffset}{-11mm}
-\setlength{\textheight}{247mm}% размеры текста по высоте без колонтитула
+\setlength{\hoffset}{0mm} \setlength{\voffset}{-8mm}
+\setlength{\textheight}{245mm}% размеры текста по высоте без колонтитула
 \setlength{\textwidth}{170mm}% размеры текста по ширине
-\setlength{\topmargin}{0mm}% высота над верхним колонтитулом
+\setlength{\topmargin}{2mm}% высота над верхним колонтитулом
 \setlength{\oddsidemargin}{1.9mm}% отступ слева
 \setlength{\evensidemargin}{-4.0mm}
 \addtolength{\evensidemargin}{8.0mm}% отступ  слева на четных страницах при двусторонней печати
 \addtolength{\oddsidemargin}{1.9mm}%отступ слева на (нечетной при двусторонней)всех страницах при односторонней печати
 %\setlength{\headheight}{17pt}% высота верхнего колонтитула( прописана отдельно в стилевом файле)
-\setlength{\headsep}{0mm}% высота между верхним колонтитулом и текстом
+\setlength{\headsep}{4mm}% высота между верхним колонтитулом и текстом
 \setlength{\footskip}{10mm}% высота между текстом и нижним колонтитулом
 \setlength{\marginparwidth}{0mm}% ширина заметок на пол€х
 \setlength{\marginparpush}{0mm}
@@ -129,8 +129,8 @@
 \def\sign{\mathop{\textrm{sign}}\nolimits}
 
 
-\def\proof{\par\noindent{ƒ\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о}.\ }
-\def\proofo{\par\noindent{ƒ\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о}\ }
+\def\proof{\par{ƒ\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о}.\ }
+\def\proofo{\par{ƒ\,о\,к\,а\,з\,а\,т\,е\,л\,ь\,с\,т\,в\,о}\ }
 \def\endproof{\hfill{$\otimes$}}
 
 \def\({\left(}
@@ -274,7 +274,7 @@
 %\onehalfspacing
 %\setlength{\abovedisplayskip}{18pt plus 2pt minus 3pt}  % было: 8 + 2 - 4
 %\setlength{\belowdisplayskip}{18pt plus 2pt minus 3pt}  % было: 8 + 2 - 4
-\linespread{1.15}
+\linespread{1.13}
 
 \newcounter{piccount}[chapter]
 \newcommand{\podpis}{\refstepcounter{piccount}%
@@ -288,3 +288,16 @@
 
 \let\Prob\relax
 \DeclareMathOperator{\Prob}{\mathbb{P}}
+
+% page number at the top of the page
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyheadoffset{0cm}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{%
+\fancyhf{}%
+\fancyhead[C]{\fontsize{13pt}{13pt}\selectfont\thepage}%
+}

@@ -7,11 +7,12 @@
 
 \label{chapter_integration_methods_for_mixed_type_sde}
 
-\addcontentsline{toc}{chapter}{
-    ГЛАВА \arabic{chapter}.\quad МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ 
-    ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
-    СМЕШАННОГО ТИПА
-    }
+\addcontentsline{toc}{chapter}{%
+ГЛАВА \arabic{chapter}\\%
+МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ \\
+ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ \\
+БРОУНОВСКИМИ ДВИЖЕНИЯМИ СМЕШАННОГО ТИПА
+}
 
 
 \section{Предварительные сведения}
@@ -496,11 +497,11 @@ $$dx(t) = (\alpha x^n(t) + \beta x(t))dt + \gamma x(t)dW(t) + \delta x(t) dB(t)$
 \end{proposition}
 
 \proof В данном случае $G(x) = \int_1^x \frac{ds}{\gamma s} = 
-\frac{1}{\gamma} \ln x,$ $A(x) = \frac{\alpha}{\gamma} x^{n-1} + \linebreak
-+\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
+\frac{1}{\gamma} \ln x,$ $A(x) =\linebreak= \frac{\alpha}{\gamma} x^{n-1} +
+\frac{\beta}{\gamma} - \frac{\gamma}{2}$, $A'(x) = 
 \frac{\alpha(n-1)}{\gamma}x^{n-2}(t)$, $(g(x)A'(x))' = \alpha(n-1)^2 x^{n-2}(t)$, 
-$\frac{(g(x)A'(x))'}{A'(x)} =\linebreak= \gamma(n-1) = c_1$. Выберем преобразование 
-$F(x) = C_\beta e^{-c_1 G(x)} = C_\beta x^{1-n}$. Подставляя функцию $F(x)$ в 
+$\frac{(g(x)A'(x))'}{A'(x)} = \gamma(n-1) = c_1$. Выберем преобразование 
+$F(x) = C_\beta e^{-c_1 G(x)} =\linebreak= C_\beta x^{1-n}$. Подставляя функцию $F(x)$ в 
 (\ref{integration_of_mixed_linear_inhom_eq_2}), найдем значение константы 
 $C_\beta = \frac{1}{1-n}$. Итак, $y = F(x) = \frac{1}{1-n} x^{1-n}$, 
 $x = \left((1-n)y\right)^{1/(1-n)}$.
@@ -666,8 +667,8 @@ $$
 \end{example}
 
 
-\section*{Выводы}
-\addcontentsline{toc}{section}{Выводы}
+\section*{Выводы по 4 главе}
+\addcontentsline{toc}{section}{Выводы по 4 главе}
 
 В данной главе диссертации исследованы некоторые методы точного интегрирования 
 стохастических дифференциальных уравнений смешанного типа $dx(t) = f(t,x(t))dt + 

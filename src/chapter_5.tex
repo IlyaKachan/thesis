@@ -7,11 +7,12 @@
 
 \label{chapter_stability_of_sde_in_hilbert_spaces}
 
-\addcontentsline{toc}{chapter}{
-    ГЛАВА \arabic{chapter}.\quad УСТОЙЧИВОСТЬ И ПРИТЯЖЕНИЕ РЕШЕНИЙ 
-    СТОХАСТИЧЕСКИХ ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ 
-    В ГИЛЬБЕРТОВЫХ ПРОСТРАНСТВАХ
-    }
+\addcontentsline{toc}{chapter}{%
+ГЛАВА \arabic{chapter}\\%
+УСТОЙЧИВОСТЬ И ПРИТЯЖЕНИЕ РЕШЕНИЙ СТОХАСТИЧЕСКИХ \\
+ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ В ГИЛЬБЕРТОВЫХ \\
+ПРОСТРАНСТВАХ
+}
 
 \section{Предварительные сведения}
 
@@ -159,7 +160,7 @@ $$ \langle
 L,M\rangle_{\mathfrak{L}_2(K_Q,H)}=\textup{tr}((LQ^{1/2})(MQ^{1/2})^\star).
 $$
 
-\subsection{Стохастический интеграл Ито в гильбертовом пространстве}
+\subsection{Стохастический интеграл Ито в гильбертовом пространстве\;}
 
 Ниже будет дано определение стохастического интеграла Ито по винеровскому
 процессу $W(t)$, принимающему значения в сепарабельном гильбертовом
@@ -254,7 +255,8 @@ $t\in[0,T]$ интеграл $\int\nolimits_0^t\Phi(t)dW(t)$ определяют
 
 Приведем некоторые свойства стохастического интеграла Ито 
 \cite[раздел~2.2.3]{Gawarecki}, \cite[гл.~3]{OksendalBook}, \cite[с.~56--60]{Vatanabe}:
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
 \item Стохастический интеграл имеет непрерывную модификацию.
 \item Стохастический интеграл имеет нулевое среднее: $\E\int_0^t \Phi(s)dW(s) = 0$.
 \item Стохастический интеграл обладает свойством изометрии: \linebreak
@@ -319,13 +321,14 @@ b(\tau, \omega)dB(\tau,\omega).
 \end{gather*}
 \end{proposition}
 
-\begin{proposition}[(Неравенство Буркхольдера {\cite[лемма 3.3]{Gawarecki}})]
+\begin{proposition}[(Неравенство Буркхольдера {\cite{DaPratoConvolutions},
+\cite[лемма 3.3]{Gawarecki}})]
 \label{BurkholderTypeIneq}
 Пусть $p > 1$, $S(t)$ --- $C_0$-полугруппа на $H$. Тогда для любого 
 процесса~$\Phi\in\Lambda_2(K_Q, H)$ такого, что 
 $\E\left(\int_0^T \|\Phi(s)\|^{2p}_{\mathfrak{L}_2(K_Q, H)} ds\right)<+\infty$, 
 существует непрерывная модификация процесса $\int_0^t S(t-s)\Phi(s)dW(s)$, 
-и для любого $t\in[0,T]$ выполнятся неравенство
+и для любого~$t\in[0,T]$ выполнятся неравенство
 $$
 \E\left(\sup_{\tau\in[0,t]}
 \left\|\int_0^\tau S(\tau-s)\Phi(s)dW(s)\right\|^{2p}_{\mathfrak{L}_2(K_Q, H)}\right) \le 
@@ -406,8 +409,8 @@ $$X(t) = X(0) + \int_0^t v(\tau)d\tau + \int_0^t u(\tau)dW(\tau),$$
 \begin{definition} 
 Будем говорить, что нулевое решение уравнения~(\ref{general_equation_1}) 
 устойчиво по вероятности, если для любых $\varepsilon_{1},$ $\varepsilon_{2}>0$ 
-существует~$\delta > 0$ такое, что для каждого $\beta$-слабого решения $X(t)$ уравнения
-(\ref{general_equation_1}), удовлетворяющего условию $|X(0)| \le \delta$ п.н., 
+существует~$\delta > 0$ такое, что для каждого $\beta$-слабого решения $X(t)$ 
+уравнения~(\ref{general_equation_1}), удовлетворяющего условию $|X(0)| \le \delta$ п.н., 
 выполняется неравенство 
 $\p\left(\sup_{t \ge 0} |X(t)| > \varepsilon_{1}\right) < \varepsilon_{2}$.
 \end{definition} 
@@ -417,7 +420,7 @@ $\p\left(\sup_{t \ge 0} |X(t)| > \varepsilon_{1}\right) < \varepsilon_{2}$.
 асимптотически устойчиво по вероятности, если нулевое решение уравнения 
 (\ref{general_equation_1}) устойчиво по вероятности и для любого 
 $\varepsilon> 0$ существует~$ \delta > 0$ такое, что для каждого $\beta$-слабого 
-решения $X(t)$ уравнения (\ref{general_equation_1}), удовлетворяющего условию
+решения $X(t)$ уравнения~(\ref{general_equation_1}), удовлетворяющего условию
 $|X(0)| \le \delta$ п.н., выполняется неравенство
 $\p\left(\lim_{t \to \infty} X(t) = 0\right) \ge 1 -\varepsilon$.
 \end{definition}
@@ -485,7 +488,7 @@ $|x| \le \delta$, и всех $t \in \mathbb{R}^{+}$,
 dX(t) = (A(t)X(t) + f(t, X(t)))dt + g(t, X(t))dW(t),\quad t\ge 0.
 \end{equation}
 Здесь $A\colon\mathbb{R}^+\to\mathbb{R}^{d\times d}$ --- кусочно-непрерывная
-функция, $\sup_{t\ge 0}|A(t)|\le~M$, a функции $f$ и $g$ 
+функция, $\sup_{t\ge 0}|A(t)|\le M$, a функции $f$ и $g$ 
 удовлетворяют условиям для уравнения~(\ref{general_equation_1}).
 
 Наряду с уравнением~(\ref{mainSys}) рассмотрим линейное однородное 
@@ -496,7 +499,8 @@ dX(t) = A(t)X(t)dt,\quad t\ge 0,
 Через $X^{(s,x)}(t)$ будем обозначать (единственное) решение уравнения 
 (\ref{auxillarySys}), удовлетворяющее равенству $X^{(s,x)}(s) =~x$ 
 (существование, единственность и непрерывность по $t$ такого решения в 
-указанных предположениях имеет место, см., например, \cite{Vaskovskii}).
+указанных предположениях имеет место, см., например, 
+\cite{Vaskouski_Izvestiya_2015, Vaskovskii}).
 
 \begin{definition}
 Будем говорить, что уравнение (\ref{auxillarySys}) имеет \textit{равномерно 
@@ -509,7 +513,7 @@ $s\in\mathbb{R}^+$, $x\in\mathbb{R}^d$ и~$t\ge s$ выполняется неравенство
 \end{definition}
 
 Для систем~(\ref{mainSys}) и~(\ref{auxillarySys}) определим операторы 
-$B$ и $B_0$ по формулам (\ref{glava1_BV}) и (\ref{glava1_B0V}):
+$B$ и $B_0$ по формулам~(\ref{glava1_BV}) и~(\ref{glava1_B0V}):
 \begin{gather}\label{glava1_BV}
 BV(s,x) = \frac{\partial V(s,x)}{\partial s} + \!\!\!\sup_{v \in
 F(t,x)}\!\biggl(\frac{\partial V(s,x)}{\partial x}(A(s)x {+}
@@ -675,7 +679,8 @@ $\left|\frac{\partial^2}{\partial x^2}|X^{(s,x)}(t)|^2\right|\le
 
 \begin{remark} Некоторые достаточные условия равномерной экспоненциальной 
 устойчивости системы \textup{(\ref{auxillarySys})} приведены в работе 
-\cite{Ichmann}.
+\cite{Ichmann}. Кроме того, некоторые условия также могут быть получены с 
+использованием результатов работ~\cite{Coppel}, [\ref{BogdanovReadings2015}].
 \end{remark}
 
 \example Приведем пример уравнения, имеющего асимптотически устойчивое по 
@@ -729,7 +734,8 @@ $\mathcal{F}_0$-измеримая случайная величина, имеющая конечный
 Относительно функций $f(t, X)$ и $g(t, X)$ будем 
 предполагать, что выполнены два условия:
 
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
 \item\textit{Локальное условие Липшица}. Для любого $a > 0$ существует 
 постоянная~$q_a$ такая, что для всех $t\in[0,a]$ и любых 
 $\,\varphi,\psi\in H$ таких, что
@@ -753,7 +759,8 @@ $t\in\mathbb{R}^+$ и любого $\eta\in H$ выполняются неравенства
 \definition Случайный процесс $\,X(t),\,t\,{\ge}0\,$ называют слабым решением 
 уравнения (\ref{MostGeneralEq}) с начальным условием 
 (\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
 \item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
 \item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
 \item $
@@ -766,7 +773,8 @@ $
 \definition Случайный процесс $\,X(t),\,t\,{\ge} 0\,$ называют сильным 
 решением уравнения (\ref{MostGeneralEq}) с начальным условием 
 (\ref{MostGeneralStartCond}), если он удовлетворяет следующим условиям:
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
 \item Процесс $\,X(t), t\ge 0\,$ является $\mathcal{F}_t$-согласованным.
 \item Процесс $\,X(t), t\ge 0\,$ п.н. непрерывен по $t$.
 \item $X\in\EuScript D(A)$ для почти всех 
@@ -785,9 +793,11 @@ $
 уравнения~(\ref{MostGeneralEq}) с начальным 
 условием~(\ref{MostGeneralStartCond}) п.н. совпадает с $X(t)$, т.е.
 $\Prob(X(t)=Y(t) \;\forall t \ge 0)=1.$
+
 \definition Пусть положительная функция $\lambda(t)$ определена для достаточно 
 больших $t>0$, скажем, $t\ge T > 0$. Предположим, что
-\begin{enumerate}
+\begin{enumerate}[label=\arabic*., ref=\arabic*, align=left, leftmargin=0pt, 
+labelindent=\parindent, listparindent=\parindent, labelwidth=0pt, itemindent=!, labelsep=5pt]
 \item $\lim\limits_{t\to\infty}\lambda(t) = \infty$.
 \item $\ln\lambda(t)$ равномерно непрерывна по $t\ge T$.
 \item Существует константа $\tau\ge 0$ такая, что 
@@ -1081,18 +1091,20 @@ $r>0$, $m\ge0$, постоянные~$\mu,\nu,\theta\in\mathbb{R}$ и
 невозрастающая положительная функция $\zeta(t)$ такие, что 
 $\frac{m-\left(\max\{\nu,\mu+\tau\}+\theta\right)}{r}> 0$, и выполнены 
 следующие условия:
-\begin{enumerate}
-\item $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
+
+\textup{1.} $\|x\|^{r}(\lambda(t))^m \le V(t,x)$ для всех $(t,x)\in 
 \mathbb{R}^+{\times}H$.
-\item $LV(t, x) + \zeta(t)BV(t, x) \le \psi_1(t) + 
+
+\textup{2.} $LV(t, x) + \zeta(t)BV(t, x) \le \psi_1(t) + 
 \psi_2(t)V(t, x)\;$ для всех $(t,x)\in \mathbb{R}^+{\times}\EuScript D(A)$.
-\item $\lim\limits_{t\to+\infty}\sup\frac{
+
+\textup{3.} $\lim\limits_{t\to+\infty}\sup\frac{
 \ln\left(\int_0^t\psi_1(s)\,ds\right)}{\ln\lambda(t)}\,{\le}\,\nu$, 
 $\quad\lim\limits_{t\to+\infty}\sup
 \frac{\int_0^t\psi_2(s)\,ds}{\ln\lambda(t)}\,{\le}\,\theta$, 
 $\quad\lim\limits_{t\to+\infty}\inf\frac{\ln\zeta(t)}{\ln\lambda(t)}\,
 {\ge}\,{-}\mu$.
-\end{enumerate}
+
 Тогда слабое решение 
 задачи~\textup{(\ref{MostGeneralEq})},~\textup{(\ref{MostGeneralStartCond})} 
 притягивается к нулю со скоростью $\lambda(t)$.
@@ -1315,8 +1327,8 @@ $\psi_1(t)\equiv \alpha\pi$, $\psi_2(t)\equiv\theta$, $\tau=\mu=\nu=0$.
 Липшица, а функция~$f$ удовлетворяет локальному, но не удовлетворяет
 глобальному условию Липшица.
 
-\section*{Выводы}
-\addcontentsline{toc}{section}{Выводы}
+\section*{Выводы по 5 главе}
+\addcontentsline{toc}{section}{Выводы по 5 главе}
 
 В данной главе диссертации были рассмотрены вопросы устойчивости и притяжения
 к нулю решений стохастических дифференциальных уравнений вида $dX(t) = 

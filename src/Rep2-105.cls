@@ -184,8 +184,8 @@
  \renewcommand\subsection[1]{\rgsubsection{##1}}%
  \renewcommand\subsubsection[1]{\rgsubsubsection{##1}}%
  \@startsection{section}{1}%
- {\GostTitleIndent}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
- {\GostTitleStyle\fontsize{15}{16}\selectfont}%
+ {0mm}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
+ {\GostTitleStyle\fontsize{15}{16}\selectfont\Gost@ChapterStyle}%
 }
 
 %  ѕункт
@@ -195,8 +195,8 @@
 \newcommand\rgsubsection{%
  \renewcommand\subsubsection[1]{\rgsubsubsection{##1}}%
  \@startsection{subsection}{2}%
- {\GostTitleIndent}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
- {\GostTitleStyle}%
+ {0mm}{\GostBeforTitleSkip}{\GostAfterTitleSkip}%
+ {\GostTitleStyle\Gost@ChapterStyle}%
 }
 %  ... не попадающий в оглавление
 \newcommand\rgnsubsection{%
@@ -501,7 +501,7 @@
      \par}%
   \fi}
 
-\newcommand{\l@chapter}   {\@dottedtocline{1}{0mm}{1.0em}}
+\newcommand{\l@chapter}   {\@dottedtocline{1}{0mm}{0mm}}
 \newcommand{\l@section}   {\@dottedtocline{2}{10mm}{10mm}}
 \newcommand{\l@subsection}   {\@dottedtocline{3}{20mm}{15mm}}
 \newcommand{\l@subsubsection}{\@dottedtocline{4}{30mm}{25mm}}
@@ -510,6 +510,7 @@
 \newcommand*\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand*\l@table {\@dottedtocline{1}{1.5em}{2.3em}}
 \newcommand\@tocrmarg{2.55em} %отступ правого кра€ оглавлени€ перенесЄнных строк
+\renewcommand\@pnumwidth{1em}
 \newcommand\@dotsep{4.5}      %между точками в оглавлении в em
 \linespread{\Gost@LineSpread} %полуторный межстрочный интервал
 
@@ -529,8 +530,10 @@
  \bibcaption%
  \list{\@biblabel{\@arabic\c@enumiv.}}%
       {\settowidth\labelwidth{\@biblabel{#1}}%
-       \leftmargin\labelwidth
-       \advance\leftmargin\labelsep
+       \setlength{\itemindent}{\dimexpr\labelwidth+\parindent}
+       \leftmargin\z@
+       %\leftmargin\labelwidth
+       %\advance\leftmargin\labelsep
        \@openbib@code
        \usecounter{enumiv}%
        \let\p@enumiv\@empty

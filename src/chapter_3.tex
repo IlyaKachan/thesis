@@ -8,11 +8,12 @@
 
 \label{chapter_asymptotic_expansions_of_sde_with_fbm}
 
-\addcontentsline{toc}{chapter}{
-    ГЛАВА \arabic{chapter}.\quad АСИМПТОТИЧЕСКИЕ РАЗЛОЖЕНИЯ ФУНКЦИОНАЛОВ
-    РЕШЕНИЙ СТОХАСТИЧЕСКИХ ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ, УПРАВЛЯЕМЫХ
-    ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
-    }
+\addcontentsline{toc}{chapter}{%
+ГЛАВА \arabic{chapter}\\%
+АСИМПТОТИЧЕСКИЕ РАЗЛОЖЕНИЯ ФУНКЦИОНАЛОВ РЕШЕНИЙ\\
+СТОХАСТИЧЕСКИХ ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ,\\
+УПРАВЛЯЕМЫХ ДРОБНЫМИ БРОУНОВСКИМИ ДВИЖЕНИЯМИ
+}
 
 
 \section{Асимптотические разложения в окрестности нуля}
@@ -63,7 +64,7 @@ dB^{(i_N)}_{t_N}dB^{(i_{N+1})}_{t_{N+1}}.
 \end{gather}
 
 Обозначим $\varphi_{I_{N+1}}(x) = (D^{(I_{N+1})}_f g)(x)$ и преобразуем 
-последнее слагаемое в (\ref{bounds_3_45}). Введем в рассмотрение процесс 
+последнее слагаемое в~(\ref{bounds_3_45}). Введем в рассмотрение процесс 
 $\widehat B^{(c)}_u = (\widehat B^{(0; c)}_u, \widehat B^{(1; c)}_u, \ldots, 
 \widehat B^{(d; c)}_u)^\top$, зависящий от параметра $c > 0$, $i$-я компонента 
 которого определяется равенством $\widehat B^{(i; c)}_u = c^{H_i} B^{(i)}_{u/c}$, 
@@ -529,10 +530,11 @@ $i=0,\ldots, d.$
 
 \begin{theorem}\label{theorem_5_1}
 Пусть $I_{m}=(i_1,\ldots, i_{m})\in\{1,\ldots, d\}^{m}$, $m\in\mathbb{N}$.
-\begin{enumerate}
-\item Если $m=2k-1$, $k\in\mathbb{N},$ то
+
+\textup{1.} Если $m=2k-1$, $k\in\mathbb{N},$ то
 $$\E\biggl(\int_{\Delta^{2k-1}[0,1]} dB^{(I_{2k-1})}\biggr) = 0.$$
-\item Если $m=2k$, $k\in\mathbb{N},$ то справедливо равенство
+
+\textup{2.} Если $m=2k$, $k\in\mathbb{N},$ то справедливо равенство
 \begin{gather*}
 \E\biggl(\int_{\Delta^{2k}[0,1]} dB^{(I_{2k})}\biggr)= \\
 = \frac{1}{k! 2^{2k}}\sum_{\sigma\in{S}_{2k}}\biggl(
@@ -544,7 +546,6 @@ $$\E\biggl(\int_{\Delta^{2k-1}[0,1]} dB^{(I_{2k-1})}\biggr) = 0.$$
 {+} H_{i_{\sigma(2l-1)}} {-} 2}dt_1\ldots dt_{2k} \biggr),
 \end{gather*}
 где $\delta$ --- символ Кронекера, $S_{2k}$ --- группа подстановок.
-\end{enumerate}
 \end{theorem}
 
 \proof Первую часть легко доказать, используя свойство симметрии распределения 
@@ -906,8 +907,8 @@ $$\frac{\partial\varphi}{\partial t} = \left(\sin x + t^{2H-1}\sin 2x\right)
 с начальным условием $\varphi(0,x) = g(x)$.
 
 
-\section*{Выводы}
-\addcontentsline{toc}{section}{Выводы}
+\section*{Выводы по 3 главе}
+\addcontentsline{toc}{section}{Выводы по 3 главе}
 
 В данной главе диссертации исследовано асимптотическое поведение функционалов 
 от решений стохастических дифференциальных уравнений $dX_t = f(X_t)dB_t$, $t\in[0,T]$ 
