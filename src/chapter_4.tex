@@ -8,7 +8,7 @@
 \label{chapter_integration_methods_for_mixed_type_sde}
 
 \addcontentsline{toc}{chapter}{%
-ГЛАВА \arabic{chapter}\\%
+ГЛАВА \arabic{chapter} \\%
 МЕТОДЫ ИНТЕГРИРОВАНИЯ СТОХАСТИЧЕСКИХ \\
 ДИФФЕРЕНЦИАЛЬНЫХ УРАВНЕНИЙ С ДРОБНЫМИ \\
 БРОУНОВСКИМИ ДВИЖЕНИЯМИ СМЕШАННОГО ТИПА
@@ -189,7 +189,8 @@ F''_{x^2}g'_xg = 0,\\ \nonumber
 \left(\frac{f}{g}\right)'_x + \frac{1}{2}g''_{x^2}\right).
 \end{gather}
 Левая часть последнего соотношения зависит лишь от $t$, поэтому на функции 
-$f, g, \sigma$ накладываются следующие ограничения:
+$f, g, \sigma$, непрерывные вместе со своими производными $f'_x$, $g'_t$, 
+$g'_x$ и $g''_{x^2}$, накладываются следующие ограничения:
 \begin{gather}\label{integration_of_mixed_simplest_cond_1}
 g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
 \frac{1}{2}g''_{x^2}(t,x)\right) = r(t),\\ 
@@ -212,13 +213,18 @@ $F$, из соотношений~(\ref{integration_of_mixed_simplest_eq_1}),
 и $b(t)$. Таким образом, справедлива следующая теорема.
 
 \begin{theorem}
-Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c функцией $g(t,x)\ne 0$ 
+Пусть функции $f$, $g$, $\sigma$ непрерывны вместе с производными $f'_x$, $g'_t$, 
+$g'_x$, $g''_{x^2}$ и $g(t,x)\ne 0$. Уравнение~\textup{(\ref{integration_of_mixed_main_eq})}
 приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
 помощью некоторого дважды непрерывно дифференцируемого и обратимого 
 относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
-найдутся функции $q(t), r(t)$ такие, что оказываются выполненными 
-соотношения~\textup{(\ref{integration_of_mixed_simplest_cond_1})}, 
-\textup{(\ref{integration_of_mixed_simplest_cond_2})} .
+функции $r(t, x), q(t, x)$, определенные соотношениями
+\begin{gather}
+r(t, x) := g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
+\frac{1}{2}g''_{x^2}(t,x)\right),\\ 
+q(t, x) := \frac{\sigma(t,x)}{g(t,x)},
+\end{gather}
+не зависят от $x$.
 \end{theorem}
 
 \begin{proposition}\label{linear_homogenious_explicit_formula_prop}
@@ -446,7 +452,8 @@ e^{\beta_1G(x)}\left(\beta_1 \left(\frac{f}{g} - \frac{g'}{2}\right) +
 \begin{gather*}
 \frac{(g(x)A'(x))'}{A'(x)} = -\beta_1 = \text{const}.
 \end{gather*}
-Таким образом, необходимо выполнение следующих условий:
+Таким образом, для функций $f\in C^2(\mathbb{R})$, $g\in C^3(\mathbb{R})$, 
+$\sigma\in C(\mathbb{R})$ необходимо выполнение следующих условий:
 \begin{gather}
 \label{integration_of_mixed_linear_inhom_cond_1}
 A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
@@ -479,15 +486,19 @@ $c_3\in \mathbb{R}$ --- константа. Значит, $A'(x) + \beta_1\frac{A(x)}{g(x)} = \
 справедлива следующая теорема.
 
 \begin{theorem}\label{integration_reduction_to_linear_th}
-Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})} 
-c функциями $g(x)\ne 0,$ $A'(x) \ne 0$ 
+Пусть $f\,{\in}\,C^2(\mathbb{R})$, $g\,{\in}\,C^3(\mathbb{R})$,
+$\sigma\,{\in}\,C(\mathbb{R})$ и $g(x)\ne 0$. Пусть также функция 
+$A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2}$ такова,
+что~$A'(x) \ne 0$. Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})}
 приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
 с помощью некоторого дважды непрерывно дифференцируемого и обратимого 
-относительно $x$ преобразования $y=F(x)$ тогда и только тогда, когда найдутся 
-постоянные $c_1, c_2$ такие, что оказываются выполненными 
-соотношения~\textup{(\ref{integration_of_mixed_linear_inhom_cond_1})},
-\textup{(\ref{integration_of_mixed_linear_inhom_cond_2})},
-\textup{(\ref{integration_of_mixed_linear_inhom_cond_3})}..
+относительно $x$ преобразования $y=F(x)$ тогда и только тогда, когда 
+функции~$c_1(x), c_2(x)$, определенные соотношениями
+\begin{gather}
+c_1(x) := \frac{(g(x)A'(x))'}{A'(x)},\\
+c_2(x) := \frac{\sigma(x)}{g(x)},
+\end{gather}
+не зависят от $x$.
 \end{theorem}
 
 \begin{proposition}
@@ -635,13 +646,13 @@ $$
 
 Таким образом, справедлива следующая теорема.
 \begin{theorem}
-Пусть функция $f$ непрерывна, функция $g$ непрерывна вместе со своими 
-производными $\frac{\partial g}{\partial t}$, $\frac{\partial g}{\partial x}$,
+Пусть функции $f$ и $g$ непрерывны вместе с 
+производными~$\frac{\partial g}{\partial t}$, $\frac{\partial g}{\partial x}$,
 $\frac{\partial^2 g}{\partial x^2}$, а функция~$\sigma$ удовлетворяет
-$(\alpha,\beta)$-условию Гельдера по $(t,x)$ для некоторых $\alpha>1-H,$ 
+$(\alpha,\beta)$-условию Гельдера по~$(t,x)$ для некоторых $\alpha>1-H,$ 
 $\beta>2-2H$. Процесс $x(t)$ является решением уравнения 
 \textup{(\ref{integration_of_mixed_main_eq})} тогда и только тогда, когда 
-процесс $x(t)$ является решением уравнения Стратоновича~\textup{(\ref{eq_strat})}.
+процесс $x(t)$ является решением уравнения Стратоновича~\textup{(\ref{eq_strat})}.s
 \end{theorem}
 
 \begin{remark}

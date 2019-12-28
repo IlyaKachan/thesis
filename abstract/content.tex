@@ -29,9 +29,9 @@ $f_i:\mathbb{R}^n \to \mathbb{R}^n,$ $i=0,\ldots, d$.
 
 Для определения решения уравнения~(\ref{chapter3_main_eq_compact}) потребуются 
 некоторые понятия теории грубых траекторий\footnote{
-\textit{Friz, P.}\; A Course on Rough Paths with an introduction to regularity 
-structures~/ P. Friz, M. Hairer. --- Cham : Springer International Publishing 
-AG, 2014. --- 262 p.}.
+Friz, P.\ A Course on Rough Paths with an introduction to regularity 
+structures~/ P.~Friz, M.~Hairer. --- Cham~: Springer International Publishing 
+AG, 2014.~--- 262 p.}.
 Пусть $U$, $V$, $W$ --- конечномерные  банаховы пространства над полем $\mathbb{R}$. 
 Множество функций $Z\colon[0,T]\to W$, непрерывных по Гельдеру с показателем~$\alpha \in (0,1]$, 
 будем обозначать через $C^\alpha([0,T], W)$, а их коэффициент непрерывности --- 
@@ -197,7 +197,6 @@ $\|f\|_{C^3_b}$.}
 
 \textbf{Третья глава} диссертации посвящена исследованию асимптотических разложений
 математических ожиданий функционалов от решений уравнения~(\ref{chapter3_main_eq_compact}).
-
 Будем придерживаться следующих компактных записей:
 \begin{gather}
 \Delta^k[0,t] = \{(t_1,\ldots, t_k)\in [0,t]^k:\; 0\le t_1 < \ldots < t_k\le t\}, \\
@@ -257,11 +256,23 @@ x(t)=x(0)+\int_0^t f(s,x(s))ds+\int_0^t g(s,x(s))dW(s)+\int_0^t
 $$
 где интеграл по процессу $W(t)$ -- стохастический интеграл Ито, а
 интеграл по процессу $B(t)$ -- потраекторный интеграл Янга\footnote{
-\textit{Guerra, J.} Stochastic differential equations driven by fractional 
+Guerra, J. Stochastic differential equations driven by fractional 
 Brownian motion and standard Brownian motion~/ J. Guerra, D. Nualart // 
 Stochastic Analysis and Applications. --- 2008. --- Vol. 26, № 5. --- 
 P. 1053--1075.
 }.
+
+Далее будем считать, что коэффициенты рассматриваемых 
+уравнений~(\ref{integration_of_mixed_main_eq}) удовлетворяют условиям, 
+обеспечивающим существование и единственность решений\footnote{
+Mishura, Y.S. Existence and uniqueness of the solution of stochastic differential 
+equation involving Wiener process and fractional Brownian motion with Hurst 
+index H > 1/2 / Y.S. Mishura, G.M. Shevchenko // Communications in Statistics --- 
+Theory and Methods. --- 2011. --- Vol. 40, № 19---20. --- P. 3492---3508.
+},
+а также возможность применения формулы замены переменных (Ю.С. Мишура\footnote{
+Mishura,~Y.S. Stochastic calculus for fractional Brownian motion and related processes~/ 
+Y.S.~Mishura.~--- Berlin~; Heidelberg~: Springer-Verlag, 2008.~--- 398 p.}, с. 184).
 
 Будем рассматривать одномерное уравнение~(\ref{integration_of_mixed_main_eq}), 
 считая, что $d=1$. Вместе с ним рассмотрим простейшее уравнение
@@ -276,22 +287,20 @@ y(t) = y(0) + \int_0^t u(\tau)d\tau + \int_0^t v(\tau)dW(\tau) +
 \int_0^t b(\tau)dB(\tau),\quad t\ge 0.
 $$
 
-Предположим, что существуют некоторые функции $r(t), q(t)$ такие, что
-\begin{gather}\label{integration_of_mixed_simplest_cond_1}
-g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
-\frac{1}{2}g''_{x^2}(t,x)\right) = r(t),\\ 
-\label{integration_of_mixed_simplest_cond_2}
-\frac{\sigma(t,x)}{g(t,x)} = q(t).
-\end{gather}
-
 \textbf{Теорема 4.1.} [\ref{IntegrationMethodsIzvestiya}, \ref{EruginReadings2019}].
-\textit{Уравнение~\textup{(\ref{integration_of_mixed_main_eq})} c функцией $g(t,x)\ne 0$ 
+\textit{Пусть функции $f$, $g$, $\sigma$ непрерывны вместе с производными $f'_x$, $g'_t$, 
+$g'_x$, $g''_{x^2}$ и $g(t,x)\ne 0$. Уравнение~\textup{(\ref{integration_of_mixed_main_eq})}
 приводимо к уравнению~\textup{(\ref{integration_of_mixed_simplest_eq})} с 
 помощью некоторого дважды непрерывно дифференцируемого и обратимого 
 относительно $x$ преобразования $y=F(t, x)$ тогда и только тогда, когда 
-найдутся функции $q(t), r(t)$ такие, что оказываются выполненными 
-соотношения~\textup{(\ref{integration_of_mixed_simplest_cond_1})},
-\textup{(\ref{integration_of_mixed_simplest_cond_2})}.}
+функции $r(t, x), q(t, x)$, определенные соотношениями}
+\begin{gather}\label{integration_of_mixed_simplest_cond_1}
+r(t, x) := g(t,x)\left(\frac{g'_t(t,x)}{g^2(t,x)} + \left(\frac{f(t,x)}{g(t,x)}\right)'_x + 
+\frac{1}{2}g''_{x^2}(t,x)\right),\\ 
+\label{integration_of_mixed_simplest_cond_2}
+q(t, x) := \frac{\sigma(t,x)}{g(t,x)},
+\end{gather}
+\textit{не зависят от $x$.}
 
 Далее рассмотрим одномерное автономное уравнение
 \begin{equation}\label{integration_of_mixed_main_eq_auto}
@@ -306,27 +315,22 @@ dy(t) = (\alpha_1y(t) + \alpha_2)dt + (\beta_1 y(t) + \beta_2)dW(t) +
 c постоянными коэффициентами $\alpha_1, \alpha_2, \beta_1, \beta_2, \gamma_1, 
 \gamma_2 \in \mathbb{R}$.
 
-Предположим, что существуют некоторые постоянные $c_1,c_2\in \mathbb{R}$
-такие, что
-\begin{gather}
-\label{integration_of_mixed_linear_inhom_cond_1}
-A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2},\\ 
-\label{integration_of_mixed_linear_inhom_cond_2}
-\frac{(g(x)A'(x))'}{A'(x)} = c_1,\\
-\label{integration_of_mixed_linear_inhom_cond_3}
-\frac{\sigma(x)}{g(x)} = c_2,
-\end{gather}
-
 \textbf{Теорема 4.2.} [\ref{IntegrationMethodsIzvestiya}, \ref{EruginReadings2019}].
-\textit{Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})} 
-с функциями $g(x)\ne 0,$ $A'(x) \ne 0$ 
+\textit{Пусть $f\,{\in}\,C^2(\mathbb{R})$, $g\,{\in}\,C^3(\mathbb{R})$,
+$\sigma\,{\in}\,C(\mathbb{R})$ и $g(x)\ne 0$. Пусть также функция 
+$A(x) = \frac{f(x)}{g(x)} - \frac{g'(x)}{2}$ такова,
+что~$A'(x) \ne 0$. Уравнение~\textup{(\ref{integration_of_mixed_main_eq_auto})}
 приводимо к уравнению~\textup{(\ref{integration_of_mixed_linear_inhom_const_eq})} 
 с помощью некоторого дважды непрерывно дифференцируемого и обратимого 
-относительно $x$ преобразования $y=F(x)$ тогда и только тогда, когда найдутся 
-постоянные $c_1, c_2$ такие, что оказываются выполненными 
-соотношения~\textup{(\ref{integration_of_mixed_linear_inhom_cond_1})},
-\textup{(\ref{integration_of_mixed_linear_inhom_cond_2})},
-\textup{(\ref{integration_of_mixed_linear_inhom_cond_3})}.}
+относительно $x$ преобразования $y=F(x)$ тогда и только тогда, когда 
+функции~$c_1(x), c_2(x)$, определенные соотношениями}
+\begin{gather}
+\label{integration_of_mixed_linear_inhom_cond_2}
+c_1(x) := \frac{(g(x)A'(x))'}{A'(x)},\\
+\label{integration_of_mixed_linear_inhom_cond_3}
+c_2(x) := \frac{\sigma(x)}{g(x)},
+\end{gather}
+\textit{не зависят от $x$.}
 
 Вернемся к уравнению~(\ref{integration_of_mixed_main_eq}) в пространстве 
 $\mathbb{R}^d$ и вместе с ним рассмотрим соответствующее уравнение Стратоновича
@@ -346,10 +350,10 @@ $$
 Справедлива следующая теорема.
 
 \textbf{Теорема 4.3.} [\ref{IntegrationMethodsIzvestiya}, \ref{EruginReadings2019}].
-\textit{Пусть функция $f$ непрерывна, функция $g$ непрерывна вместе со своими 
+\textit{Пусть функции $f$ и $g$ непрерывны вместе с 
 производными $\frac{\partial g}{\partial t}$, $\frac{\partial g}{\partial x}$,
 $\frac{\partial^2 g}{\partial x^2}$, а функция~$\sigma$ удовлетворяет
-$(\alpha,\beta)$-условию Гельдера по $(t,x)$ для некоторых $\alpha>1-H,$ 
+$(\alpha,\beta)$-условию Гельдера по~$(t,x)$ для некоторых $\alpha>1-H,$ 
 $\beta>2-2H$. Процесс $x(t)$ является решением уравнения 
 \textup{(\ref{integration_of_mixed_main_eq})} тогда и только тогда, когда 
 процесс $x(t)$ является решением уравнения Стратоновича~\textup{(\ref{eq_strat})}.}
@@ -381,6 +385,7 @@ $F(t,x)$, содержащие соответственно матрицу $\sigma(t, x)$, вектор $f(t,x)$
 $\varphi\colon\mathbb{R}^+\to\mathbb{R}^d$, а символ $\mathcal{B}$ --- для борелевской
 $\sigma$-алгебры. 
 
+\pagebreak
 О\,п\,р\,е\,д\,е\,л\,е\,н\,и\,е\, 5.1.
 Если:
 
